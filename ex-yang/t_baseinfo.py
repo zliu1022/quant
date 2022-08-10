@@ -23,15 +23,13 @@ class StockTestBaseInfo:
         for index,stock_info in enumerate(all_stocks):
             ts_code = stock_info['ts_code']
 
-            '''
-            if ts_code == none:
-                print('ts_code == none')
+            if ts_code == None:
+                print('ts_code == None')
                 continue
-            '''
             ts_code_arr = ts_code.split(".", 1)
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
 
-            url="https://stock.xueqiu.com/v5/stock/quote.json?symbol="+ts_code_symbol+"&extend=detail"
+            url = "https://stock.xueqiu.com/v5/stock/quote.json?symbol="+ts_code_symbol+"&extend=detail"
 
             try:
                 r = requests.get(url, headers=self.header)
@@ -66,25 +64,23 @@ class StockTestBaseInfo:
         err_stock = self.req_all(all_stocks)
 
         if len(err_stock)>0:
-            print(threading.current_thread().name, 'Error 1st', err_stock)
+            # print(threading.current_thread().name, 'Error 1st', err_stock)
             err_stock = self.req_all(err_stock)
             if len(err_stock)>0:
                 print(threading.current_thread().name, 'Error 2nd', err_stock)
 
         end_t = time.time()
-        print(threading.current_thread().name, 'done', end_t - start_t, 's')
+        print('{} done {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
 
     def getAllStockAvail(self,size_array_codes,all_stock_count,singleObjc): 
         threads = []  
         for index,small_codes_array in enumerate(size_array_codes):
             thre = threading.Thread(target=self.funcaaaaa, args=(small_codes_array,all_stock_count,singleObjc))   # 创建一个线程
-            print('Thread', index, thre)
             threads.append(thre)
             thre.start()  # 运行线程
         return threads
  
-
 today_mt_string= datetime.datetime.now().strftime('%Y%m%d')
 
 #将数组分割成8个数组 并行操作
@@ -93,7 +89,6 @@ def list_split(items,n):
     return [items[i:i+n] for i in range(0, len(items), n)]
 
 def stock_daily_update(all_stock_count,singleObjc,stocks):
-
     bi = StockTestBaseInfo()
     size_array_stosks =list_split(stocks,150)
     threads = bi.getAllStockAvail(size_array_stosks,all_stock_count,singleObjc)
@@ -113,10 +108,9 @@ if __name__ == '__main__':
     # stock_BK_update()
     # exit(0)
     
+    all_stock_count = len(all_stocks)
     all_stocks = [item for item in all_stocks if item['list_date'] <= today_mt_string]
     print(("最新交易日期 ----- %s  股票数量： %s 个" %(today_mt_string,len(all_stocks))))
-    all_stock_count = len(all_stocks)
-    index_stock_count = 0
 
     size_array_stosks =list_split(all_stocks, 240)
 
@@ -125,11 +119,10 @@ if __name__ == '__main__':
     for index,stocks in enumerate(size_array_stosks):
         threads = stock_daily_update(all_stock_count,singleObjc,stocks)
         threads_arr.append(threads)
-
     for i in threads_arr:
         for j in i:
             j.join()
     end_t = time.time()
 
-    print('total cost', end_t - start_t)
+    print('total cost {:5.2f}'.format(end_t - start_t))
 
