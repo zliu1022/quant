@@ -176,19 +176,15 @@ class StockInfo:
                     continue
 
                 # begin of requestXueQiuDaily
-                print('begin of requestXueQiuDaily')
                 column = stock_daily['column']
                 item= stock_daily['item']
                 print('item= stock_daily[item]')
-                print(item)
+                pprint(item)
                 print()
 
                 #?
                 df = pd.DataFrame(item,columns=column)
-
                 df = df.drop(['volume_post','amount_post'],axis=1)
-                print(df)
-                print()
 
                 # 涨跌金额
                 #df.rename(columns={'timestamp':'trade_date','volume':'vol','chg':'pct_chg','turnoverrate':'huanshou'}, inplace=True)
@@ -196,19 +192,20 @@ class StockInfo:
 
                 #?
                 df['trade_date'] = df['trade_date'].apply(lambda x: datetime.datetime.fromtimestamp(int(x)/1000).strftime("%Y%m%d") )
+                print('item to pandas DataFrame, drop volume_post and amount_post, rename and change timestamp to trade_date')
                 print(df)
                 print()
 
                 #?
                 aaa = df.to_dict('records')
                 print('df.to_dict(records)')
-                print(aaa)
+                pprint(aaa)
                 print()
 
                 #?
                 data = sorted(aaa,key = lambda e:e.__getitem__('trade_date'), reverse=True)
                 print('sorted trade_date')
-                print(data)
+                pprint(data)
                 print()
 
                 # end of requestXueQiuDaily
@@ -267,10 +264,10 @@ class StockInfo:
                     all_trade_daily = sorted(all_trade_daily,key = lambda e:e.__getitem__('trade_date'), reverse=True)
                     trade_date = self.stringFromconvertDateType(all_trade_daily[0]['trade_date'],'%Y%m%d','%Y-%m-%d')#当天交易日期
 
-                print('trade_date')
-                print(trade_date)
+                print('trade_date', trade_date)
                 print('all_trade_daily')
-                print(all_trade_daily)
+                pprint(all_trade_daily)
+                print()
                 # end of get_stock_trade
 
                 # inside funcaaaaa
@@ -279,7 +276,8 @@ class StockInfo:
                 stock_local_info = self.col_day.find_one({ "ts_code": ts_code })
 
                 print('stock_local_info')
-                print(stock_local_info)
+                pprint(stock_local_info)
+                print()
                 if stock_local_info != None:#本地数据库存在code
                     dt1={
                         'trade_daily':trade_kline,
@@ -290,11 +288,13 @@ class StockInfo:
                     new_dic = {}
                     new_dic.update(dt1)
                     print('new_dic')
-                    print(new_dic)
-                    print('update_one')
+                    pprint(new_dic)
+                    print()
 
                     newvalues = { "$set": new_dic}    
                     self.col_day.update_one({ "ts_code": ts_code }, newvalues)
+                    print('update_one')
+                    print()
                 else:
                     dt1={
                         'trade_daily':trade_kline,
@@ -305,9 +305,12 @@ class StockInfo:
                     stock_local_info = stock_info
                     stock_local_info.update(dt1)
                     print('stock_local_info')
-                    print(stock_local_info)
-                    print('insert_one')
+                    pprint(stock_local_info)
+                    print()
+
                     self.col_day.insert_one(stock_local_info)
+                    print('insert_one')
+                    print()
                     
             #amount = self.xueqiu.requestAmountInflow(ts_code)
             '''
@@ -381,6 +384,17 @@ def stock_daily_update(all_stock_count,stocks):
     return threads
     
 if __name__ == '__main__':
+    print('testing mongodb')
+    print('insert daily line or update daily line')
+    print()
+    print('use following command to check:')
+    print('show dbs')
+    print('use stk1')
+    print('show collections')
+    print('db.day.find({\'ts_code\': \'002475.SZ\'})')
+    print('db.basic.find({\'ts_code\': \'002475.SZ\'})')
+    print()
+    
     client = MongoClient(port=27017)
     db = client.stk1
 
@@ -395,11 +409,16 @@ if __name__ == '__main__':
     '''
 
     ref = col.find_one( {'ts_code':'002475.SZ'} )
-    print(type(ref), ref)
+    if ref == None:
+        print('Can\'t find ts_code:002475.SZ')
+        exit()
+    print('find ts_code:002475.SZ in collection basic')
+    #print(ref)
+    print()
 
     all_stocks = []
     all_stocks.append(ref)
-    print(type(all_stocks), all_stocks)
+    #print(type(all_stocks), all_stocks)
     
     all_stock_count = len(all_stocks)
     all_stocks = [item for item in all_stocks if item['list_date'] <= today_mt_string]
