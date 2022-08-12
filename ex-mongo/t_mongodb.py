@@ -5,78 +5,83 @@ from pymongo import MongoClient
 from random import randint
 from pprint import pprint
 
-#Step 1: Connect to MongoDB - Note: Change connection string as needed
 client = MongoClient(port=27017)
-db=client.stk1
+db = client.stk1
+col = db.day
+col.drop()
 
-'''
-ASingleReview = db.reviews.find_one({})
-print('A sample document:')
-pprint(ASingleReview)
-
-result = db.reviews.update_one({'_id' : ASingleReview.get('_id') }, {'$inc': {'likes': 1}})
-print('Number of documents modified : ' + str(result.modified_count))
-
-UpdatedDocument = db.reviews.find_one({'_id':ASingleReview.get('_id')})
-print('The updated document:')
-pprint(UpdatedDocument)
-'''
-
-#Step 2: Create sample data
-
-# timestamp volume open high low close chg percent turnoverrate amount volume_post amount_post pe pb ps pcf market_capital balance hold_volume_cn hold_ratio_cn net_vol      ume_cn hold_volume_hk hold_ratio_hk net_volume_hk
-# [1647532800000, 56519780, 34.3566, 35.5726, 34.0975, 34.7852, 0.2006, 0.58, 0.77, 1977068691.0, None, None, 34.9322, 7.1053, 1.6044, 33.9048, 246988515532.1, 2417823      384.0, 559002413, 7.89, -545339, None, None, None]
-
-item = {
-    'code' : 'SZ002475',
-    'dividend' : [
-        {   'year' : 2021,
-            'ex_dividend_date' : 1657641600000,
-            'base' : 10,
-            'new' : 3,
-            'bonus' : 1 },
-        {   'year' : 2020,
-            'ex_dividend_date' : 1657641600000,
-            'base' : 10,
-            'new' : 3,
-            'bonus' : 1 }
-    ],
+item1 = {
+    'ts_code' : 'SZ002475',
     'day' : [
-        {   'timestamp' : 1647532800000, 
-            'volume' : 56519780, 
-            'open' : 34.3566, 
-            'high' : 35.5726, 
-            'low'  : 34.0975, 
-            'close' : 34.7852, 
-            'chg' : 0.2006, 
-            'percent' : 0.58, 
-            'turnoverrate' : 0.77, 
-            'amount' : 1977068691.0 },
-        {   'timestamp' : 1647532700000, 
-            'volume' : 56519780, 
-            'open' : 34.3566, 
-            'high' : 35.5726, 
-            'low'  : 34.0975, 
-            'close' : 34.7852, 
-            'chg' : 0.2006, 
-            'percent' : 0.58, 
-            'turnoverrate' : 0.77, 
-            'amount' : 1977068691.0 }
-    ]
+        { 'high' : 36.576, 'low':5 },
+        { 'high' : 35.5726 , 'low':3}
+    ],
+    'info' : 'gr',
+    'dividend' : [
+        { 'year' : 2021, 'base':5 },
+        { 'year' : 2019, 'base':3 }
+    ],
 }
 
+item2 = {
+    'ts_code' : 'SZ002475',
+    'day' : [
+        { 'high' : 16 , 'low':1 },
+        { 'high' : 25 , 'low':9 }
+    ],
+    'info' : 'lt',
+    'dividend' : [
+        { 'year' : 2011, 'base':5 },
+        { 'year' : 2012, 'base':3 }
+    ],
+}
 
-for x in range(1):
+result = col.insert_one(item1)
+print('after insert_one')
+print(result.inserted_id)
+print()
 
-    #Step 3: Insert business object directly into MongoDB via insert_one
-    #result=db.reviews.insert_one(item)
-    result = db.reviews.insert_one(item)
+ref = col.find_one({ 'ts_code' : 'SZ002475' })
+print('after find_one')
+print(ref)
+print(ref['day'][0])
+print(ref['day'][len(ref['day'])-1])
+print()
 
-    #Step 4: Print to the console the ObjectID of the new document
-    print('Created {0} as {1}'.format(x,result.inserted_id))
+result = col.update_one({'_id' : ref.get('_id') }, {'$set':item2} )
+print('after update_one with $set')
+print(ref)
+print()
 
-#Step 5: Tell us that you are done
-print('finished creating reviews')
+result = col.update_one({'_id' : ref.get('_id') }, 
+    { '$push' : { 
+        'day': { 
+            '$each': [ 
+                {'high':19, 'low':3 }, 
+                {'high':37, 'low':7 }, 
+                {'high':16, 'low':1 }, 
+                {'high':25, 'low':9 }, 
+                {'high':28, 'low':5 }, 
+                {'high':18, 'low':2 } 
+            ],
+            '$sort': {'high':1}
+        } 
+    }})
+print('after update_one with $push and $sort field high')
+info = col.find_one({ 'ts_code' : 'SZ002475' })
+print(info['day'])
+print(len(info['day']))
+print(info['day'][0])
+print(info['day'][len(info['day'])-1])
+
+#col.ensureIndex( { 'high':1 }, { 'unique':'true', 'dropDups':'true' } )
+#col.ensureIndex( { 'ts_code':1 }, { 'unique':'true', 'dropDups':'true' } )
+
+a = col.find()
+for x in a:
+  pprint(x)
+
+
 
 if __name__ == '__main__':
     quit()
