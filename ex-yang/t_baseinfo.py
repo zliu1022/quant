@@ -59,6 +59,7 @@ class StockTestBaseInfo:
 
 
     def funcaaaaa(self,all_stocks,all_stock_count,singleObjc):
+        quit()
         start_t = time.time()
 
         err_stock = self.req_all(all_stocks)
@@ -91,6 +92,7 @@ def list_split(items,n):
 def stock_daily_update(all_stock_count,singleObjc,stocks):
     bi = StockTestBaseInfo()
     size_array_stosks =list_split(stocks,150)
+    print('second list split', len(size_array_stosks), size_array_stosks[0][0])
     threads = bi.getAllStockAvail(size_array_stosks,all_stock_count,singleObjc)
     return threads
     
@@ -105,14 +107,19 @@ if __name__ == '__main__':
     singleObjc = StockSingle()
     df = singleObjc.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status')
     all_stocks = df.rename(columns={'industry': 'hy'}).to_dict('records')
+
+    print('tushare.stock_basic', len(all_stocks), all_stocks[0])
+
     # stock_BK_update()
     # exit(0)
     
     all_stock_count = len(all_stocks)
     all_stocks = [item for item in all_stocks if item['list_date'] <= today_mt_string]
+    print('after date filter', len(all_stocks), all_stocks[0])
     print(("最新交易日期 ----- %s  股票数量： %s 个" %(today_mt_string,len(all_stocks))))
 
     size_array_stosks =list_split(all_stocks, 240)
+    print('first list split', len(size_array_stosks), size_array_stosks[0][0])
 
     start_t = time.time()
     threads_arr = []
