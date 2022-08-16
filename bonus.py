@@ -129,8 +129,12 @@ class StockInfo:
                     new_arr.append(new)
                     bonus_arr.append(bonus)
 
-                    date_str = time.strftime('%Y%m%d', time.localtime(d/1000))
-                    date_arr.append(date_str)
+                    if d != None:
+                        date_str = time.strftime('%Y%m%d', time.localtime(d/1000))
+                        date_arr.append(date_str)
+                    else:
+                        print('d error', ts_code_symbol)
+                        date_arr.append('00000000')
                     
                 df = pd.DataFrame(data['items'])
                 df.insert(0, 'bonus', bonus_arr)
@@ -139,15 +143,10 @@ class StockInfo:
                 df.insert(0, 'date', date_arr)
                 df.insert(0, 'year', year_arr)
                 #, 'bonus_date':[], 'base':[], 'new':[], 'bonus':[]})
-                print('data -> pd')
+                print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
                 print(df)
                 aaa = df.to_dict('records')
                 data = sorted(aaa,key = lambda e:e.__getitem__('date'), reverse=True)
-
-                # data -> pd
-                # items[x].dividend_year -> year
-                # items[x].equity_date or ashare_ex_dividend_date -> date
-                # items[x].plan_explain -> base, new, bonus
 
                 ref = self.col_bonus.find_one({ "ts_code": ts_code })
 
@@ -245,6 +244,7 @@ class StockInfo:
         return err_day
 
     def req_url_retry(self, url, retry):
+        ori = retry - 1
         while retry:
             try:
                 retry = retry - 1
@@ -262,6 +262,9 @@ class StockInfo:
             except requests.exceptions.RequestException as err:
                 print ("OOps: Something Else",err)
                 continue
+
+            if retry != ori:
+                print('retry', ori-retry, 'times', url)
             resp = r.json()
             return 0, resp
 
@@ -279,7 +282,7 @@ class StockInfo:
                 print(threading.current_thread().name, 'Error 2nd', err_stock)
 
         end_t = time.time()
-        print('{} done {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
+        print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
 
     def getAllStockAvail(self,size_array_codes,all_stock_count): 
@@ -313,14 +316,18 @@ if __name__ == '__main__':
     si = StockInfo()
 
     #ref = si.db_basicfind('002475.SZ')
+    #ref = si.db_basicfind('300457.SZ')
     ref = si.db_basicfind(None)
     if ref == None:
-        print('Can\'t find ts_code:002475.SZ')
+        print('Can\'t find')
         exit()
     print('find in collection basic')
     print()
 
+    print(type(ref))
     all_stocks = []
+
+    #all_stocks.append(ref)
     for x in ref:
         all_stocks.append(x)
 
