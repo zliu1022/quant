@@ -219,9 +219,11 @@ class StockInfo:
         print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
 
-    def getAllStockAvail(self,size_array_codes):
+    def getAllStockAvail(self, thread_num):
+        if len(self.stock_list) == 0: return []
+        stock_arr = list_split(self.stock_list, thread_num)
         threads = []  
-        for index,small_codes_array in enumerate(size_array_codes):
+        for index,small_codes_array in enumerate(stock_arr):
             thre = threading.Thread(target=self.func_req, args=(small_codes_array,))   # 创建一个线程
             threads.append(thre)
             thre.start()  # 运行线程
@@ -249,15 +251,12 @@ if __name__ == '__main__':
 
     #ref = si.db_basicfind('002475.SZ')
     ref = si.db_basicfind(None)
-
     if ref == None:
         print('Not found stock list')
         exit()
-    print('Found stock list')
 
     start_t = time.time()
-    stock_arr = list_split(si.stock_list[0:9], 2)
-    threads = si.getAllStockAvail(stock_arr)
+    threads = si.getAllStockAvail(240)
     for i in threads:
         i.join()
     end_t = time.time()
