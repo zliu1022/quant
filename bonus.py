@@ -204,7 +204,7 @@ class StockInfo:
 
         return 1, {}
 
-    def func_req(self,all_stocks,all_stock_count):
+    def func_req(self,all_stocks):
         start_t = time.time()
 
         err_stock = self.req_all(all_stocks)
@@ -219,10 +219,10 @@ class StockInfo:
         print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
 
-    def getAllStockAvail(self,size_array_codes,all_stock_count): 
+    def getAllStockAvail(self,size_array_codes):
         threads = []  
         for index,small_codes_array in enumerate(size_array_codes):
-            thre = threading.Thread(target=self.func_req, args=(small_codes_array,all_stock_count))   # 创建一个线程
+            thre = threading.Thread(target=self.func_req, args=(small_codes_array,))   # 创建一个线程
             threads.append(thre)
             thre.start()  # 运行线程
         return threads
@@ -254,16 +254,10 @@ if __name__ == '__main__':
         print('Not found stock list')
         exit()
     print('Found stock list')
-    all_stocks = si.stock_list
-    all_stock_count = len(all_stocks)
-
-    all_stocks = [item for item in all_stocks if item['list_date'] <= si.today_str]
-    print('all stock', all_stock_count)
-    print(("list_data <= %s %s" %(si.today_str, len(all_stocks))))
 
     start_t = time.time()
-    stock_arr = list_split(all_stocks, 240)
-    threads = si.getAllStockAvail(stock_arr, all_stock_count)
+    stock_arr = list_split(si.stock_list[0:9], 2)
+    threads = si.getAllStockAvail(stock_arr)
     for i in threads:
         i.join()
     end_t = time.time()
