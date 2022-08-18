@@ -261,17 +261,11 @@ if __name__ == '__main__':
     print('all stock', all_stock_count)
     print(("list_data <= %s %s" %(si.today_str, len(all_stocks))))
 
-    stock_arr = list_split(all_stocks, 480)
-
     start_t = time.time()
-    threads_arr = []
-    for index,stock in enumerate(stock_arr):
-        stock_arr = list_split(stock, 240)
-        threads = si.getAllStockAvail(stock_arr, all_stock_count)
-        threads_arr.append(threads)
-    for i in threads_arr:
-        for j in i:
-            j.join()
+    stock_arr = list_split(all_stocks, 240)
+    threads = si.getAllStockAvail(stock_arr, all_stock_count)
+    for i in threads:
+        i.join()
     end_t = time.time()
 
     print('total cost {:5.2f}s'.format(end_t - start_t))
