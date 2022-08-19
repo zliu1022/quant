@@ -116,7 +116,7 @@ class StockInfo:
             else:
                 code = resp['error_code']
                 if code != 0:
-                    print("获取日K异常")
+                    print("Get bonus error", ts_code_symbol, code)
                     err_day.append(stock_info)
                     continue
 
@@ -147,24 +147,21 @@ class StockInfo:
                         print('d error', ts_code_symbol)
                         date_arr.append('00000000')
                     
+                print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
                 df = pd.DataFrame(data['items'])
-                df.insert(0, 'bonus', bonus_arr)
-                df.insert(0, 'new', new_arr)
-                df.insert(0, 'base', base_arr)
-                df.insert(0, 'date', date_arr)
-                df.insert(0, 'year', year_arr)
-
                 # some new stock has no dividend info
                 if len(data['items']) != 0:
+                    df.insert(0, 'bonus', bonus_arr)
+                    df.insert(0, 'new', new_arr)
+                    df.insert(0, 'base', base_arr)
+                    df.insert(0, 'date', date_arr)
+                    df.insert(0, 'year', year_arr)
                     df = df.drop(['ashare_ex_dividend_date', 'equity_date', 'cancle_dividend_date'],axis=1)
-
-                print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
                 print(df)
                 aaa = df.to_dict('records')
                 data = sorted(aaa,key = lambda e:e.__getitem__('date'), reverse=True)
 
                 ref = self.col_bonus.find_one({ "ts_code": ts_code })
-
                 if ref != None:
                     new_dic = {}
                     new_dic.update({'items':data})
