@@ -2,23 +2,21 @@
 # -*- coding: utf-8 -*-
 
 import snowtoken
-
-import datetime
+from datetime import datetime, timedelta
 import threading
 import requests
 import time
-
 from pymongo import MongoClient
 from pprint import pprint
-
 import pandas as pd
 
 class StockInfo:
     def __init__(self):
-        self.today_str = datetime.datetime.now().strftime('%Y%m%d')
-        self.today_dt= datetime.datetime.strptime(self.today_str,'%Y%m%d')
+        self.today_str = datetime.now().strftime('%Y%m%d')
+        self.today_dt= datetime.strptime(self.today_str,'%Y%m%d')
 
-        dayline_str = '20200618'
+        dayline_str = '20160101'
+        #dayline_str = self.today_str
         self.dateTimp = str(int(datetime.timestamp(datetime.strptime(dayline_str, '%Y%m%d'))*1000))
 
         client = MongoClient(port=27017)
@@ -28,45 +26,48 @@ class StockInfo:
         self.col_bonus = db.bonus
         self.col_baseinfo = db.baseinfo
         self.col_day = db.day
+        self.col_token = db.token
 
-        ref = db.token.find_one()
-        if ref == None:
-            print('no token in db')
-            t = snowtoken.get_snowtoken()
-            new_dic = {'token':t, 'date':self.today_str}
-            db.token.insert_one(new_dic)
-        else:
-            token_date = datetime.datetime.strptime(ref['date'],'%Y%m%d')
-            date_len = self.today_dt - token_date
-            if date_len.days <3:
-                print('get token in', date_len.days, 'days in db')
-                t = ref['token']
-            else:
-                print('update token in db')
-                t = snowtoken.get_snowtoken()
-                new_dic = {'token':t, 'date':self.today_str}
-                newvalues = { "$set": new_dic}    
-                db.token.update_one({'_id' : ref.get('_id')}, newvalues)
-
-        #t = '28ed0fb1c0734b3e85f9e93b8478033dbc11c856'
+        self.stock_list = []
+        
+        t = self.updateToken(5)
         self.header = {
             'cookie':'xq_is_login=1;xq_a_token=' + t,
             'User-Agent': 'Xueqiu iPhone 13.6.5'
         }
-
-        self.stock_list = []
         return
+
+    def updateToken(self, valid_days):
+        ref = self.col_token.find_one()
+        if ref == None:
+            t = snowtoken.get_snowtoken()
+            new_dic = {'token':t, 'date':self.today_str}
+            self.col_token.insert_one(new_dic)
+            print('new token', t)
+        else:
+            token_date = datetime.strptime(ref['date'],'%Y%m%d')
+            date_len = self.today_dt - token_date
+            if date_len.days <= valid_days:
+                t = ref['token']
+                print('token in', date_len.days, 'days', t)
+            else:
+                print('token expired, update', t)
+                t = snowtoken.get_snowtoken()
+                new_dic = {'token':t, 'date':self.today_str}
+                newvalues = { "$set": new_dic}    
+                self.col_token.update_one({'_id' : ref.get('_id')}, newvalues)
+        return t
 
     #获取股票上市时长
     def get_stock_trade_days(self,list_date):
-        list_date_temp = datetime.datetime.strptime(list_date,'%Y%m%d')
-        date_len=self.today_dt-list_date_temp
+        list_date_temp = datetime.strptime(list_date,'%Y%m%d')
+        date_len = self.today_dt-list_date_temp
         return date_len.days
 
     def stringFromconvertDateType(self,date,oldType,newType):
         temp_string=""
         if isinstance(date,str):
-            temp_date = datetime.datetime.strptime(date,oldType)
+            temp_date = datetime.strptime(date,oldType)
             temp_string = temp_date.strftime(newType)
         else:
             temp_string = date.strftime(newType)
@@ -184,6 +185,7 @@ class StockInfo:
         return err_day
 
     def req_day(self, all_stocks):
+        req_days = 365*5
         err_day = []
 
         for index,stock_info in enumerate(all_stocks):
@@ -197,8 +199,23 @@ class StockInfo:
             ts_code_arr = ts_code.split(".", 1)
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
 
-            url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=-3&symbol="+ts_code_symbol+"&begin="+self.dateTimp
+            ref = self.col_day.find_one({ "ts_code": ts_code })
+            if ref != None:
+                print('find', ts_code)
+                stk_days = len(ref['day'])
+                last_date = ref['day'][0]['date']
+                early_date = ref['day'][stk_days-1]['date']
+
+                last_dateTimp = str(int(datetime.timestamp(datetime.strptime(last_date, '%Y%m%d')+timedelta(days=1))*1000))
+                new_req_days = self.get_stock_trade_days(last_date)
+                print(last_date, '-', early_date)
+                print('try to get', last_date, new_req_days, 'days')
+
+                url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count="+str(new_req_days)+"&symbol="+ts_code_symbol+"&begin="+last_dateTimp
+            else:
+                url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count="+str(req_days)+"&symbol="+ts_code_symbol+"&begin="+self.dateTimp
             print(url)
+
             begin_t = time.time()
             ret, resp = self.req_url_retry(url, 3)
             end_t = time.time()
@@ -215,37 +232,35 @@ class StockInfo:
                 continue
 
             stock_daily = resp['data']
+            if len(stock_daily['item']) == 0:
+                print("No kline, maybe restday", ts_code_symbol)
+                continue
             df = pd.DataFrame(stock_daily['item'], columns=stock_daily['column'])
-            #df = df.drop(['volume_post','amount_post'],axis=1)
-            df.rename(columns={'timestamp':'trade_date'}, inplace=True)
-            df['trade_date'] = df['trade_date'].apply(lambda x: datetime.datetime.fromtimestamp(int(x)/1000).strftime("%Y%m%d") )
+            df = df.drop(['volume_post','amount_post'],axis=1)
+            df.rename(columns={'timestamp':'date'}, inplace=True)
+            df['date'] = df['date'].apply(lambda x: datetime.fromtimestamp(int(x)/1000).strftime("%Y%m%d") )
 
             aaa = df.to_dict('records')
-            data = sorted(aaa,key = lambda e:e.__getitem__('trade_date'), reverse=True)
+            data = sorted(aaa,key = lambda e:e.__getitem__('date'), reverse=True)
 
             all_trade_daily = []
             for index,item in enumerate(data):
                 all_trade_daily.append(item)
-            all_trade_daily = sorted(all_trade_daily,key = lambda e:e.__getitem__('trade_date'), reverse=True)
-            trade_date = self.stringFromconvertDateType(all_trade_daily[0]['trade_date'],'%Y%m%d','%Y-%m-%d')
+            all_trade_daily = sorted(all_trade_daily,key = lambda e:e.__getitem__('date'), reverse=True)
 
-            ref = self.col_day.find_one({ "ts_code": ts_code })
             if ref != None:
                 dt1={
-                    'day':all_trade_daily,
-                    'list_days':list_days,
-                    'trade_date':trade_date,
+                    'day':{ '$each': all_trade_daily, '$sort':{'date':-1} }
                 }
                 new_dic = {}
                 new_dic.update(dt1)
-                newvalues = { "$set": new_dic}    
+                newvalues = { "$push": new_dic}
                 self.col_day.update_one({ "ts_code": ts_code }, newvalues)
             else:
                 new_dic = stock_info
                 dt1={
                     'day':all_trade_daily,
-                    'list_days':list_days,
-                    'trade_date':trade_date
+                    'list_days':list_days
                 }
                 new_dic.update(dt1)
                 self.col_day.insert_one(new_dic)
@@ -288,11 +303,11 @@ class StockInfo:
         print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
 
-    def getAllStockAvail(self, thread_num):
+    def getStocks(self, thread_num):
         if len(self.stock_list) == 0: return []
 
-        stock_arr = list_split(self.stock_list[0:1], thread_num)
-        #stock_arr = list_split(self.stock_list, thread_num)
+        #stock_arr = list_split(self.stock_list[0:1], thread_num)
+        stock_arr = list_split(self.stock_list, thread_num)
 
         threads = []  
         for index,small_codes_array in enumerate(stock_arr):
@@ -328,10 +343,9 @@ if __name__ == '__main__':
         exit()
 
     start_t = time.time()
-    threads = si.getAllStockAvail(240)
+    threads = si.getStocks(240)
     for i in threads:
         i.join()
     end_t = time.time()
 
     print('total cost {:5.2f}s'.format(end_t - start_t))
-
