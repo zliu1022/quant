@@ -18,6 +18,9 @@ class StockInfo:
         self.today_str = datetime.datetime.now().strftime('%Y%m%d')
         self.today_dt= datetime.datetime.strptime(self.today_str,'%Y%m%d')
 
+        dayline_str = '20200618'
+        self.dateTimp = str(int(datetime.timestamp(datetime.strptime(dayline_str, '%Y%m%d'))*1000))
+
         client = MongoClient(port=27017)
         db = client.stk1
 
@@ -52,9 +55,6 @@ class StockInfo:
         }
 
         self.stock_list = []
-
-        time_str = '20200618'
-        self.dateTimp = str(int(time.mktime(time.strptime(time_str, '%Y%m%d'))*1000))
         return
 
     #获取股票上市时长
@@ -150,7 +150,7 @@ class StockInfo:
                     bonus_arr.append(bonus)
 
                     if d != None:
-                        date_str = time.strftime('%Y%m%d', time.localtime(d/1000))
+                        date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
                         date_arr.append(date_str)
                     else:
                         print('d error', ts_code_symbol)
@@ -189,6 +189,7 @@ class StockInfo:
         for index,stock_info in enumerate(all_stocks):
             ret = 0
             ts_code = stock_info['ts_code']
+            list_days = self.get_stock_trade_days(stock_info['list_date'])# #获取股票上市时长
 
             if ts_code == None:
                 print('ts_code == None')
@@ -196,8 +197,7 @@ class StockInfo:
             ts_code_arr = ts_code.split(".", 1)
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
 
-            #stock_daily=self.xueqiu.requestXueQiuDaily(ts_code)
-            url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=-1&symbol="+ts_code_symbol+"&begin="+self.dateTimp
+            url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=-3&symbol="+ts_code_symbol+"&begin="+self.dateTimp
             print(url)
             begin_t = time.time()
             ret, resp = self.req_url_retry(url, 3)
@@ -207,93 +207,50 @@ class StockInfo:
             if ret != 0:
                 err_day.append(stock_info)
                 continue
+
+            code = resp['error_code']
+            if code != 0:
+                print("Get day kline error", ts_code_symbol, code)
+                err_day.append(stock_info)
+                continue
+
+            stock_daily = resp['data']
+            df = pd.DataFrame(stock_daily['item'], columns=stock_daily['column'])
+            #df = df.drop(['volume_post','amount_post'],axis=1)
+            df.rename(columns={'timestamp':'trade_date'}, inplace=True)
+            df['trade_date'] = df['trade_date'].apply(lambda x: datetime.datetime.fromtimestamp(int(x)/1000).strftime("%Y%m%d") )
+
+            aaa = df.to_dict('records')
+            data = sorted(aaa,key = lambda e:e.__getitem__('trade_date'), reverse=True)
+
+            all_trade_daily = []
+            for index,item in enumerate(data):
+                all_trade_daily.append(item)
+            all_trade_daily = sorted(all_trade_daily,key = lambda e:e.__getitem__('trade_date'), reverse=True)
+            trade_date = self.stringFromconvertDateType(all_trade_daily[0]['trade_date'],'%Y%m%d','%Y-%m-%d')
+
+            ref = self.col_day.find_one({ "ts_code": ts_code })
+            if ref != None:
+                dt1={
+                    'day':all_trade_daily,
+                    'list_days':list_days,
+                    'trade_date':trade_date,
+                }
+                new_dic = {}
+                new_dic.update(dt1)
+                newvalues = { "$set": new_dic}    
+                self.col_day.update_one({ "ts_code": ts_code }, newvalues)
             else:
-                code = resp['error_code']
-                if code != 0:
-                    print("获取日K异常")
-                    err_day.append(stock_info)
-                    continue
-
-                stock_daily = resp['data']
-                if len(list(stock_daily.keys()))<=0:
-                    print("不存在K线")
-                    err_day.append(stock_info)
-                    continue
-
-                column = stock_daily['column']
-                item = stock_daily['item']
-                print('item= stock_daily[item]')
-                pprint(item)
-                print()
-
-                df = pd.DataFrame(item,columns=column)
-                df = df.drop(['volume_post','amount_post'],axis=1)
-
-                df.rename(columns={'timestamp':'trade_date'}, inplace=True)
-
-                df['trade_date'] = df['trade_date'].apply(lambda x: datetime.datetime.fromtimestamp(int(x)/1000).strftime("%Y%m%d") )
-                print('item to pandas DataFrame, drop volume_post and amount_post, rename and change timestamp to trade_date')
-                print(df)
-                print()
-
-                aaa = df.to_dict('records')
-                data = sorted(aaa,key = lambda e:e.__getitem__('trade_date'), reverse=True)
-
-                list_date_days = self.get_stock_trade_days(stock_info['list_date'])# #获取股票上市时长
-
-                stock_daily = data
-
-                all_trade_daily = []
-                data_count = len(stock_daily)
-
-                if data_count == 0:
-                    print(("获取异常 %s" %(ts_code)))
-                    err_day.append(stock_info)
-                    continue
-            
-                print('data_count ==', data_count)
-                if data_count == 1:
-                    item = stock_daily[0]
-
-                    all_trade_daily.append(item)
-                    trade_date = self.stringFromconvertDateType(stock_daily[0]['trade_date'],'%Y%m%d','%Y-%m-%d')#当天交易日期
-
-                else:
-                    max_len = len(stock_daily)
-                    for index,item in enumerate(stock_daily):
-                        close=item['close']
-                        all_trade_daily.append(item)
-                    all_trade_daily = sorted(all_trade_daily,key = lambda e:e.__getitem__('trade_date'), reverse=True)
-                    trade_date = self.stringFromconvertDateType(all_trade_daily[0]['trade_date'],'%Y%m%d','%Y-%m-%d')#当天交易日期
-
-                print('trade_date', trade_date)
-                print('all_trade_daily')
-                pprint(all_trade_daily)
-                print()
-
-                stock_local_info = self.col_day.find_one({ "ts_code": ts_code })
-                if stock_local_info != None:
-                    dt1={
-                        'trade_daily':all_trade_daily,
-                        'list_date_days':list_date_days,
-                        'trade_date':trade_date,
-                    }
-                    new_dic = {}
-                    new_dic.update(dt1)
-                    newvalues = { "$set": new_dic}    
-                    self.col_day.update_one({ "ts_code": ts_code }, newvalues)
-                else:
-                    stock_local_info = stock_info
-                    dt1={
-                        'trade_daily':all_trade_daily,
-                        'list_date_days':list_date_days,
-                        'trade_date':trade_date
-                    }
-                    stock_local_info.update(dt1)
-                    self.col_day.insert_one(stock_local_info)
+                new_dic = stock_info
+                dt1={
+                    'day':all_trade_daily,
+                    'list_days':list_days,
+                    'trade_date':trade_date
+                }
+                new_dic.update(dt1)
+                self.col_day.insert_one(new_dic)
                     
         return err_day
-
 
     def req_url_retry(self, url, retry):
         ori = retry - 1
@@ -324,13 +281,9 @@ class StockInfo:
 
     def func_req(self,all_stocks):
         start_t = time.time()
-
-        #err_stock = self.req_bonus(all_stocks)
         err_stock = self.req_day(all_stocks)
-
         if len(err_stock)>0:
             print(threading.current_thread().name, 'Error', len(err_stock), err_stock)
-
         end_t = time.time()
         print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
