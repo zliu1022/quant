@@ -185,7 +185,7 @@ class StockInfo:
         return err_day
 
     def req_day(self, all_stocks):
-        req_days = 365*5
+        req_days = 365*5+10
         err_day = []
 
         for index,stock_info in enumerate(all_stocks):
@@ -256,6 +256,7 @@ class StockInfo:
                 new_dic.update(dt1)
                 newvalues = { "$push": new_dic}
                 self.col_day.update_one({ "ts_code": ts_code }, newvalues)
+                self.col_day.update_one({ "ts_code": ts_code }, {"$set":{'list_days':list_days}})
             else:
                 new_dic = stock_info
                 dt1={
