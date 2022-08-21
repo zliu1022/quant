@@ -10,6 +10,8 @@ from pymongo import MongoClient
 from pprint import pprint
 import pandas as pd
 
+import tushare as ts
+
 class StockInfo:
     def __init__(self):
         self.today_str = datetime.now().strftime('%Y%m%d')
@@ -24,7 +26,6 @@ class StockInfo:
 
         self.col_basic = db.basic
         self.col_bonus = db.bonus
-        self.col_baseinfo = db.baseinfo
         self.col_day = db.day
         self.col_token = db.token
 
@@ -58,21 +59,14 @@ class StockInfo:
                 self.col_token.update_one({'_id' : ref.get('_id')}, newvalues)
         return t
 
-    #获取股票上市时长
+    # go-to-market days
     def get_stock_trade_days(self,list_date):
         list_date_temp = datetime.strptime(list_date,'%Y%m%d')
         date_len = self.today_dt-list_date_temp
         return date_len.days
 
-    def stringFromconvertDateType(self,date,oldType,newType):
-        temp_string=""
-        if isinstance(date,str):
-            temp_date = datetime.strptime(date,oldType)
-            temp_string = temp_date.strftime(newType)
-        else:
-            temp_string = date.strftime(newType)
-        return temp_string
-
+    # bonus plan2digit
+    # ex: 10送4股转4股派1元，流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
     def plan2digit(self, s):
         base, new, bonus = 0,0,0
         zhuan_pos = s.find('转')
@@ -98,6 +92,13 @@ class StockInfo:
             new = 0
         return base, new, bonus
 
+    def req_basic(self):
+        ts.set_token('0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674')
+        self.pro = ts.pro_api()
+        df = singleObjc.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status,delist_date')
+        #all_stocks = df.rename(columns={'industry': 'hy'}).to_dict('records')
+        all_stocks = df.to_dict('records')
+        ret = col.insert_many(all_stocks)
 
     def req_bonus(self, all_stocks):
         err_day = []
@@ -115,72 +116,66 @@ class StockInfo:
             url = "https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=" +ts_code_symbol
             print(url)
 
-            start_t = time.time()
             ret, resp = self.req_url_retry(url, 3)
-            end_t = time.time()
-            print('req_url_retry cost {:5.2f}s'.format(end_t - start_t))
-
             if ret != 0:
                 err_day.append(stock_info)
                 continue
+
+            code = resp['error_code']
+            if code != 0:
+                print("Get bonus error", ts_code_symbol, code)
+                err_day.append(stock_info)
+                continue
+
+            data = resp['data']
+
+            year_arr = []
+            base_arr = []
+            new_arr = []
+            bonus_arr = []
+            date_arr = []
+            for x in data['items']:
+                y = x['dividend_year']
+                d = x['ashare_ex_dividend_date']
+                s = x['plan_explain']
+                print(ts_code_symbol, s)
+
+                pos = y.find('年')
+                year_arr.append(y[0:pos])
+
+                base, new, bonus = self.plan2digit(s)
+                base_arr.append(base)
+                new_arr.append(new)
+                bonus_arr.append(bonus)
+
+                if d != None:
+                    date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
+                    date_arr.append(date_str)
+                else: #has plan but no date yet
+                    date_arr.append('00000000')
+                
+            print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
+            df = pd.DataFrame(data['items'])
+            if len(data['items']) != 0:# some new stock has no dividend info
+                df.insert(0, 'bonus', bonus_arr)
+                df.insert(0, 'new', new_arr)
+                df.insert(0, 'base', base_arr)
+                df.insert(0, 'date', date_arr)
+                df.insert(0, 'year', year_arr)
+                df = df.drop(['ashare_ex_dividend_date', 'equity_date', 'cancle_dividend_date'],axis=1)
+            aaa = df.to_dict('records')
+            data = sorted(aaa,key = lambda e:e.__getitem__('date'), reverse=True)
+
+            ref = self.col_bonus.find_one({ "ts_code": ts_code })
+            if ref != None:
+                new_dic = {}
+                new_dic.update({'items':data})
+                newvalues = { "$set": new_dic}    
+                self.col_bonus.update_one({ "ts_code": ts_code }, newvalues)
             else:
-                code = resp['error_code']
-                if code != 0:
-                    print("Get bonus error", ts_code_symbol, code)
-                    err_day.append(stock_info)
-                    continue
-
-                data = resp['data']
-
-                year_arr = []
-                base_arr = []
-                new_arr = []
-                bonus_arr = []
-                date_arr = []
-                for x in data['items']:
-                    y = x['dividend_year']
-                    d = x['ashare_ex_dividend_date']
-                    s = x['plan_explain']
-
-                    pos = y.find('年')
-                    year_arr.append(y[0:pos])
-
-                    base, new, bonus = self.plan2digit(s)
-                    base_arr.append(base)
-                    new_arr.append(new)
-                    bonus_arr.append(bonus)
-
-                    if d != None:
-                        date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
-                        date_arr.append(date_str)
-                    else:
-                        print('d error', ts_code_symbol)
-                        date_arr.append('00000000')
-                    
-                print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
-                df = pd.DataFrame(data['items'])
-                # some new stock has no dividend info
-                if len(data['items']) != 0:
-                    df.insert(0, 'bonus', bonus_arr)
-                    df.insert(0, 'new', new_arr)
-                    df.insert(0, 'base', base_arr)
-                    df.insert(0, 'date', date_arr)
-                    df.insert(0, 'year', year_arr)
-                    df = df.drop(['ashare_ex_dividend_date', 'equity_date', 'cancle_dividend_date'],axis=1)
-                print(df)
-                aaa = df.to_dict('records')
-                data = sorted(aaa,key = lambda e:e.__getitem__('date'), reverse=True)
-
-                ref = self.col_bonus.find_one({ "ts_code": ts_code })
-                if ref != None:
-                    new_dic = {}
-                    new_dic.update({'items':data})
-                    newvalues = { "$set": new_dic}    
-                    self.col_bonus.update_one({ "ts_code": ts_code }, newvalues)
-                else:
-                    new_dic = { "ts_code": ts_code }
-                    new_dic.update({'items':data})
-                    self.col_bonus.insert_one(new_dic)
+                new_dic = { "ts_code": ts_code }
+                new_dic.update({'items':data})
+                self.col_bonus.insert_one(new_dic)
 
         return err_day
 
@@ -216,11 +211,7 @@ class StockInfo:
                 url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count="+str(req_days)+"&symbol="+ts_code_symbol+"&begin="+self.dateTimp
             print(url)
 
-            begin_t = time.time()
             ret, resp = self.req_url_retry(url, 3)
-            end_t = time.time()
-            print('req_url_retry cost {:5.2f}s'.format(end_t - start_t))
-
             if ret != 0:
                 err_day.append(stock_info)
                 continue
@@ -269,6 +260,7 @@ class StockInfo:
         return err_day
 
     def req_url_retry(self, url, retry):
+        start_t = time.time()
         ori = retry - 1
         while retry:
             try:
@@ -291,20 +283,23 @@ class StockInfo:
             if retry != ori:
                 print('retry', ori-retry, 'times', url)
             resp = r.json()
+            end_t = time.time()
+            print('req_url_retry cost {:5.2f}s'.format(end_t - start_t))
             return 0, resp
 
+        end_t = time.time()
+        print('req_url_retry cost {:5.2f}s'.format(end_t - start_t))
         return 1, {}
 
     def func_req(self,all_stocks):
         start_t = time.time()
-        err_stock = self.req_day(all_stocks)
+        err_stock = self.req_bonus(all_stocks)
         if len(err_stock)>0:
             print(threading.current_thread().name, 'Error', len(err_stock), err_stock)
         end_t = time.time()
         print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
-
-    def getStocks(self, thread_num):
+    def get_stocks(self, thread_num):
         if len(self.stock_list) == 0: return []
 
         #stock_arr = list_split(self.stock_list[0:1], thread_num)
@@ -344,7 +339,7 @@ if __name__ == '__main__':
         exit()
 
     start_t = time.time()
-    threads = si.getStocks(240)
+    threads = si.get_stocks(240)
     for i in threads:
         i.join()
     end_t = time.time()
