@@ -65,32 +65,72 @@ class StockInfo:
         date_len = self.today_dt-list_date_temp
         return date_len.days
 
+    def find_eof_digit(self, s, pos):
+        i=0
+        while s[pos+1+i].isdigit() or s[pos+1+i]=='.':
+            i+=1
+        return i
+
     # bonus plan2digit
     # ex: 10送4股转4股派1元，流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
     def plan2digit(self, s):
-        base, new, bonus = 0,0,0
-        zhuan_pos = s.find('转')
-        gu_pos =    s.find('股')
-        pai_pos =   s.find('派')
-        yuan_pos =  s.find('元')
-        if zhuan_pos != -1:
-            new = s[zhuan_pos+1:gu_pos]
-            if pai_pos != -1:
-                bonus = s[pai_pos+1:yuan_pos]
-                if zhuan_pos < pai_pos:
-                    base = s[0:zhuan_pos]
+        base, free, new, bonus = 0,0,0,0
+
+        free_pos =  s.find('送')
+        if free_pos != -1:
+            free_gu_pos =  s.find('股', free_pos)
+            if free_gu_pos != -1:
+                free = s[free_pos+1:free_gu_pos]
+                
+                d_pos = free.find('转') #10送6转增4股(实施方案)
+                if d_pos != -1:
+                    free = free[0:d_pos]
+            else:
+                print('bonus plan error: 送 without 股', s)
+
+        new_pos =  s.find('转')
+        if new_pos != -1:
+            new_gu_pos =  s.find('股', new_pos)
+            if new_gu_pos != -1:
+                if s[new_pos+1] == '增':
+                    new = s[new_pos+2:new_gu_pos]
                 else:
-                    base = s[0:pai_pos]
+                    new = s[new_pos+1:new_gu_pos]
             else:
-                bonus = 0
+                d_num = self.find_eof_digit(s, new_pos)
+                if d_num == 0:
+                    print('bonus plan error: 转 without 股 and no digit follow', s)
+                else:
+                    new = s[new_pos+1:new_pos+1+d_num]
+
+        bonus_pos =  s.find('派')
+        if bonus_pos != -1:
+            bonus_gu_pos =  s.find('元', bonus_pos)
+            if bonus_gu_pos != -1:
+                bonus = s[bonus_pos+1:bonus_gu_pos]
+            else:
+                print('bonus plan error: 派 without 元', s)
+
+        if free_pos == -1 and new_pos == -1 and bonus_pos == -1:
+            print('bonus plan error: not find 送转派', s)
         else:
-            if pai_pos != -1:
-                bonus = s[pai_pos+1:yuan_pos]
-                base = s[0:pai_pos]
-            else:
-                base = 0
-            new = 0
-        return base, new, bonus
+            if free_pos == -1: free_pos = 100
+            if new_pos == -1:  new_pos = 100
+            if bonus_pos == -1: bonus_pos = 100
+            base = s[0:min( free_pos, new_pos, bonus_pos)]
+
+            if base != '10': #流通股股东每10股
+                d_pos = base.find('股东')
+                if d_pos != -1:
+                    base = base[d_pos+2:]
+                else:
+                    d_pos = base.find('股')
+                    if d_pos != -1:
+                        base = base[0:d_pos]
+                    else:
+                        print('bonus plan error: unknown base', s)
+
+        return base, free, new, bonus
 
     def req_basic(self):
         ts.set_token('0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674')
@@ -114,7 +154,6 @@ class StockInfo:
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
 
             url = "https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=" +ts_code_symbol
-            print(url)
 
             ret, resp = self.req_url_retry(url, 3)
             if ret != 0:
@@ -131,6 +170,7 @@ class StockInfo:
 
             year_arr = []
             base_arr = []
+            free_arr = []
             new_arr = []
             bonus_arr = []
             date_arr = []
@@ -138,13 +178,13 @@ class StockInfo:
                 y = x['dividend_year']
                 d = x['ashare_ex_dividend_date']
                 s = x['plan_explain']
-                print(ts_code_symbol, s)
 
                 pos = y.find('年')
                 year_arr.append(y[0:pos])
 
-                base, new, bonus = self.plan2digit(s)
+                base, free, new, bonus = self.plan2digit(s)
                 base_arr.append(base)
+                free_arr.append(free)
                 new_arr.append(new)
                 bonus_arr.append(bonus)
 
@@ -154,11 +194,12 @@ class StockInfo:
                 else: #has plan but no date yet
                     date_arr.append('00000000')
                 
-            print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
+            #print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
             df = pd.DataFrame(data['items'])
             if len(data['items']) != 0:# some new stock has no dividend info
                 df.insert(0, 'bonus', bonus_arr)
                 df.insert(0, 'new', new_arr)
+                df.insert(0, 'free', free_arr)
                 df.insert(0, 'base', base_arr)
                 df.insert(0, 'date', date_arr)
                 df.insert(0, 'year', year_arr)
@@ -284,7 +325,7 @@ class StockInfo:
                 print('retry', ori-retry, 'times', url)
             resp = r.json()
             end_t = time.time()
-            print('req_url_retry cost {:5.2f}s'.format(end_t - start_t))
+            #print('req_url_retry cost {:5.2f}s'.format(end_t - start_t))
             return 0, resp
 
         end_t = time.time()
