@@ -27,3 +27,31 @@ ref.forEach(function(t) {
   printjson(t)
 });
 
+v =
+  [
+    { '$unwind': '$day' },
+    {
+      '$match': {
+        '$and': [
+          { 'day.date': { '$gte' : '20220801' }},
+          { 'day.amount': { '$gte' : 2000000000 }}
+        ]
+      }
+    },
+    { 
+      '$group': {
+        "_id": { "ts_code": "$ts_code" }, 
+        "amount": { "$avg":"$day.amount"},
+        'num': {'$count': {}}
+      }
+    },
+    { '$sort': {'amount':-1}}
+  ]
+
+ref = db.day.aggregate(v)
+
+ref.forEach(function(t) {
+  //print(t['_id']['code'], t['_id']['plan'], t['_id']['date']);
+  printjson(t)
+});
+
