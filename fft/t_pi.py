@@ -11,7 +11,7 @@ def cal_pi_2(s, n):
         s = math.sqrt(s*s/4 + a*a)
 
     num = 2*2**n # how many side
-    print('sides %7d' % (num), end=' ')
+    print('sides %7d x %.12f' % (num*2, s), end=' ')
     return s * num
 
 p_std = 3.141592653589793238462
