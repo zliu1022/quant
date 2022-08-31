@@ -9,8 +9,8 @@ import time
 from pymongo import MongoClient
 from pprint import pprint
 import pandas as pd
-
 import tushare as ts
+import sys
 
 class StockInfo:
     def __init__(self):
@@ -36,6 +36,8 @@ class StockInfo:
             'cookie':'xq_is_login=1;xq_a_token=' + t,
             'User-Agent': 'Xueqiu iPhone 13.6.5'
         }
+
+        self.func_name = ''
         return
 
     def updateToken(self, valid_days):
@@ -52,8 +54,8 @@ class StockInfo:
                 t = ref['token']
                 print('token in', date_len.days, 'days', t)
             else:
-                print('token expired, update', t)
                 t = snowtoken.get_snowtoken()
+                print('token expired, update', t)
                 new_dic = {'token':t, 'date':self.today_str}
                 newvalues = { "$set": new_dic}    
                 self.col_token.update_one({'_id' : ref.get('_id')}, newvalues)
@@ -334,7 +336,8 @@ class StockInfo:
 
     def func_req(self,all_stocks):
         start_t = time.time()
-        err_stock = self.req_bonus(all_stocks)
+        req_func = self.map_req(self.func_name)
+        err_stock = req_func(all_stocks)
         if len(err_stock)>0:
             print(threading.current_thread().name, 'Error', len(err_stock), err_stock)
         end_t = time.time()
@@ -366,12 +369,34 @@ class StockInfo:
                 self.stock_list = []
                 self.stock_list.append(ref)
         return ref
+
+    def req_default(self):
+        return
+
+    def map_req(self, name):
+        req_name = "req_" + str(name)
+        fun = getattr(self, req_name, self.req_default)
+        return fun
+
+    def set_func(self, name):
+        self.func_name = name
  
 def list_split(items,n):
     return [items[i:i+n] for i in range(0, len(items), n)]
 
 if __name__ == '__main__':
+
+    if len(sys.argv)!=2:
+        print('update_stock [basic|bonus|day]')
+        quit()
+
     si = StockInfo()
+    if sys.argv[1] == 'basic':
+        si.req_basic()
+        quit()
+
+    if sys.argv[1] == 'bonus' or sys.argv[1] == 'day':
+        si.set_func(sys.argv[1])
 
     #ref = si.db_basicfind('002475.SZ')
     ref = si.db_basicfind(None)
