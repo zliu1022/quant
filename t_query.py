@@ -60,11 +60,46 @@ if __name__ == '__main__':
     if ref == None:
         print('None')
     else:
-        print('db.bonus.find_one', ref['ts_code'], len(ref['day']))
+        print('db.day.find_one', ref['ts_code'], len(ref['day']))
         print('date, open, close :')
         for x in ref['day']:
             if x['date'] <= end_date and x['date'] >= start_date:
                 print(x['date'], x['open'], x['close'])
 
+    print()
+
+    unwind_stage = { '$unwind': '$day' }
+    match_stage = {   
+                '$match': { 
+                    '$and': [
+                        { 'day.date': { '$gte':'20220801'} },
+                        { 'day.amount': { '$gte':2000000000 } }
+                    ]
+                }
+            }
+    group_stage = {
+                '$group': { 
+                    '_id': {
+                        'code': '$ts_code'
+                    },
+                    'amount': { '$avg': '$day.amount' },
+                    'num': { '$count': {} }
+                }
+            }
+    sort_stage = { '$sort': { 'amount': -1 } }
+    v = [ unwind_stage, match_stage, group_stage, sort_stage ]
+    ref = db.day.aggregate(v)
+    if ref == None:
+        print('None')
+    else:
+        print('db.day.aggregate')
+        pprint(v)
+        print(':')
+        for item in ref:
+            code = item['_id']['code']
+            amount = item['amount']
+            num = item['num']
+            if num>10:
+                print('%s %3d %.1f' % (code, num, amount))
     print()
 
