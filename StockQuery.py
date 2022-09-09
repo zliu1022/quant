@@ -5,9 +5,12 @@ from pymongo import MongoClient
 from pprint import pprint
 from datetime import datetime, timedelta
 import chinese_calendar as calendar
+from time import time
 
 class StockQuery:
     def __init__(self):
+        self.today_str = datetime.now().strftime('%Y%m%d')
+
         client = MongoClient(port=27017)
         db = client.stk1
         self.col_basic = db.basic
@@ -15,24 +18,18 @@ class StockQuery:
         self.col_day = db.day
 
         self.stock_list = []
+        self.day = []
         return
 
     def query_basic(self, ts_code):
         if ts_code == None:
             ref = self.col_basic.find()
-            if ref != None:
-                self.stock_list = list(ref)
-                '''
-                for x in ref:
-                    self.stock_list.append(x)
-                '''
-                return ref
         else:
             ref = self.col_basic.find_one({ 'ts_code': ts_code })
-            if ref != None:
-                self.stock_list = []
-                self.stock_list.append(ref)
-                return ref
+
+        if ref != None:
+            self.stock_list = list(ref)
+            return self.stock_list
         return None
 
     def query_bonus_code(self, ts_code):
@@ -83,18 +80,74 @@ class StockQuery:
     def query_day_code(self, ts_code):
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
-        if ref == None:
-            print('None')
-        else:
-            print('db.day.find_one', ref['ts_code'], len(ref['day']))
-            print('date, open, close :')
+        if ref != None:
+            return ref['day']
+        return None
+
+    def query_day_code_date(self, ts_code, start_date, end_date):
+        s_time = time()
+        ret = []
+        v = {'ts_code': ts_code}
+        ref = self.col_day.find_one(v)
+        if ref != None:
             for x in ref['day']:
                 if x['date'] <= end_date and x['date'] >= start_date:
-                    print(x['date'], x['open'], x['close'])
-        return
+                    ret.append(x)
+            e_time = time()
+            print('query_day_code_date cost %.2f s' % (e_time - s_time))
+            return ret
+        return None
 
-    def query_day_amount(self, amount):
-        return
+    def query_day_amount(self, start_date=None, end_date=None, amount=None):
+        start_date = start_date or '20180101'
+        end_date = end_date or self.today_str
+        amount = amount or 2000000000
+
+        s_time = time()
+        unwind_stage = { '$unwind': '$day' }
+        match_stage = {
+                    '$match': { 
+                        '$and': [
+                            { 'day.date': { '$gte':'20180101'} },
+                            { 'day.amount': { '$gte':amount } }
+                        ]
+                    }
+                }
+        group_stage = {
+                    '$group': { 
+                        '_id': {
+                            'ts_code': '$ts_code'
+                        },
+                        'amount': { '$avg': '$day.amount' },
+                        'num': { '$count': {} }
+                    }
+                }
+        sort_stage = { '$sort': { 'amount': -1 } }
+        v = [ unwind_stage, match_stage, group_stage, sort_stage ]
+        ref = self.col_day.aggregate(v)
+        if ref != None:
+            self.stock_list = list(ref)
+            e_time = time()
+            print('query_day_amount cost %.2f s' % (e_time - s_time))
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
+        return None
+
+    def stat_day_num(self):
+        s_time = time()
+        unwind_stage = { '$unwind': '$day' }
+        group_stage = { '$group': { "_id": { "ts_code": "$ts_code" }, "num": {'$count':{}} }}
+        sort_stage = { '$sort': { "num" : 1 } }
+        v = [ unwind_stage, group_stage, sort_stage ]
+        ref = self.col_day.aggregate(v)
+        if ref != None:
+            self.stock_list = list(ref)
+            e_time = time()
+            print('stat_day_num cost %.2fs' % (e_time - s_time))
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
+        return None
+
 
     def check_day(self, ts_code, start_date, end_date):
         v = {'ts_code': ts_code}
@@ -104,7 +157,7 @@ class StockQuery:
             print('check_day find None')
             return
       
-        print('db.day.find_one', ref['ts_code'], len(ref['day']), end=' ')
+        print('check_day', ref['ts_code'], len(ref['day']), 'days', end=' ')
 
         yesterday_date = datetime.strptime(start_date, '%Y%m%d')
         for x in ref['day'][::-1]:
@@ -160,58 +213,38 @@ if __name__ == '__main__':
     #check_day(db, ts_code, start_date, end_date)
     #print()
 
+    '''
     start_date = '20180101'
     end_date = '20220901'
-    sq.query_basic(None)
-    for item in sq.stock_list:
+    ref = sq.query_basic(None)
+    for item in ref:
         ts_code = item['ts_code']
         list_date = item['list_date']
-        print(ts_code, list_date)
-        quit()
         if list_date < start_date:
             sq.check_day(ts_code, start_date, end_date)
         else:
             sq.check_day(ts_code, list_date, end_date)
+    print()
+    '''
 
-    quit()
+    # 统计日期范围内，日交易额 >= 20亿; 返回：代码，达到交易额的平均交易量，达到交易额的天数
+    start_date = '20180101'
+    end_date = '20220901'
+    amount = 2000000000
+    ref = sq.query_day_amount(amount)
+    for item in ref:
+        ts_code = item['_id']['ts_code']
+        amount = item['amount']
+        num = item['num']
+        if num > 1500:
+            print('%s %3d %.1f' % (ts_code, num, amount))
+            sq.check_day(ts_code, start_date, end_date)
+            print()
 
-    unwind_stage = { '$unwind': '$day' }
-    match_stage = {   
-                '$match': { 
-                    '$and': [
-                        { 'day.date': { '$gte':'20220801'} },
-                        { 'day.amount': { '$gte':2000000000 } }
-                    ]
-                }
-            }
-    group_stage = {
-                '$group': { 
-                    '_id': {
-                        'code': '$ts_code'
-                    },
-                    'amount': { '$avg': '$day.amount' },
-                    'num': { '$count': {} }
-                }
-            }
-    sort_stage = { '$sort': { 'amount': -1 } }
-    v = [ unwind_stage, match_stage, group_stage, sort_stage ]
-    ref = db.day.aggregate(v)
-    if ref == None:
-        print('None')
-    else:
-        print('db.day.aggregate')
-        pprint(v)
-        print(':')
-        for item in ref:
-            code = item['_id']['code']
-            amount = item['amount']
-            num = item['num']
-            if num>10:
-                print('%s %3d %.1f' % (code, num, amount))
-                ts_code = code
-                start_date = '20180101'
-                end_date = '20220901'
-                check_day(db, ts_code, start_date, end_date)
-                print()
+    # 统计数据库中，每个股票有交易价格的数据个数（目前的数据是从2016年至今）
+    '''
+    ref = sq.stat_day_num()
+    for item in ref:
+        pprint(item)
+    '''
 
-    
