@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import snowtoken
+import SnowToken
 from datetime import datetime, timedelta
 import threading
 import requests
@@ -43,7 +43,7 @@ class StockGet:
     def updateToken(self, valid_days):
         ref = self.col_token.find_one()
         if ref == None:
-            t = snowtoken.get_snowtoken()
+            t = SnowToken.get_snowtoken()
             new_dic = {'token':t, 'date':self.today_str}
             self.col_token.insert_one(new_dic)
             print('new token', t)
@@ -54,7 +54,7 @@ class StockGet:
                 t = ref['token']
                 print('token in', date_len.days, 'days', t)
             else:
-                t = snowtoken.get_snowtoken()
+                t = SnowToken.get_snowtoken()
                 print('token expired, update', t)
                 new_dic = {'token':t, 'date':self.today_str}
                 newvalues = { "$set": new_dic}    
@@ -137,10 +137,11 @@ class StockGet:
     def req_basic(self):
         ts.set_token('0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674')
         self.pro = ts.pro_api()
-        df = singleObjc.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status,delist_date')
+        df = self.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status,delist_date')
         #all_stocks = df.rename(columns={'industry': 'hy'}).to_dict('records')
         all_stocks = df.to_dict('records')
-        ret = col.insert_many(all_stocks)
+        ret = self.col_basic.insert_many(all_stocks)
+        return
 
     def req_bonus(self, all_stocks):
         err_day = []
