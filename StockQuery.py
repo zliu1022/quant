@@ -24,17 +24,23 @@ class StockQuery:
     def query_basic(self, ts_code):
         if ts_code == None:
             ref = self.col_basic.find()
+            self.stock_list = list(ref)
         else:
             ref = self.col_basic.find_one({ 'ts_code': ts_code })
+            self.stock_list = []
+            self.stock_list.append(ref)
 
         if ref != None:
-            self.stock_list = list(ref)
+            print('query_basic')
+            print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
 
     def query_bonus_code(self, ts_code):
         v = {'ts_code': ts_code}
         ref = self.col_bonus.find_one(v)
+
+        '''
         print('db.bonus.find_one', ref['ts_code'])
         pprint(v)
         print('date, base, free, new, bonus, plan_explain:')
@@ -42,6 +48,13 @@ class StockQuery:
             if x['date'] <= end_date and x['date'] >= start_date:
                 print(x['date'], x['base'], x['free'], x['new'], x['bonus'], x['plan_explain'])
         return
+        '''
+        if ref != None:
+            self.stock_list = list(ref['items'])
+            print('query_bonus_code', ts_code)
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
+        return None
 
     def query_bonus_plan(self, plan_str):
         unwind_stage = { '$unwind': '$items' }
@@ -66,6 +79,7 @@ class StockQuery:
         sort_stage = { '$sort': { '_id.date': -1 } }
         v = [ unwind_stage, match_stage, group_stage, sort_stage ]
         ref = self.col_bonus.aggregate(v)
+        '''
         if ref == None:
             print('None')
         else:
@@ -76,12 +90,27 @@ class StockQuery:
                 x = item['_id']
                 pprint(x)
         return
+        '''
+        if ref != None:
+            self.stock_list = list(ref)
+            print('query_bonus_plan', plan_str)
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
+        return None
 
     def query_day_code(self, ts_code):
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
+        '''
         if ref != None:
             return ref['day']
+        return None
+        '''
+        if ref != None:
+            self.stock_list = list(ref['day'])
+            print('query_day_code', ts_code)
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
         return None
 
     def query_day_code_date(self, ts_code, start_date, end_date):
@@ -89,6 +118,7 @@ class StockQuery:
         ret = []
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
+        '''
         if ref != None:
             for x in ref['day']:
                 if x['date'] <= end_date and x['date'] >= start_date:
@@ -96,6 +126,13 @@ class StockQuery:
             e_time = time()
             print('query_day_code_date cost %.2f s' % (e_time - s_time))
             return ret
+        return None
+        '''
+        if ref != None:
+            self.stock_list = list(ref)
+            print('query_day_code_date', ts_code, start_date, end_date)
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
         return None
 
     def query_day_amount(self, start_date=None, end_date=None, amount=None):
@@ -108,7 +145,8 @@ class StockQuery:
         match_stage = {
                     '$match': { 
                         '$and': [
-                            { 'day.date': { '$gte':'20180101'} },
+                            { 'day.date': { '$gte':start_date} },
+                            { 'day.date': { '$lte':end_date} },
                             { 'day.amount': { '$gte':amount } }
                         ]
                     }
@@ -147,7 +185,6 @@ class StockQuery:
             print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
-
 
     def check_day(self, ts_code, start_date, end_date):
         v = {'ts_code': ts_code}
@@ -194,29 +231,34 @@ def check_day(db, ts_code, start_date, end_date):
 if __name__ == '__main__':
     sq = StockQuery()
 
+    '''
     ts_code = '603060.SH'
     start_date = '20220608'
     end_date = '20220609'
+    '''
 
-    #sq.query_bonus_code(ts_code)
-    #print()
+    ts_code = '002475.SZ'
+    sq.query_bonus_code(ts_code)
+    print()
 
-    #sq.query_bonus_plan(ts_code, plan_str)
-    #print()
+    sq.query_bonus_plan('.*送.*')
+    print()
 
-    #sq.query_day_code(ts_code)
-    #print()
+    sq.query_day_code(ts_code)
+    print()
+
+    '''
+    ts_code = '002475.SZ'
+    start_date = '20180101'
+    end_date = '20220901'
+    check_day(db, ts_code, start_date, end_date)
+    print()
+    '''
 
     ts_code = '002475.SZ'
     start_date = '20180101'
     end_date = '20220901'
-    #check_day(db, ts_code, start_date, end_date)
-    #print()
-
-    '''
-    start_date = '20180101'
-    end_date = '20220901'
-    ref = sq.query_basic(None)
+    ref = sq.query_basic(ts_code)
     for item in ref:
         ts_code = item['ts_code']
         list_date = item['list_date']
@@ -225,26 +267,25 @@ if __name__ == '__main__':
         else:
             sq.check_day(ts_code, list_date, end_date)
     print()
-    '''
 
     # 统计日期范围内，日交易额 >= 20亿; 返回：代码，达到交易额的平均交易量，达到交易额的天数
-    start_date = '20180101'
+    start_date = '20220101'
     end_date = '20220901'
     amount = 2000000000
-    ref = sq.query_day_amount(amount)
+    ref = sq.query_day_amount(start_date, end_date, amount)
     for item in ref:
         ts_code = item['_id']['ts_code']
         amount = item['amount']
         num = item['num']
-        if num > 1500:
+        if num > 150:
             print('%s %3d %.1f' % (ts_code, num, amount))
             sq.check_day(ts_code, start_date, end_date)
             print()
 
     # 统计数据库中，每个股票有交易价格的数据个数（目前的数据是从2016年至今）
-    '''
     ref = sq.stat_day_num()
     for item in ref:
-        pprint(item)
-    '''
+        num = item['num']
+        if num == 1601:
+            pprint(item)
 
