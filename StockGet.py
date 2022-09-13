@@ -138,9 +138,27 @@ class StockGet:
         ts.set_token('0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674')
         self.pro = ts.pro_api()
         df = self.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status,delist_date')
-        #all_stocks = df.rename(columns={'industry': 'hy'}).to_dict('records')
         all_stocks = df.to_dict('records')
-        ret = self.col_basic.insert_many(all_stocks)
+
+        ref = self.col_basic.find()
+        if ref == None:
+            return
+
+        df_ori = pd.DataFrame(ref)
+        df_cmp = df['ts_code'].isin(df_ori['ts_code'])
+        for i,x in enumerate(df_cmp):
+            if x == False:
+                print('req_basic insert new', df.loc[x, 'ts_code'])
+                self.col_basic.insert_one(df.loc[x].to_dict())
+                continue
+
+            if df.loc[x].equals(df_ori.loc[x]) == False:
+                print('req_basic changed', df.loc[x, 'ts_code'])
+                print(df_ori.loc[x])
+                print(df.loc[x])
+                self.col_basic.update_one({'_id':df_ori[x, '_id']}, df.loc[x].to_dict())
+
+        #ret = self.col_basic.insert_many(all_stocks)
         return
 
     def req_bonus(self, all_stocks):
