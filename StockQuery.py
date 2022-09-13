@@ -21,6 +21,8 @@ class StockQuery:
         self.day = []
         return
 
+    # return:
+    # dict_keys(['_id', 'ts_code', 'symbol', 'name', 'industry', 'list_status', 'list_date', 'delist_date'])
     def query_basic(self, ts_code):
         if ts_code == None:
             ref = self.col_basic.find()
@@ -36,19 +38,11 @@ class StockQuery:
             return self.stock_list
         return None
 
+    # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'plan_explain'])
     def query_bonus_code(self, ts_code):
         v = {'ts_code': ts_code}
         ref = self.col_bonus.find_one(v)
 
-        '''
-        print('db.bonus.find_one', ref['ts_code'])
-        pprint(v)
-        print('date, base, free, new, bonus, plan_explain:')
-        for x in ref['items']:
-            if x['date'] <= end_date and x['date'] >= start_date:
-                print(x['date'], x['base'], x['free'], x['new'], x['bonus'], x['plan_explain'])
-        return
-        '''
         if ref != None:
             self.stock_list = list(ref['items'])
             print('query_bonus_code', ts_code)
@@ -56,6 +50,10 @@ class StockQuery:
             return self.stock_list
         return None
 
+    # dict_keys(['_id'])
+    #[{'_id': {'code': '603060.SH',
+    #          'date': '20220609',
+    #          'plan': '10送1股转1股派1.26元(实施方案)'}},
     def query_bonus_plan(self, plan_str):
         unwind_stage = { '$unwind': '$items' }
         match_stage = {   
@@ -98,14 +96,11 @@ class StockQuery:
             return self.stock_list
         return None
 
+    # dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
     def query_day_code(self, ts_code):
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
-        '''
-        if ref != None:
-            return ref['day']
-        return None
-        '''
+
         if ref != None:
             self.stock_list = list(ref['day'])
             print('query_day_code', ts_code)
@@ -135,7 +130,8 @@ class StockQuery:
             return self.stock_list
         return None
 
-    def query_day_amount(self, start_date=None, end_date=None, amount=None):
+    # dict_keys(['_id', 'amount', 'num'])
+    def stat_day_amount(self, start_date=None, end_date=None, amount=None):
         start_date = start_date or '20180101'
         end_date = end_date or self.today_str
         amount = amount or 2000000000
@@ -166,11 +162,12 @@ class StockQuery:
         if ref != None:
             self.stock_list = list(ref)
             e_time = time()
-            print('query_day_amount cost %.2f s' % (e_time - s_time))
+            print('stat_day_amount cost %.2f s' % (e_time - s_time))
             print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
 
+    # dict_keys(['_id', 'num'])
     def stat_day_num(self):
         s_time = time()
         unwind_stage = { '$unwind': '$day' }
@@ -231,34 +228,41 @@ def check_day(db, ts_code, start_date, end_date):
 if __name__ == '__main__':
     sq = StockQuery()
 
-    '''
     ts_code = '603060.SH'
     start_date = '20220608'
     end_date = '20220609'
-    '''
 
     ts_code = '002475.SZ'
     sq.query_bonus_code(ts_code)
     print()
 
-    sq.query_bonus_plan('.*送.*')
+    ref = sq.query_bonus_plan('.*送.*')
+    pprint(ref)
     print()
 
     sq.query_day_code(ts_code)
     print()
 
-    '''
     ts_code = '002475.SZ'
     start_date = '20180101'
     end_date = '20220901'
-    check_day(db, ts_code, start_date, end_date)
+    sq.check_day(ts_code, start_date, end_date)
     print()
-    '''
 
     ts_code = '002475.SZ'
     start_date = '20180101'
     end_date = '20220901'
+
+    ref = sq.query_basic(None)
+    print(len(ref))
+    print(ref[0].keys())
+    print(ref[0].items())
+    print()
+
     ref = sq.query_basic(ts_code)
+    print(len(ref))
+    print(ref[0].keys())
+    print(ref[0].items())
     for item in ref:
         ts_code = item['ts_code']
         list_date = item['list_date']
@@ -272,7 +276,7 @@ if __name__ == '__main__':
     start_date = '20220101'
     end_date = '20220901'
     amount = 2000000000
-    ref = sq.query_day_amount(start_date, end_date, amount)
+    ref = sq.stat_day_amount(start_date, end_date, amount)
     for item in ref:
         ts_code = item['_id']['ts_code']
         amount = item['amount']
@@ -286,6 +290,6 @@ if __name__ == '__main__':
     ref = sq.stat_day_num()
     for item in ref:
         num = item['num']
-        if num == 1601:
+        if num <= 2:
             pprint(item)
 
