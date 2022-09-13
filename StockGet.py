@@ -52,7 +52,7 @@ class StockGet:
             date_len = self.today_dt - token_date
             if date_len.days <= valid_days:
                 t = ref['token']
-                print('token in', date_len.days, 'days', t)
+                print('token got', date_len.days, 'days ago', t, 'still valid')
             else:
                 t = SnowToken.get_snowtoken()
                 print('token expired, update', t)
@@ -140,27 +140,33 @@ class StockGet:
         ts.set_token('0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674')
         self.pro = ts.pro_api()
         df = self.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status,delist_date')
-        all_stocks = df.to_dict('records')
 
         ref = self.col_basic.find()
         if ref == None:
+            all_stocks = df.to_dict('records')
             print('req_basic first create', len(all_stocks))
             ret = self.col_basic.insert_many(all_stocks)
             return
 
-        df_ori = pd.DataFrame(ref)
-        df_cmp = df['ts_code'].isin(df_ori['ts_code'])
-        for i,x in enumerate(df_cmp):
-            if x == False:
-                print('req_basic insert new', df.loc[x, 'ts_code'])
-                self.col_basic.insert_one(df.loc[x].to_dict())
+        for i in range(len(df.index)):
+            # print(i, df.loc[i, 'ts_code'], df.loc[i, 'name'])
+
+            ref = self.col_basic.find_one({'ts_code':df.loc[i, 'ts_code']})
+            if ref == None:
+                print('req_basic insert new', df.loc[i, 'ts_code'])
+                self.col_basic.insert_one(df.loc[i].to_dict())
                 continue
 
-            if df.loc[x].equals(df_ori.loc[x]) == False:
-                print('req_basic changed', df.loc[x, 'ts_code'])
-                print(df_ori.loc[x])
-                print(df.loc[x])
-                self.col_basic.update_one({'_id':df_ori[x, '_id']}, df.loc[x].to_dict())
+            if df.loc[i, 'name'] != ref['name'] or df.loc[i, 'symbol'] != ref['symbol'] or df.loc[i, 'industry'] != ref['industry'] or df.loc[i, 'list_status'] != ref['list_status'] or df.loc[i, 'list_date'] != ref['list_date'] or df.loc[i, 'delist_date'] != ref['delist_date']:
+                print('req_basic changed', df.loc[i, 'ts_code'])
+                df.loc[i, 'name'] != ref['name'] and print(df.loc[i, 'name'], ref['name'])
+                df.loc[i, 'symbol'] != ref['symbol'] and print(df.loc[i, 'symbol'], ref['symbol'])
+                df.loc[i, 'industry'] != ref['industry'] and print(df.loc[i, 'industry'], ref['industry'])
+                df.loc[i, 'list_status'] != ref['list_status'] and print(df.loc[i, 'list_status'], ref['list_status'])
+                df.loc[i, 'list_date'] != ref['list_date'] and print(df.loc[i, 'list_date'], ref['list_date'])
+                df.loc[i, 'delist_date'] != ref['delist_date'] and print(df.loc[i, 'delist_date'], ref['delist_date'])
+                print()
+                self.col_basic.update_one({'ts_code':df.loc[i, 'ts_code']}, {'$set':df.loc[i].to_dict()})
                 continue
 
         end_t = time.time()
