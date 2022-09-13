@@ -135,6 +135,8 @@ class StockGet:
         return base, free, new, bonus
 
     def req_basic(self):
+        start_t = time.time()
+
         ts.set_token('0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674')
         self.pro = ts.pro_api()
         df = self.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status,delist_date')
@@ -142,6 +144,8 @@ class StockGet:
 
         ref = self.col_basic.find()
         if ref == None:
+            print('req_basic first create', len(all_stocks))
+            ret = self.col_basic.insert_many(all_stocks)
             return
 
         df_ori = pd.DataFrame(ref)
@@ -157,8 +161,10 @@ class StockGet:
                 print(df_ori.loc[x])
                 print(df.loc[x])
                 self.col_basic.update_one({'_id':df_ori[x, '_id']}, df.loc[x].to_dict())
+                continue
 
-        #ret = self.col_basic.insert_many(all_stocks)
+        end_t = time.time()
+        print('req_basic cost {:5.2f}s'.format(end_t - start_t))
         return
 
     def req_bonus(self, all_stocks):
