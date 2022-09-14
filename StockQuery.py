@@ -6,6 +6,7 @@ from pprint import pprint
 from datetime import datetime, timedelta
 import chinese_calendar as calendar
 from time import time
+import pandas as pd
 
 class StockQuery:
     def __init__(self):
@@ -108,6 +109,7 @@ class StockQuery:
             return self.stock_list
         return None
 
+    # dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
     def query_day_code_date(self, ts_code, start_date, end_date):
         s_time = time()
         ret = []
@@ -124,7 +126,9 @@ class StockQuery:
         return None
         '''
         if ref != None:
-            self.stock_list = list(ref)
+            df = pd.DataFrame(ref['day'])
+            #self.stock_list = list(ref['day'])
+            self.stock_list = df[df['date']>=start_date][df['date']<=end_date].to_dict('records')
             print('query_day_code_date', ts_code, start_date, end_date)
             print('format', self.stock_list[0].keys())
             return self.stock_list
