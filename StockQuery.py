@@ -45,10 +45,26 @@ class StockQuery:
         ref = self.col_bonus.find_one(v)
 
         if ref != None:
-            self.stock_list = list(ref['items'])
+            #self.stock_list = list(ref['items'])
+            self.bonus = ref['items']
             print('query_bonus_code', ts_code)
             print('format', self.stock_list[0].keys())
-            return self.stock_list
+            return self.bonus
+        return None
+
+    # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'plan_explain'])
+    def query_bonus_code_df(self, ts_code):
+        v = {'ts_code': ts_code}
+        ref = self.col_bonus.find_one(v)
+
+        if ref != None:
+            df = pd.DataFrame(ref['items'])
+            df.index = df['date']
+            df = df.drop(columns=['date', 'year', 'dividend_year', 'plan_explain'])
+            df = df.sort_values(by='date')
+
+            print('query_bonus_code', ts_code)
+            return df
         return None
 
     # dict_keys(['_id'])
@@ -104,6 +120,9 @@ class StockQuery:
 
         if ref != None:
             self.stock_list = list(ref['day'])
+            # n = np.array(ref['day'])
+            # df = pd.DataFrame(ref['day'])
+
             print('query_day_code', ts_code)
             print('format', self.stock_list[0].keys())
             return self.stock_list
@@ -115,24 +134,34 @@ class StockQuery:
         ret = []
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
-        '''
         if ref != None:
-            for x in ref['day']:
-                if x['date'] <= end_date and x['date'] >= start_date:
-                    ret.append(x)
-            e_time = time()
-            print('query_day_code_date cost %.2f s' % (e_time - s_time))
-            return ret
-        return None
-        '''
-        if ref != None:
-            df = pd.DataFrame(ref['day'])
             #self.stock_list = list(ref['day'])
-            self.stock_list = df[df['date']>=start_date][df['date']<=end_date].to_dict('records')
+            # n = np.array(ref['day'])
+            df = pd.DataFrame(ref['day'])
+            df_tmp = df[df['date']>=start_date]
+            df_tmp = df_tmp[df_tmp['date']<=end_date]
+            self.stock_list = df_tmp.to_dict('records')
             print('query_day_code_date', ts_code, start_date, end_date)
             print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
+
+    # dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
+    def query_day_code_date_df(self, ts_code, start_date, end_date):
+        s_time = time()
+        ret = []
+        v = {'ts_code': ts_code}
+        ref = self.col_day.find_one(v)
+        if ref != None:
+            df = pd.DataFrame(ref['day'])
+            df_tmp = df[df['date']>=start_date]
+            df_tmp = df_tmp[df_tmp['date']<=end_date]
+            df_tmp.index = df_tmp['date']
+            df_tmp = df_tmp.drop(columns='date')
+            print('query_day_code_date', ts_code, start_date, end_date)
+            return df_tmp
+        return None
+
 
     # dict_keys(['_id', 'amount', 'num'])
     def stat_day_amount(self, start_date=None, end_date=None, amount=None):
