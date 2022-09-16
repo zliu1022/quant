@@ -82,6 +82,8 @@ if __name__ == '__main__':
     print()
 
     # Recover Price Backward, first date price is baseline
+    # input: df, df_bonus
+    # return: df_back
     first_date = df.index[0]
     for i in range(day_len):
         print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
@@ -116,7 +118,10 @@ if __name__ == '__main__':
     df_back = df_back.rename(columns={'high': 'high_back', 'low': 'low_back'})
 
     df = df_ori.copy()
+
     # forward recover ex-dividend, baseline is last date price
+    # input: df, df_bonus
+    # return: df_back
     last_date = df.index[day_len-1]
     for i in range(day_len):
         print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
