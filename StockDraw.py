@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from pprint import pprint
 from StockQuery import StockQuery
 import matplotlib.pyplot as plt
 from time import time
@@ -67,7 +66,30 @@ if __name__ == '__main__':
     ts_code = '002460.SZ'
     ts_code = '601012.SH'
 
-    df_day = sq.query_day_code_date_df(ts_code, '20160101', '20220908')
+    df_day = sq.query_day_code_date_df(ts_code, '20220101', '20220908')
+    df_day = df_day.sort_values(by='date')
+
+    '''
+    fig, axs = plt.subplots(2, 1)
+    axs[0].plot(df_day.high)
+    axs[0].plot(df_day.low)
+    axs[1].plot(df_day.amount, color = 'orange')
+    '''
+
+    from matplotlib.gridspec import GridSpec
+    fig = plt.figure(constrained_layout=True)
+    gs = GridSpec(3, 1, figure=fig)
+    ax1 = fig.add_subplot(gs[0:2, 0])
+    ax2 = fig.add_subplot(gs[2, 0])
+    ax1.plot(df_day.high)
+    ax1.plot(df_day.low)
+    ax2.plot(df_day.amount, color = 'orange')
+    #ax = plt.gca()
+    ax1.axes.xaxis.set_ticks([])
+    ax2.axes.xaxis.set_ticks([])
+    plt.show()
+    quit()
+
     df = df_day.drop(columns=['open', 'close', 'chg', 'percent', 'turnoverrate', 'volume', 'amount'])
     df = df.sort_values(by='date')
     df_ori = df.copy()
