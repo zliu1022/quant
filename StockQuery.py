@@ -146,7 +146,7 @@ class StockQuery:
             return self.stock_list
         return None
 
-    # dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
+    # dict_keys(['date', 'open', 'high', 'low', 'close', 'amount'])
     def query_day_code_date_df(self, ts_code, start_date, end_date):
         s_time = time()
         ret = []
@@ -157,13 +157,14 @@ class StockQuery:
             df_tmp = df[df['date']>=start_date]
             df_tmp = df_tmp[df_tmp['date']<=end_date]
             df_tmp.index = df_tmp['date']
-            df_tmp = df_tmp.drop(columns='date')
+            df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
+            df_tmp = df_tmp.sort_values(by='date')
             print('query_day_code_date', ts_code, start_date, end_date)
             return df_tmp
         return None
 
 
-    # dict_keys(['_id', 'amount', 'num'])
+    # dict_keys(['_id', 'avg_amount', 'num'])
     def stat_day_amount(self, start_date=None, end_date=None, amount=None):
         start_date = start_date or '20180101'
         end_date = end_date or self.today_str
@@ -185,11 +186,12 @@ class StockQuery:
                         '_id': {
                             'ts_code': '$ts_code'
                         },
-                        'amount': { '$avg': '$day.amount' },
+                        'avg_amount': { '$avg': '$day.amount' },
                         'num': { '$count': {} }
                     }
                 }
-        sort_stage = { '$sort': { 'amount': -1 } }
+        #sort_stage = { '$sort': { 'amount': -1 } }
+        sort_stage = { '$sort': { 'num': -1 } }
         v = [ unwind_stage, match_stage, group_stage, sort_stage ]
         ref = self.col_day.aggregate(v)
         if ref != None:
