@@ -216,13 +216,20 @@ def stat_chg(df, start_date, chg_perc):
         arr_min.append(cur_min)
         arr_sdate.append(s_date)
         arr_max.append(np.nan)
-        arr_edate.append(np.nan)
+        arr_edate.append('20500101')
 
     arr_len = len(arr_min)
     for i in range(arr_len):
-        print('{:7.2f} {:7.2f} {:7.2f} {} {} {} {:7.2f}% {:7.2f}%'.format(arr_firstmin[i], arr_min[i], arr_max[i], 
+        minfirst_date = datetime.strptime(arr_sfirst_date[i], '%Y%m%d')
+        min_date = datetime.strptime(arr_sdate[i], '%Y%m%d')
+        max_date = datetime.strptime(arr_edate[i], '%Y%m%d')
+        print('{} {} {} {:2d} {:2d} {:7.2f} {:7.2f} {:7.2f}  {:7.2f}% {:7.2f}%'.format(
             arr_sfirst_date[i], arr_sdate[i], arr_edate[i], 
-            (arr_max[i]-arr_min[i])/arr_min[i]*100, (arr_firstmin[i]-arr_min[i])/arr_firstmin[i]*100))
+            (min_date-minfirst_date).days, (max_date-min_date).days,
+            arr_firstmin[i], arr_min[i], arr_max[i], 
+            (arr_firstmin[i]-arr_min[i])/arr_firstmin[i]*100,
+            (arr_max[i]-arr_min[i])/arr_min[i]*100
+        ))
 
     df = pd.DataFrame(index=arr_sfirst_date)
     df.insert(0, 'firstmin', arr_firstmin)
@@ -259,13 +266,8 @@ if __name__ == '__main__':
     sd.draw_df(ts_code+'-merge', df_tmp)
     '''
 
-    chg_perc = 0.05
-    start_date = '20220701'
-    df_chg = stat_chg(df_forw, start_date, chg_perc)
-    print(df_chg)
-
     start_date = '20220101'
-    end_date   = '20220918'
+    end_date   = '20220920'
     amount     = 1000000000
     ref = sq.stat_day_amount(start_date, end_date, amount)
 
@@ -273,7 +275,7 @@ if __name__ == '__main__':
         ts_code = item['_id']['ts_code']
         avg_amount = item['avg_amount']
         num = item['num']
-        if num > 171:
+        if num > 85:
             print('%s %3d %.1f' % (ts_code, num, avg_amount))
 
             df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
