@@ -59,12 +59,18 @@ class StockQuery:
 
         if ref != None:
             df = pd.DataFrame(ref['items'])
+
+            if df.empty == True:
+                df = pd.DataFrame()
+                return df
             df.index = df['date']
             df = df.drop(columns=['date', 'year', 'dividend_year', 'plan_explain'])
             df = df.sort_values(by='date')
 
             print('query_bonus_code', ts_code)
             return df
+
+        df = pd.DataFrame()
         return None
 
     # dict_keys(['_id'])
