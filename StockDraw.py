@@ -125,6 +125,8 @@ def recover_price_backward(df_in, df_bonus):
 # return: df_back
 def recover_price_forward(df_in, df_bonus):
     df = df_in.copy()
+    if df_bonus.empty == True:
+        return df
     last_date = df.index[day_len-1]
     for i in range(day_len):
         #print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
@@ -212,6 +214,7 @@ def stat_chg(df, start_date, chg_perc):
             continue
         #print()
 
+    total_num = len(arr_min)
     if len(arr_firstmin) != len(arr_min):
         arr_min.append(cur_min)
         arr_sdate.append(s_date)
@@ -219,25 +222,55 @@ def stat_chg(df, start_date, chg_perc):
         arr_edate.append('20500101')
 
     arr_len = len(arr_min)
+    max_dec_perc = 0.0
+    max_dec_days = 0
+
+    dec_perc, inc_perc = 0.0, 0.0
+    arr_dec, arr_inc = [], []
     for i in range(arr_len):
         minfirst_date = datetime.strptime(arr_sfirst_date[i], '%Y%m%d')
         min_date = datetime.strptime(arr_sdate[i], '%Y%m%d')
         max_date = datetime.strptime(arr_edate[i], '%Y%m%d')
+
+        dec_perc = (arr_firstmin[i]-arr_min[i])/arr_firstmin[i]*100
+        inc_perc = (arr_max[i]-arr_min[i])/arr_min[i]*100
+        arr_dec.append(dec_perc)
+        arr_inc.append(inc_perc)
+
+        if dec_perc >= max_dec_perc:
+            max_dec_perc = dec_perc
+            max_dec_days = (min_date-minfirst_date).days
+
+        '''
         print('{} {} {} {:2d} {:2d} {:7.2f} {:7.2f} {:7.2f}  {:7.2f}% {:7.2f}%'.format(
             arr_sfirst_date[i], arr_sdate[i], arr_edate[i], 
             (min_date-minfirst_date).days, (max_date-min_date).days,
             arr_firstmin[i], arr_min[i], arr_max[i], 
-            (arr_firstmin[i]-arr_min[i])/arr_firstmin[i]*100,
-            (arr_max[i]-arr_min[i])/arr_min[i]*100
+            dec_perc*100,
+            inc_perc*100
         ))
+        '''
+    #print('Total {:3d} Max dec_perc {:7.2f}% {:3d}'.format(total_num ,max_dec_perc*100, max_dec_days))
 
     df = pd.DataFrame(index=arr_sfirst_date)
-    df.insert(0, 'firstmin', arr_firstmin)
-    df.insert(1, 'min', arr_min)
-    df.insert(2, 'max', arr_max)
-    df.insert(3, 'min_date', arr_sdate)
-    df.insert(4, 'max_date', arr_edate)
-    return df
+
+    df.insert(0, 'min_date', arr_sdate)
+    df.insert(1, 'max_date', arr_edate)
+
+    df.insert(2, 'firstmin', arr_firstmin)
+    df.insert(3, 'min', arr_min)
+    df.insert(4, 'max', arr_max)
+
+    df.insert(5, 'dec_perc', arr_dec)
+    df.insert(5, 'inc_perc', arr_inc)
+
+    df['firstmin'] = df['firstmin'].map('{:.2f}'.format)
+    df['min'] = df['min'].map('{:.2f}'.format)
+    df['max'] = df['max'].map('{:.2f}'.format)
+
+    df['dec_perc'] = df['dec_perc'].map('{:.1f}%'.format)
+    df['inc_perc'] = df['inc_perc'].map('{:.1f}%'.format)
+    return df, total_num, max_dec_perc, max_dec_days
 
 if __name__ == '__main__':
     s_time = time()
@@ -268,14 +301,15 @@ if __name__ == '__main__':
 
     start_date = '20220101'
     end_date   = '20220920'
-    amount     = 1000000000
+    amount     = 5 * 10000 * 10000
     ref = sq.stat_day_amount(start_date, end_date, amount)
+    print('Found {:4d} >= {}'.format(len(ref), amount))
 
     for item in ref:
         ts_code = item['_id']['ts_code']
         avg_amount = item['avg_amount']
         num = item['num']
-        if num > 85:
+        if num > 30:
             print('%s %3d %.1f' % (ts_code, num, avg_amount))
 
             df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
@@ -289,7 +323,13 @@ if __name__ == '__main__':
             start_d = datetime.strptime(start_date, '%Y%m%d')
             end_d = datetime.strptime(end_date, '%Y%m%d')
             print('{} - {}'.format(start_date, end_date))
-            df_chg = stat_chg(df_forw, start_date, chg_perc)
+            df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+            print(df_chg)
+            
+            if max_dec_perc<25 and total_num>=10:
+                print('summary-good {} {:3d} {:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
+            else:
+                print('summary-bad  {} {:3d} {:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
             print()
             '''
             start_d = datetime.strptime(start_date, '%Y%m%d')
