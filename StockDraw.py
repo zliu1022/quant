@@ -57,30 +57,77 @@ class StockDraw:
         ax = plt.gca()
         ax.axes.xaxis.set_ticks([])
 
-        #plt.show()
-        plt.savefig(title_str + '.png', dpi=150)
+        plt.show()
+        #plt.savefig(title_str + '.png', dpi=150)
         return
 
 def draw_price_amount(df_day):
-    '''
-    fig, axs = plt.subplots(2, 1)
-    axs[0].plot(df_day.high)
-    axs[0].plot(df_day.low)
-    axs[1].plot(df_day.amount, color = 'orange')
-    '''
     from matplotlib.gridspec import GridSpec
+
     fig = plt.figure(constrained_layout=True)
     gs = GridSpec(3, 1, figure=fig)
     ax1 = fig.add_subplot(gs[0:2, 0])
     ax2 = fig.add_subplot(gs[2, 0])
+
     ax1.plot(df_day.high)
     ax1.plot(df_day.low)
     ax2.plot(df_day.amount, color = 'blue')
     #ax2.hist(df_day.amount, facecolor = 'blue', edgecolor = 'orange') # 100,000,000
+
     #ax = plt.gca()
     ax1.axes.xaxis.set_ticks([])
     ax2.axes.xaxis.set_ticks([])
     plt.show()
+
+def draw_price_amount_withchg(df_day, df_chg):
+    plt.style.use('seaborn-whitegrid')
+
+    fig = plt.figure(figsize=(9.6,4.8))
+    ax1 = fig.add_axes([0.1, 0.3,  0.85, 0.65])
+    ax2 = fig.add_axes([0.1, 0.05, 0.85, 0.2])
+
+    # https://www.w3schools.com/colors/colors_names.asp
+    ax1.plot(df_day.index, df_day.high, linewidth=1, color='orangered', label='high')
+    ax1.plot(df_day.index, df_day.low,  linewidth=1, color='lightgreen',  label='low')
+
+    for i in range(len(df_chg.index)):
+        arr_x, arr_y = [], []
+        arr_incx, arr_incy = [], []
+
+        arr_x.append(df_chg.index[i])
+        arr_x.append(df_chg.min_date[i])
+        arr_y.append(df_chg.firstmin[i])
+        arr_y.append(df_chg['min'][i])
+        ax1.plot(arr_x, arr_y, linestyle='dotted', linewidth=1, color='royalblue')
+
+        arr_incx.append(df_chg.min_date[i])
+        arr_incy.append(df_chg['min'][i])
+        arr_incx.append(df_chg.max_date[i])
+        arr_incy.append(df_chg['max'][i])
+        ax1.plot(arr_incx, arr_incy, linestyle='dotted', linewidth=1.5, color='red')
+
+        ax1.plot(df_chg.min_date[i], df_chg['min'][i], 'o', c='r', markersize=1.1)
+
+    ax1.set(xlabel='', ylabel='price',
+        title='A Sine Curve')
+    leg = ax1.legend(loc='upper right', frameon=False)
+
+    ax2.bar(df_day.index, df_day.amount, alpha=0.5, width=0.6, label='amount')
+    ax2.set(xlabel='date', ylabel='amount')
+    leg2 = ax2.legend(loc='upper right', frameon=False)
+
+    day_len = len(df_day.index)
+    ticks_len = 5
+    if day_len < ticks_len:
+        ticks_len = day_len
+    arr_ticks = []
+    for i in range(ticks_len):
+        arr_ticks.append(df_day.index[i * round(day_len/ticks_len)])
+    ax1.axes.xaxis.set_ticks(arr_ticks)
+    ax2.axes.xaxis.set_ticks(arr_ticks)
+    #ax2.axes.xaxis.set_ticks([df_day.index[0], df_day.index[round(day_len/2)], df_day.index[day_len-1]])
+    plt.show()
+    return
 
 # Recover Price Backward, first date price is baseline
 # input: df, df_bonus
@@ -125,6 +172,7 @@ def recover_price_backward(df_in, df_bonus):
 # return: df_back
 def recover_price_forward(df_in, df_bonus):
     df = df_in.copy()
+    day_len = len(df.index)
     if df_bonus.empty == True:
         return df
     last_date = df.index[day_len-1]
@@ -264,12 +312,14 @@ def stat_chg(df, start_date, chg_perc):
     df.insert(5, 'dec_perc', arr_dec)
     df.insert(5, 'inc_perc', arr_inc)
 
+    '''
     df['firstmin'] = df['firstmin'].map('{:.2f}'.format)
     df['min'] = df['min'].map('{:.2f}'.format)
     df['max'] = df['max'].map('{:.2f}'.format)
 
     df['dec_perc'] = df['dec_perc'].map('{:.1f}%'.format)
     df['inc_perc'] = df['inc_perc'].map('{:.1f}%'.format)
+    '''
     return df, total_num, max_dec_perc, max_dec_days
 
 if __name__ == '__main__':
@@ -280,15 +330,25 @@ if __name__ == '__main__':
 
     ts_code = '002460.SZ'
     ts_code = '601012.SH'
+    ts_code = '600153.SH'
+    ts_code = '002475.SZ'
 
-    df_day = sq.query_day_code_date_df(ts_code, '20220701', '20220917')
-    #draw_price_amount(df_day)
+    start_date = '20220101'
+    end_date   = '20220701'
+
+    df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
     df_bonus = sq.query_bonus_code_df(ts_code)
-
-    df = df_day.drop(columns=['open', 'close', 'amount'])
-    day_len = len(df.index)
+    df = df_day.drop(columns=['open', 'close'])
 
     df_forw = recover_price_forward(df, df_bonus)
+    #draw_price_amount(df_forw)
+
+    chg_perc = 0.1
+    df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+    print(df_chg)
+    draw_price_amount_withchg(df_forw, df_chg)
+    quit()
+
     df_back = recover_price_backward(df, df_bonus)
 
     '''
@@ -319,17 +379,19 @@ if __name__ == '__main__':
             chg_perc = 0.1
             start_date = '20220101'
             end_date   = '20220918'
-
-            start_d = datetime.strptime(start_date, '%Y%m%d')
-            end_d = datetime.strptime(end_date, '%Y%m%d')
-            print('{} - {}'.format(start_date, end_date))
             df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+
+            print('{} - {}'.format(start_date, end_date))
             print(df_chg)
             
-            if max_dec_perc<25 and total_num>=10:
-                print('summary-good {} {:3d} {:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
+            if max_dec_perc<=16 and total_num>=10:
+                print('summary-good {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
+
+                draw_price_amount(df_day)
+                sd.draw_df(ts_code+'-forw', df_forw)
+
             else:
-                print('summary-bad  {} {:3d} {:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
+                print('summary-bad  {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
             print()
             '''
             start_d = datetime.strptime(start_date, '%Y%m%d')
