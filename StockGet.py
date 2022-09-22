@@ -181,7 +181,7 @@ class StockGet:
             ts_code = stock_info['ts_code']
 
             if ts_code == None:
-                print('ts_code == None')
+                print('Error: ts_code == None')
                 continue
             ts_code_arr = ts_code.split(".", 1)
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
@@ -195,7 +195,7 @@ class StockGet:
 
             code = resp['error_code']
             if code != 0:
-                print("Get bonus error", ts_code_symbol, code)
+                print("Error: Get bonus error", ts_code_symbol, code)
                 err_day.append(stock_info)
                 continue
 
@@ -263,22 +263,25 @@ class StockGet:
             list_days = self.get_stock_trade_days(stock_info['list_date'])# #获取股票上市时长
 
             if ts_code == None:
-                print('ts_code == None')
+                print('Error: ts_code == None')
                 continue
             ts_code_arr = ts_code.split(".", 1)
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
 
             ref = self.col_day.find_one({ "ts_code": ts_code })
             if ref != None:
-                print('find', ts_code)
                 stk_days = len(ref['day'])
                 last_date = ref['day'][0]['date']
                 early_date = ref['day'][stk_days-1]['date']
 
                 last_dateTimp = str(int(datetime.timestamp(datetime.strptime(last_date, '%Y%m%d')+timedelta(days=1))*1000))
                 new_req_days = self.get_stock_trade_days(last_date)
-                print(last_date, '-', early_date)
-                print('try to get', last_date, new_req_days, 'days')
+
+                if new_req_days == 0:
+                    print('{} {}-{} in db, already up to date'.format(ts_code, early_date, last_date))
+                    continue
+                else:
+                    print('{} {}-{} in db, try to get {:3d} days'.format(ts_code, early_date, last_date, new_req_days))
 
                 url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count="+str(new_req_days)+"&symbol="+ts_code_symbol+"&begin="+last_dateTimp
             else:
@@ -292,13 +295,16 @@ class StockGet:
 
             code = resp['error_code']
             if code != 0:
-                print("Get day kline error", ts_code_symbol, code)
+                print("Error: Get day kline error", ts_code_symbol, code)
                 err_day.append(stock_info)
                 continue
 
             stock_daily = resp['data']
+            if not ('item' in stock_daily):
+                print("Error: No item key", ts_code_symbol)
+                continue
             if len(stock_daily['item']) == 0:
-                print("No kline, maybe restday", ts_code_symbol)
+                print("Error: No kline, maybe restday", ts_code_symbol)
                 continue
             df = pd.DataFrame(stock_daily['item'], columns=stock_daily['column'])
             df = df.drop(['volume_post','amount_post'],axis=1)
