@@ -4,6 +4,41 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+x1 = np.linspace(0, 10, 150)
+y3 = 0.5 + 0.5 * np.sin(x1) + 0.1 * np.sin(50 * x1)
+
+y4 = np.random.rand(150)
+
+plt.style.use('seaborn-whitegrid')
+
+fig = plt.figure()
+ax1 = fig.add_axes([0.1, 0.3,  0.85, 0.65], xticklabels=[])
+ax2 = fig.add_axes([0.1, 0.05, 0.85, 0.2])
+
+# https://www.w3schools.com/colors/colors_names.asp
+ax1.plot(x, y1, linestyle='dashed', color='c', label='sin(x)')
+ax1.plot(x, y2, linestyle='dotted', color='r',  label='cos(x)')
+ax1.set(xlim=(-0.1, 10.1), ylim=(-1.1, 1.1), 
+    xlabel='', ylabel='f(x)',
+    title='A Sine Curve')
+leg = ax1.legend(loc='upper right', frameon=False)
+
+# . can be o x + v ^ < > s(square) d(diamond)
+ax2.plot(x1, y3, '.', color='orangered', label='sin(50x)')
+ax2.bar(x1, y4, alpha=0.7, width=0.08, label='hist')
+ax2.set(xlim=(-0.1, 10.1), ylim=(0, 1.2), 
+    xlabel='x', ylabel='g(x)',
+    title='')
+leg2 = ax2.legend(loc='upper right', frameon=True)
+
+plt.show()
+
+quit()
+
 if __name__ == '__main__':
     xpoints = np.array([1, 2, 6, 8])
     ypoints = np.array([3, 8, 1, 10])
