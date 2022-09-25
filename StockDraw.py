@@ -135,7 +135,7 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
 
     title_str = ts_code + ' ' + df_day.index[0] + '-' + df_day.index[day_len-1]
     plt.savefig(title_str + '.png', dpi=150)
-    plt.show()
+    #plt.show()
     return
 
 # Recover Price Backward, first date price is baseline
@@ -182,6 +182,8 @@ def recover_price_backward(df_in, df_bonus):
 def recover_price_forward(df_in, df_bonus):
     df = df_in.copy()
     day_len = len(df.index)
+    if day_len == 0:
+        return df
     if df_bonus.empty == True:
         return df
     last_date = df.index[day_len-1]
@@ -343,8 +345,10 @@ if __name__ == '__main__':
     #ts_code = '002475.SZ'
     ts_code = '688223.SH'
 
+    #start_date = '20220101'
+    #end_date   = '20220922'
     start_date = '20220101'
-    end_date   = '20220922'
+    end_date   = '20221231'
 
     df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
     df_bonus = sq.query_bonus_code_df(ts_code)
@@ -367,9 +371,7 @@ if __name__ == '__main__':
     sd.draw_df(ts_code+'-merge', df_tmp)
     '''
 
-    start_date = '20220101'
-    end_date   = '20220920'
-    amount     = 5 * 10000 * 10000
+    amount     = 1 * 10000 * 10000
     ref = sq.stat_day_amount(start_date, end_date, amount)
     print('Found {:4d} >= {}'.format(len(ref), amount))
 
@@ -384,9 +386,7 @@ if __name__ == '__main__':
             df_bonus = sq.query_bonus_code_df(ts_code)
             df_forw = recover_price_forward(df_day, df_bonus)
 
-            chg_perc = 0.1
-            #start_date = '20220101'
-            #end_date   = '20220918'
+            chg_perc = 0.05
             df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
 
             print('{} - {}'.format(start_date, end_date))
