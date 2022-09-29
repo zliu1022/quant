@@ -6,7 +6,7 @@ from random import randint
 from pprint import pprint
 
 client = MongoClient(port=27017)
-db = client.stk1
+db = client.tmp
 col = db.day
 col.drop()
 
