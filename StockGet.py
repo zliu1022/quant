@@ -16,6 +16,7 @@ class StockGet:
     def __init__(self):
         self.today_str = datetime.now().strftime('%Y%m%d')
         self.today_dt= datetime.strptime(self.today_str,'%Y%m%d')
+        self.this_year = self.today_dt.year
 
         dayline_str = '20160101'
         #dayline_str = self.today_str
@@ -25,13 +26,14 @@ class StockGet:
         db = client.stk1
 
         self.col_basic = db.basic
+        self.col_bonus_ori = db.bonus_ori
         self.col_bonus = db.bonus
         self.col_day = db.day
         self.col_token = db.token
 
         self.stock_list = []
         
-        t = self.updateToken(5)
+        t = self.updateToken(1)
         self.header = {
             'cookie':'xq_is_login=1;xq_a_token=' + t,
             'User-Agent': 'Xueqiu iPhone 13.6.5'
@@ -73,7 +75,6 @@ class StockGet:
             i+=1
         return i
 
-    # bonus plan2digit
     # ex: 10送4股转4股派1元，流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
     def plan2digit(self, s):
         base, free, new, bonus = 0,0,0,0
@@ -101,7 +102,7 @@ class StockGet:
             else:
                 d_num = self.find_eof_digit(s, new_pos)
                 if d_num == 0:
-                    print('bonus plan error: 转 without 股 and no digit follow', s)
+                    print('Error: bonus plan error: 转 without 股 and no digit follow', s)
                 else:
                     new = s[new_pos+1:new_pos+1+d_num]
 
@@ -111,10 +112,10 @@ class StockGet:
             if bonus_gu_pos != -1:
                 bonus = s[bonus_pos+1:bonus_gu_pos]
             else:
-                print('bonus plan error: 派 without 元', s)
+                print('Error: bonus plan error: 派 without 元', s)
 
         if free_pos == -1 and new_pos == -1 and bonus_pos == -1:
-            print('bonus plan error: not find 送转派', s)
+            print('Error: bonus plan error: not find 送转派', s)
         else:
             if free_pos == -1: free_pos = 100
             if new_pos == -1:  new_pos = 100
@@ -130,9 +131,73 @@ class StockGet:
                     if d_pos != -1:
                         base = base[0:d_pos]
                     else:
-                        print('bonus plan error: unknown base', s)
+                        print('Error: bonus plan error: unknown base', s)
 
         return base, free, new, bonus
+
+    def bonus2df(self, ts_code, data):
+        year_arr = []
+        base_arr = []
+        free_arr = []
+        new_arr = []
+        bonus_arr = []
+        date_arr = []
+        for x in data['items']:
+            y = x['dividend_year']
+            d = x['ashare_ex_dividend_date'] # 除权除息日
+            s = x['plan_explain']
+            equity_date = x['equity_date'] # 股权登记日
+
+            pos = y.find('年')
+            pos_dash = y.find('-')
+            if pos != -1:
+                year_arr.append(y[0:pos])
+                dividend_year_str = y
+                dividend_year = 1900
+            elif pos_dash != -1:
+                dividend_year_dt= datetime.strptime(y,'%Y-%m-%d')
+                dividend_year_str = datetime.strftime(dividend_year_dt, '%Y%m%d')
+                dividend_year = dividend_year_dt.year
+                year_arr.append(dividend_year_dt.year)
+            else:
+                year_arr.append(y)
+                dividend_year_str = y
+                dividend_year = 1900
+
+            base, free, new, bonus = self.plan2digit(s)
+            base_arr.append(base)
+            free_arr.append(free)
+            new_arr.append(new)
+            bonus_arr.append(bonus)
+
+            if d == d and d != None: # not nan
+                date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
+                date_arr.append(date_str)
+            else: # ashare_ex_dividend_date == NaN
+                if equity_date == equity_date and equity_date != None: # not nan
+                    equity_str = datetime.strftime(datetime.fromtimestamp(equity_date/1000), '%Y%m%d')
+                    equity_year = datetime.strptime(equity_str,'%Y%m%d').year
+                else:
+                    equity_str = 'NaN'
+                    equity_year = 1900
+                if dividend_year >= (self.this_year-5) or equity_year >= (self.this_year-5):
+                    print('Warning: {} 5years no date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
+                else:
+                    print('Warning: {} no bonus date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
+                date_arr.append('')
+
+        df = pd.DataFrame(data['items'])
+        df_len = len(df.index)
+        if df_len != 0:# some new stock has no dividend info
+            df.insert(0, 'bonus', bonus_arr)
+            df.insert(0, 'new', new_arr)
+            df.insert(0, 'free', free_arr)
+            df.insert(0, 'base', base_arr)
+            df.insert(0, 'date', date_arr)
+            df.insert(0, 'year', year_arr)
+            #df = df.drop(['ashare_ex_dividend_date', 'equity_date', 'cancle_dividend_date'],axis=1)
+            df = df.sort_values(by='date', ascending=False)
+        return df
 
     def req_basic(self):
         start_t = time.time()
@@ -179,15 +244,13 @@ class StockGet:
         for index,stock_info in enumerate(all_stocks):
             ret = 0
             ts_code = stock_info['ts_code']
-
             if ts_code == None:
                 print('Error: ts_code == None')
                 continue
+
             ts_code_arr = ts_code.split(".", 1)
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
-
             url = "https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=" +ts_code_symbol
-
             ret, resp = self.req_url_retry(url, 3)
             if ret != 0:
                 err_day.append(stock_info)
@@ -195,48 +258,62 @@ class StockGet:
 
             code = resp['error_code']
             if code != 0:
-                print("Error: Get bonus error", ts_code_symbol, code)
+                print("Error: Get bonus error", ts_code, code)
                 err_day.append(stock_info)
                 continue
 
             data = resp['data']
-
-            year_arr = []
-            base_arr = []
-            free_arr = []
-            new_arr = []
-            bonus_arr = []
-            date_arr = []
-            for x in data['items']:
-                y = x['dividend_year']
-                d = x['ashare_ex_dividend_date']
-                s = x['plan_explain']
-
-                pos = y.find('年')
-                year_arr.append(y[0:pos])
-
-                base, free, new, bonus = self.plan2digit(s)
-                base_arr.append(base)
-                free_arr.append(free)
-                new_arr.append(new)
-                bonus_arr.append(bonus)
-
-                if d != None:
-                    date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
-                    date_arr.append(date_str)
-                else: #has plan but no date yet
-                    date_arr.append('00000000')
-                
-            #print('data -> pd', ts_code_symbol, len(data['items']), data.keys())
+            if not ('items' in data):
+                print("Error: No item key in bonus resp", ts_code)
+                continue
             df = pd.DataFrame(data['items'])
-            if len(data['items']) != 0:# some new stock has no dividend info
-                df.insert(0, 'bonus', bonus_arr)
-                df.insert(0, 'new', new_arr)
-                df.insert(0, 'free', free_arr)
-                df.insert(0, 'base', base_arr)
-                df.insert(0, 'date', date_arr)
-                df.insert(0, 'year', year_arr)
-                df = df.drop(['ashare_ex_dividend_date', 'equity_date', 'cancle_dividend_date'],axis=1)
+            df_len = len(df.index)
+
+            ref = self.col_bonus_ori.find_one({ "ts_code": ts_code })
+            if ref != None:
+                df_ref = pd.DataFrame(ref['items'])
+                df_ref_len = len(df_ref.index)
+
+                if df_ref_len !=0 or df_len != 0:
+                    df_new = pd.concat([df, df_ref]).sort_values(by='ashare_ex_dividend_date', ascending=False).drop_duplicates().reset_index(drop=True)
+                else:
+                    df_new = df
+                aaa = df_new.to_dict('records')
+                data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
+
+                new_dic = {}
+                new_dic.update({'items':data})
+                newvalues = { "$set": new_dic}    
+                self.col_bonus_ori.update_one({ "ts_code": ts_code }, newvalues)
+
+                df_new_len = len(df_new.index)
+                if df_new_len > df_len or df_new_len > df_ref_len:
+                    print('{} update bonus new  resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
+                else:
+                    print('{} update bonus keep resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
+            else:
+                aaa = df.to_dict('records')
+                data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
+
+                new_dic = { "ts_code": ts_code }
+                new_dic.update({'items':data})
+                self.col_bonus_ori.insert_one(new_dic)
+                print('{} insert bonus resp({})'.format(ts_code, df_len))
+
+        return err_day
+
+    def req_bonus_trans(self, all_stocks):
+        err_day = []
+        for index,stock_info in enumerate(all_stocks):
+            ts_code = stock_info['ts_code']
+            if ts_code == None:
+                print('Error: ts_code == None')
+                continue
+
+            ref_ori = self.col_bonus_ori.find_one({ "ts_code": ts_code })
+
+            df = self.bonus2df(ts_code, ref_ori)
+            df_len = len(df.index)
             aaa = df.to_dict('records')
             data = sorted(aaa,key = lambda e:e.__getitem__('date'), reverse=True)
 
@@ -244,12 +321,14 @@ class StockGet:
             if ref != None:
                 new_dic = {}
                 new_dic.update({'items':data})
-                newvalues = { "$set": new_dic}    
+                newvalues = { "$set": new_dic}
                 self.col_bonus.update_one({ "ts_code": ts_code }, newvalues)
+                print('{} update bonus ({})'.format(ts_code, df_len))
             else:
                 new_dic = { "ts_code": ts_code }
                 new_dic.update({'items':data})
                 self.col_bonus.insert_one(new_dic)
+                print('{} insert bonus ({})'.format(ts_code, df_len))
 
         return err_day
 
@@ -301,7 +380,7 @@ class StockGet:
 
             stock_daily = resp['data']
             if not ('item' in stock_daily):
-                print("Error: No item key", ts_code_symbol)
+                print("Error: No item key in day resp", ts_code_symbol)
                 continue
             if len(stock_daily['item']) == 0:
                 print("Error: No kline, maybe restday", ts_code_symbol)
@@ -374,6 +453,8 @@ class StockGet:
     def func_req(self,all_stocks):
         start_t = time.time()
         req_func = self.map_req(self.func_name)
+        if len(all_stocks) == 1:
+            pprint(all_stocks)
         err_stock = req_func(all_stocks)
         if len(err_stock)>0:
             print(threading.current_thread().name, 'Error', len(err_stock), err_stock)
@@ -405,6 +486,7 @@ class StockGet:
             if ref != None:
                 self.stock_list = []
                 self.stock_list.append(ref)
+        print('find {} stocks'.format(len(self.stock_list)))
         return ref
 
     def req_default(self):
@@ -423,26 +505,35 @@ def list_split(items,n):
 
 if __name__ == '__main__':
 
-    if len(sys.argv)!=2:
-        print('update_stock [basic|bonus|day]')
+    if len(sys.argv)!=2 and len(sys.argv)!=3:
+        print('update_stock [basic|bonus|day|bonus_trans]')
+        print('update_stock [bonus|day|bonus_trans] 002457.SZ')
         quit()
 
     si = StockGet()
     if sys.argv[1] == 'basic':
         si.req_basic()
         quit()
-
-    if sys.argv[1] == 'bonus' or sys.argv[1] == 'day':
+    else:
         si.set_func(sys.argv[1])
 
-    #ref = si.db_basicfind('002475.SZ')
-    ref = si.db_basicfind(None)
+    if sys.argv[1] == 'bonus':
+        thread_num = 1250
+    elif sys.argv[1] == 'bonus_trans':
+        thread_num = 5000
+    else:
+        thread_num = 240
+
+    find_str = None
+    if len(sys.argv) == 3:
+        find_str = sys.argv[2]
+    ref = si.db_basicfind(find_str)
     if ref == None:
         print('Not found stock list')
         exit()
 
     start_t = time.time()
-    threads = si.get_stocks(240)
+    threads = si.get_stocks(thread_num)
     for i in threads:
         i.join()
     end_t = time.time()
