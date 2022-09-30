@@ -143,9 +143,9 @@ class StockGet:
         bonus_arr = []
         date_arr = []
         for x in data['items']:
-            y = x['dividend_year']
+            y = x['dividend_year'] # 报告期
             d = x['ashare_ex_dividend_date'] # 除权除息日
-            s = x['plan_explain']
+            s = x['plan_explain'] # 分红方案
             equity_date = x['equity_date'] # 股权登记日
 
             pos = y.find('年')
