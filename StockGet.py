@@ -26,10 +26,12 @@ class StockGet:
         db = client.stk1
 
         self.col_basic = db.basic
-        self.col_bonus_ori = db.bonus_ori
-        self.col_bonus = db.bonus
+        self.col_bonus_ori = db.bonus_ori # from network, concat db and drop_duplicates
+        self.col_bonus = db.bonus         # transform from bonus_ori
         self.col_day = db.day
         self.col_token = db.token
+
+        self.col_bad_bonus = db.bad_bonus
 
         self.stock_list = []
         
@@ -77,6 +79,7 @@ class StockGet:
 
     # ex: 10送4股转4股派1元，流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
     def plan2digit(self, s):
+        ret = 0
         base, free, new, bonus = 0,0,0,0
 
         free_pos =  s.find('送')
@@ -89,7 +92,8 @@ class StockGet:
                 if d_pos != -1:
                     free = free[0:d_pos]
             else:
-                print('bonus plan error: 送 without 股', s)
+                print('Error: bonus plan error: 送 without 股', s)
+                ret = 1
 
         new_pos =  s.find('转')
         if new_pos != -1:
@@ -103,6 +107,7 @@ class StockGet:
                 d_num = self.find_eof_digit(s, new_pos)
                 if d_num == 0:
                     print('Error: bonus plan error: 转 without 股 and no digit follow', s)
+                    ret = 2
                 else:
                     new = s[new_pos+1:new_pos+1+d_num]
 
@@ -113,9 +118,11 @@ class StockGet:
                 bonus = s[bonus_pos+1:bonus_gu_pos]
             else:
                 print('Error: bonus plan error: 派 without 元', s)
+                ret = 3
 
         if free_pos == -1 and new_pos == -1 and bonus_pos == -1:
             print('Error: bonus plan error: not find 送转派', s)
+            ret = 4
         else:
             if free_pos == -1: free_pos = 100
             if new_pos == -1:  new_pos = 100
@@ -132,8 +139,9 @@ class StockGet:
                         base = base[0:d_pos]
                     else:
                         print('Error: bonus plan error: unknown base', s)
+                        ret = 5
 
-        return base, free, new, bonus
+        return ret, base, free, new, bonus
 
     def bonus2df(self, ts_code, data):
         year_arr = []
@@ -164,11 +172,21 @@ class StockGet:
                 dividend_year_str = y
                 dividend_year = 1900
 
-            base, free, new, bonus = self.plan2digit(s)
+            ret, base, free, new, bonus = self.plan2digit(s)
             base_arr.append(base)
             free_arr.append(free)
             new_arr.append(new)
             bonus_arr.append(bonus)
+            if ret != 0:
+                ref_bad = self.col_bad_bonus.find_one({ "ts_code": ts_code })
+                if ref_bad == None:
+                    new_dic = { 'ts_code': ts_code , 'bad_plan':True}
+                    self.col_bad_bonus.insert_one(new_dic)
+                    print('{} insert bad bonus, bad_plan'.format(ts_code))
+                else:
+                    newvalues = { "$set": {'bad_plan':True}}
+                    self.col_bad_bonus.update_one({ "ts_code": ts_code }, newvalues)
+                    print('{} update bad bonus, bad_plan'.format(ts_code))
 
             if d == d and d != None: # not nan
                 date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
@@ -184,6 +202,17 @@ class StockGet:
                     print('Warning: {} 5years no date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
                 else:
                     print('Warning: {} no bonus date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
+
+                ref_bad = self.col_bad_bonus.find_one({ "ts_code": ts_code })
+                if ref_bad == None:
+                    new_dic = { 'ts_code': ts_code , 'no_date':True}
+                    self.col_bad_bonus.insert_one(new_dic)
+                    print('{} insert bad bonus no_date'.format(ts_code))
+                else:
+                    newvalues = { "$set": {'no_date':True}}
+                    self.col_bad_bonus.update_one({ "ts_code": ts_code }, newvalues)
+                    print('{} update bad bonus no_date'.format(ts_code))
+
                 date_arr.append('')
 
         df = pd.DataFrame(data['items'])
@@ -279,7 +308,15 @@ class StockGet:
                 else:
                     df_new = df
                 aaa = df_new.to_dict('records')
-                data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
+                try:
+                    data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
+                except:
+                    print('ashare_ex_dividend_date == null')
+                    print(ts_code)
+                    pprint(resp)
+                    print(df)
+                    pprint(aaa)
+                    data = aaa
 
                 new_dic = {}
                 new_dic.update({'items':data})
@@ -288,9 +325,9 @@ class StockGet:
 
                 df_new_len = len(df_new.index)
                 if df_new_len > df_len or df_new_len > df_ref_len:
-                    print('{} update bonus new  resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
+                    print('{} update bonus_ori new  resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
                 else:
-                    print('{} update bonus keep resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
+                    print('{} update bonus_ori keep resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
             else:
                 aaa = df.to_dict('records')
                 data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
@@ -298,7 +335,7 @@ class StockGet:
                 new_dic = { "ts_code": ts_code }
                 new_dic.update({'items':data})
                 self.col_bonus_ori.insert_one(new_dic)
-                print('{} insert bonus resp({})'.format(ts_code, df_len))
+                print('{} insert bonus_ori resp({})'.format(ts_code, df_len))
 
         return err_day
 
@@ -311,6 +348,9 @@ class StockGet:
                 continue
 
             ref_ori = self.col_bonus_ori.find_one({ "ts_code": ts_code })
+            if ref_ori == None:
+                print('Warning: {} no bonus_ori'.format(ts_code))
+                continue
 
             df = self.bonus2df(ts_code, ref_ori)
             df_len = len(df.index)
@@ -323,12 +363,12 @@ class StockGet:
                 new_dic.update({'items':data})
                 newvalues = { "$set": new_dic}
                 self.col_bonus.update_one({ "ts_code": ts_code }, newvalues)
-                print('{} update bonus ({})'.format(ts_code, df_len))
+                #print('{} update bonus ({})'.format(ts_code, df_len))
             else:
                 new_dic = { "ts_code": ts_code }
                 new_dic.update({'items':data})
                 self.col_bonus.insert_one(new_dic)
-                print('{} insert bonus ({})'.format(ts_code, df_len))
+                #print('{} insert bonus ({})'.format(ts_code, df_len))
 
         return err_day
 
