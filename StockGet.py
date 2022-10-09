@@ -45,6 +45,7 @@ class StockGet:
         return
 
     def updateToken(self, valid_days):
+        print('Check token', datetime.strftime(datetime.now(), '%Y-%m-%d'))
         ref = self.col_token.find_one()
         if ref == None:
             t = SnowToken.get_snowtoken()
@@ -151,10 +152,15 @@ class StockGet:
         bonus_arr = []
         date_arr = []
         for x in data['items']:
-            y = x['dividend_year'] # 报告期
-            d = x['ashare_ex_dividend_date'] # 除权除息日
-            s = x['plan_explain'] # 分红方案
-            equity_date = x['equity_date'] # 股权登记日
+            try:
+                y = x['dividend_year'] # 报告期
+                d = x['ashare_ex_dividend_date'] # 除权除息日
+                s = x['plan_explain'] # 分红方案
+                equity_date = x['equity_date'] # 股权登记日
+            except:
+                print(ts_code)
+                pprint(x)
+                quit()
 
             pos = y.find('年')
             pos_dash = y.find('-')
@@ -199,9 +205,9 @@ class StockGet:
                     equity_str = 'NaN'
                     equity_year = 1900
                 if dividend_year >= (self.this_year-5) or equity_year >= (self.this_year-5):
-                    print('Warning: {} 5years no date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
+                    print('Warning: {} no date in 5ys {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
                 else:
-                    print('Warning: {} no bonus date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
+                    print('Warning: {} no date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
 
                 ref_bad = self.col_bad_bonus.find_one({ "ts_code": ts_code })
                 if ref_bad == None:
@@ -252,7 +258,7 @@ class StockGet:
                 continue
 
             if df.loc[i, 'name'] != ref['name'] or df.loc[i, 'symbol'] != ref['symbol'] or df.loc[i, 'industry'] != ref['industry'] or df.loc[i, 'list_status'] != ref['list_status'] or df.loc[i, 'list_date'] != ref['list_date'] or df.loc[i, 'delist_date'] != ref['delist_date']:
-                print('req_basic changed', df.loc[i, 'ts_code'])
+                print('req_basic changed', df.loc[i, 'ts_code'], end='')
                 df.loc[i, 'name'] != ref['name'] and print(df.loc[i, 'name'], ref['name'])
                 df.loc[i, 'symbol'] != ref['symbol'] and print(df.loc[i, 'symbol'], ref['symbol'])
                 df.loc[i, 'industry'] != ref['industry'] and print(df.loc[i, 'industry'], ref['industry'])
@@ -311,18 +317,19 @@ class StockGet:
                 try:
                     data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
                 except:
-                    print('ashare_ex_dividend_date == null')
+                    print('Error: ashare_ex_dividend_date == null')
                     print(ts_code)
                     pprint(resp)
                     print(df)
                     pprint(aaa)
-                    data = aaa
+                    data = sorted(aaa,key = lambda e:e.__getitem__('dividend_year'), reverse=True)
 
                 new_dic = {}
                 new_dic.update({'items':data})
                 newvalues = { "$set": new_dic}    
                 self.col_bonus_ori.update_one({ "ts_code": ts_code }, newvalues)
 
+                # df: from url's resp, df_ref: from db, df_new: concat df and df_ref
                 df_new_len = len(df_new.index)
                 if df_new_len > df_len or df_new_len > df_ref_len:
                     print('{} update bonus_ori new  resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
