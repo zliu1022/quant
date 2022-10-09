@@ -61,6 +61,8 @@ class StockDraw:
         #plt.savefig(title_str + '.png', dpi=150)
         return
 
+# obsolete
+# use GridSpec to draw subplot
 def draw_price_amount(df_day):
     from matplotlib.gridspec import GridSpec
 
@@ -72,9 +74,7 @@ def draw_price_amount(df_day):
     ax1.plot(df_day.high)
     ax1.plot(df_day.low)
     ax2.plot(df_day.amount, color = 'blue')
-    #ax2.hist(df_day.amount, facecolor = 'blue', edgecolor = 'orange') # 100,000,000
 
-    #ax = plt.gca()
     ax1.axes.xaxis.set_ticks([])
     ax2.axes.xaxis.set_ticks([])
     plt.show()
@@ -121,7 +121,7 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
 
     index_date = datetime.strptime(df_day.index[0], '%Y%m%d')
     arr_ticks.append(df_day.index[0])
-    first_month = index_date.month
+    first_month = index_date.month + 1
 
     for i in range(day_len):
         cur_date = datetime.strptime(df_day.index[i], '%Y%m%d')
@@ -134,8 +134,8 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
     #ax2.axes.xaxis.set_ticks([df_day.index[0], df_day.index[round(day_len/2)], df_day.index[day_len-1]])
 
     title_str = ts_code + ' ' + df_day.index[0] + '-' + df_day.index[day_len-1]
-    plt.savefig(title_str + '.png', dpi=150)
-    #plt.show()
+    #plt.savefig(title_str + '.png', dpi=150)
+    plt.show()
     return
 
 # Recover Price Backward, first date price is baseline
@@ -339,8 +339,8 @@ if __name__ == '__main__':
     sq = StockQuery()
     sd = StockDraw()
 
-    ts_code = '002460.SZ'
-    ts_code = '601012.SH'
+    #ts_code = '002460.SZ'
+    #ts_code = '601012.SH'
     #ts_code = '600153.SH'
     #ts_code = '002475.SZ'
     ts_code = '688223.SH'
@@ -355,13 +355,13 @@ if __name__ == '__main__':
     df = df_day.drop(columns=['open', 'close'])
 
     df_forw = recover_price_forward(df, df_bonus)
-    #df_back = recover_price_backward(df, df_bonus)
-    #draw_price_amount(df_forw)
+    #df_back = recover_price_backward(df, df_bonus) # example, normally will not use backward
+    #draw_price_amount(df_forw) # obselete
 
-    #chg_perc = 0.1
-    #df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
-    #draw_price_amount_withchg(ts_code, df_forw, df_chg)
-
+    chg_perc = 0.1
+    df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+    draw_price_amount_withchg(ts_code, df_forw, df_chg)
+    quit()
 
     '''
     df_back = df_back.rename(columns={'high': 'high_back', 'low': 'low_back'})
