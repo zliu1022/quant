@@ -237,7 +237,7 @@ class StockGet:
     def req_basic(self):
         start_t = time.time()
 
-        ts.set_token('0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674')
+        ts.set_token(basic_token)
         self.pro = ts.pro_api()
         df = self.pro.stock_basic(exchange='',fields='ts_code,symbol,name,industry,list_date,list_status,delist_date')
 
@@ -285,7 +285,7 @@ class StockGet:
 
             ts_code_arr = ts_code.split(".", 1)
             ts_code_symbol=ts_code_arr[1]+ts_code_arr[0]
-            url = "https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=" +ts_code_symbol
+            url = bonus_url +ts_code_symbol
             ret, resp = self.req_url_retry(url, 3)
             if ret != 0:
                 err_day.append(stock_info)
@@ -320,7 +320,7 @@ class StockGet:
                     print('Error: ashare_ex_dividend_date == null')
                     print(ts_code)
                     pprint(resp)
-                    print(df)
+                    print(df_new)
                     pprint(aaa)
                     data = sorted(aaa,key = lambda e:e.__getitem__('dividend_year'), reverse=True)
 
@@ -409,9 +409,9 @@ class StockGet:
                 else:
                     print('{} {}-{} in db, try to get {:3d} days'.format(ts_code, early_date, last_date, new_req_days))
 
-                url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count="+str(new_req_days)+"&symbol="+ts_code_symbol+"&begin="+last_dateTimp
+                url = day_url + str(new_req_days) + "&symbol=" + ts_code_symbol + "&begin=" + last_dateTimp
             else:
-                url="https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count="+str(req_days)+"&symbol="+ts_code_symbol+"&begin="+self.dateTimp
+                url = day_url + str(req_days) + "&symbol=" + ts_code_symbol + "&begin=" + self.dateTimp
             print(url)
 
             ret, resp = self.req_url_retry(url, 3)
