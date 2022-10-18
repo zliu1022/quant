@@ -197,6 +197,8 @@ class StockGet:
             if d == d and d != None: # not nan
                 date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
                 date_arr.append(date_str)
+            elif dividend_year == self.this_year: # has dividend plan no ex_date in this year
+                date_arr.append('')
             else: # ashare_ex_dividend_date == NaN
                 if equity_date == equity_date and equity_date != None: # not nan
                     equity_str = datetime.strftime(datetime.fromtimestamp(equity_date/1000), '%Y%m%d')
@@ -254,6 +256,7 @@ class StockGet:
             ref = self.col_basic.find_one({'ts_code':df.loc[i, 'ts_code']})
             if ref == None:
                 print('req_basic insert new', df.loc[i, 'ts_code'])
+                print()
                 self.col_basic.insert_one(df.loc[i].to_dict())
                 continue
 
@@ -309,6 +312,23 @@ class StockGet:
                 df_ref = pd.DataFrame(ref['items'])
                 df_ref_len = len(df_ref.index)
 
+                # find ashare_ex_dividend_date == null in db
+                # find same dividend_year in resp
+                # if resp's ashare_ex_dividend_date != null, remove db item
+                index_none = []
+                for i in range(df_ref_len):
+                    d = df_ref.loc[i, 'ashare_ex_dividend_date']
+                    dividend_year = df_ref.loc[i, 'dividend_year']
+                    if d == d and d != None: # not nan
+                        continue
+                    for j in range(df_len):
+                        new_d = df.loc[j, 'ashare_ex_dividend_date']
+                        if df.loc[j, 'dividend_year'] == dividend_year:
+                            if new_d == new_d and new_d != None: # not nan
+                                print(ts_code, dividend_year, 'null ex_date update', new_d)
+                                index_none.append(i)
+                df_ref = df_ref.drop(index_none)
+
                 if df_ref_len !=0 or df_len != 0:
                     df_new = pd.concat([df, df_ref]).sort_values(by='ashare_ex_dividend_date', ascending=False).drop_duplicates().reset_index(drop=True)
                 else:
@@ -318,11 +338,15 @@ class StockGet:
                     data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
                 except:
                     print('Error: ashare_ex_dividend_date == null')
+                    print()
                     print(ts_code)
                     pprint(resp)
                     print(df_new)
                     pprint(aaa)
                     data = sorted(aaa,key = lambda e:e.__getitem__('dividend_year'), reverse=True)
+                    print()
+                    pprint(data)
+                    continue
 
                 new_dic = {}
                 new_dic.update({'items':data})
