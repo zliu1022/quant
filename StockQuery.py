@@ -17,6 +17,7 @@ class StockQuery:
         self.col_basic = db.basic
         self.col_bonus = db.bonus
         self.col_day = db.day
+        self.col_bad_bonus = db.bad_bonus
 
         self.stock_list = []
         self.day = []
@@ -263,8 +264,16 @@ class StockQuery:
         print('finished')
         return
 
+    def check_bad_bonus(self, ts_code):
+        v = {'ts_code': ts_code}
+        ref = self.col_bad_bonus.find_one(v)
+        if ref == None:
+            return 0
+        return 1
+
 def check_day(db, ts_code, start_date, end_date):
     return
+
 
 if __name__ == '__main__':
     sq = StockQuery()
