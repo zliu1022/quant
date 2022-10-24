@@ -43,11 +43,14 @@ class StockDraw:
 
     def draw_df(self, ts_code, df_day):
         df = df_day
+        print('draw_df')
+        print(df.columns)
         #df = df_day.drop(columns=['open', 'close', 'chg', 'percent', 'turnoverrate', 'volume', 'amount'])
-        #df = df.sort_values(by='date')
+        df = df.sort_values(by='date')
+
         day_len = len(df.index)
 
-        plt.figure()
+        #plt.figure()
         df.plot()
 
         title_str = ts_code + ' ' + df.index[0] + '-' + df.index[day_len-1]
@@ -134,8 +137,9 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
     #ax2.axes.xaxis.set_ticks([df_day.index[0], df_day.index[round(day_len/2)], df_day.index[day_len-1]])
 
     title_str = ts_code + ' ' + df_day.index[0] + '-' + df_day.index[day_len-1]
-    #plt.savefig(title_str + '.png', dpi=150)
-    plt.show()
+    plt.savefig(title_str + '.png', dpi=150)
+    #plt.show()
+    plt.close()
     return
 
 # Recover Price Backward, first date price is baseline
@@ -143,6 +147,7 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
 # return: df_back
 def recover_price_backward(df_in, df_bonus):
     df = df_in.copy()
+    day_len = len(df.index)
     first_date = df.index[0]
     for i in range(day_len):
         #print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
@@ -333,20 +338,40 @@ def stat_chg(df, start_date, chg_perc):
     '''
     return df, total_num, max_dec_perc, max_dec_days
 
+def draw_stat_chg(df_stat):
+    print(df_stat)
+    fig = plt.figure()
+    ax1 = fig.add_axes([0.05, 0.05,  0.4, 0.4]) # left-bottom
+    ax2 = fig.add_axes([0.05, 0.55,  0.4, 0.4]) # left-top
+    ax3 = fig.add_axes([0.55, 0.55,  0.4, 0.4]) # right-top
+    ax4 = fig.add_axes([0.55, 0.05,  0.4, 0.4]) # right-bottom
+
+    ax1.hist(df_stat.avg_amount, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax1.set_title('avg_amount')
+
+    ax2.hist(df_stat.profit_result, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax2.set_title('profit_result')
+
+    ax3.hist(df_stat.inc_num, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax3.set_title('inc_num')
+
+    ax4.hist(df_stat.max_dec_perc, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax4.set_title('max_dec_perc')
+
+    plt.show()
+    title_str = 'stat-5%'
+    plt.savefig(title_str + '.png', dpi=150)
+
+
 if __name__ == '__main__':
     s_time = time()
 
     sq = StockQuery()
     sd = StockDraw()
 
-    #ts_code = '002460.SZ'
-    #ts_code = '601012.SH'
-    #ts_code = '600153.SH'
-    #ts_code = '002475.SZ'
+    '''
+    # one example to show recover_price, stat_chg, draw
     ts_code = '688223.SH'
-
-    #start_date = '20220101'
-    #end_date   = '20220922'
     start_date = '20220101'
     end_date   = '20221231'
 
@@ -355,62 +380,121 @@ if __name__ == '__main__':
     df = df_day.drop(columns=['open', 'close'])
 
     df_forw = recover_price_forward(df, df_bonus)
-    #df_back = recover_price_backward(df, df_bonus) # example, normally will not use backward
-    #draw_price_amount(df_forw) # obselete
 
     chg_perc = 0.1
     df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+    print('{} {} -{:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
+    print(df_chg)
     draw_price_amount_withchg(ts_code, df_forw, df_chg)
-    quit()
 
-    '''
+    df_back = recover_price_backward(df, df_bonus) # example, normally will not use backward
+
     df_back = df_back.rename(columns={'high': 'high_back', 'low': 'low_back'})
     df_forw = df_forw.rename(columns={'high': 'high_forw', 'low': 'low_forw'})
     df_tmp = df.merge(df_back, left_on='date', right_on='date')
     df_tmp = df_tmp.merge(df_forw, left_on='date', right_on='date')
+    df_tmp = df_tmp.drop(columns=['amount', 'amount_x', 'amount_y'])
     sd.draw_df(ts_code+'-merge', df_tmp)
+
+    quit()
     '''
 
+    start_date = '20220101'
+    end_date   = '20221231'
     amount     = 1 * 10000 * 10000
+    chg_perc   = 0.05
+    df_stat    = pd.DataFrame()
+
     ref = sq.stat_day_amount(start_date, end_date, amount)
+    #ref = [{'_id':{'ts_code':'601238.SH'}, 'avg_amount':200000000, 'num':60}]
     print('Found {:4d} >= {}'.format(len(ref), amount))
 
+    profit_num = 0
+    loss_num   = 0
     for item in ref:
         ts_code = item['_id']['ts_code']
         avg_amount = item['avg_amount']
         num = item['num']
-        if num > 30:
-            print('%s %3d %.1f' % (ts_code, num, avg_amount))
 
-            df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
-            df_bonus = sq.query_bonus_code_df(ts_code)
-            df_forw = recover_price_forward(df_day, df_bonus)
+        ret = sq.check_bad_bonus(ts_code)
+        if ret != 0:
+            continue
 
-            chg_perc = 0.05
-            df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+        #if num<30: continue
+        print('%s %3d %.1f' % (ts_code, num, avg_amount))
 
-            print('{} - {}'.format(start_date, end_date))
-            print(df_chg)
-            
-            if max_dec_perc<=16 and total_num>=10:
-                print('summary-good {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
-                #draw_price_amount(df_day)
-                #sd.draw_df(ts_code+'-forw', df_forw)
-                draw_price_amount_withchg(ts_code, df_forw, df_chg)
-            else:
-                print('summary-bad  {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
+        df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
+        df_bonus = sq.query_bonus_code_df(ts_code)
+        df_forw = recover_price_forward(df_day, df_bonus)
+
+        df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+
+        chg = chg_perc * 100
+        d_chg= chg*2
+        dec_range    = [0,       5,   10,    20,    30,     40,     50,     60, 100]
+        profit_range = [      2.31, 0.61, -4.16, -8.63, -13.01, -17.69, -23.39, -30]
+        df_dec_cnt = df_chg.groupby(pd.cut(df_chg.dec_perc, dec_range)).dec_perc.count()
+
+        #total_num  = df_chg[df.inc_perc>chg]   # 上涨超过 chg 的次数
+        #loss_num   = df_chg[df.dec_perc>d_chg] # 下跌增持算法，下跌幅度超过上涨幅度加倍时亏损
+        #flat_num   = df_chg[(df.dec_perc<=d_chg) & (df.dec_perc>chg)] # 下跌增持算法，把风险控制在下跌幅度是上涨幅度加倍时盈利为持平
+        #profit_num = df_chg[df.dec_perc<chg]   # 盈利
+
+        profit_result = df_dec_cnt.dot(profit_range)
+        if profit_result >= 0:
+            profit_num += 1
+        else:
+            loss_num   += 1
+        df_item = pd.DataFrame([{
+                'ts_code':     ts_code,
+                'avg_amount':  avg_amount/100000000,
+                'amount_days': num,
+                'inc_num':     total_num,
+                'max_dec_perc':max_dec_perc,
+                'max_dec_days':max_dec_days,
+                'profit_result':profit_result
+            }])
+        df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
+        
+        print('{} - {}'.format(start_date, end_date))
+        print(df_chg)
+        print(df_dec_cnt)
+        print(profit_result)
+        
+        '''
+        if max_dec_perc<=20 and total_num>=5:
+            print('summary-good {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
+            #sd.draw_df(ts_code+'-forw', df_forw)
+
+            #draw_price_amount_withchg(ts_code, df_forw, df_chg)
+        else:
+            print('summary-bad  {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
+        '''
+        print('summary- {} {:3d} {:4.1f} {:3d} {:.1f} {:3d} {:4.1f} {:3d} {:3d} {:3d} {:3d}'.format(
+            ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days, 
+            profit_result, 
+            df_dec_cnt.loc[df_dec_cnt.index[0]],
+            df_dec_cnt.loc[df_dec_cnt.index[1]],
+            df_dec_cnt.loc[df_dec_cnt.index[2]],
+            df_dec_cnt.loc[df_dec_cnt.index[3]]
+            ))
+        print()
+        '''
+        start_d = datetime.strptime(start_date, '%Y%m%d')
+        end_d = datetime.strptime(end_date, '%Y%m%d')
+        for i in range(end_d.month - start_d.month):
+            new_d = start_d + relativedelta(months=i)
+            new_date = datetime.strftime(new_d, '%Y%m%d')
+            print('{} - {}'.format(new_date, end_date))
+            df_chg = stat_chg(df_forw, new_date, chg_perc)
             print()
-            '''
-            start_d = datetime.strptime(start_date, '%Y%m%d')
-            end_d = datetime.strptime(end_date, '%Y%m%d')
-            for i in range(end_d.month - start_d.month):
-                new_d = start_d + relativedelta(months=i)
-                new_date = datetime.strftime(new_d, '%Y%m%d')
-                print('{} - {}'.format(new_date, end_date))
-                df_chg = stat_chg(df_forw, new_date, chg_perc)
-                print()
-            '''
+        '''
+
+        #if len(df_stat.index)>=100: break
 
     e_time = time()
+    print('profit', profit_num, 'loss', loss_num)
     print('StockDraw cost %.2f s' % (e_time - s_time))
+
+    draw_stat_chg(df_stat)
 
