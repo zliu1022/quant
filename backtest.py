@@ -11,8 +11,13 @@ import matplotlib.pyplot as plt
 import random
 from time import time
 
+from datetime import datetime
+from datetime import timedelta
+
+from StockQuery import StockQuery
+
 class BackTest:
-    def __init__(self):
+    def init(self):
         client = MongoClient(port=27017)
         db = client.stk1
         self.col_bonus = db.bonus
@@ -42,6 +47,12 @@ class BackTest:
         self.total_qty = 0
         self.mkt_cost = 0.0 # total_qty * close_price
         self.max_cost = 0.0
+
+        self.df_hold = pd.DataFrame()
+
+    def __init__(self, ts_code):
+        self.init()
+        self.set_code(ts_code)
 
     def clear_hold(self):
         self.hold = []
@@ -88,51 +99,66 @@ class BackTest:
 
         print()
 
+    # random for:
+    # idle, buy, sell is random and mutually exclusive
+    # buy qty is random between 10,20,30,40,50
+    # buy price is random between low and high
+    # sell price is random between low and high
+    # sell qty is latest buy
     def strategy_random(self, day):
         choice = random.randint(0, 2)
         if choice == 0:
             print('do nothing          ', end='')
         elif choice == 1:
+            # buy strategy
             qty = random.randint(1, 5) * 10
             cost = round(random.uniform(day['low'], day['high']),2)
             self.push({'cost':cost, 'qty':qty})
-            print('buy  %3d with %.2f ' % (qty, cost), end=' ')
+            print('buy  {:3d} with {:.2f}'.format(qty, cost), end=' ')
         else:
+            # sell strategy
             cost = round(random.uniform(day['low'], day['high']),2)
             last = self.pop(cost)
             if last != None:
                 qty = last['qty']
-                print('sell %3d with %.2f' % (qty, cost), end=' ')
+                print('sell {:3d} with {:.2f}'.format(qty, cost), end=' ')
             else:
-                print('nothing to sell  ', end='')
+              print('nothing to sell     ', end='')
 
-    def bonus_update(self, x):
-        bonus = self.get_bonus(x['date'])
-        if bonus != None:
-            pos = bonus['plan_explain'].find('(')
-            if pos != -1:
-                bonus_str = bonus['plan_explain'][0:pos]
-            else:
-                bonus_str = bonus['plan_explain']
-            print(bonus_str, end=' ')
+    def bonus_update_hold(self, bonus_date):
+        bonus = self.get_bonus(bonus_date)
+        if bonus == None:
+            return
 
-            # update hold
-            base = float(bonus['base'])
-            free = float(bonus['free'])
-            new  = float(bonus['new'])
-            bonus = float(bonus['bonus'])
-            self.cash += self.total_qty / base * bonus
-            self.total_qty += self.total_qty / base * (free + new)
+        base = float(bonus['base'])
+        free = float(bonus['free'])
+        new  = float(bonus['new'])
+        dividend = float(bonus['bonus'])
 
-            # update expect buy&sell
+        pos = bonus['plan_explain'].find('(')
+        if pos != -1:
+            bonus_str = bonus['plan_explain'][0:pos]
+        else:
+            bonus_str = bonus['plan_explain']
+
+        print('{} {} cash {:8.2f} total_qty {:8.2f} -> '.format(bonus_date, bonus_str, self.cash, self.total_qty), end='')
+        self.cash      += self.total_qty / base * dividend
+        self.total_qty += self.total_qty / base * (free + new)
+        print('cash {:8.2f} total_qty {:8.2f}'.format(self.cash, self.total_qty))
+        return
 
     def run(self, start_date, end_date):
+        s_time = time()
+
+        # start_date as random
+        #random_day = int(random.uniform(0,7))
+        #start_date = datetime.strftime(datetime.strptime(start_date, '%Y%m%d')+timedelta(days=random_day), '%Y%m%d')
+
         for x in self.day:
             if x['date'] <= end_date and x['date'] >= start_date:
+                self.bonus_update_hold(x['date'])
+
                 print('%s %.2f %.2f' % (x['date'], x['low'], x['high']), end=' ')
-
-                self.bonus_update(x)
-
                 # strategy
                 # input:  date,low,high,bonus
                 # update: hold[], cash, total_cost, total_qty
@@ -140,6 +166,9 @@ class BackTest:
                 self.strategy_random(x)
                 self.mkt_cost = self.total_qty * x['close']
                 self.show()
+
+        e_time = time()
+        print('cost %.2f s' % (e_time - s_time))
 
     def get_bonus(self, date):
         for x in self.bonus:
@@ -153,19 +182,36 @@ class BackTest:
 
     def push(self, cost_qty):
         self.hold.append(cost_qty)
-        self.cash -= round(cost_qty['cost'] * cost_qty['qty'], 2)
-        self.total_qty += cost_qty['qty']
+        self.cash       -= round(cost_qty['cost'] * cost_qty['qty'], 2)
+        self.total_qty  += cost_qty['qty']
         self.total_cost += round(cost_qty['cost'] * cost_qty['qty'], 2)
         if self.total_cost > self.max_cost:
             self.max_cost = self.total_cost
 
     def pop(self, cost):
         if len(self.hold) == 0:
-            #print('Error pop no hold')
             return None
         ori = self.hold.pop()
-        self.cash += cost * ori['qty']
-        self.total_qty -= ori['qty']
+        self.cash       += cost * ori['qty']
+        self.total_qty  -= ori['qty']
+        self.total_cost -= round(ori['cost'] * ori['qty'], 2)
+        return ori
+
+    def push_df(self, cost_qty):
+        df_buy = pd.DataFrame([cost_qty])
+        self.df_hold = pd.concat(self.df_hold, df_buy).reset_index(drop=True)
+        self.cash       -= round(cost_qty['cost'] * cost_qty['qty'], 2)
+        self.total_qty  += cost_qty['qty']
+        self.total_cost += round(cost_qty['cost'] * cost_qty['qty'], 2)
+        if self.total_cost > self.max_cost:
+            self.max_cost = self.total_cost
+
+    def pop_df(self):
+        if len(self.df_hold.index) == 0:
+            return None
+        self.df_hold = self.df_hold.drop([0]).reset_index(drop=True)
+        self.cash       += cost * ori['qty']
+        self.total_qty  -= ori['qty']
         self.total_cost -= round(ori['cost'] * ori['qty'], 2)
         return ori
 
@@ -192,10 +238,12 @@ class BackTest:
             self.total_qty -= cost_qty['qty']
 
     def show(self):
-        print('cash %.2f total_qty %3d total_cost %.2f(%.2f) mkt_cost %.2f benefit %.2f' 
-            % (self.cash, self.total_qty, 
+        print('cash {:8.2f} total_qty {:7.2f} total_cost {:7.2f}({:7.2f}) mkt_cost {:7.2f} benefit {:7.2f}'.format(
+            self.cash, self.total_qty, 
             self.total_cost, self.max_cost, self.mkt_cost, 
             self.cash + self.mkt_cost - self.ori_cash ))
+        pprint(self.hold)
+        print()
 
     def test(self, start_date, end_date):
         for x in ref['items']:
@@ -206,11 +254,26 @@ class BackTest:
                 print(x['date'], x['open'], x['close'])
 
 if __name__ == '__main__':
-    ts_code = '002475.SZ'
+    import sys
 
-    s_time = time()
-    bt = BackTest()
-    bt.set_code(ts_code)
-    e_time = time()
-    print('BackTest cost %.2f s' % (e_time - s_time))
+    if len(sys.argv) == 1:
+        ts_code    = '002475.SZ'
+        start_date = '20220601'
+        end_date   = '20220801'
+    elif len(sys.argv) == 4:
+        ts_code    = sys.argv[1]
+        start_date = sys.argv[2]
+        end_date   = sys.argv[3]
+    else:
+        print('./BackTest.py 002475.SZ 20220101 20220115')
+        quit()
+
+    sq = StockQuery()
+    ret = sq.check_bad_bonus(ts_code)
+    if ret != 0:
+        print('bad_bonus')
+        quit()
+
+    bt = BackTest(ts_code)
+    bt.run(start_date, end_date)
 
