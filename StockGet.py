@@ -164,10 +164,20 @@ class StockGet:
 
             pos = y.find('年')
             pos_dash = y.find('-')
+            pos_mr = y.find('中报') # middle report
+            pos_qr = y.find('季报') # quarter report
             if pos != -1:
-                year_arr.append(y[0:pos])
-                dividend_year_str = y
-                dividend_year = 1900
+                dividend_year_str = y[0:pos]
+                year_arr.append(dividend_year_str)
+                dividend_year = int(dividend_year_str)
+            elif pos_mr != -1:
+                dividend_year_str = y[0:pos_mr]
+                year_arr.append(dividend_year_str)
+                dividend_year = int(dividend_year_str)
+            elif pos_qr != -1:
+                dividend_year_str = y[0:pos_qr-1]
+                year_arr.append(dividend_year_str)
+                dividend_year = int(dividend_year_str)
             elif pos_dash != -1:
                 dividend_year_dt= datetime.strptime(y,'%Y-%m-%d')
                 dividend_year_str = datetime.strftime(dividend_year_dt, '%Y%m%d')
