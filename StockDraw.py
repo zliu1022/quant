@@ -9,6 +9,8 @@ import numpy as np
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
+from Utils import create_buy_table
+
 class StockDraw:
     def __init__(self):
         return
@@ -407,11 +409,12 @@ if __name__ == '__main__':
     chg_perc   = 0.1
     df_stat    = pd.DataFrame()
 
-    ref = sq.stat_day_amount(start_date, end_date, amount)
+    #ref = sq.stat_day_amount(start_date, end_date, amount)
     #ref = [{'_id':{'ts_code':'601238.SH'}, 'avg_amount':200000000, 'num':60}]
+    ref = [{'_id':{'ts_code':'002475.SZ'}, 'avg_amount':200000000, 'num':60}]
     print('Found {:4d} >= {}'.format(len(ref), amount))
 
-    profit_num = 0
+    win_num = 0
     loss_num   = 0
     for item in ref:
         ts_code = item['_id']['ts_code']
@@ -430,27 +433,45 @@ if __name__ == '__main__':
         df_forw = recover_price_forward(df_day, df_bonus)
 
         df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+        print('{} - {}'.format(start_date, end_date))
+        print(df_chg)
 
-        chg = chg_perc * 100
-        dec_range    = [0,       5,   10,    20,    30,     40,     50,     60, 100]
-        #profit_range = [      2.31, 0.61, -4.16, -8.63, -13.01, -17.69, -23.39, -30] # 0.05
-        #profit_range = [      4.75, 3.00, -1.88, -6.45, -10.94, -15.73, -21.56, -30] # 0.075
-        profit_range = [      7.18, 5.40,  0.40, -4.28,  -8.87, -13.77, -19.74, -30] # 0.1
-        df_dec_cnt = df_chg.groupby(pd.cut(df_chg.dec_perc, dec_range)).dec_perc.count()
+        import math
+        len_chg = len(df_chg.index)
+        profit_result = 0
 
-        #d_chg= chg*2
-        #total_num  = df_chg[df.inc_perc>chg]   # 上涨超过 chg 的次数
-        #loss_num   = df_chg[df.dec_perc>d_chg] # 下跌增持算法，下跌幅度超过上涨幅度加倍时亏损
-        #flat_num   = df_chg[(df.dec_perc<=d_chg) & (df.dec_perc>chg)] # 下跌增持算法，把风险控制在下跌幅度是上涨幅度加倍时盈利为持平
-        #profit_num = df_chg[df.dec_perc<chg]   # 盈利
+        interval = 0.05
+        str_ivl = str(interval)
+        len_after_dot = len(str_ivl) - str_ivl.find('.') -1
+        m_10 = 10 ** len_after_dot
 
-        inc_total = df_chg[df_chg['inc_perc']>10].inc_perc.sum()
-        dec_total = df_chg[df_chg['inc_perc']>10].dec_perc.sum()
-        final_total = inc_total - dec_total
+        # fix buy table, each inc_perc is fixed
+        inc_perc = 0.15
+        df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
+        print(df_buy_table)
+        for i in range(len_chg):
+            item_chg = df_chg.loc[df_chg.index[i]]
+            d = item_chg.inc_perc
+            if not (d == d and d != None): # nan
+                continue
 
-        profit_result = df_dec_cnt.dot(profit_range)
+            inc_perc = math.floor(item_chg.inc_perc)/100           # smaller than inc_perc
+            dec_perc = math.floor(math.ceil(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  # bigger  than dec_perc
+            
+            # dynamic buy table, each inc_perc is dynamic
+            #df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
+
+            df_buy_item = df_buy_table[round(df_buy_table['dec_perc'],2)==dec_perc]
+            profit = df_buy_item.profit
+            '''
+            print(df_buy_table[:10])
+            print('inc_perc {:.2f} dec_perc {:.2f}'.format(inc_perc, dec_perc))
+            '''
+            print(df_buy_item)
+            profit_result += float(profit)
+
         if profit_result >= 0:
-            profit_num += 1
+            win_num += 1
         else:
             loss_num   += 1
         df_item = pd.DataFrame([{
@@ -464,10 +485,6 @@ if __name__ == '__main__':
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
         
-        print('{} - {}'.format(start_date, end_date))
-        print(df_chg)
-        print('{:.1f}'.format(final_total))
-        
         '''
         if max_dec_perc<=20 and total_num>=5:
             print('summary-good {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
@@ -479,8 +496,7 @@ if __name__ == '__main__':
         '''
         print('summary- {} {:3d} {:4.1f} {:3d} {:.1f} {:3d} {:4.1f}'.format(
             ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days, 
-            final_total
-            #profit_result, 
+            profit_result
             #df_dec_cnt.loc[df_dec_cnt.index[0]]
             ))
         print()
@@ -500,7 +516,7 @@ if __name__ == '__main__':
         #if len(df_stat.index)>=100: break
 
     e_time = time()
-    print('profit', profit_num, 'loss', loss_num)
+    print('win', win_num, 'loss', loss_num)
     print('StockDraw cost %.2f s' % (e_time - s_time))
 
     title_str = 'stat-{:.1f}%'.format(chg_perc*100)
