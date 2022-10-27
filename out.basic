@@ -1,52 +1,52 @@
-Check token 2022-10-24
-update token dd874a8d08edaeb9cdc493d9239c447738426b96 cost  1.26s
+Check token 2022-10-27
+update token dd874a8d08edaeb9cdc493d9239c447738426b96 cost  2.38s
 token expired, update dd874a8d08edaeb9cdc493d9239c447738426b96
-req_basic changed 000831.SZ中国稀土 五矿稀土
+req_basic changed 000717.SZ中南股份 韶钢松山
 
-req_basic insert new 001300.SZ
+req_basic insert new 001322.SZ
 
-req_basic changed 300146.SZ食品 医疗保健
+req_basic changed 002172.SZ医疗保健 化纤
 
-req_basic changed 301176.SZ逸豪新材 C逸豪
+req_basic changed 300398.SZ化工原料 染料涂料
 
-req_basic changed 301285.SZ鸿日达 C鸿日达
+req_basic insert new 301223.SZ
 
-req_basic insert new 301299.SZ
+req_basic insert new 301273.SZ
 
-req_basic changed 301313.SZ凡拓数创 C凡拓
+req_basic changed 301316.SZ慧博云通 C慧博
 
-req_basic insert new 301316.SZ
+req_basic changed 301363.SZ美好医疗 C美好
 
-req_basic changed 301319.SZ唯特偶 C唯特偶
+req_basic insert new 301380.SZ
 
-req_basic changed 301363.SZC美好 美好医疗
+req_basic insert new 430139.BJ
 
-req_basic insert new 430476.BJ
+req_basic changed 600488.SH津药药业 天药股份
 
-req_basic changed 600515.SH海航基础 ST基础
+req_basic changed 600515.SH海南机场 海航基础
 
-req_basic changed 603052.SH可川科技 N可川
+req_basic changed 603026.SH胜华新材 石大胜华
 
-req_basic insert new 603151.SH
+req_basic changed 688031.SH星环科技-U N星环-U
 
-req_basic insert new 603163.SH
+req_basic changed 688061.SH灿瑞科技 N灿瑞
 
-req_basic insert new 688031.SH
+req_basic insert new 688152.SH
 
-req_basic insert new 688061.SH
+req_basic insert new 688291.SH
 
-req_basic changed 688073.SH毕得医药 N毕得
+req_basic insert new 688372.SH
 
-req_basic changed 688137.SH近岸蛋白 C近岸
+req_basic changed 688409.SH半导体 机械基件
 
-req_basic insert new 688244.SH
+req_basic insert new 688426.SH
 
-req_basic changed 688275.SH万润新能 C万润
+req_basic changed 688459.SH哈铁科技 C哈铁
 
-req_basic changed 688409.SH富创精密 C富创
+req_basic changed 835892.BJ中科美菱 N中美菱
 
-req_basic changed 688459.SHC哈铁 哈铁科技
+req_basic insert new 871753.BJ
 
-req_basic insert new 835892.BJ
+req_basic insert new 873527.BJ
 
-req_basic cost 12.38s
+req_basic cost 10.89s
