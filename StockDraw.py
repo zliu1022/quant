@@ -360,8 +360,8 @@ def draw_stat_chg(df_stat, title_str):
     ax3.hist(df_stat.inc_num, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
     ax3.set_title('inc_num')
 
-    ax4.hist(df_stat.max_dec_perc, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
-    ax4.set_title('max_dec_perc')
+    ax4.hist(df_stat.max_cost, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax4.set_title('max_cost')
 
     plt.savefig(title_str + '.png', dpi=150)
     plt.show()
@@ -406,12 +406,21 @@ if __name__ == '__main__':
     start_date = '20220101'
     end_date   = '20221231'
     amount     = 1 * 10000 * 10000
-    chg_perc   = 0.1
+    chg_perc   = 0.25
     df_stat    = pd.DataFrame()
 
-    #ref = sq.stat_day_amount(start_date, end_date, amount)
+    interval = 0.05
+    str_ivl = str(interval)
+    len_after_dot = len(str_ivl) - str_ivl.find('.') -1
+    m_10 = 10 ** len_after_dot
+    # fix buy table, each inc_perc is fixed
+    inc_perc = chg_perc
+    df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
+    print(df_buy_table)
+
+    ref = sq.stat_day_amount(start_date, end_date, amount)
     #ref = [{'_id':{'ts_code':'601238.SH'}, 'avg_amount':200000000, 'num':60}]
-    ref = [{'_id':{'ts_code':'002475.SZ'}, 'avg_amount':200000000, 'num':60}]
+    #ref = [{'_id':{'ts_code':'002475.SZ'}, 'avg_amount':200000000, 'num':60}]
     print('Found {:4d} >= {}'.format(len(ref), amount))
 
     win_num = 0
@@ -439,16 +448,9 @@ if __name__ == '__main__':
         import math
         len_chg = len(df_chg.index)
         profit_result = 0
+        max_cost = 0
 
-        interval = 0.05
-        str_ivl = str(interval)
-        len_after_dot = len(str_ivl) - str_ivl.find('.') -1
-        m_10 = 10 ** len_after_dot
 
-        # fix buy table, each inc_perc is fixed
-        inc_perc = 0.15
-        df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
-        print(df_buy_table)
         for i in range(len_chg):
             item_chg = df_chg.loc[df_chg.index[i]]
             d = item_chg.inc_perc
@@ -463,6 +465,7 @@ if __name__ == '__main__':
 
             df_buy_item = df_buy_table[round(df_buy_table['dec_perc'],2)==dec_perc]
             profit = df_buy_item.profit
+            if float(df_buy_item.acum_cost) > max_cost: max_cost = float(df_buy_item.acum_cost)
             '''
             print(df_buy_table[:10])
             print('inc_perc {:.2f} dec_perc {:.2f}'.format(inc_perc, dec_perc))
@@ -479,8 +482,9 @@ if __name__ == '__main__':
                 'avg_amount':  avg_amount/100000000,
                 'amount_days': num,
                 'inc_num':     total_num,
-                'max_dec_perc':max_dec_perc,
-                'max_dec_days':max_dec_days,
+                #'max_dec_perc':max_dec_perc,
+                #'max_dec_days':max_dec_days,
+                'max_cost':    max_cost,
                 'profit_result':profit_result
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
@@ -494,9 +498,9 @@ if __name__ == '__main__':
         else:
             print('summary-bad  {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
         '''
-        print('summary- {} {:3d} {:4.1f} {:3d} {:.1f} {:3d} {:4.1f}'.format(
+        print('summary- {} {:3d} {:4.1f} {:3d} {:.1f} {:3d} {:4.1f} {:7.1f}'.format(
             ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days, 
-            profit_result
+            profit_result, max_cost
             #df_dec_cnt.loc[df_dec_cnt.index[0]]
             ))
         print()
