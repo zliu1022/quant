@@ -222,6 +222,7 @@ def recover_price_forward(df_in, df_bonus):
     #sd.draw_df(ts_code+'-forw', df_forw)
     return df
 
+# 统计上涨 chg_perc 幅度下，次数、最大下跌幅度、最大下跌天数
 # stat change percentage
 # input: df(forward recover ex-dividend), start_date, chage percentage
 # output: 
@@ -351,8 +352,8 @@ def draw_stat_chg(df_stat, title_str):
     ax3 = fig.add_axes([0.55, 0.55,  0.4, 0.4]) # right-top
     ax4 = fig.add_axes([0.55, 0.05,  0.4, 0.4]) # right-bottom
 
-    ax1.hist(df_stat.avg_amount, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
-    ax1.set_title('avg_amount')
+    ax1.hist(df_stat.max_dec_perc, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax1.set_title('max_dec_perc')
 
     ax2.hist(df_stat.profit_result, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
     ax2.set_title('profit_result')
@@ -366,61 +367,31 @@ def draw_stat_chg(df_stat, title_str):
     plt.savefig(title_str + '.png', dpi=150)
     plt.show()
 
-
-if __name__ == '__main__':
+def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
     s_time = time()
-
     sq = StockQuery()
     sd = StockDraw()
 
-    '''
-    # one example to show recover_price, stat_chg, draw
-    ts_code = '688223.SH'
-    start_date = '20220101'
-    end_date   = '20221231'
-
-    df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
-    df_bonus = sq.query_bonus_code_df(ts_code)
-    df = df_day.drop(columns=['open', 'close'])
-
-    df_forw = recover_price_forward(df, df_bonus)
-
-    chg_perc = 0.1
-    df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
-    print('{} {} -{:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
-    print(df_chg)
-    draw_price_amount_withchg(ts_code, df_forw, df_chg)
-
-    df_back = recover_price_backward(df, df_bonus) # example, normally will not use backward
-
-    df_back = df_back.rename(columns={'high': 'high_back', 'low': 'low_back'})
-    df_forw = df_forw.rename(columns={'high': 'high_forw', 'low': 'low_forw'})
-    df_tmp = df.merge(df_back, left_on='date', right_on='date')
-    df_tmp = df_tmp.merge(df_forw, left_on='date', right_on='date')
-    df_tmp = df_tmp.drop(columns=['amount', 'amount_x', 'amount_y'])
-    sd.draw_df(ts_code+'-merge', df_tmp)
-
-    quit()
-    '''
-
-    start_date = '20220101'
-    end_date   = '20221231'
+    # 筛选每天成交量大小, num是成交量大于amount的天数
     amount     = 1 * 10000 * 10000
-    chg_perc   = 0.25
+
     df_stat    = pd.DataFrame()
 
-    interval = 0.05
+    # interval 小数点后有效数字的个数, 计算dec_perc间隔, 计算查buy表时的取整位数
     str_ivl = str(interval)
     len_after_dot = len(str_ivl) - str_ivl.find('.') -1
     m_10 = 10 ** len_after_dot
+
     # fix buy table, each inc_perc is fixed
     inc_perc = chg_perc
+
     df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
     print(df_buy_table)
 
-    ref = sq.stat_day_amount(start_date, end_date, amount)
-    #ref = [{'_id':{'ts_code':'601238.SH'}, 'avg_amount':200000000, 'num':60}]
-    #ref = [{'_id':{'ts_code':'002475.SZ'}, 'avg_amount':200000000, 'num':60}]
+    if ts_code == None:
+        ref = sq.stat_day_amount(start_date, end_date, amount)
+    else:
+        ref = [{'_id':{'ts_code':ts_code}, 'avg_amount':200000000, 'num':60}]
     print('Found {:4d} >= {}'.format(len(ref), amount))
 
     win_num = 0
@@ -437,9 +408,9 @@ if __name__ == '__main__':
         #if num<30: continue
         print('%s %3d %.1f' % (ts_code, num, avg_amount))
 
-        df_day = sq.query_day_code_date_df(ts_code, start_date, end_date)
+        df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
         df_bonus = sq.query_bonus_code_df(ts_code)
-        df_forw = recover_price_forward(df_day, df_bonus)
+        df_forw  = recover_price_forward(df_day, df_bonus)
 
         df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
         print('{} - {}'.format(start_date, end_date))
@@ -448,28 +419,28 @@ if __name__ == '__main__':
         import math
         len_chg = len(df_chg.index)
         profit_result = 0
-        max_cost = 0
-
+        max_cost = 0.0
 
         for i in range(len_chg):
             item_chg = df_chg.loc[df_chg.index[i]]
             d = item_chg.inc_perc
             if not (d == d and d != None): # nan
+                dec_perc = math.floor(math.ceil(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  # bigger  than dec_perc
+                df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
+                if float(df_buy_item.acum_cost) > max_cost: max_cost = float(df_buy_item.acum_cost)
                 continue
 
             inc_perc = math.floor(item_chg.inc_perc)/100           # smaller than inc_perc
             dec_perc = math.floor(math.ceil(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  # bigger  than dec_perc
             
+            # 动态buy表,是事后根据上涨的幅度生成的,应该是最大盈利可能,实际不会这样
             # dynamic buy table, each inc_perc is dynamic
-            #df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
+            # df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
 
-            df_buy_item = df_buy_table[round(df_buy_table['dec_perc'],2)==dec_perc]
+            df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
             profit = df_buy_item.profit
             if float(df_buy_item.acum_cost) > max_cost: max_cost = float(df_buy_item.acum_cost)
-            '''
-            print(df_buy_table[:10])
-            print('inc_perc {:.2f} dec_perc {:.2f}'.format(inc_perc, dec_perc))
-            '''
+
             print(df_buy_item)
             profit_result += float(profit)
 
@@ -479,26 +450,18 @@ if __name__ == '__main__':
             loss_num   += 1
         df_item = pd.DataFrame([{
                 'ts_code':     ts_code,
-                'avg_amount':  avg_amount/100000000,
-                'amount_days': num,
+                #'avg_amount':  avg_amount/100000000,
+                #'amount_days': num,
                 'inc_num':     total_num,
-                #'max_dec_perc':max_dec_perc,
+                'max_dec_perc':max_dec_perc,
                 #'max_dec_days':max_dec_days,
                 'max_cost':    max_cost,
                 'profit_result':profit_result
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
         
-        '''
-        if max_dec_perc<=20 and total_num>=5:
-            print('summary-good {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
-            #sd.draw_df(ts_code+'-forw', df_forw)
-
-            #draw_price_amount_withchg(ts_code, df_forw, df_chg)
-        else:
-            print('summary-bad  {}({:3d} {:4.1f}) {:3d} {:.1f} {:3d}'.format(ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days))
-        '''
-        print('summary- {} {:3d} {:4.1f} {:3d} {:.1f} {:3d} {:4.1f} {:7.1f}'.format(
+        print('summary ts_code    ds  amt num dec%  ds prft maxcost')
+        print('summary {} {:3d} {:4.1f} {:3d} {:.1f} {:3d} {:4.1f} {:7.1f}'.format(
             ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days, 
             profit_result, max_cost
             #df_dec_cnt.loc[df_dec_cnt.index[0]]
@@ -517,12 +480,66 @@ if __name__ == '__main__':
             print()
         '''
 
-        #if len(df_stat.index)>=100: break
+        #if len(df_stat.index)>=10: break
+
+    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit_result':['sum']})
+    print('sum_cost {} sum_profit {:.1f}%'.format(
+        stat_agg.max_cost['sum'], stat_agg.profit_result['sum'],
+        100 * stat_agg.profit_result['sum'] / stat_agg.max_cost['sum'], 
+        ))
+    print('win', win_num, 'loss', loss_num)
 
     e_time = time()
-    print('win', win_num, 'loss', loss_num)
     print('StockDraw cost %.2f s' % (e_time - s_time))
 
-    title_str = 'stat-{:.1f}%'.format(chg_perc*100)
+    title_str = 'stat-{:.1f}%-{:f}'.format(chg_perc*100, interval)
     draw_stat_chg(df_stat, title_str)
+
+def draw_example(ts_code, start_date, end_date):
+    s_time = time()
+    sq = StockQuery()
+    sd = StockDraw()
+
+    df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
+    df_bonus = sq.query_bonus_code_df(ts_code)
+    df = df_day.drop(columns=['open', 'close'])
+
+    # 前复权
+    df_forw = recover_price_forward(df, df_bonus)
+
+    # 统计上涨 0.1 幅度下，次数、最大下跌幅度、最大下跌天数
+    chg_perc = 0.1
+    df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+    print('{} {} -{:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
+    print(df_chg)
+    draw_price_amount_withchg(ts_code, df_forw, df_chg)
+
+    # 后复权
+    df_back = recover_price_backward(df, df_bonus) # example, normally will not use backward
+
+    # 不复权、前复权、后复权合并到一张图上
+    df_back = df_back.rename(columns={'high': 'high_back', 'low': 'low_back'})
+    df_forw = df_forw.rename(columns={'high': 'high_forw', 'low': 'low_forw'})
+    df_tmp = df.merge(    df_back, left_on='date', right_on='date')
+    df_tmp = df_tmp.merge(df_forw, left_on='date', right_on='date')
+    df_tmp = df_tmp.drop(columns=['amount', 'amount_x', 'amount_y'])
+    sd.draw_df(ts_code+'-merge', df_tmp)
+
+    e_time = time()
+    print('draw_example cost %.2f s' % (e_time - s_time))
+
+
+if __name__ == '__main__':
+    ts_code    = '688223.SH'
+    start_date = '20220101'
+    end_date   = '20221231'
+    # draw_example(ts_code, start_date, end_date)
+
+    ts_code    = '002475.SZ'
+    ts_code    = None
+    start_date = '20220101'
+    end_date   = '20221231'
+    chg_perc   = 0.3
+    interval   = 0.05
+    stat_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
 
