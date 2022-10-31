@@ -225,11 +225,11 @@ class StockGet:
                 if ref_bad == None:
                     new_dic = { 'ts_code': ts_code , 'no_date':True}
                     self.col_bad_bonus.insert_one(new_dic)
-                    print('{} insert bad bonus no_date'.format(ts_code))
+                    print('{} insert bad bonus no_date {} {}'.format(ts_code, y, equity_date))
                 else:
                     newvalues = { "$set": {'no_date':True}}
                     self.col_bad_bonus.update_one({ "ts_code": ts_code }, newvalues)
-                    print('{} update bad bonus no_date'.format(ts_code))
+                    print('{} update bad bonus no_date {} {}'.format(ts_code, y, equity_date))
 
                 date_arr.append('')
 
