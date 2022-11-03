@@ -382,17 +382,11 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
     len_after_dot = len(str_ivl) - str_ivl.find('.') -1
     m_10 = 10 ** len_after_dot
 
-    # fix buy table, each inc_perc is fixed
-    inc_perc = chg_perc
-
-    df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
-    print(df_buy_table)
-
     if ts_code == None:
         ref = sq.stat_day_amount(start_date, end_date, amount)
     else:
         ref = [{'_id':{'ts_code':ts_code}, 'avg_amount':200000000, 'num':60}]
-    print('Found {:4d} >= {}'.format(len(ref), amount))
+    print('Found {:4d} >= {:,}'.format(len(ref), amount))
 
     win_num = 0
     loss_num   = 0
@@ -406,7 +400,7 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             continue
 
         #if num<30: continue
-        print('%s %3d %.1f' % (ts_code, num, avg_amount))
+        print('{} {:3d} {:,.1f}'.format(ts_code, num, avg_amount))
 
         df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
         df_bonus = sq.query_bonus_code_df(ts_code)
@@ -423,26 +417,31 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
 
         for i in range(len_chg):
             item_chg = df_chg.loc[df_chg.index[i]]
-            d = item_chg.inc_perc
-            if not (d == d and d != None): # nan
-                dec_perc = math.floor(math.ceil(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  # bigger  than dec_perc
-                df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
-                if float(df_buy_item.acum_cost) > max_cost: max_cost = float(df_buy_item.acum_cost)
-                continue
 
-            inc_perc = math.floor(item_chg.inc_perc)/100           # smaller than inc_perc
-            dec_perc = math.floor(math.ceil(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  # bigger  than dec_perc
-            
-            # 动态buy表,是事后根据上涨的幅度生成的,应该是最大盈利可能,实际不会这样
-            # dynamic buy table, each inc_perc is dynamic
-            # df_buy_table = create_buy_table(interval=interval, inc_perc=1+inc_perc)
+            # 2022-11-2 修正这个动态概念
+            # 应该是买入价格根据实际的买入价格动态调整,然后得到具体的 持有股数 和 持有成本
+            # 持有股数 x 卖出价格 - 持有成本
+            df_buy_table = create_buy_table(base_price=item_chg.firstmin, interval=interval, inc_perc=1+chg_perc)
+
+            # smaller than dec_perc, 查buy表的跌幅应该小于实际跌幅, 也就是实际上买不到这个低价
+            dec_perc = math.floor(math.floor(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  
 
             df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
-            profit = df_buy_item.profit
-            if float(df_buy_item.acum_cost) > max_cost: max_cost = float(df_buy_item.acum_cost)
+            hold_qty  = float(df_buy_item.acum_qty)
+            hold_cost = float(df_buy_item.acum_cost)
 
-            print(df_buy_item)
-            profit_result += float(profit)
+            d = item_chg.inc_perc
+            if not (d == d and d != None): # nan
+                if hold_cost > max_cost: max_cost = hold_cost
+                print('still hold')
+                continue
+
+            sell_exp_price = item_chg['min'] * (1+chg_perc)
+            profit = hold_qty * sell_exp_price - hold_cost
+            print('{:.0f} x {:.2f} - {:.1f} = {:.0f}'.format(hold_qty, sell_exp_price, hold_cost, profit))
+
+            if hold_cost > max_cost: max_cost = hold_cost
+            profit_result += profit
 
         if profit_result >= 0:
             win_num += 1
@@ -460,8 +459,8 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
         
-        print('summary ts_code    ds  amt num dec%  ds prft maxcost')
-        print('summary {} {:3d} {:4.1f} {:3d} {:.1f} {:3d} {:4.1f} {:7.1f}'.format(
+        print('          ts_code days  amt num max_dec% dec_days profit  maxcost')
+        print('summary {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f}'.format(
             ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days, 
             profit_result, max_cost
             #df_dec_cnt.loc[df_dec_cnt.index[0]]
@@ -480,19 +479,19 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             print()
         '''
 
-        #if len(df_stat.index)>=10: break
+        if len(df_stat.index)>=10: break
 
     stat_agg = df_stat.agg({'max_cost':['sum'], 'profit_result':['sum']})
-    print('sum_cost {} sum_profit {:.1f}%'.format(
+    print('sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}%'.format(
         stat_agg.max_cost['sum'], stat_agg.profit_result['sum'],
-        100 * stat_agg.profit_result['sum'] / stat_agg.max_cost['sum'], 
+        100 * stat_agg.profit_result['sum'] / stat_agg.max_cost['sum']
         ))
     print('win', win_num, 'loss', loss_num)
 
     e_time = time()
     print('StockDraw cost %.2f s' % (e_time - s_time))
 
-    title_str = 'stat-{:.1f}%-{:f}'.format(chg_perc*100, interval)
+    title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
     draw_stat_chg(df_stat, title_str)
 
 def draw_example(ts_code, start_date, end_date):
@@ -539,7 +538,7 @@ if __name__ == '__main__':
     ts_code    = None
     start_date = '20220101'
     end_date   = '20221231'
-    chg_perc   = 0.3
-    interval   = 0.05
+    chg_perc   = 0.35
+    interval   = 0.04
     stat_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
 
