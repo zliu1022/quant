@@ -364,7 +364,7 @@ def draw_stat_chg(df_stat, title_str):
     ax4.hist(df_stat.max_cost, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
     ax4.set_title('max_cost')
 
-    plt.savefig(title_str + '.png', dpi=150)
+    #plt.savefig(title_str + '.png', dpi=150)
     plt.show()
 
 def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
@@ -385,7 +385,7 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
     if ts_code == None:
         ref = sq.stat_day_amount(start_date, end_date, amount)
     else:
-        ref = [{'_id':{'ts_code':ts_code}, 'avg_amount':200000000, 'num':60}]
+        ref = [{'_id':{'ts_code':ts_code}, 'avg_amount':0, 'num':0}]
     print('Found {:4d} >= {:,}'.format(len(ref), amount))
 
     win_num = 0
@@ -414,6 +414,7 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
         len_chg = len(df_chg.index)
         profit_result = 0
         max_cost = 0.0
+        cur_hold = 0.0
 
         for i in range(len_chg):
             item_chg = df_chg.loc[df_chg.index[i]]
@@ -434,14 +435,16 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             if not (d == d and d != None): # nan
                 if hold_cost > max_cost: max_cost = hold_cost
                 print('still hold')
+                cur_hold = hold_cost
                 continue
 
             sell_exp_price = item_chg['min'] * (1+chg_perc)
             profit = hold_qty * sell_exp_price - hold_cost
-            print('{:.0f} x {:.2f} - {:.1f} = {:.0f}'.format(hold_qty, sell_exp_price, hold_cost, profit))
+            print('{:6.0f} x {:7.2f} - {:9.1f} = {:9.0f}'.format(hold_qty, sell_exp_price, hold_cost, profit))
 
             if hold_cost > max_cost: max_cost = hold_cost
             profit_result += profit
+            cur_hold = 0.0
 
         if profit_result >= 0:
             win_num += 1
@@ -449,13 +452,14 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             loss_num   += 1
         df_item = pd.DataFrame([{
                 'ts_code':     ts_code,
-                #'avg_amount':  avg_amount/100000000,
-                #'amount_days': num,
+                'avg_amount':  round(avg_amount/100000000,1),
+                'amount_days': num,
                 'inc_num':     total_num,
-                'max_dec_perc':max_dec_perc,
+                'max_dec_perc':round(max_dec_perc,2),
                 #'max_dec_days':max_dec_days,
                 'max_cost':    max_cost,
-                'profit_result':profit_result
+                'profit_result':profit_result,
+                'cur_hold':cur_hold
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
         
@@ -479,10 +483,11 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             print()
         '''
 
-        if len(df_stat.index)>=10: break
+        if len(df_stat.index)>=3: break
 
     stat_agg = df_stat.agg({'max_cost':['sum'], 'profit_result':['sum']})
-    print('sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}%'.format(
+    print('inc_exp_perc {:.1f}% {:.1f}% sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}%'.format(
+        chg_perc*100, interval*100,
         stat_agg.max_cost['sum'], stat_agg.profit_result['sum'],
         100 * stat_agg.profit_result['sum'] / stat_agg.max_cost['sum']
         ))
@@ -490,9 +495,7 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
 
     e_time = time()
     print('StockDraw cost %.2f s' % (e_time - s_time))
-
-    title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
-    draw_stat_chg(df_stat, title_str)
+    return df_stat
 
 def draw_example(ts_code, start_date, end_date):
     s_time = time()
@@ -540,5 +543,6 @@ if __name__ == '__main__':
     end_date   = '20221231'
     chg_perc   = 0.35
     interval   = 0.04
-    stat_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
-
+    df_stat = stat_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
+    title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
+    draw_stat_chg(df_stat, title_str)
