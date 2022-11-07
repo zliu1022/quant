@@ -40,6 +40,20 @@ class StockQuery:
             return self.stock_list
         return None
 
+    def query_basic_df(self, ts_code):
+        if ts_code == None:
+            ref = self.col_basic.find()
+            df = pd.DataFrame(ref)
+        else:
+            ref = self.col_basic.find_one({ 'ts_code': ts_code })
+            df = pd.DataFrame(ref, index=[0])
+
+        if ref != None:
+            print('query_basic_df')
+            print('format', df.columns)
+            return df
+        return None
+
     # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'plan_explain'])
     def query_bonus_code(self, ts_code):
         v = {'ts_code': ts_code}
@@ -205,6 +219,43 @@ class StockQuery:
             self.stock_list = list(ref)
             e_time = time()
             print('stat_day_amount cost %.2f s' % (e_time - s_time))
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
+        return None
+
+    # 统计单个code平均成交量
+    def stat_amount(self, ts_code, start_date=None, end_date=None, amount=0):
+        start_date = start_date or '20180101'
+        end_date = end_date or self.today_str
+
+        s_time = time()
+        unwind_stage = { '$unwind': '$day' }
+        match_stage = {
+                    '$match': { 
+                        '$and': [
+                            { 'ts_code': ts_code },
+                            { 'day.date': { '$gte':start_date} },
+                            { 'day.date': { '$lte':end_date} },
+                            { 'day.amount': { '$gte':amount } }
+                        ]
+                    }
+                }
+        group_stage = {
+                    '$group': { 
+                        '_id': {
+                            'ts_code': '$ts_code'
+                        },
+                        'avg_amount': { '$avg': '$day.amount' },
+                        'num': { '$count': { } }
+                    }
+                }
+        sort_stage = { '$sort': { 'num': -1 } }
+        v = [ unwind_stage, match_stage, group_stage, sort_stage ]
+        ref = self.col_day.aggregate(v)
+        if ref != None:
+            self.stock_list = list(ref)
+            e_time = time()
+            print('stat_amount cost %.2f s' % (e_time - s_time))
             print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
