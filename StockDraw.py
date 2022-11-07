@@ -345,26 +345,30 @@ def stat_chg(df, start_date, chg_perc):
     return df, total_num, max_dec_perc, max_dec_days
 
 def draw_stat_chg(df_stat, title_str):
+    len_df_stat = len(df_stat.index)
+    bins_num = 100
     print(df_stat)
+
     fig = plt.figure()
     ax1 = fig.add_axes([0.05, 0.05,  0.4, 0.4]) # left-bottom
     ax2 = fig.add_axes([0.05, 0.55,  0.4, 0.4]) # left-top
     ax3 = fig.add_axes([0.55, 0.55,  0.4, 0.4]) # right-top
     ax4 = fig.add_axes([0.55, 0.05,  0.4, 0.4]) # right-bottom
 
-    ax1.hist(df_stat.max_dec_perc, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax1.hist(df_stat.max_dec_perc, bins=bins_num)
+    #ax1.hist(df_stat.max_dec_perc, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
     ax1.set_title('max_dec_perc')
 
-    ax2.hist(df_stat.profit_result, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax2.hist(df_stat.profit_result, bins=bins_num)
     ax2.set_title('profit_result')
 
-    ax3.hist(df_stat.inc_num, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax3.hist(df_stat.inc_num, bins=bins_num)
     ax3.set_title('inc_num')
 
-    ax4.hist(df_stat.max_cost, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
+    ax4.hist(df_stat.max_cost, bins=bins_num)
     ax4.set_title('max_cost')
 
-    #plt.savefig(title_str + '.png', dpi=150)
+    plt.savefig(title_str + '.png', dpi=150)
     plt.show()
 
 def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
@@ -483,13 +487,18 @@ def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             print()
         '''
 
-        if len(df_stat.index)>=3: break
+        #if len(df_stat.index)>=10: break
 
-    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit_result':['sum']})
-    print('inc_exp_perc {:.1f}% {:.1f}% sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}%'.format(
-        chg_perc*100, interval*100,
+    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit_result':['sum'], 'cur_hold':['sum']})
+    print('summary report')
+    print('{} - {} inc_exp_perc {:.1f}% interval {:.1f}%'.format(
+        start_date, end_date,
+        chg_perc*100, interval*100
+        ))
+    print('sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}% cur_hold {:,.0f}'.format(
         stat_agg.max_cost['sum'], stat_agg.profit_result['sum'],
-        100 * stat_agg.profit_result['sum'] / stat_agg.max_cost['sum']
+        100 * stat_agg.profit_result['sum'] / stat_agg.max_cost['sum'],
+        stat_agg.cur_hold['sum']
         ))
     print('win', win_num, 'loss', loss_num)
 
@@ -541,8 +550,10 @@ if __name__ == '__main__':
     ts_code    = None
     start_date = '20220101'
     end_date   = '20221231'
-    chg_perc   = 0.35
-    interval   = 0.04
+    chg_perc   = 0.4
+    interval   = 0.05
     df_stat = stat_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
     title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
     draw_stat_chg(df_stat, title_str)
+    df_stat.to_csv(title_str + '.csv', index=False)
+
