@@ -8,8 +8,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-
 from Utils import create_buy_table
+import math
 
 class StockDraw:
     def __init__(self):
@@ -359,8 +359,8 @@ def draw_stat_chg(df_stat, title_str):
     #ax1.hist(df_stat.max_dec_perc, bins=80, histtype='stepfilled', alpha=0.3, density=True, edgecolor='black')
     ax1.set_title('max_dec_perc')
 
-    ax2.hist(df_stat.profit_result, bins=bins_num)
-    ax2.set_title('profit_result')
+    ax2.hist(df_stat.profit, bins=bins_num)
+    ax2.set_title('profit')
 
     ax3.hist(df_stat.inc_num, bins=bins_num)
     ax3.set_title('inc_num')
@@ -371,136 +371,135 @@ def draw_stat_chg(df_stat, title_str):
     plt.savefig(title_str + '.png', dpi=150)
     plt.show()
 
-def stat_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
-    s_time = time()
-    sq = StockQuery()
-    sd = StockDraw()
+def sim_monthly():
+    '''
+    # 针对每一个股票，开始时间不同，再计算 chg，没想好怎么使用
+    start_d = datetime.strptime(start_date, '%Y%m%d')
+    end_d = datetime.strptime(end_date, '%Y%m%d')
+    for i in range(end_d.month - start_d.month):
+        new_d = start_d + relativedelta(months=i)
+        new_date = datetime.strftime(new_d, '%Y%m%d')
+        print('{} - {}'.format(new_date, end_date))
+        df_chg = stat_chg(df_forw, new_date, chg_perc)
+        print()
+    '''
+    return
 
-    # 筛选每天成交量大小, num是成交量大于amount的天数
-    amount     = 1 * 10000 * 10000
-
-    df_stat    = pd.DataFrame()
-
-    # interval 小数点后有效数字的个数, 计算dec_perc间隔, 计算查buy表时的取整位数
+def f2exp10(f_num):
+    # f_num 是浮点数，返回：小数点后有效数字个数，转成10的次方
     str_ivl = str(interval)
     len_after_dot = len(str_ivl) - str_ivl.find('.') -1
     m_10 = 10 ** len_after_dot
+    return len_after_dot,m_10
+
+def sim_single_chg_buy(sq, ts_code, start_date, end_date, interval, chg_perc):
+    len_after_dot, m_10 = f2exp10(interval)
+    df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
+    df_bonus = sq.query_bonus_code_df(ts_code)
+    df_forw  = recover_price_forward(df_day, df_bonus)
+    df_chg, inc_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
+    print('{} - {}'.format(start_date, end_date))
+    print(df_chg)
+
+    profit = 0
+    max_cost = 0.0
+    cur_hold = 0.0
+    for i in range(len(df_chg.index)):
+        item_chg = df_chg.loc[df_chg.index[i]]
+
+        df_buy_table = create_buy_table(base_price=item_chg.firstmin, interval=interval, inc_perc=1+chg_perc)
+
+        dec_perc = math.floor(math.floor(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  
+        df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
+        hold_qty  = float(df_buy_item.acum_qty)
+        hold_cost = float(df_buy_item.acum_cost)
+        d = item_chg.inc_perc
+        if not (d == d and d != None): # nan
+            if hold_cost > max_cost: max_cost = hold_cost
+            cur_hold = hold_cost
+            continue
+
+        sell_exp_price = item_chg['min'] * (1+chg_perc)
+        cur_profit = hold_qty * sell_exp_price - hold_cost
+        print('{:6.0f} x {:7.2f} - {:9.1f} = {:9.1f}'.format(hold_qty, sell_exp_price, hold_cost, cur_profit))
+
+        if hold_cost > max_cost: max_cost = hold_cost
+        profit += cur_profit
+        cur_hold = 0.0
+
+    ret = {
+        'profit':      profit,
+        'inc_num':     inc_num, 
+        'max_dec_perc':max_dec_perc, 
+        'max_dec_days':max_dec_days, 
+        'max_cost':    max_cost, 
+        'cur_hold':    cur_hold
+    }
+    return ret
+
+
+def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
+    s_time = time()
+    sq = StockQuery()
+    sd = StockDraw()
+    df_stat    = pd.DataFrame()
 
     if ts_code == None:
-        ref = sq.stat_day_amount(start_date, end_date, amount)
+        ref = sq.query_basic(None)
     else:
-        ref = [{'_id':{'ts_code':ts_code}, 'avg_amount':0, 'num':0}]
-    print('Found {:4d} >= {:,}'.format(len(ref), amount))
+        ref = [{'ts_code':ts_code}]
+    print('Found {:4d}'.format(len(ref)))
 
-    win_num = 0
-    loss_num   = 0
+    win_num  = 0
+    loss_num = 0
+    draw_num = 0
     for item in ref:
-        ts_code = item['_id']['ts_code']
-        avg_amount = item['avg_amount']
-        num = item['num']
-
+        ts_code = item['ts_code']
         ret = sq.check_bad_bonus(ts_code)
         if ret != 0:
             continue
-
-        #if num<30: continue
+        num = 0
+        avg_amount = 0
         print('{} {:3d} {:,.1f}'.format(ts_code, num, avg_amount))
 
-        df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
-        df_bonus = sq.query_bonus_code_df(ts_code)
-        df_forw  = recover_price_forward(df_day, df_bonus)
+        ret = sim_single_chg_buy(sq, ts_code, start_date, end_date, interval, chg_perc)
 
-        df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
-        print('{} - {}'.format(start_date, end_date))
-        print(df_chg)
-
-        import math
-        len_chg = len(df_chg.index)
-        profit_result = 0
-        max_cost = 0.0
-        cur_hold = 0.0
-
-        for i in range(len_chg):
-            item_chg = df_chg.loc[df_chg.index[i]]
-
-            # 2022-11-2 修正这个动态概念
-            # 应该是买入价格根据实际的买入价格动态调整,然后得到具体的 持有股数 和 持有成本
-            # 持有股数 x 卖出价格 - 持有成本
-            df_buy_table = create_buy_table(base_price=item_chg.firstmin, interval=interval, inc_perc=1+chg_perc)
-
-            # smaller than dec_perc, 查buy表的跌幅应该小于实际跌幅, 也就是实际上买不到这个低价
-            dec_perc = math.floor(math.floor(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  
-
-            df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
-            hold_qty  = float(df_buy_item.acum_qty)
-            hold_cost = float(df_buy_item.acum_cost)
-
-            d = item_chg.inc_perc
-            if not (d == d and d != None): # nan
-                if hold_cost > max_cost: max_cost = hold_cost
-                print('still hold')
-                cur_hold = hold_cost
-                continue
-
-            sell_exp_price = item_chg['min'] * (1+chg_perc)
-            profit = hold_qty * sell_exp_price - hold_cost
-            print('{:6.0f} x {:7.2f} - {:9.1f} = {:9.0f}'.format(hold_qty, sell_exp_price, hold_cost, profit))
-
-            if hold_cost > max_cost: max_cost = hold_cost
-            profit_result += profit
-            cur_hold = 0.0
-
-        if profit_result >= 0:
-            win_num += 1
+        if ret['profit'] > 0:
+            win_num  += 1
+        elif ret['profit'] == 0:
+            draw_num += 1
         else:
-            loss_num   += 1
+            loss_num += 1
         df_item = pd.DataFrame([{
                 'ts_code':     ts_code,
-                'avg_amount':  round(avg_amount/100000000,1),
-                'amount_days': num,
-                'inc_num':     total_num,
-                'max_dec_perc':round(max_dec_perc,2),
-                #'max_dec_days':max_dec_days,
-                'max_cost':    max_cost,
-                'profit_result':profit_result,
-                'cur_hold':cur_hold
+                'inc_num':     ret['inc_num'],
+                'max_dec_perc':round(ret['max_dec_perc'],2),
+                'max_dec_days':ret['max_dec_days'],
+                'max_cost':    ret['max_cost'],
+                'profit':      ret['profit'],
+                'cur_hold':    ret['cur_hold']
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
         
-        print('          ts_code days  amt num max_dec% dec_days profit  maxcost')
-        print('summary {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f}'.format(
-            ts_code, num, avg_amount/100000000, total_num, max_dec_perc, max_dec_days, 
-            profit_result, max_cost
-            #df_dec_cnt.loc[df_dec_cnt.index[0]]
-            ))
+        print('          ts_code days  amt num max_dec% dec_days profit  maxcost  curhold')
+        print('summary {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f}'.format(
+            ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
+            ret['profit'], ret['max_cost'], ret['cur_hold']))
         print()
-
-        '''
-        # 针对每一个股票，开始时间不同，再计算 chg，没想好怎么使用
-        start_d = datetime.strptime(start_date, '%Y%m%d')
-        end_d = datetime.strptime(end_date, '%Y%m%d')
-        for i in range(end_d.month - start_d.month):
-            new_d = start_d + relativedelta(months=i)
-            new_date = datetime.strftime(new_d, '%Y%m%d')
-            print('{} - {}'.format(new_date, end_date))
-            df_chg = stat_chg(df_forw, new_date, chg_perc)
-            print()
-        '''
-
         #if len(df_stat.index)>=10: break
 
-    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit_result':['sum'], 'cur_hold':['sum']})
+    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit':['sum'], 'cur_hold':['sum']})
     print('summary report')
     print('{} - {} inc_exp_perc {:.1f}% interval {:.1f}%'.format(
         start_date, end_date,
         chg_perc*100, interval*100
         ))
     print('sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}% cur_hold {:,.0f}'.format(
-        stat_agg.max_cost['sum'], stat_agg.profit_result['sum'],
-        100 * stat_agg.profit_result['sum'] / stat_agg.max_cost['sum'],
+        stat_agg.max_cost['sum'], stat_agg.profit['sum'],
+        100 * stat_agg.profit['sum'] / stat_agg.max_cost['sum'],
         stat_agg.cur_hold['sum']
         ))
-    print('win', win_num, 'loss', loss_num)
+    print('win', win_num, 'loss', loss_num, 'draw', draw_num)
 
     e_time = time()
     print('StockDraw cost %.2f s' % (e_time - s_time))
@@ -550,10 +549,13 @@ if __name__ == '__main__':
     ts_code    = None
     start_date = '20220101'
     end_date   = '20221231'
-    chg_perc   = 0.4
+    chg_perc   = 0.35
     interval   = 0.05
-    df_stat = stat_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
-    title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
+    df_stat = sim_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
+    if ts_code == None:
+        title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
+    else:
+        title_str = 'stat-{}-{:.1f}%-{}'.format(ts_code, chg_perc*100, interval)
     draw_stat_chg(df_stat, title_str)
     df_stat.to_csv(title_str + '.csv', index=False)
 
