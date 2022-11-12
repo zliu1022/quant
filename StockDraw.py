@@ -188,7 +188,7 @@ def recover_price_backward(df_in, df_bonus):
 # input: df, df_bonus
 # return: df_back
 def recover_price_forward(df_in, df_bonus):
-    rt = RecTime('recover_price_forward')
+    rt = RecTime()
 
     df = df_in.copy()
     day_len = len(df.index)
@@ -233,7 +233,7 @@ def recover_price_forward(df_in, df_bonus):
 # output: 
 #   array: first_min,first_min_date, min,max,min_date,max_date
 def stat_chg(df, start_date, chg_perc):
-    rt = RecTime('stat_chg')
+    rt = RecTime()
 
     arr_min,arr_max,arr_sdate,arr_edate = [],[],[],[]
     cur_min,cur_max = 99999.0, 0.0
@@ -378,7 +378,7 @@ def draw_stat_chg(df_stat, title_str):
     plt.show()
 
 def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc):
-    rt = RecTime('sim_single_chg_buy_monthly')
+    rt = RecTime()
     sq = StockQuery()
     df_stat    = pd.DataFrame()
     win_num  = 0
@@ -462,7 +462,7 @@ def f2exp10(f_num):
     return len_after_dot,m_10
 
 def sim_single_chg_buy(sq, ts_code, start_date, end_date, interval, chg_perc):
-    rt = RecTime('sim_single_chg_buy')
+    rt = RecTime()
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
     df_bonus = sq.query_bonus_code_df(ts_code)
@@ -473,7 +473,7 @@ def sim_single_chg_buy(sq, ts_code, start_date, end_date, interval, chg_perc):
     return ret
 
 def sim_single_chg_buy_forw(sq, df_forw, start_date, end_date, interval, chg_perc):
-    rt = RecTime('sim_single_chg_buy_forw')
+    rt = RecTime()
 
     len_after_dot, m_10 = f2exp10(interval)
     df_chg, inc_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
@@ -631,12 +631,12 @@ if __name__ == '__main__':
     end_date   = '20221231'
     # draw_example(ts_code, start_date, end_date)
 
-    #ts_code    = '002475.SZ'
-    ts_code    = '600519.SH'
+    ts_code    = '002475.SZ'
+    #ts_code    = '600519.SH'
     #ts_code    = None
-    start_date = '20211001'
+    start_date = '20220901'
     end_date   = '20221231'
-    chg_perc   = 0.3
+    chg_perc   = 0.35
     interval   = 0.05
     if ts_code == None:
         title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
