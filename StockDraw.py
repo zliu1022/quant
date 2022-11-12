@@ -428,19 +428,27 @@ def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc
         print('win', win_num, 'loss', loss_num, 'draw', draw_num)
         print()
 
-    stat_agg = df_stat.agg({
-        'max_cost':['sum','min','max','average'], 
-        'profit':['sum','min','max','average'], 
-        'profit_ratio':['sum','min','max','average'], 
-        'cur_hold':['sum','min','max','average'],
-        'cur_qty':['sum','min','max','average']
-        })
     print('summary report')
     print('{} - {} inc_exp_perc {:.1f}% interval {:.1f}%'.format(
         start_date, end_date,
         chg_perc*100, interval*100
         ))
-    print('win', win_num, 'loss', loss_num, 'draw', draw_num)
+    print_stat(df_stat)
+    rt.show_s()
+    return
+
+def print_stat(df_stat):
+    stat_agg = df_stat.agg({
+        'max_cost':    ['sum','min','max','average'], # 最大投入的成本
+        'profit':      ['sum','min','max','average'], # 获利
+        'profit_ratio':['sum','min','max','average'], 
+        'cur_hold':    ['sum','min','max','average'], # 当前持有成本
+        'cur_qty':     ['sum','min','max','average']  # 当前持有数量
+        })
+
+    df_p = df_stat['profit']
+    print('win', df_p[df_p>0].count(), 'loss', df_p[df_p<0].count(), 'draw', df_p[df_p==0].count())
+
     print('avg_cost {:,.0f} avg_profit {:,.0f} {:.1f}% avg_hold {:,.0f} avg_qty {:,.0f}'.format(
         stat_agg.max_cost['average'], stat_agg.profit['average'],
         stat_agg.profit_ratio['average'],
@@ -450,8 +458,6 @@ def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc
     print('max_max_cost {:,.0f} min_profit {:,.0f}'.format(
         stat_agg.max_cost['max'], stat_agg.profit['min']
         ))
-
-    rt.show_s()
     return
 
 def f2exp10(f_num):
@@ -523,7 +529,7 @@ def sim_single_chg_buy_forw(sq, df_forw, start_date, end_date, interval, chg_per
     return ret
 
 def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
-    s_time = time()
+    rt = RecTime()
     sq = StockQuery()
     sd = StockDraw()
 
@@ -562,11 +568,12 @@ def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
                 'max_dec_days':ret['max_dec_days'],
                 'max_cost':    ret['max_cost'],
                 'profit':      ret['profit'],
+                'profit_ratio':ret['profit']/ret['max_cost'],
                 'cur_hold':    ret['cur_hold'],
                 'cur_qty':    ret['cur_qty']
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
-        
+
         print('          ts_code days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
         print('summary {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
             ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
@@ -574,21 +581,24 @@ def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
         print()
         #if len(df_stat.index)>=10: break
 
-    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit':['sum'], 'cur_hold':['sum']})
     print('summary report')
     print('{} - {} inc_exp_perc {:.1f}% interval {:.1f}%'.format(
         start_date, end_date,
         chg_perc*100, interval*100
         ))
+
+    '''
+    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit':['sum'], 'cur_hold':['sum']})
     print('sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}% cur_hold {:,.0f}'.format(
         stat_agg.max_cost['sum'], stat_agg.profit['sum'],
         100 * stat_agg.profit['sum'] / stat_agg.max_cost['sum'],
         stat_agg.cur_hold['sum']
         ))
     print('win', win_num, 'loss', loss_num, 'draw', draw_num)
+    '''
+    print_stat(df_stat)
 
-    e_time = time()
-    print('StockDraw cost %.2f s' % (e_time - s_time))
+    rt.show_ms()
     return df_stat
 
 def draw_example(ts_code, start_date, end_date):
@@ -643,10 +653,10 @@ if __name__ == '__main__':
     else:
         title_str = 'stat-{}-{:.1f}%-{}'.format(ts_code, chg_perc*100, interval)
 
-    '''
     df_stat = sim_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
+    '''
     draw_stat_chg(df_stat, title_str)
     df_stat.to_csv(title_str + '.csv', index=False)
     '''
-
+    print()
     sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval=interval, chg_perc=chg_perc)
