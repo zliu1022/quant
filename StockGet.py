@@ -189,6 +189,7 @@ class StockGet:
                 dividend_year = 1900
 
             ret, base, free, new, bonus = self.plan2digit(s)
+            # if ret!=0 base,free,new,bonus = 0, still insert bonus db
             base_arr.append(base)
             free_arr.append(free)
             new_arr.append(new)
@@ -204,6 +205,9 @@ class StockGet:
                     self.col_bad_bonus.update_one({ "ts_code": ts_code }, newvalues)
                     print('{} update bad bonus, bad_plan'.format(ts_code))
 
+            # ashare_ex_dividend_date not NaN or null: insert ashare_ex_dividend_date to bonus_db
+            #              dividend_year == this year: insert '' to bonus_db
+            # otherwise insert '' to bonus_db and insert bad_bonus_db 
             if d == d and d != None: # not nan
                 date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
                 date_arr.append(date_str)
@@ -446,7 +450,6 @@ class StockGet:
                 url = day_url + str(new_req_days) + "&symbol=" + ts_code_symbol + "&begin=" + last_dateTimp
             else:
                 url = day_url + str(req_days) + "&symbol=" + ts_code_symbol + "&begin=" + self.dateTimp
-            print(url)
 
             ret, resp = self.req_url_retry(url, 3)
             if ret != 0:
