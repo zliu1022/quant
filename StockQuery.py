@@ -151,7 +151,6 @@ class StockQuery:
 
     # dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
     def query_day_code_date(self, ts_code, start_date, end_date):
-        s_time = time()
         ret = []
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
@@ -169,7 +168,6 @@ class StockQuery:
 
     # dict_keys(['date', 'open', 'high', 'low', 'close', 'amount'])
     def query_day_code_date_df(self, ts_code, start_date, end_date):
-        s_time = time()
         ret = []
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
@@ -177,10 +175,10 @@ class StockQuery:
             df = pd.DataFrame(ref['day'])
             df_tmp = df[df['date']>=start_date]
             df_tmp = df_tmp[df_tmp['date']<=end_date]
+            print('query_day_code_date_df', ts_code, start_date, end_date, 'actually', df_tmp.iloc[0].date, df_tmp.iloc[len(df_tmp.index)-1].date)
             df_tmp.index = df_tmp['date']
             df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
             df_tmp = df_tmp.sort_values(by='date')
-            print('query_day_code_date', ts_code, start_date, end_date)
             return df_tmp
         return None
 
