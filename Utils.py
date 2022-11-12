@@ -4,9 +4,10 @@
 import pandas as pd
 import numpy  as np
 from time import time
+import sys
 
 def create_buy_table(interval=0.025, inc_perc=1.1, dec_buy_ratio=5, base_price=100.0):
-    rt = RecTime('create_buy_table')
+    rt = RecTime()
 
     num = round(1/interval) + 1
 
@@ -22,8 +23,12 @@ def create_buy_table(interval=0.025, inc_perc=1.1, dec_buy_ratio=5, base_price=1
     return a
 
 class RecTime:
-    def __init__(self, n):
-        self.name = n
+    def __init__(self):
+        funcName = sys._getframe().f_back.f_code.co_name #获取调用函数名
+        #lineNumber = sys._getframe().f_back.f_lineno #获取行号 
+        #cur_funcname = sys._getframe().f_code.co_name # 获取当前函数名
+
+        self.name = funcName
         self.s_time = time()
 
     def show_s(self):
