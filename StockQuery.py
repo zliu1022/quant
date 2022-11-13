@@ -179,6 +179,7 @@ class StockQuery:
             df_tmp.index = df_tmp['date']
             df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
             df_tmp = df_tmp.sort_values(by='date')
+            print('format', df_tmp.columns)
             return df_tmp
         return None
 
