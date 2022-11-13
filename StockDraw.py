@@ -434,7 +434,7 @@ def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc
         chg_perc*100, interval*100
         ))
     print_stat(df_stat)
-    rt.show_s()
+    rt.show_ms()
     return
 
 def print_stat(df_stat):
