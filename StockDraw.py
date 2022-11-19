@@ -567,7 +567,7 @@ def sim_chg(ts_code, start_date, end_date, chg_perc, interval):
             win_or_loss = 'win '
         elif ret['profit'] < 0.0:
             win_or_loss = 'lost'
-        print('          win  ts_code days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
+        print('          win  ts_code   days  amt num max_dec% dec_days profit   maxcost  curhold   curqty')
         print('summary   {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
             win_or_loss,
             ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
