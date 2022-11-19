@@ -1,44 +1,40 @@
-Check token 2022-11-12
-update token ae5fc472c3ac4a0910f1d64f4c84e313e3c62d82 cost  0.42s
-token expired, update ae5fc472c3ac4a0910f1d64f4c84e313e3c62d82
-req_basic changed 000980.SZ众泰汽车 ST众泰
+Check token 2022-11-19
+update token 569719d00ff9bab7a495c86286732fe3340545db cost  0.66s
+token expired, update 569719d00ff9bab7a495c86286732fe3340545db
+req_basic insert new 001338.SZ
 
-req_basic changed 000981.SZ银亿股份 *ST银亿
+req_basic changed 002072.SZ凯瑞德 *ST凯瑞
 
-req_basic changed 300209.SZ有棵树 天泽信息
+req_basic insert new 301165.SZ
 
-req_basic changed 301230.SZ泓博医药 C泓博
+req_basic insert new 301277.SZ
 
-req_basic insert new 301267.SZ
+req_basic insert new 301335.SZ
 
-req_basic insert new 301356.SZ
+req_basic changed 301356.SZC天振 N天振
 
-req_basic insert new 301359.SZ
+req_basic changed 301359.SZ东南电子 C东南电
 
-req_basic changed 301367.SZ怡和嘉业 C怡和
+req_basic insert new 301361.SZ
 
-req_basic changed 301379.SZ天山电子 C天山
+req_basic changed 301388.SZ欣灵电气 C欣灵
 
-req_basic insert new 301388.SZ
+req_basic changed 301396.SZ宏景科技 C宏景
 
-req_basic changed 301389.SZ隆扬电子 C隆扬
+req_basic changed 603032.SH德新科技 德新交运
 
-req_basic insert new 301396.SZ
+req_basic insert new 603130.SH
 
-req_basic insert new 603280.SH
+req_basic insert new 688362.SH
 
-req_basic changed 603305.SH旭升集团 旭升股份
+req_basic insert new 688376.SH
 
-req_basic changed 603330.SH天洋新材 上海天洋
+req_basic changed 688432.SH有研硅 C有研
 
-req_basic changed 688152.SH麒麟信安 C麒麟
+req_basic insert new 870357.BJ
 
-req_basic insert new 688419.SH
+req_basic insert new 872808.BJ
 
-req_basic insert new 688432.SH
+req_basic insert new 873339.BJ
 
-req_basic insert new 832876.BJ
-
-req_basic insert new 833914.BJ
-
-req_basic cost 11.27s
+req_basic cost  9.02s
