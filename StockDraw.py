@@ -377,13 +377,9 @@ def draw_stat_chg(df_stat, title_str):
     plt.savefig(title_str + '.png', dpi=150)
     plt.show()
 
-def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc):
+def sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval):
     rt = RecTime()
-    sq = StockQuery()
     df_stat    = pd.DataFrame()
-    win_num  = 0
-    loss_num = 0
-    draw_num = 0
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
     df_bonus = sq.query_bonus_code_df(ts_code)
@@ -401,14 +397,9 @@ def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc
         num = 0
         avg_amount = 0
 
-        ret = sim_single_chg_buy_forw(sq, df_forw, new_date, end_date, interval, chg_perc)
-        #ret = sim_single_chg_buy(sq, ts_code, new_date, end_date, interval, chg_perc)
-        if ret['profit'] > 0:
-            win_num  += 1
-        elif ret['profit'] == 0:
-            draw_num += 1
-        else:
-            loss_num += 1
+        ret = sim_single_chg_forw(df_forw, new_date, end_date, chg_perc, interval)
+        if ret['max_cost'] == 0:
+            ret['max_cost'] = 9
         df_item = pd.DataFrame([{
                 'ts_code':     ts_code,
                 'inc_num':     ret['inc_num'],
@@ -421,11 +412,16 @@ def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc
                 'cur_qty':     ret['cur_qty']
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
-        print('          ts_code days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
-        print('summary {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
+        win_or_loss = 'draw'
+        if ret['profit'] > 0.0:
+            win_or_loss = 'win '
+        elif ret['profit'] < 0.0:
+            win_or_loss = 'lost'
+        print('          win  ts_code days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
+        print('summary   {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
+            win_or_loss,
             ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
             ret['profit'], ret['max_cost'], ret['cur_hold'], ret['cur_qty']))
-        print('win', win_num, 'loss', loss_num, 'draw', draw_num)
         print()
 
     print('summary report')
@@ -433,11 +429,11 @@ def sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval, chg_perc
         start_date, end_date,
         chg_perc*100, interval*100
         ))
-    print_stat(df_stat)
+    print_stat(ts_code, df_stat)
     rt.show_ms()
-    return
+    return df_stat
 
-def print_stat(df_stat):
+def print_stat(ts_code, df_stat):
     stat_agg = df_stat.agg({
         'max_cost':    ['sum','min','max','average'], # 最大投入的成本
         'profit':      ['sum','min','max','average'], # 获利
@@ -447,14 +443,16 @@ def print_stat(df_stat):
         })
 
     df_p = df_stat['profit']
-    print('win', df_p[df_p>0].count(), 'loss', df_p[df_p<0].count(), 'draw', df_p[df_p==0].count())
+    print('stat report', ts_code, 
+        'win', df_p[df_p>0].count(), 'loss', df_p[df_p<0].count(), 'draw', df_p[df_p==0].count(),
+        end=' ')
 
     print('avg_cost {:,.0f} avg_profit {:,.0f} {:.1f}% avg_hold {:,.0f} avg_qty {:,.0f}'.format(
         stat_agg.max_cost['average'], stat_agg.profit['average'],
         stat_agg.profit_ratio['average'],
         stat_agg.cur_hold['average'],
-        stat_agg.cur_qty['average']
-        ))
+        stat_agg.cur_qty['average'],
+        ), end=' ')
     print('max_max_cost {:,.0f} min_profit {:,.0f}'.format(
         stat_agg.max_cost['max'], stat_agg.profit['min']
         ))
@@ -467,18 +465,18 @@ def f2exp10(f_num):
     m_10 = 10 ** len_after_dot
     return len_after_dot,m_10
 
-def sim_single_chg_buy(sq, ts_code, start_date, end_date, interval, chg_perc):
+def sim_single_chg(sq, ts_code, start_date, end_date, chg_perc, interval):
     rt = RecTime()
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
     df_bonus = sq.query_bonus_code_df(ts_code)
     df_forw  = recover_price_forward(df_day, df_bonus)
-    ret = sim_single_chg_buy_forw(sq, df_forw, start_date, end_date, interval, chg_perc)
+    ret = sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval)
 
     rt.show_ms()
     return ret
 
-def sim_single_chg_buy_forw(sq, df_forw, start_date, end_date, interval, chg_perc):
+def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
     rt = RecTime()
 
     len_after_dot, m_10 = f2exp10(interval)
@@ -528,10 +526,10 @@ def sim_single_chg_buy_forw(sq, df_forw, start_date, end_date, interval, chg_per
     rt.show_ms()
     return ret
 
-def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
+def sim_chg(ts_code, start_date, end_date, chg_perc, interval):
     rt = RecTime()
+    df_stat    = pd.DataFrame()
     sq = StockQuery()
-    sd = StockDraw()
 
     if ts_code == None:
         ref = sq.query_basic(None)
@@ -539,10 +537,6 @@ def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
         ref = [{'ts_code':ts_code}]
     print('Found {:4d}'.format(len(ref)))
 
-    df_stat    = pd.DataFrame()
-    win_num  = 0
-    loss_num = 0
-    draw_num = 0
     for item in ref:
         ts_code = item['ts_code']
         ret = sq.check_bad_bonus(ts_code)
@@ -553,14 +547,8 @@ def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
         avg_amount = 0
         print('{} {:3d} {:,.1f}'.format(ts_code, num, avg_amount))
 
-        ret = sim_single_chg_buy(sq, ts_code, start_date, end_date, interval, chg_perc)
+        ret = sim_single_chg(sq, ts_code, start_date, end_date, chg_perc, interval)
 
-        if ret['profit'] > 0:
-            win_num  += 1
-        elif ret['profit'] == 0:
-            draw_num += 1
-        else:
-            loss_num += 1
         df_item = pd.DataFrame([{
                 'ts_code':     ts_code,
                 'inc_num':     ret['inc_num'],
@@ -574,8 +562,14 @@ def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
 
-        print('          ts_code days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
-        print('summary {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
+        win_or_loss = 'draw'
+        if ret['profit'] > 0.0:
+            win_or_loss = 'win '
+        elif ret['profit'] < 0.0:
+            win_or_loss = 'lost'
+        print('          win  ts_code days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
+        print('summary   {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
+            win_or_loss,
             ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
             ret['profit'], ret['max_cost'], ret['cur_hold'], ret['cur_qty']))
         print()
@@ -587,22 +581,45 @@ def sim_chg_buy(ts_code, start_date, end_date, chg_perc, interval=0.05):
         chg_perc*100, interval*100
         ))
 
-    '''
-    stat_agg = df_stat.agg({'max_cost':['sum'], 'profit':['sum'], 'cur_hold':['sum']})
-    print('sum_cost {:,.0f} sum_profit {:,.0f} {:.1f}% cur_hold {:,.0f}'.format(
-        stat_agg.max_cost['sum'], stat_agg.profit['sum'],
-        100 * stat_agg.profit['sum'] / stat_agg.max_cost['sum'],
-        stat_agg.cur_hold['sum']
-        ))
-    print('win', win_num, 'loss', loss_num, 'draw', draw_num)
-    '''
-    print_stat(df_stat)
-
+    print_stat(None, df_stat)
     rt.show_ms()
     return df_stat
 
+def sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval):
+    rt = RecTime()
+    df_stat    = pd.DataFrame()
+    sq = StockQuery()
+
+    if ts_code == None:
+        ref = sq.query_basic(None)
+    else:
+        ref = [{'ts_code':ts_code}]
+    print('Found {:4d}'.format(len(ref)))
+
+    for item in ref:
+        ts_code = item['ts_code']
+        ret = sq.check_bad_bonus(ts_code)
+        if ret != 0:
+            continue
+
+        num = 0
+        avg_amount = 0
+        print('{} {:3d} {:,.1f}'.format(ts_code, num, avg_amount))
+
+        df_stat = sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval)
+        print()
+
+    print('summary report')
+    print('{} - {} inc_exp_perc {:.1f}% interval {:.1f}%'.format(
+        start_date, end_date,
+        chg_perc*100, interval*100
+        ))
+
+    rt.show_s()
+    return
+
 def draw_example(ts_code, start_date, end_date):
-    s_time = time()
+    rt = RecTime()
     sq = StockQuery()
     sd = StockDraw()
 
@@ -631,32 +648,43 @@ def draw_example(ts_code, start_date, end_date):
     df_tmp = df_tmp.drop(columns=['amount', 'amount_x', 'amount_y'])
     sd.draw_df(ts_code+'-merge', df_tmp)
 
-    e_time = time()
-    print('draw_example cost %.2f s' % (e_time - s_time))
-
+    rt.show_ms()
 
 if __name__ == '__main__':
     ts_code    = '688223.SH'
     start_date = '20220101'
     end_date   = '20221231'
-    # draw_example(ts_code, start_date, end_date)
+    #draw_example(ts_code, start_date, end_date)
 
-    ts_code    = '002475.SZ'
-    #ts_code    = '600519.SH'
+    #ts_code    = '002475.SZ' # 立讯
+    #ts_code    = '600519.SH' # 茅台
+    #ts_code    = '002241.SZ' # 歌尔
+    #ts_code    = '002273.SZ' # 水晶
+    #ts_code    = '000425.SZ' # 徐工
+    ts_code    = '838030.BJ' # 
     #ts_code    = None
-    start_date = '20220901'
+    start_date = '20190901'
     end_date   = '20221231'
     chg_perc   = 0.35
     interval   = 0.05
+
+    '''
     if ts_code == None:
         title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
     else:
         title_str = 'stat-{}-{:.1f}%-{}'.format(ts_code, chg_perc*100, interval)
-
-    df_stat = sim_chg_buy(ts_code, start_date, end_date, chg_perc=chg_perc, interval=interval)
-    '''
+    df_stat = sim_chg(ts_code, start_date, end_date, chg_perc, interval)
     draw_stat_chg(df_stat, title_str)
     df_stat.to_csv(title_str + '.csv', index=False)
     '''
-    print()
-    sim_single_chg_buy_monthly(ts_code, start_date, end_date, interval=interval, chg_perc=chg_perc)
+    sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval)
+
+# Name: chg
+'''
+def sim_chg                       (    ts_code, start_date, end_date, chg_perc, interval):
+    ret = sim_single_chg          (sq, ts_code, start_date, end_date, chg_perc, interval)
+        ret = sim_single_chg_forw (sq, df_forw, start_date, end_date, chg_perc, interval)
+
+def sim_single_chg_monthly        (sq, ts_code, start_date, end_date, chg_perc, interval):
+    ret = sim_single_chg_forw (sq, df_forw, start_date, end_date, chg_perc, interval)
+'''
