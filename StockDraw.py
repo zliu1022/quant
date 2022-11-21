@@ -382,6 +382,8 @@ def sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval
     df_stat    = pd.DataFrame()
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
+    start_date = df_day.index[0]
+    end_date = df_day.index[len(df_day)-1]
     df_bonus = sq.query_bonus_code_df(ts_code)
     df_forw  = recover_price_forward(df_day, df_bonus)
 
@@ -394,8 +396,9 @@ def sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval
 
         print('{} - {}'.format(new_date, end_date))
 
-        num = 0
-        avg_amount = 0
+        df_amount = sq.stat_amount(ts_code, new_date, end_date, 0)
+        num = int(df_amount[0]['num'])
+        avg_amount = float(df_amount[0]['avg_amount'])
 
         ret = sim_single_chg_forw(df_forw, new_date, end_date, chg_perc, interval)
         if ret['max_cost'] == 0:
@@ -417,8 +420,9 @@ def sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval
             win_or_loss = 'win '
         elif ret['profit'] < 0.0:
             win_or_loss = 'lost'
-        print('          win  ts_code days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
-        print('summary   {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
+        print('                            win  ts_code   days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
+        print('{} {} m-summary {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:8.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
+            new_date, end_date,
             win_or_loss,
             ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
             ret['profit'], ret['max_cost'], ret['cur_hold'], ret['cur_qty']))
@@ -443,7 +447,7 @@ def print_stat(ts_code, df_stat):
         })
 
     df_p = df_stat['profit']
-    print('stat report', ts_code, 
+    print('range-summary', ts_code, 
         'win', df_p[df_p>0].count(), 'loss', df_p[df_p<0].count(), 'draw', df_p[df_p==0].count(),
         end=' ')
 
@@ -602,9 +606,7 @@ def sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval):
         if ret != 0:
             continue
 
-        num = 0
-        avg_amount = 0
-        print('{} {:3d} {:,.1f}'.format(ts_code, num, avg_amount))
+        print('{}'.format(ts_code))
 
         df_stat = sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval)
         print()
@@ -651,7 +653,7 @@ def draw_example(ts_code, start_date, end_date):
     rt.show_ms()
 
 if __name__ == '__main__':
-    ts_code    = '688223.SH'
+    ts_code    = '688223.SH' # 晶科能源
     start_date = '20220101'
     end_date   = '20221231'
     #draw_example(ts_code, start_date, end_date)
@@ -661,7 +663,12 @@ if __name__ == '__main__':
     #ts_code    = '002241.SZ' # 歌尔
     #ts_code    = '002273.SZ' # 水晶
     #ts_code    = '000425.SZ' # 徐工
-    ts_code    = '838030.BJ' # 
+
+    #ts_code    = '838030.BJ' # 德众汽车
+    #ts_code    = '000001.SZ' # 平安
+    #ts_code    = '000055.SZ' # 方大集团
+    ts_code    = '001218.SZ' # 丽臣实业
+
     #ts_code    = None
     start_date = '20190901'
     end_date   = '20221231'
@@ -678,13 +685,3 @@ if __name__ == '__main__':
     df_stat.to_csv(title_str + '.csv', index=False)
     '''
     sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval)
-
-# Name: chg
-'''
-def sim_chg                       (    ts_code, start_date, end_date, chg_perc, interval):
-    ret = sim_single_chg          (sq, ts_code, start_date, end_date, chg_perc, interval)
-        ret = sim_single_chg_forw (sq, df_forw, start_date, end_date, chg_perc, interval)
-
-def sim_single_chg_monthly        (sq, ts_code, start_date, end_date, chg_perc, interval):
-    ret = sim_single_chg_forw (sq, df_forw, start_date, end_date, chg_perc, interval)
-'''
