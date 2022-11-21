@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 import chinese_calendar as calendar
 from time import time
 import pandas as pd
+from Utils import RecTime
 
 class StockQuery:
     def __init__(self):
@@ -223,11 +224,11 @@ class StockQuery:
         return None
 
     # 统计单个code平均成交量
-    def stat_amount(self, ts_code, start_date=None, end_date=None, amount=0):
+    def stat_amount(self, ts_code, start_date, end_date, amount):
+        rt = RecTime()
         start_date = start_date or '20180101'
         end_date = end_date or self.today_str
 
-        s_time = time()
         unwind_stage = { '$unwind': '$day' }
         match_stage = {
                     '$match': { 
@@ -253,8 +254,7 @@ class StockQuery:
         ref = self.col_day.aggregate(v)
         if ref != None:
             self.stock_list = list(ref)
-            e_time = time()
-            print('stat_amount cost %.2f s' % (e_time - s_time))
+            rt.show_ms()
             print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
