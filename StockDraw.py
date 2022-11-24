@@ -140,8 +140,8 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
     #ax2.axes.xaxis.set_ticks([df_day.index[0], df_day.index[round(day_len/2)], df_day.index[day_len-1]])
 
     title_str = ts_code + ' ' + df_day.index[0] + '-' + df_day.index[day_len-1]
-    plt.savefig(title_str + '.png', dpi=150)
-    #plt.show()
+    #plt.savefig(title_str + '.png', dpi=150)
+    plt.show()
     plt.close()
     return
 
@@ -149,6 +149,7 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
 # input: df, df_bonus
 # return: df_back
 def recover_price_backward(df_in, df_bonus):
+    rt = RecTime()
     df = df_in.copy()
     day_len = len(df.index)
     first_date = df.index[0]
@@ -182,6 +183,7 @@ def recover_price_backward(df_in, df_bonus):
 
     #df_back = df.copy()
     #sd.draw_df(ts_code+'-back', df_back)
+    rt.show_ms()
     return df
 
 # forward recover ex-dividend, baseline is last date price
@@ -377,7 +379,7 @@ def draw_stat_chg(df_stat, title_str):
     plt.savefig(title_str + '.png', dpi=150)
     plt.show()
 
-def sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval):
+def sim_chg_monthly_single(sq, ts_code, start_date, end_date, chg_perc, interval):
     rt = RecTime()
     df_stat    = pd.DataFrame()
 
@@ -402,24 +404,32 @@ def sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval
 
         ret = sim_single_chg_forw(df_forw, new_date, end_date, chg_perc, interval)
         if ret['max_cost'] == 0:
-            ret['max_cost'] = 9
-        df_item = pd.DataFrame([{
-                'ts_code':     ts_code,
-                'inc_num':     ret['inc_num'],
-                'max_dec_perc':round(ret['max_dec_perc'],2),
-                'max_dec_days':ret['max_dec_days'],
-                'max_cost':    ret['max_cost'],
-                'profit':      ret['profit'],
-                'profit_ratio':ret['profit']/ret['max_cost'],
-                'cur_hold':    ret['cur_hold'],
-                'cur_qty':     ret['cur_qty']
-            }])
-        df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
+            ret['max_cost'] = 1
+
         win_or_loss = 'draw'
         if ret['profit'] > 0.0:
-            win_or_loss = 'win '
+            win_or_loss = 'win'
         elif ret['profit'] < 0.0:
             win_or_loss = 'lost'
+
+        df_item = pd.DataFrame([{
+                'ts_code':     ts_code,
+                's_date':      new_date,
+                'e_date':      end_date,
+                'status':      win_or_loss,
+                'days':        num,
+                'amt':         round(avg_amount/100000000,3),
+                'num':         ret['inc_num'],
+                'max_dec':     round(ret['max_dec_perc'],1),
+                'dec_days':    ret['max_dec_days'],
+                'profit':      round(ret['profit'],1),
+                'max_cost':    round(ret['max_cost'],1),
+                'cur_hold':    round(ret['cur_hold'],1),
+                'cur_qty':     ret['cur_qty'],
+                'profit_ratio':round(ret['profit']/ret['max_cost'],2)
+            }])
+        df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
+
         print('                            win  ts_code   days  amt num max_dec% dec_days profit  maxcost  curhold  curqty')
         print('{} {} m-summary {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:8.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
             new_date, end_date,
@@ -434,6 +444,22 @@ def sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval
         chg_perc*100, interval*100
         ))
     print_stat(ts_code, df_stat)
+    print()
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
+        print(df_stat)
+
+    print('min_profit_ratio {:.1f}%'.format(round((df_stat[df_stat.status=='lost'].profit / df_stat[df_stat.status=='lost'].max_cost).min()*100, 2)))
+    print('max_hold_price   {:.2f} x {:.1f} cur_price {:.2f} - {:.2f}'.format(
+        round(df_stat[df_stat.cur_qty==df_stat.cur_qty.max()].cur_hold.max()/df_stat.cur_qty.max(),2),
+        df_stat.cur_qty.max(),
+        df_forw.iloc[len(df_forw.index)-1].low, df_forw.iloc[len(df_forw.index)-1].high
+        ))
+    df_tmp = df_stat[(df_stat.status=='win') | (df_stat.status=='loss')]
+    df_tmp = 300000/df_tmp.max_cost*df_tmp.profit
+    avg_profit = df_tmp.sum()/df_tmp.count()
+    print('average_profit   {:.1f} {:.2f}%'.format(avg_profit, round(avg_profit/300000*100,2) ))
+    print()
+
     rt.show_ms()
     return df_stat
 
@@ -464,12 +490,12 @@ def print_stat(ts_code, df_stat):
 
 def f2exp10(f_num):
     # f_num 是浮点数，返回：小数点后有效数字个数，转成10的次方
-    str_ivl = str(interval)
+    str_ivl = str(f_num)
     len_after_dot = len(str_ivl) - str_ivl.find('.') -1
     m_10 = 10 ** len_after_dot
     return len_after_dot,m_10
 
-def sim_single_chg(sq, ts_code, start_date, end_date, chg_perc, interval):
+def sim_chg_single(sq, ts_code, start_date, end_date, chg_perc, interval):
     rt = RecTime()
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
@@ -551,7 +577,7 @@ def sim_chg(ts_code, start_date, end_date, chg_perc, interval):
         avg_amount = 0
         print('{} {:3d} {:,.1f}'.format(ts_code, num, avg_amount))
 
-        ret = sim_single_chg(sq, ts_code, start_date, end_date, chg_perc, interval)
+        ret = sim_chg_single(sq, ts_code, start_date, end_date, chg_perc, interval)
 
         df_item = pd.DataFrame([{
                 'ts_code':     ts_code,
@@ -608,7 +634,7 @@ def sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval):
 
         print('{}'.format(ts_code))
 
-        df_stat = sim_single_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval)
+        df_stat = sim_chg_monthly_single(sq, ts_code, start_date, end_date, chg_perc, interval)
         print()
 
     print('summary report')
@@ -620,7 +646,7 @@ def sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval):
     rt.show_s()
     return
 
-def draw_example(ts_code, start_date, end_date):
+def draw_example(ts_code, start_date, end_date, chg_perc):
     rt = RecTime()
     sq = StockQuery()
     sd = StockDraw()
@@ -633,7 +659,7 @@ def draw_example(ts_code, start_date, end_date):
     df_forw = recover_price_forward(df, df_bonus)
 
     # 统计上涨 0.1 幅度下，次数、最大下跌幅度、最大下跌天数
-    chg_perc = 0.1
+    #chg_perc = 0.35
     df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
     print('{} {} -{:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
     print(df_chg)
@@ -650,15 +676,20 @@ def draw_example(ts_code, start_date, end_date):
     df_tmp = df_tmp.drop(columns=['amount', 'amount_x', 'amount_y'])
     sd.draw_df(ts_code+'-merge', df_tmp)
 
-    rt.show_ms()
+    rt.show_s()
 
 if __name__ == '__main__':
-    ts_code    = '688223.SH' # 晶科能源
-    start_date = '20220101'
+    #ts_code    = '688223.SH' # 晶科能源
+    #ts_code    = '000590.SZ' #
+    #ts_code    = '000610.SZ' #
+    ts_code    = '002475.SZ' # 立讯
+    #start_date = '20190901'
+    start_date = '20201002'
     end_date   = '20221231'
-    #draw_example(ts_code, start_date, end_date)
+    draw_example(ts_code, start_date, end_date, 0.35)
+    quit()
 
-    #ts_code    = '002475.SZ' # 立讯
+    ts_code    = '002475.SZ' # 立讯
     #ts_code    = '600519.SH' # 茅台
     #ts_code    = '002241.SZ' # 歌尔
     #ts_code    = '002273.SZ' # 水晶
@@ -667,7 +698,14 @@ if __name__ == '__main__':
     #ts_code    = '838030.BJ' # 德众汽车
     #ts_code    = '000001.SZ' # 平安
     #ts_code    = '000055.SZ' # 方大集团
-    ts_code    = '001218.SZ' # 丽臣实业
+    #ts_code    = '001218.SZ' # 丽臣实业
+
+    #ts_code    = '000501.SZ' #
+    #ts_code    = '601186.SH' #
+
+    #ts_code    = '000610.SZ' #
+    #ts_code    = '002317.SZ' #
+    #ts_code    = '002528.SZ' #
 
     #ts_code    = None
     start_date = '20190901'
