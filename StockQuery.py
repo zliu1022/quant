@@ -70,6 +70,7 @@ class StockQuery:
 
     # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'plan_explain'])
     def query_bonus_code_df(self, ts_code):
+        rt = RecTime()
         v = {'ts_code': ts_code}
         ref = self.col_bonus.find_one(v)
 
@@ -84,6 +85,7 @@ class StockQuery:
             df = df.sort_values(by='date')
 
             print('query_bonus_code', ts_code)
+            rt.show_ms()
             return df
 
         df = pd.DataFrame()
