@@ -1,40 +1,42 @@
-Check token 2022-11-19
-update token 569719d00ff9bab7a495c86286732fe3340545db cost  0.66s
+Check token 2022-11-26
+update token 569719d00ff9bab7a495c86286732fe3340545db cost  0.39s
 token expired, update 569719d00ff9bab7a495c86286732fe3340545db
-req_basic insert new 001338.SZ
+req_basic changed 002586.SZST围海 *ST围海
 
-req_basic changed 002072.SZ凯瑞德 *ST凯瑞
+req_basic changed 301165.SZC锐捷 锐捷网络
 
-req_basic insert new 301165.SZ
+req_basic changed 301277.SZ新天地 C新天地
 
-req_basic insert new 301277.SZ
+req_basic changed 301335.SZC天元宠 N天元宠
 
-req_basic insert new 301335.SZ
+req_basic changed 301356.SZ天振股份 C天振
 
-req_basic changed 301356.SZC天振 N天振
+req_basic changed 301361.SZ众智科技 C众智
 
-req_basic changed 301359.SZ东南电子 C东南电
+req_basic insert new 301365.SZ
 
-req_basic insert new 301361.SZ
+req_basic insert new 301377.SZ
 
-req_basic changed 301388.SZ欣灵电气 C欣灵
+req_basic changed 600387.SH海越能源 ST海越
 
-req_basic changed 301396.SZ宏景科技 C宏景
+req_basic changed 603130.SH云中马 N云中马
 
-req_basic changed 603032.SH德新科技 德新交运
+req_basic changed 688362.SH甬矽电子 C甬矽
 
-req_basic insert new 603130.SH
+req_basic changed 688376.SHC美埃 N美埃
 
-req_basic insert new 688362.SH
+req_basic insert new 688480.SH
 
-req_basic insert new 688376.SH
+req_basic changed 688555.SH*ST泽达 泽达易盛
 
-req_basic changed 688432.SH有研硅 C有研
+req_basic insert new 832662.BJ
 
-req_basic insert new 870357.BJ
+req_basic insert new 835237.BJ
 
-req_basic insert new 872808.BJ
+req_basic changed 870357.BJ雅葆轩 N雅葆轩
 
-req_basic insert new 873339.BJ
+req_basic insert new 871634.BJ
 
-req_basic cost  9.02s
+req_basic changed 872808.BJ曙光数创 N曙光
+
+req_basic cost 13.48s
