@@ -11,6 +11,7 @@ from dateutil.relativedelta import relativedelta
 from Utils import create_buy_table
 from Utils import RecTime
 import math
+import sys
 
 class StockDraw:
     def __init__(self):
@@ -85,7 +86,7 @@ def draw_price_amount(df_day):
     ax2.axes.xaxis.set_ticks([])
     plt.show()
 
-def draw_price_amount_withchg(ts_code, df_day, df_chg):
+def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
     plt.style.use('seaborn-whitegrid')
 
     fig = plt.figure(figsize=(12.8,6.4))
@@ -96,6 +97,7 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
     ax1.plot(df_day.index, df_day.high, linewidth=1, alpha=0.5, color='orangered', label='high')
     ax1.plot(df_day.index, df_day.low,  linewidth=1, color='lightgreen',  label='low')
 
+    first_x = datetime.strptime(df_chg.index[0], '%Y%m%d')
     for i in range(len(df_chg.index)):
         arr_x, arr_y = [], []
         arr_incx, arr_incy = [], []
@@ -105,6 +107,9 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
         arr_y.append(df_chg.firstmin[i])
         arr_y.append(df_chg['min'][i])
         ax1.plot(arr_x, arr_y, linestyle='dotted', linewidth=1, color='royalblue')
+
+        cur_x = datetime.strptime(df_chg.index[i], '%Y%m%d')
+        ax1.text((cur_x-first_x).days*0.65, arr_y[0]*1+0.5, arr_x[0], ha='left', rotation=20, fontsize=7, color='gray')
 
         arr_incx.append(df_chg.min_date[i])
         arr_incy.append(df_chg['min'][i])
@@ -127,19 +132,17 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg):
 
     index_date = datetime.strptime(df_day.index[0], '%Y%m%d')
     arr_ticks.append(df_day.index[0])
-    first_month = index_date.month + 1
 
     for i in range(day_len):
         cur_date = datetime.strptime(df_day.index[i], '%Y%m%d')
-        if cur_date.month > first_month:
+        if (cur_date-index_date).days > 87 and cur_date.day<=3:
             arr_ticks.append(df_day.index[i])
-            first_month = cur_date.month
+            index_date = cur_date
 
     ax1.axes.xaxis.set_ticks(arr_ticks)
     ax2.axes.xaxis.set_ticks(arr_ticks)
-    #ax2.axes.xaxis.set_ticks([df_day.index[0], df_day.index[round(day_len/2)], df_day.index[day_len-1]])
 
-    title_str = ts_code + ' ' + df_day.index[0] + '-' + df_day.index[day_len-1]
+    title_str = ts_code + '_' + df_day.index[0] + '_' + df_day.index[day_len-1] + '_' + str(chg_perc)
     #plt.savefig(title_str + '.png', dpi=150)
     plt.show()
     plt.close()
@@ -522,10 +525,24 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         item_chg = df_chg.loc[df_chg.index[i]]
 
         df_buy_table = create_buy_table(base_price=item_chg.firstmin, interval=interval, inc_perc=1+chg_perc)
+        with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
+            print(df_buy_table)
 
-        dec_perc = math.floor(math.floor(item_chg.dec_perc/100/interval)*interval*m_10)/m_10  
+        # ex, dec=46.949025, mid_ret=15, but 15*0.03=0.44999999999999996, so need to use round(x,6)
+        mid_ret = math.floor(item_chg.dec_perc/100/interval)
+        dec_perc = math.floor(round(mid_ret*interval,6)*m_10)/m_10  
         df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
-        hold_qty  = float(df_buy_item.acum_qty)
+        try:
+            hold_qty  = float(df_buy_item.acum_qty)
+        except:
+            print(df_buy_item.acum_qty)
+            print('Error', chg_perc, interval, m_10, len_after_dot, mid_ret, round(mid_ret,6), dec_perc)
+            print(item_chg)
+            print()
+            print(df_buy_table)
+            hold_qty = 0
+            quit()
+
         hold_cost = float(df_buy_item.acum_cost)
         d = item_chg.inc_perc
         if not (d == d and d != None): # nan
@@ -663,7 +680,7 @@ def draw_example(ts_code, start_date, end_date, chg_perc):
     df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
     print('{} {} -{:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
     print(df_chg)
-    draw_price_amount_withchg(ts_code, df_forw, df_chg)
+    draw_price_amount_withchg(ts_code, df_forw, df_chg, chg_perc)
 
     # 后复权
     df_back = recover_price_backward(df, df_bonus) # example, normally will not use backward
@@ -674,17 +691,28 @@ def draw_example(ts_code, start_date, end_date, chg_perc):
     df_tmp = df.merge(    df_back, left_on='date', right_on='date')
     df_tmp = df_tmp.merge(df_forw, left_on='date', right_on='date')
     df_tmp = df_tmp.drop(columns=['amount', 'amount_x', 'amount_y'])
-    sd.draw_df(ts_code+'-merge', df_tmp)
+    #sd.draw_df(ts_code+'-merge', df_tmp)
 
     rt.show_s()
 
 if __name__ == '__main__':
+    if len(sys.argv) == 4:
+        #start_date = '20190902'
+        #start_date = '20220302'
+        start_date = '20200720'
+        end_date   = '20221231'
+        ts_code  = sys.argv[1]
+        chg_perc = float(sys.argv[2])
+        interval = float(sys.argv[3])
+        draw_example(ts_code, start_date, end_date, chg_perc)
+        sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval)
+    quit()
+
     #ts_code    = '688223.SH' # 晶科能源
     #ts_code    = '000590.SZ' #
     #ts_code    = '000610.SZ' #
     ts_code    = '002475.SZ' # 立讯
-    #start_date = '20190901'
-    start_date = '20201002'
+    start_date = '20190902'
     end_date   = '20221231'
     draw_example(ts_code, start_date, end_date, 0.35)
     quit()
