@@ -1,42 +1,67 @@
-Check token 2022-11-26
-update token 569719d00ff9bab7a495c86286732fe3340545db cost  0.39s
-token expired, update 569719d00ff9bab7a495c86286732fe3340545db
-req_basic changed 002586.SZST围海 *ST围海
+Check token 2022-12-09
+token got 1 days ago df4b782b118f7f9cabab6989b39a24cb04685f95 still valid
+req_basic insert new 001256.SZ
 
-req_basic changed 301165.SZC锐捷 锐捷网络
+req_basic insert new 001333.SZ
 
-req_basic changed 301277.SZ新天地 C新天地
+req_basic changed 002291.SZ遥望科技 星期六
 
-req_basic changed 301335.SZC天元宠 N天元宠
+req_basic changed 300256.SZST星星 *ST星星
 
-req_basic changed 301356.SZ天振股份 C天振
+req_basic changed 301165.SZ锐捷网络 C锐捷
 
-req_basic changed 301361.SZ众智科技 C众智
+req_basic insert new 301290.SZ
 
-req_basic insert new 301365.SZ
+req_basic insert new 301311.SZ
 
-req_basic insert new 301377.SZ
+req_basic changed 301335.SZ天元宠物 C天元宠
 
-req_basic changed 600387.SH海越能源 ST海越
+req_basic changed 301365.SZ矩阵股份 C矩阵
 
-req_basic changed 603130.SH云中马 N云中马
+req_basic changed 301377.SZ鼎泰高科 C鼎泰
 
-req_basic changed 688362.SH甬矽电子 C甬矽
+req_basic insert new 301391.SZ
 
-req_basic changed 688376.SHC美埃 N美埃
+req_basic insert new 430300.BJ
 
-req_basic insert new 688480.SH
+req_basic changed 600225.SH软件服务 区域地产
 
-req_basic changed 688555.SH*ST泽达 泽达易盛
+req_basic changed 600576.SH祥源文旅 祥源文化
 
-req_basic insert new 832662.BJ
+req_basic insert new 601022.SH
 
-req_basic insert new 835237.BJ
+req_basic insert new 688084.SH
 
-req_basic changed 870357.BJ雅葆轩 N雅葆轩
+req_basic changed 688376.SH美埃科技 C美埃
 
-req_basic insert new 871634.BJ
+req_basic insert new 688420.SH
 
-req_basic changed 872808.BJ曙光数创 N曙光
+req_basic insert new 688489.SH
 
-req_basic cost 13.48s
+req_basic insert new 688503.SH
+
+req_basic changed 688707.SH电气设备 化工原料
+
+req_basic changed 688778.SH电气设备 元器件
+
+req_basic insert new 831087.BJ
+
+req_basic insert new 831641.BJ
+
+req_basic insert new 832110.BJ
+
+req_basic insert new 833230.BJ
+
+req_basic insert new 836414.BJ
+
+req_basic insert new 836942.BJ
+
+req_basic insert new 870199.BJ
+
+req_basic insert new 870866.BJ
+
+req_basic changed 871634.BJ新威凌 N新威凌
+
+req_basic insert new 872374.BJ
+
+req_basic cost 12.74s
