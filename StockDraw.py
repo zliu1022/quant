@@ -448,8 +448,6 @@ def sim_chg_monthly_single(sq, ts_code, start_date, end_date, chg_perc, interval
         ))
     print_stat(ts_code, df_stat)
     print()
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
-        print(df_stat)
 
     print('min_profit_ratio {:.1f}%'.format(round((df_stat[df_stat.status=='lost'].profit / df_stat[df_stat.status=='lost'].max_cost).min()*100, 2)))
     print('max_hold_price   {:.2f} x {:.1f} cur_price {:.2f} - {:.2f}'.format(
@@ -462,6 +460,9 @@ def sim_chg_monthly_single(sq, ts_code, start_date, end_date, chg_perc, interval
     avg_profit = df_tmp.sum()/df_tmp.count()
     print('average_profit   {:.1f} {:.2f}%'.format(avg_profit, round(avg_profit/300000*100,2) ))
     print()
+
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
+        print(df_stat)
 
     rt.show_ms()
     return df_stat
@@ -498,6 +499,12 @@ def f2exp10(f_num):
     m_10 = 10 ** len_after_dot
     return len_after_dot,m_10
 
+def step_num(dec_input, interval, m_10):
+    # 求整除 interval，最接近dec_input 的数
+    mid_ret = math.floor(dec_input/100/interval)
+    dec_output = math.floor((mid_ret*interval+0.000001)*m_10)/m_10
+    return dec_output, mid_ret
+
 def sim_chg_single(sq, ts_code, start_date, end_date, chg_perc, interval):
     rt = RecTime()
 
@@ -525,13 +532,12 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         item_chg = df_chg.loc[df_chg.index[i]]
 
         df_buy_table = create_buy_table(base_price=item_chg.firstmin, interval=interval, inc_perc=1+chg_perc)
-        with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
-            print(df_buy_table)
 
-        # ex, dec=46.949025, mid_ret=15, but 15*0.03=0.44999999999999996, so need to use round(x,6)
-        mid_ret = math.floor(item_chg.dec_perc/100/interval)
-        dec_perc = math.floor(round(mid_ret*interval,6)*m_10)/m_10  
+        dec_perc, mid_ret = step_num(item_chg.dec_perc, interval, m_10)
         df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
+        print('item_chg.dec_perc {} mid_ret {} dec_perc {}'.format(item_chg.dec_perc, mid_ret, dec_perc))
+        with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
+            print(df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)<=(dec_perc+interval)])
         try:
             hold_qty  = float(df_buy_item.acum_qty)
         except:
@@ -697,16 +703,14 @@ def draw_example(ts_code, start_date, end_date, chg_perc):
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
-        #start_date = '20190902'
-        #start_date = '20220302'
-        start_date = '20200720'
-        end_date   = '20221231'
+        start_date = '20190902'
+        end_date   = '20221125'
         ts_code  = sys.argv[1]
         chg_perc = float(sys.argv[2])
         interval = float(sys.argv[3])
-        draw_example(ts_code, start_date, end_date, chg_perc)
+        #draw_example(ts_code, start_date, end_date, chg_perc)
         sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval)
-    quit()
+        quit()
 
     #ts_code    = '688223.SH' # 晶科能源
     #ts_code    = '000590.SZ' #
