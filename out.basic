@@ -1,67 +1,134 @@
-Check token 2022-12-09
-token got 1 days ago df4b782b118f7f9cabab6989b39a24cb04685f95 still valid
-req_basic insert new 001256.SZ
+Check token 2022-12-30
+update token 140b9d69cb9f100ad486013ceeb783e9bb0696f5 cost  0.31s
+token expired, update 140b9d69cb9f100ad486013ceeb783e9bb0696f5
+req_basic changed 000605.SZ供气供热 水务
 
-req_basic insert new 001333.SZ
+req_basic changed 000970.SZ矿物制品 元器件
 
-req_basic changed 002291.SZ遥望科技 星期六
+req_basic changed 000987.SZ越秀资本 越秀金控
 
-req_basic changed 300256.SZST星星 *ST星星
+req_basic insert new 001223.SZ
 
-req_basic changed 301165.SZ锐捷网络 C锐捷
+req_basic insert new 001301.SZ
 
-req_basic insert new 301290.SZ
+req_basic changed 001333.SZ光华股份 N光华
 
-req_basic insert new 301311.SZ
+req_basic changed 002056.SZ矿物制品 元器件
 
-req_basic changed 301335.SZ天元宠物 C天元宠
+req_basic changed 002057.SZ矿物制品 元器件
 
-req_basic changed 301365.SZ矩阵股份 C矩阵
+req_basic changed 002622.SZ皓宸医疗 融钰集团
 
-req_basic changed 301377.SZ鼎泰高科 C鼎泰
+req_basic changed 300127.SZ矿物制品 元器件
 
-req_basic insert new 301391.SZ
+req_basic changed 300224.SZ矿物制品 元器件
 
-req_basic insert new 430300.BJ
+req_basic changed 300269.SZ联建光电 ST联建
 
-req_basic changed 600225.SH软件服务 区域地产
+req_basic changed 300748.SZ矿物制品 元器件
 
-req_basic changed 600576.SH祥源文旅 祥源文化
+req_basic changed 300811.SZ矿物制品 元器件
 
-req_basic insert new 601022.SH
+req_basic changed 300835.SZ矿物制品 元器件
 
-req_basic insert new 688084.SH
+req_basic insert new 301105.SZ
 
-req_basic changed 688376.SH美埃科技 C美埃
+req_basic insert new 301255.SZ
 
-req_basic insert new 688420.SH
+req_basic insert new 301265.SZ
 
-req_basic insert new 688489.SH
+req_basic insert new 301280.SZ
 
-req_basic insert new 688503.SH
+req_basic insert new 301297.SZ
 
-req_basic changed 688707.SH电气设备 化工原料
+req_basic insert new 301301.SZ
 
-req_basic changed 688778.SH电气设备 元器件
+req_basic insert new 301368.SZ
 
-req_basic insert new 831087.BJ
+req_basic insert new 301398.SZ
 
-req_basic insert new 831641.BJ
+req_basic insert new 430718.BJ
 
-req_basic insert new 832110.BJ
+req_basic changed 600361.SH创新新材 华联综超
 
-req_basic insert new 833230.BJ
+req_basic changed 600980.SH矿物制品 元器件
 
-req_basic insert new 836414.BJ
+req_basic changed 601022.SH宁波远洋 N宁远
 
-req_basic insert new 836942.BJ
+req_basic insert new 601136.SH
 
-req_basic insert new 870199.BJ
+req_basic changed 688077.SH矿物制品 元器件
 
-req_basic insert new 870866.BJ
+req_basic changed 688084.SH晶品特装 N晶品
 
-req_basic changed 871634.BJ新威凌 N新威凌
+req_basic insert new 688141.SH
 
-req_basic insert new 872374.BJ
+req_basic insert new 688143.SH
 
-req_basic cost 12.74s
+req_basic insert new 688147.SH
+
+req_basic insert new 688172.SH
+
+req_basic changed 688366.SH医疗保健 生物制药
+
+req_basic insert new 688410.SH
+
+req_basic insert new 688475.SH
+
+req_basic changed 688489.SH三未信安 C三未
+
+req_basic insert new 688496.SH
+
+req_basic insert new 688498.SH
+
+req_basic changed 688503.SH电气设备 半导体
+
+req_basic insert new 688525.SH
+
+req_basic insert new 830879.BJ
+
+req_basic insert new 831195.BJ
+
+req_basic insert new 831526.BJ
+
+req_basic insert new 831855.BJ
+
+req_basic insert new 833075.BJ
+
+req_basic insert new 833171.BJ
+
+req_basic insert new 833429.BJ
+
+req_basic insert new 833781.BJ
+
+req_basic insert new 834014.BJ
+
+req_basic insert new 834033.BJ
+
+req_basic insert new 836247.BJ
+
+req_basic insert new 836807.BJ
+
+req_basic changed 836942.BJ恒立钻具 N恒立
+
+req_basic insert new 836957.BJ
+
+req_basic insert new 838227.BJ
+
+req_basic insert new 838262.BJ
+
+req_basic insert new 838810.BJ
+
+req_basic insert new 870508.BJ
+
+req_basic insert new 872190.BJ
+
+req_basic insert new 872351.BJ
+
+req_basic insert new 872392.BJ
+
+req_basic insert new 873001.BJ
+
+req_basic insert new 873305.BJ
+
+req_basic cost  9.30s
