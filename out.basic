@@ -1,134 +1,20 @@
-Check token 2022-12-30
-update token 140b9d69cb9f100ad486013ceeb783e9bb0696f5 cost  0.31s
+Check token 2023-01-04
+update token 140b9d69cb9f100ad486013ceeb783e9bb0696f5 cost  1.54s
 token expired, update 140b9d69cb9f100ad486013ceeb783e9bb0696f5
-req_basic changed 000605.SZ供气供热 水务
+req_basic changed 301105.SZC鸿铭 N鸿铭
 
-req_basic changed 000970.SZ矿物制品 元器件
+req_basic changed 301280.SZ珠城科技 C珠城
 
-req_basic changed 000987.SZ越秀资本 越秀金控
+req_basic changed 301297.SZC富乐德 N富乐德
 
-req_basic insert new 001223.SZ
+req_basic changed 688410.SH山外山 C山外山
 
-req_basic insert new 001301.SZ
+req_basic changed 688525.SHC佰维 N佰维
 
-req_basic changed 001333.SZ光华股份 N光华
+req_basic changed 831195.BJ三祥科技 N三祥
 
-req_basic changed 002056.SZ矿物制品 元器件
+req_basic changed 838262.BJ太湖雪 N太湖雪
 
-req_basic changed 002057.SZ矿物制品 元器件
+req_basic changed 872392.BJ佳合科技 N佳合
 
-req_basic changed 002622.SZ皓宸医疗 融钰集团
-
-req_basic changed 300127.SZ矿物制品 元器件
-
-req_basic changed 300224.SZ矿物制品 元器件
-
-req_basic changed 300269.SZ联建光电 ST联建
-
-req_basic changed 300748.SZ矿物制品 元器件
-
-req_basic changed 300811.SZ矿物制品 元器件
-
-req_basic changed 300835.SZ矿物制品 元器件
-
-req_basic insert new 301105.SZ
-
-req_basic insert new 301255.SZ
-
-req_basic insert new 301265.SZ
-
-req_basic insert new 301280.SZ
-
-req_basic insert new 301297.SZ
-
-req_basic insert new 301301.SZ
-
-req_basic insert new 301368.SZ
-
-req_basic insert new 301398.SZ
-
-req_basic insert new 430718.BJ
-
-req_basic changed 600361.SH创新新材 华联综超
-
-req_basic changed 600980.SH矿物制品 元器件
-
-req_basic changed 601022.SH宁波远洋 N宁远
-
-req_basic insert new 601136.SH
-
-req_basic changed 688077.SH矿物制品 元器件
-
-req_basic changed 688084.SH晶品特装 N晶品
-
-req_basic insert new 688141.SH
-
-req_basic insert new 688143.SH
-
-req_basic insert new 688147.SH
-
-req_basic insert new 688172.SH
-
-req_basic changed 688366.SH医疗保健 生物制药
-
-req_basic insert new 688410.SH
-
-req_basic insert new 688475.SH
-
-req_basic changed 688489.SH三未信安 C三未
-
-req_basic insert new 688496.SH
-
-req_basic insert new 688498.SH
-
-req_basic changed 688503.SH电气设备 半导体
-
-req_basic insert new 688525.SH
-
-req_basic insert new 830879.BJ
-
-req_basic insert new 831195.BJ
-
-req_basic insert new 831526.BJ
-
-req_basic insert new 831855.BJ
-
-req_basic insert new 833075.BJ
-
-req_basic insert new 833171.BJ
-
-req_basic insert new 833429.BJ
-
-req_basic insert new 833781.BJ
-
-req_basic insert new 834014.BJ
-
-req_basic insert new 834033.BJ
-
-req_basic insert new 836247.BJ
-
-req_basic insert new 836807.BJ
-
-req_basic changed 836942.BJ恒立钻具 N恒立
-
-req_basic insert new 836957.BJ
-
-req_basic insert new 838227.BJ
-
-req_basic insert new 838262.BJ
-
-req_basic insert new 838810.BJ
-
-req_basic insert new 870508.BJ
-
-req_basic insert new 872190.BJ
-
-req_basic insert new 872351.BJ
-
-req_basic insert new 872392.BJ
-
-req_basic insert new 873001.BJ
-
-req_basic insert new 873305.BJ
-
-req_basic cost  9.30s
+req_basic cost 10.21s
