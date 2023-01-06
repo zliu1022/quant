@@ -1,44 +1,3 @@
-Error: ashare_ex_dividend_date == null
-
-001236.SZ
-{'data': {'addtions': [],
-          'allots': [],
-          'items': [{'ashare_ex_dividend_date': None,
-                     'cancle_dividend_date': None,
-                     'dividend_year': '2022中报',
-                     'equity_date': None,
-                     'plan_explain': '10派0.3元(股东大会预案)'}]},
- 'error_code': 0,
- 'error_description': ''}
-  dividend_year ashare_ex_dividend_date  ...     plan_explain cancle_dividend_date
-0        2022中报                    None  ...  10派0.3元(股东大会预案)                 None
-1        2022中报                    None  ...   10派0.3元(董事会预案)                 None
-
-[2 rows x 5 columns]
-[{'ashare_ex_dividend_date': None,
-  'cancle_dividend_date': None,
-  'dividend_year': '2022中报',
-  'equity_date': None,
-  'plan_explain': '10派0.3元(股东大会预案)'},
- {'ashare_ex_dividend_date': None,
-  'cancle_dividend_date': None,
-  'dividend_year': '2022中报',
-  'equity_date': None,
-  'plan_explain': '10派0.3元(董事会预案)'}]
-
-[{'ashare_ex_dividend_date': None,
-  'cancle_dividend_date': None,
-  'dividend_year': '2022中报',
-  'equity_date': None,
-  'plan_explain': '10派0.3元(股东大会预案)'},
- {'ashare_ex_dividend_date': None,
-  'cancle_dividend_date': None,
-  'dividend_year': '2022中报',
-  'equity_date': None,
-  'plan_explain': '10派0.3元(董事会预案)'}]
-
-
-
 000001.SZ update bonus_ori keep resp(10) db(10) new(10)
 000002.SZ update bonus_ori keep resp(10) db(10) new(10)
 000004.SZ update bonus_ori keep resp(7) db(7) new(7)
@@ -508,6 +467,8 @@ Error: ashare_ex_dividend_date == null
 001230.SZ update bonus_ori keep resp(0) db(0) new(0)
 001231.SZ update bonus_ori keep resp(0) db(0) new(0)
 001234.SZ update bonus_ori keep resp(1) db(1) new(1)
+001236.SZ 2022中报 null ex_date update 1673366400000
+001236.SZ update bonus_ori keep resp(1) db(1) new(1)
 001238.SZ update bonus_ori keep resp(0) db(0) new(0)
 001255.SZ update bonus_ori keep resp(0) db(0) new(0)
 001256.SZ update bonus_ori keep resp(0) db(0) new(0)
@@ -573,7 +534,9 @@ Error: ashare_ex_dividend_date == null
 002024.SZ update bonus_ori keep resp(10) db(10) new(10)
 002025.SZ update bonus_ori keep resp(10) db(10) new(10)
 002026.SZ update bonus_ori new  resp(10) db(11) new(11)
-002027.SZ update bonus_ori new  resp(10) db(12) new(12)
+002027.SZ 2022三季报 null ex_date update 1673366400000
+002027.SZ 2022三季报 null ex_date update 1673366400000
+002027.SZ update bonus_ori new  resp(10) db(12) new(11)
 002028.SZ update bonus_ori keep resp(10) db(10) new(10)
 002029.SZ update bonus_ori keep resp(10) db(10) new(10)
 002030.SZ update bonus_ori keep resp(10) db(10) new(10)
@@ -632,9 +595,6 @@ Error: ashare_ex_dividend_date == null
 002085.SZ update bonus_ori keep resp(10) db(10) new(10)
 002086.SZ update bonus_ori keep resp(4) db(4) new(4)
 002087.SZ update bonus_ori keep resp(10) db(10) new(10)
-002088.SZ update bonus_ori new  resp(10) db(11) new(11)
-002089.SZ update bonus_ori keep resp(10) db(10) new(10)
-002090.SZ update bonus_ori keep resp(10) db(10) new(10)
 002091.SZ update bonus_ori keep resp(10) db(10) new(10)
 002092.SZ update bonus_ori keep resp(10) db(10) new(10)
 002093.SZ update bonus_ori keep resp(10) db(10) new(10)
@@ -1039,7 +999,6 @@ Error: ashare_ex_dividend_date == null
 002503.SZ update bonus_ori keep resp(8) db(8) new(8)
 002504.SZ update bonus_ori keep resp(5) db(5) new(5)
 002505.SZ update bonus_ori keep resp(5) db(5) new(5)
-002506.SZ update bonus_ori keep resp(3) db(3) new(3)
 002507.SZ update bonus_ori keep resp(10) db(10) new(10)
 002508.SZ update bonus_ori keep resp(10) db(10) new(10)
 002510.SZ update bonus_ori keep resp(9) db(9) new(9)
@@ -1079,6 +1038,7 @@ Error: ashare_ex_dividend_date == null
 002545.SZ update bonus_ori keep resp(10) db(10) new(10)
 002546.SZ update bonus_ori keep resp(10) db(10) new(10)
 002547.SZ update bonus_ori keep resp(6) db(6) new(6)
+688701.SH update bonus_ori keep resp(1) db(1) new(1)
 002548.SZ update bonus_ori keep resp(10) db(10) new(10)
 002549.SZ update bonus_ori keep resp(10) db(10) new(10)
 002550.SZ update bonus_ori keep resp(10) db(10) new(10)
@@ -1192,7 +1152,6 @@ Error: ashare_ex_dividend_date == null
 002661.SZ update bonus_ori keep resp(10) db(10) new(10)
 002662.SZ update bonus_ori keep resp(8) db(8) new(8)
 002663.SZ update bonus_ori keep resp(8) db(8) new(8)
-002664.SZ update bonus_ori keep resp(10) db(10) new(10)
 002665.SZ update bonus_ori keep resp(6) db(6) new(6)
 002666.SZ update bonus_ori keep resp(10) db(10) new(10)
 002667.SZ update bonus_ori keep resp(9) db(9) new(9)
@@ -1319,7 +1278,7 @@ Error: ashare_ex_dividend_date == null
 002800.SZ update bonus_ori keep resp(6) db(6) new(6)
 002801.SZ update bonus_ori keep resp(8) db(8) new(8)
 002802.SZ update bonus_ori keep resp(8) db(8) new(8)
-002803.SZ update bonus_ori keep resp(6) db(6) new(6)
+002803.SZ update bonus_ori new  resp(7) db(6) new(7)
 002805.SZ update bonus_ori keep resp(4) db(4) new(4)
 002806.SZ update bonus_ori keep resp(4) db(4) new(4)
 002807.SZ update bonus_ori keep resp(6) db(6) new(6)
@@ -1881,9 +1840,6 @@ Error: ashare_ex_dividend_date == null
 300351.SZ update bonus_ori keep resp(6) db(6) new(6)
 300352.SZ update bonus_ori keep resp(9) db(9) new(9)
 300353.SZ update bonus_ori keep resp(10) db(10) new(10)
-300354.SZ update bonus_ori keep resp(10) db(10) new(10)
-300355.SZ update bonus_ori keep resp(10) db(10) new(10)
-300356.SZ update bonus_ori keep resp(5) db(5) new(5)
 300357.SZ update bonus_ori keep resp(9) db(9) new(9)
 300358.SZ update bonus_ori keep resp(8) db(8) new(8)
 300359.SZ update bonus_ori keep resp(5) db(5) new(5)
@@ -1910,6 +1866,7 @@ Error: ashare_ex_dividend_date == null
 300384.SZ update bonus_ori keep resp(10) db(10) new(10)
 300385.SZ update bonus_ori keep resp(6) db(6) new(6)
 300386.SZ update bonus_ori keep resp(7) db(7) new(7)
+600547.SH update bonus_ori keep resp(10) db(10) new(10)
 300387.SZ update bonus_ori keep resp(9) db(9) new(9)
 300388.SZ update bonus_ori keep resp(8) db(8) new(8)
 300389.SZ update bonus_ori keep resp(6) db(6) new(6)
@@ -2022,6 +1979,7 @@ Error: ashare_ex_dividend_date == null
 300497.SZ update bonus_ori keep resp(7) db(7) new(7)
 300498.SZ update bonus_ori keep resp(10) db(10) new(10)
 300499.SZ update bonus_ori keep resp(5) db(5) new(5)
+688158.SH update bonus_ori keep resp(1) db(1) new(1)
 300500.SZ update bonus_ori keep resp(7) db(7) new(7)
 300501.SZ update bonus_ori keep resp(7) db(7) new(7)
 300502.SZ update bonus_ori keep resp(6) db(6) new(6)
@@ -2211,7 +2169,6 @@ Error: ashare_ex_dividend_date == null
 300690.SZ update bonus_ori keep resp(5) db(5) new(5)
 300691.SZ update bonus_ori keep resp(5) db(5) new(5)
 300692.SZ update bonus_ori keep resp(5) db(5) new(5)
-300693.SZ update bonus_ori keep resp(5) db(5) new(5)
 300694.SZ update bonus_ori keep resp(3) db(3) new(3)
 300695.SZ update bonus_ori keep resp(4) db(4) new(4)
 300696.SZ update bonus_ori keep resp(5) db(5) new(5)
@@ -2288,6 +2245,7 @@ Error: ashare_ex_dividend_date == null
 300774.SZ update bonus_ori keep resp(3) db(3) new(3)
 300775.SZ update bonus_ori keep resp(4) db(4) new(4)
 300776.SZ update bonus_ori keep resp(6) db(6) new(6)
+002506.SZ update bonus_ori keep resp(3) db(3) new(3)
 300777.SZ update bonus_ori keep resp(3) db(3) new(3)
 300778.SZ update bonus_ori keep resp(3) db(3) new(3)
 300779.SZ update bonus_ori keep resp(4) db(4) new(4)
@@ -2442,6 +2400,7 @@ Error: ashare_ex_dividend_date == null
 300936.SZ update bonus_ori keep resp(2) db(2) new(2)
 300937.SZ update bonus_ori keep resp(1) db(1) new(1)
 300938.SZ update bonus_ori keep resp(2) db(2) new(2)
+002664.SZ update bonus_ori keep resp(10) db(10) new(10)
 300939.SZ update bonus_ori keep resp(2) db(2) new(2)
 300940.SZ update bonus_ori keep resp(2) db(2) new(2)
 300941.SZ update bonus_ori keep resp(10) db(10) new(10)
@@ -2738,12 +2697,14 @@ Error: ashare_ex_dividend_date == null
 301302.SZ update bonus_ori keep resp(1) db(1) new(1)
 301306.SZ update bonus_ori keep resp(0) db(0) new(0)
 301308.SZ update bonus_ori keep resp(1) db(1) new(1)
+301309.SZ update bonus_ori keep resp(0) db(0) new(0)
 301311.SZ update bonus_ori keep resp(0) db(0) new(0)
 301312.SZ update bonus_ori keep resp(0) db(0) new(0)
 301313.SZ update bonus_ori keep resp(6) db(6) new(6)
 301316.SZ update bonus_ori keep resp(0) db(0) new(0)
 301318.SZ update bonus_ori keep resp(6) db(6) new(6)
 301319.SZ update bonus_ori keep resp(0) db(0) new(0)
+601988.SH update bonus_ori keep resp(10) db(10) new(10)
 301321.SZ update bonus_ori keep resp(2) db(2) new(2)
 301326.SZ update bonus_ori keep resp(0) db(0) new(0)
 301327.SZ update bonus_ori keep resp(0) db(0) new(0)
@@ -2774,7 +2735,7 @@ Error: ashare_ex_dividend_date == null
 301396.SZ update bonus_ori keep resp(1) db(1) new(1)
 301398.SZ update bonus_ori keep resp(0) db(0) new(0)
 430047.BJ update bonus_ori keep resp(3) db(3) new(3)
-430090.BJ update bonus_ori keep resp(5) db(5) new(5)
+430090.BJ update bonus_ori new  resp(4) db(5) new(5)
 430139.BJ update bonus_ori keep resp(7) db(7) new(7)
 430198.BJ update bonus_ori new  resp(10) db(11) new(11)
 430300.BJ update bonus_ori keep resp(1) db(1) new(1)
@@ -3182,9 +3143,6 @@ Error: ashare_ex_dividend_date == null
 600510.SH update bonus_ori keep resp(10) db(10) new(10)
 600511.SH update bonus_ori keep resp(10) db(10) new(10)
 600512.SH update bonus_ori keep resp(10) db(10) new(10)
-600513.SH update bonus_ori keep resp(10) db(10) new(10)
-600515.SH update bonus_ori keep resp(4) db(4) new(4)
-600516.SH update bonus_ori keep resp(10) db(10) new(10)
 600517.SH update bonus_ori keep resp(10) db(10) new(10)
 600518.SH update bonus_ori new  resp(10) db(12) new(12)
 600519.SH update bonus_ori new  resp(10) db(11) new(11)
@@ -3210,7 +3168,6 @@ Error: ashare_ex_dividend_date == null
 600543.SH update bonus_ori keep resp(6) db(6) new(6)
 600545.SH update bonus_ori new  resp(10) db(11) new(11)
 600546.SH update bonus_ori keep resp(10) db(10) new(10)
-600547.SH update bonus_ori keep resp(10) db(10) new(10)
 600548.SH update bonus_ori keep resp(10) db(10) new(10)
 600549.SH update bonus_ori keep resp(10) db(10) new(10)
 600550.SH update bonus_ori keep resp(7) db(7) new(7)
@@ -3513,6 +3470,7 @@ Error: ashare_ex_dividend_date == null
 600894.SH update bonus_ori keep resp(10) db(10) new(10)
 600895.SH update bonus_ori keep resp(10) db(10) new(10)
 600897.SH update bonus_ori new  resp(10) db(11) new(11)
+300693.SZ update bonus_ori keep resp(5) db(5) new(5)
 600898.SH update bonus_ori keep resp(6) db(6) new(6)
 600900.SH update bonus_ori keep resp(10) db(10) new(10)
 600901.SH update bonus_ori keep resp(5) db(5) new(5)
@@ -3778,11 +3736,9 @@ Error: ashare_ex_dividend_date == null
 601965.SH update bonus_ori keep resp(10) db(10) new(10)
 601966.SH update bonus_ori keep resp(6) db(6) new(6)
 601968.SH update bonus_ori keep resp(7) db(7) new(7)
-301309.SZ update bonus_ori keep resp(0) db(0) new(0)
 601969.SH update bonus_ori keep resp(2) db(2) new(2)
 601975.SH update bonus_ori keep resp(10) db(10) new(10)
 601985.SH update bonus_ori keep resp(7) db(7) new(7)
-601988.SH update bonus_ori keep resp(10) db(10) new(10)
 601989.SH update bonus_ori keep resp(10) db(10) new(10)
 601990.SH update bonus_ori keep resp(6) db(6) new(6)
 601991.SH update bonus_ori keep resp(10) db(10) new(10)
@@ -4437,9 +4393,6 @@ Error: ashare_ex_dividend_date == null
 605376.SH update bonus_ori keep resp(2) db(2) new(2)
 605377.SH update bonus_ori keep resp(3) db(3) new(3)
 605378.SH update bonus_ori keep resp(2) db(2) new(2)
-605388.SH update bonus_ori keep resp(2) db(2) new(2)
-605389.SH update bonus_ori keep resp(2) db(2) new(2)
-605398.SH update bonus_ori keep resp(2) db(2) new(2)
 605399.SH update bonus_ori keep resp(2) db(2) new(2)
 605488.SH update bonus_ori keep resp(2) db(2) new(2)
 605499.SH update bonus_ori keep resp(2) db(2) new(2)
@@ -4590,7 +4543,6 @@ Error: ashare_ex_dividend_date == null
 688155.SH update bonus_ori keep resp(1) db(1) new(1)
 688156.SH update bonus_ori keep resp(3) db(3) new(3)
 688157.SH update bonus_ori keep resp(2) db(2) new(2)
-688158.SH update bonus_ori keep resp(1) db(1) new(1)
 688159.SH update bonus_ori keep resp(1) db(1) new(1)
 688160.SH update bonus_ori keep resp(3) db(3) new(3)
 688161.SH update bonus_ori keep resp(1) db(1) new(1)
@@ -4826,6 +4778,7 @@ Error: ashare_ex_dividend_date == null
 688501.SH update bonus_ori keep resp(1) db(1) new(1)
 688503.SH update bonus_ori keep resp(0) db(0) new(0)
 688505.SH update bonus_ori keep resp(2) db(2) new(2)
+688506.SH insert bonus_ori resp(0)
 688508.SH update bonus_ori keep resp(10) db(10) new(10)
 688509.SH update bonus_ori keep resp(2) db(2) new(2)
 688510.SH update bonus_ori keep resp(1) db(1) new(1)
@@ -4927,7 +4880,6 @@ Error: ashare_ex_dividend_date == null
 688698.SH update bonus_ori keep resp(2) db(2) new(2)
 688699.SH update bonus_ori keep resp(3) db(3) new(3)
 688700.SH update bonus_ori keep resp(2) db(2) new(2)
-688701.SH update bonus_ori keep resp(1) db(1) new(1)
 688707.SH update bonus_ori keep resp(1) db(1) new(1)
 688711.SH update bonus_ori keep resp(3) db(3) new(3)
 688718.SH update bonus_ori keep resp(0) db(0) new(0)
@@ -4959,14 +4911,14 @@ Error: ashare_ex_dividend_date == null
 830832.BJ update bonus_ori keep resp(8) db(8) new(8)
 830839.BJ update bonus_ori keep resp(5) db(5) new(5)
 830879.BJ update bonus_ori keep resp(8) db(8) new(8)
-830946.BJ update bonus_ori keep resp(5) db(5) new(5)
-830964.BJ update bonus_ori new  resp(2) db(3) new(3)
+830946.BJ update bonus_ori new  resp(4) db(5) new(5)
+830964.BJ update bonus_ori keep resp(3) db(3) new(3)
 831010.BJ update bonus_ori keep resp(6) db(6) new(6)
 831039.BJ update bonus_ori keep resp(9) db(9) new(9)
 831087.BJ update bonus_ori keep resp(7) db(7) new(7)
 831152.BJ update bonus_ori keep resp(4) db(4) new(4)
 831167.BJ update bonus_ori keep resp(7) db(7) new(7)
-831195.BJ update bonus_ori new  resp(3) db(4) new(4)
+831195.BJ update bonus_ori keep resp(4) db(4) new(4)
 831278.BJ update bonus_ori keep resp(6) db(6) new(6)
 831305.BJ update bonus_ori new  resp(10) db(11) new(11)
 831370.BJ update bonus_ori keep resp(7) db(7) new(7)
@@ -4981,7 +4933,7 @@ Error: ashare_ex_dividend_date == null
 831855.BJ update bonus_ori keep resp(1) db(1) new(1)
 831856.BJ update bonus_ori keep resp(7) db(7) new(7)
 831961.BJ update bonus_ori keep resp(7) db(7) new(7)
-832000.BJ update bonus_ori new  resp(7) db(8) new(8)
+832000.BJ update bonus_ori keep resp(8) db(8) new(8)
 832089.BJ update bonus_ori keep resp(5) db(5) new(5)
 832110.BJ update bonus_ori keep resp(5) db(5) new(5)
 832145.BJ update bonus_ori keep resp(7) db(7) new(7)
@@ -4990,12 +4942,12 @@ Error: ashare_ex_dividend_date == null
 832278.BJ update bonus_ori keep resp(7) db(7) new(7)
 832419.BJ update bonus_ori keep resp(3) db(3) new(3)
 832491.BJ update bonus_ori keep resp(8) db(8) new(8)
-832566.BJ update bonus_ori new  resp(6) db(7) new(7)
+832566.BJ update bonus_ori keep resp(7) db(7) new(7)
 832662.BJ update bonus_ori keep resp(7) db(7) new(7)
 832735.BJ update bonus_ori keep resp(8) db(8) new(8)
 832876.BJ update bonus_ori keep resp(7) db(7) new(7)
 832885.BJ update bonus_ori keep resp(7) db(7) new(7)
-833075.BJ update bonus_ori new  resp(8) db(9) new(9)
+833075.BJ update bonus_ori keep resp(9) db(9) new(9)
 833171.BJ update bonus_ori keep resp(0) db(0) new(0)
 833230.BJ update bonus_ori keep resp(6) db(6) new(6)
 833266.BJ update bonus_ori keep resp(3) db(3) new(3)
@@ -5019,7 +4971,7 @@ Error: ashare_ex_dividend_date == null
 834415.BJ update bonus_ori keep resp(3) db(3) new(3)
 834475.BJ update bonus_ori keep resp(8) db(8) new(8)
 834599.BJ update bonus_ori keep resp(7) db(7) new(7)
-834639.BJ update bonus_ori new  resp(2) db(3) new(3)
+834639.BJ update bonus_ori keep resp(3) db(3) new(3)
 834682.BJ update bonus_ori keep resp(5) db(5) new(5)
 834765.BJ update bonus_ori keep resp(6) db(6) new(6)
 835174.BJ update bonus_ori keep resp(3) db(3) new(3)
@@ -5038,7 +4990,7 @@ Error: ashare_ex_dividend_date == null
 836077.BJ update bonus_ori keep resp(0) db(0) new(0)
 836149.BJ update bonus_ori keep resp(2) db(2) new(2)
 836239.BJ update bonus_ori keep resp(8) db(8) new(8)
-836247.BJ update bonus_ori new  resp(5) db(6) new(6)
+836247.BJ update bonus_ori keep resp(6) db(6) new(6)
 836260.BJ update bonus_ori keep resp(8) db(8) new(8)
 836263.BJ update bonus_ori keep resp(7) db(7) new(7)
 836270.BJ update bonus_ori keep resp(2) db(2) new(2)
@@ -5055,18 +5007,18 @@ Error: ashare_ex_dividend_date == null
 836957.BJ update bonus_ori keep resp(4) db(4) new(4)
 837046.BJ update bonus_ori keep resp(1) db(1) new(1)
 837092.BJ update bonus_ori keep resp(2) db(2) new(2)
-837212.BJ update bonus_ori new  resp(4) db(5) new(5)
+837212.BJ update bonus_ori keep resp(5) db(5) new(5)
 837242.BJ update bonus_ori keep resp(8) db(8) new(8)
 837344.BJ update bonus_ori keep resp(3) db(3) new(3)
 837821.BJ update bonus_ori keep resp(1) db(1) new(1)
-838030.BJ update bonus_ori new  resp(4) db(5) new(5)
+838030.BJ update bonus_ori keep resp(5) db(5) new(5)
 838163.BJ update bonus_ori keep resp(5) db(5) new(5)
 838171.BJ update bonus_ori keep resp(5) db(5) new(5)
-838227.BJ update bonus_ori keep resp(7) db(7) new(7)
+838227.BJ update bonus_ori new  resp(6) db(7) new(7)
 838262.BJ update bonus_ori keep resp(1) db(1) new(1)
 838275.BJ update bonus_ori keep resp(8) db(8) new(8)
 838402.BJ update bonus_ori keep resp(0) db(0) new(0)
-838670.BJ update bonus_ori keep resp(8) db(8) new(8)
+838670.BJ update bonus_ori new  resp(7) db(8) new(8)
 838810.BJ update bonus_ori keep resp(4) db(4) new(4)
 838924.BJ update bonus_ori keep resp(1) db(1) new(1)
 838971.BJ update bonus_ori keep resp(4) db(4) new(4)
@@ -5077,12 +5029,12 @@ Error: ashare_ex_dividend_date == null
 839790.BJ update bonus_ori keep resp(6) db(6) new(6)
 839946.BJ update bonus_ori keep resp(5) db(5) new(5)
 870199.BJ update bonus_ori keep resp(4) db(4) new(4)
-870204.BJ update bonus_ori new  resp(6) db(7) new(7)
-870299.BJ update bonus_ori new  resp(6) db(7) new(7)
+870204.BJ update bonus_ori keep resp(7) db(7) new(7)
+870299.BJ update bonus_ori keep resp(7) db(7) new(7)
 870357.BJ update bonus_ori keep resp(6) db(6) new(6)
 870436.BJ update bonus_ori keep resp(3) db(3) new(3)
 870508.BJ update bonus_ori keep resp(5) db(5) new(5)
-870866.BJ update bonus_ori new  resp(2) db(3) new(3)
+870866.BJ update bonus_ori keep resp(3) db(3) new(3)
 871245.BJ update bonus_ori keep resp(4) db(4) new(4)
 871396.BJ update bonus_ori keep resp(5) db(5) new(5)
 871553.BJ update bonus_ori keep resp(4) db(4) new(4)
@@ -5105,16 +5057,72 @@ Error: ashare_ex_dividend_date == null
 873305.BJ update bonus_ori keep resp(4) db(4) new(4)
 873339.BJ update bonus_ori keep resp(4) db(4) new(4)
 873527.BJ update bonus_ori keep resp(3) db(3) new(3)
-Check token 2023-01-04
-Error Connecting: ('Connection aborted.', TimeoutError(60, 'Operation timed out'))
-Thread-1 cost 780.16s
-Thread-2 cost 723.14s
-Thread-3 cost 712.73s
-Thread-4 cost 721.96s
-Thread-5 cost 24.62s
-Timeout Error: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Read timed out. (read timeout=None)
-find 5067 stocks
-retry 1 times https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=SH601168
-retry 1 times https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=SZ002543
+Check token 2023-01-06
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600513 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x111306290>: Failed to establish a new connection: [Errno 60] Operation timed out'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600513 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131d190>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600513 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131d310>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600515 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131dad0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600515 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131db10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600515 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131dd10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600516 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b4d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600516 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b6d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH600516 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131d110>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605388 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x111307c10>: Failed to establish a new connection: [Errno 60] Operation timed out'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605388 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131db10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605389 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b210>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605389 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b2d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605389 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b550>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605398 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b350>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605398 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b450>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605398 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b810>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SH605399 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1112f73d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ001965 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1112fe110>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002088 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1112e9a10>: Failed to establish a new connection: [Errno 60] Operation timed out'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002088 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131df10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002089 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b450>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002089 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b6d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002089 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b7d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002090 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131ba50>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002090 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131bbd0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002090 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131bd10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ002091 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131d2d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300354 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x111306110>: Failed to establish a new connection: [Errno 60] Operation timed out'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300354 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131d710>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300355 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b6d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300355 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131d290>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300355 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131d310>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300356 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b3d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300356 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b550>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300356 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131b650>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ300357 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11131dad0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Thread-1 Error 3 [{'_id': ObjectId('631affdeab041e4546a0cdfc'), 'ts_code': '002088.SZ', 'symbol': '002088', 'name': '鲁阳节能', 'industry': '矿物制品', 'list_status': 'L', 'list_date': '20061130', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0cdfd'), 'ts_code': '002089.SZ', 'symbol': '002089', 'name': 'ST新海', 'industry': '通信设备', 'list_status': 'L', 'list_date': '20061130', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0cdfe'), 'ts_code': '002090.SZ', 'symbol': '002090', 'name': '金智科技', 'industry': '软件服务', 'list_status': 'L', 'list_date': '20061208', 'delist_date': None}]
+Thread-1 cost 2096.75s
+Thread-2 Error 3 [{'_id': ObjectId('631affdeab041e4546a0d2dd'), 'ts_code': '300354.SZ', 'symbol': '300354', 'name': '东华测试', 'industry': '电器仪表', 'list_status': 'L', 'list_date': '20120920', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0d2de'), 'ts_code': '300355.SZ', 'symbol': '300355', 'name': '蒙草生态', 'industry': '环境保护', 'list_status': 'L', 'list_date': '20120927', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0d2df'), 'ts_code': '300356.SZ', 'symbol': '300356', 'name': '*ST光一', 'industry': '电气设备', 'list_status': 'L', 'list_date': '20121009', 'delist_date': None}]
+Thread-2 cost 2095.60s
+Thread-3 Error 3 [{'_id': ObjectId('631affdeab041e4546a0d7c1'), 'ts_code': '600513.SH', 'symbol': '600513', 'name': '联环药业', 'industry': '化学制药', 'list_status': 'L', 'list_date': '20030319', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0d7c2'), 'ts_code': '600515.SH', 'symbol': '600515', 'name': '海南机场', 'industry': '机场', 'list_status': 'L', 'list_date': '20020806', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0d7c3'), 'ts_code': '600516.SH', 'symbol': '600516', 'name': '方大炭素', 'industry': '矿物制品', 'list_status': 'L', 'list_date': '20020830', 'delist_date': None}]
+Thread-3 cost 2097.15s
+Thread-4 Error 3 [{'_id': ObjectId('631affdeab041e4546a0dc9f'), 'ts_code': '605388.SH', 'symbol': '605388', 'name': '均瑶健康', 'industry': '乳制品', 'list_status': 'L', 'list_date': '20200818', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0dca0'), 'ts_code': '605389.SH', 'symbol': '605389', 'name': '长龄液压', 'industry': '机械基件', 'list_status': 'L', 'list_date': '20210322', 'delist_date': None}, {'_id': ObjectId('631affdeab041e4546a0dca1'), 'ts_code': '605398.SH', 'symbol': '605398', 'name': '新炬网络', 'industry': '软件服务', 'list_status': 'L', 'list_date': '20210121', 'delist_date': None}]
+Thread-4 cost 2092.81s
+Thread-5 cost 143.49s
+find 5068 stocks
+req_url_retry cost 180.03s
+req_url_retry cost 180.04s
+req_url_retry cost 180.04s
+req_url_retry cost 180.05s
+req_url_retry cost 180.05s
+req_url_retry cost 180.05s
+req_url_retry cost 180.06s
+req_url_retry cost 180.06s
+req_url_retry cost 237.69s
+req_url_retry cost 237.75s
+req_url_retry cost 238.14s
+req_url_retry cost 270.58s
+retry 1 times https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=SH605399
+retry 1 times https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=SZ001965
+retry 1 times https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=SZ002091
+retry 1 times https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=SZ300357
 token got 0 days ago 140b9d69cb9f100ad486013ceeb783e9bb0696f5 still valid
-total cost 780.16s
+total cost 2097.15s
