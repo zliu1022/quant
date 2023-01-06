@@ -1,20 +1,20 @@
-Check token 2023-01-04
-update token 140b9d69cb9f100ad486013ceeb783e9bb0696f5 cost  1.54s
+Check token 2023-01-06
+update token 140b9d69cb9f100ad486013ceeb783e9bb0696f5 cost  2.36s
 token expired, update 140b9d69cb9f100ad486013ceeb783e9bb0696f5
-req_basic changed 301105.SZC鸿铭 N鸿铭
+req_basic changed 301105.SZ鸿铭股份 C鸿铭
 
-req_basic changed 301280.SZ珠城科技 C珠城
+req_basic changed 301255.SZ通力科技 C通力
 
-req_basic changed 301297.SZC富乐德 N富乐德
+req_basic changed 301297.SZ富乐德 C富乐德
 
-req_basic changed 688410.SH山外山 C山外山
+req_basic changed 301301.SZ川宁生物 C川宁
 
-req_basic changed 688525.SHC佰维 N佰维
+req_basic changed 688475.SH萤石网络 C萤石
 
-req_basic changed 831195.BJ三祥科技 N三祥
+req_basic changed 688496.SH清越科技 C清越
 
-req_basic changed 838262.BJ太湖雪 N太湖雪
+req_basic insert new 688506.SH
 
-req_basic changed 872392.BJ佳合科技 N佳合
+req_basic changed 688525.SH佰维存储 C佰维
 
-req_basic cost 10.21s
+req_basic cost 10.95s
