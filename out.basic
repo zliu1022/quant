@@ -1,20 +1,14 @@
-Check token 2023-01-06
-update token 140b9d69cb9f100ad486013ceeb783e9bb0696f5 cost  2.36s
-token expired, update 140b9d69cb9f100ad486013ceeb783e9bb0696f5
-req_basic changed 301105.SZ鸿铭股份 C鸿铭
+Check token 2023-01-13
+update token 2777813ea0d44a6995925d8f5b4e6e1d433a3183 cost  0.79s
+token expired, update 2777813ea0d44a6995925d8f5b4e6e1d433a3183
+req_basic changed 000981.SZ山子股份 银亿股份
 
-req_basic changed 301255.SZ通力科技 C通力
+req_basic changed 002122.SZST天马 *ST天马
 
-req_basic changed 301297.SZ富乐德 C富乐德
+req_basic changed 002268.SZ电科网安 卫士通
 
-req_basic changed 301301.SZ川宁生物 C川宁
+req_basic changed 600901.SH江苏金租 江苏租赁
 
-req_basic changed 688475.SH萤石网络 C萤石
+req_basic insert new 834950.BJ
 
-req_basic changed 688496.SH清越科技 C清越
-
-req_basic insert new 688506.SH
-
-req_basic changed 688525.SH佰维存储 C佰维
-
-req_basic cost 10.95s
+req_basic cost 10.88s
