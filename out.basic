@@ -1,14 +1,22 @@
-Check token 2023-01-13
-update token 2777813ea0d44a6995925d8f5b4e6e1d433a3183 cost  0.79s
+Check token 2023-01-25
+update token 2777813ea0d44a6995925d8f5b4e6e1d433a3183 cost  1.26s
 token expired, update 2777813ea0d44a6995925d8f5b4e6e1d433a3183
-req_basic changed 000981.SZ山子股份 银亿股份
+req_basic changed 002089.SZ*ST新海 ST新海
 
-req_basic changed 002122.SZST天马 *ST天马
+req_basic insert new 301317.SZ
 
-req_basic changed 002268.SZ电科网安 卫士通
+req_basic insert new 430425.BJ
 
-req_basic changed 600901.SH江苏金租 江苏租赁
+req_basic insert new 603173.SH
 
-req_basic insert new 834950.BJ
+req_basic insert new 688435.SH
 
-req_basic cost 10.88s
+req_basic insert new 688485.SH
+
+req_basic changed 688506.SH百利天恒-U C百利-U
+
+req_basic insert new 839371.BJ
+
+req_basic insert new 873152.BJ
+
+req_basic cost  9.37s
