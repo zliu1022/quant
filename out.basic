@@ -1,22 +1,16 @@
-Check token 2023-01-25
-update token 2777813ea0d44a6995925d8f5b4e6e1d433a3183 cost  1.26s
-token expired, update 2777813ea0d44a6995925d8f5b4e6e1d433a3183
-req_basic changed 002089.SZ*ST新海 ST新海
+Check token 2023-02-03
+update token 06c970814873215375f1cd02e4c8e64b740f6704 cost  1.38s
+token expired, update 06c970814873215375f1cd02e4c8e64b740f6704
+req_basic changed 300555.SZST路通 路通视信
 
-req_basic insert new 301317.SZ
+req_basic insert new 601059.SH
 
-req_basic insert new 430425.BJ
+req_basic insert new 603281.SH
 
-req_basic insert new 603173.SH
+req_basic changed 688026.SH医疗保健 塑料
 
-req_basic insert new 688435.SH
+req_basic changed 688485.SH九州一轨 C九州
 
-req_basic insert new 688485.SH
+req_basic insert new 832023.BJ
 
-req_basic changed 688506.SH百利天恒-U C百利-U
-
-req_basic insert new 839371.BJ
-
-req_basic insert new 873152.BJ
-
-req_basic cost  9.37s
+req_basic cost 16.55s
