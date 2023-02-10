@@ -1,16 +1,26 @@
-Check token 2023-02-03
-update token 06c970814873215375f1cd02e4c8e64b740f6704 cost  1.38s
+Check token 2023-02-10
+update token 06c970814873215375f1cd02e4c8e64b740f6704 cost  3.50s
 token expired, update 06c970814873215375f1cd02e4c8e64b740f6704
-req_basic changed 300555.SZST路通 路通视信
+req_basic insert new 301260.SZ
 
-req_basic insert new 601059.SH
+req_basic changed 301317.SZ鑫磊股份 C鑫磊
 
-req_basic insert new 603281.SH
+req_basic insert new 301358.SZ
 
-req_basic changed 688026.SH医疗保健 塑料
+req_basic insert new 301373.SZ
 
-req_basic changed 688485.SH九州一轨 C九州
+req_basic insert new 301419.SZ
 
-req_basic insert new 832023.BJ
+req_basic changed 600165.SH宁科生物 新日恒力
 
-req_basic cost 16.55s
+req_basic changed 601059.SH信达证券 N信达
+
+req_basic changed 688435.SH英方软件 C英方
+
+req_basic insert new 688515.SH
+
+req_basic insert new 832802.BJ
+
+req_basic insert new 873167.BJ
+
+req_basic cost 11.50s
