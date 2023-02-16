@@ -1,9 +1,4 @@
-Check token 2023-02-14
-token got 1 days ago 72dea7021454f100bc72154931cdd6e0a6eecd76 still valid
-req_basic insert new 001314.SZ
-
-req_basic changed 688515.SHC裕太微-U N裕太微-U
-
-req_basic insert new 834407.BJ
-
-req_basic cost 11.75s
+Check token 2023-02-15
+update token 72dea7021454f100bc72154931cdd6e0a6eecd76 cost  1.68s
+token expired, update 72dea7021454f100bc72154931cdd6e0a6eecd76
+req_basic cost  9.77s
