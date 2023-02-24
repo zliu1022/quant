@@ -1,4 +1,42 @@
-Check token 2023-02-15
-update token 72dea7021454f100bc72154931cdd6e0a6eecd76 cost  1.68s
+Check token 2023-02-24
+update token 72dea7021454f100bc72154931cdd6e0a6eecd76 cost  1.34s
 token expired, update 72dea7021454f100bc72154931cdd6e0a6eecd76
-req_basic cost  9.77s
+req_basic changed 000791.SZ甘肃能源 甘肃电投
+
+req_basic insert new 001225.SZ
+
+req_basic insert new 001260.SZ
+
+req_basic changed 001314.SZ亿道信息 N亿道
+
+req_basic changed 301260.SZ格力博 C格力博
+
+req_basic insert new 301303.SZ
+
+req_basic changed 301358.SZ湖南裕能 C裕能
+
+req_basic changed 301373.SZ凌玮科技 C凌玮
+
+req_basic changed 301419.SZ阿莱德 C阿莱德
+
+req_basic insert new 430478.BJ
+
+req_basic changed 603003.SH龙宇股份 龙宇燃油
+
+req_basic insert new 603190.SH
+
+req_basic insert new 603307.SH
+
+req_basic insert new 688307.SH
+
+req_basic insert new 688486.SH
+
+req_basic changed 688515.SH裕太微-U C裕太微-U
+
+req_basic insert new 831906.BJ
+
+req_basic insert new 832149.BJ
+
+req_basic insert new 839273.BJ
+
+req_basic cost  9.85s
