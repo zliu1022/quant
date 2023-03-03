@@ -1,42 +1,21 @@
-Check token 2023-02-24
-update token 72dea7021454f100bc72154931cdd6e0a6eecd76 cost  1.34s
-token expired, update 72dea7021454f100bc72154931cdd6e0a6eecd76
-req_basic changed 000791.SZ甘肃能源 甘肃电投
-
-req_basic insert new 001225.SZ
-
-req_basic insert new 001260.SZ
-
-req_basic changed 001314.SZ亿道信息 N亿道
-
-req_basic changed 301260.SZ格力博 C格力博
-
-req_basic insert new 301303.SZ
-
-req_basic changed 301358.SZ湖南裕能 C裕能
-
-req_basic changed 301373.SZ凌玮科技 C凌玮
-
-req_basic changed 301419.SZ阿莱德 C阿莱德
-
-req_basic insert new 430478.BJ
-
-req_basic changed 603003.SH龙宇股份 龙宇燃油
-
-req_basic insert new 603190.SH
-
-req_basic insert new 603307.SH
-
-req_basic insert new 688307.SH
-
-req_basic insert new 688486.SH
-
-req_basic changed 688515.SH裕太微-U C裕太微-U
-
-req_basic insert new 831906.BJ
-
-req_basic insert new 832149.BJ
-
-req_basic insert new 839273.BJ
-
-req_basic cost  9.85s
+Check token 2023-03-03
+req_basic changed 002122.SZ天马股份 ST天马
+req_basic changed 002497.SZ小金属 化工原料
+req_basic changed 300391.SZ长药控股 康跃科技
+req_basic changed 301303.SZ真兰仪表 C真兰
+req_basic changed 430478.BJ峆一药业 N峆一
+req_basic changed 600876.SH凯盛新能 洛阳玻璃
+req_basic changed 603203.SH快克智能 快克股份
+req_basic changed 688091.SH上海谊众 上海谊众-U
+req_basic changed 688486.SH龙迅股份 C龙迅
+req_basic cost 11.09s
+req_basic insert new 001311.SZ
+req_basic insert new 001337.SZ
+req_basic insert new 301322.SZ
+req_basic insert new 301408.SZ
+req_basic insert new 603061.SH
+req_basic insert new 688522.SH
+req_basic insert new 834770.BJ
+req_basic insert new 836422.BJ
+token expired, update 7da3658c0a79fd9ef135510bc5189429ce0e3035
+update token 7da3658c0a79fd9ef135510bc5189429ce0e3035 cost  1.59s
