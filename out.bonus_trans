@@ -1,6 +1,8 @@
-Check token 2023-03-03
+Check token 2023-03-10
 token got 0 days ago 7da3658c0a79fd9ef135510bc5189429ce0e3035 still valid
-find 5107 stocks
+find 5117 stocks
+Warning: 000001.SZ no date in 5ys 2022 NaN NaN 10派2.85元(董事会预案)
+000001.SZ insert bad bonus no_date 2022年报 nan
 Warning: 000007.SZ no date 1992 NaN 19921107 10送2股派0.5元(实施方案)
 000007.SZ update bad bonus no_date 1992中报 721065600000
 Warning: 000017.SZ no date 20070111 NaN 20100317 流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
@@ -12,7 +14,7 @@ Warning: 000038.SZ no date 20080128 NaN 20090430 10转3股(实施方案)
 Warning: 000048.SZ no date 2015 NaN NaN 10派1.066元(股东大会预案)
 000048.SZ update bad bonus no_date 2015年报 nan
 Warning: 000055.SZ no date in 5ys 2022 NaN NaN 10派0.5元(董事会预案)
-000055.SZ insert bad bonus no_date 2022年报 nan
+000055.SZ update bad bonus no_date 2022年报 nan
 Warning: 000056.SZ no date 1995 NaN NaN 10派1.2元(实施方案)
 000056.SZ update bad bonus no_date 1995年报 nan
 Warning: 000058.SZ no date 2005 NaN NaN 10转0.80772913股(实施方案)
@@ -23,6 +25,8 @@ Warning: 000403.SZ no date 2005 NaN NaN 10转增6股(股东大会预案)
 000403.SZ update bad bonus no_date 2005三季报 nan
 Warning: 430718.BJ no date 2014 NaN NaN 10派1元(股东大会预案)
 430718.BJ update bad bonus no_date 2014年报 nan
+Warning: 000408.SZ no date in 5ys 2022 NaN NaN 10派9.60元(董事会预案)
+000408.SZ update bad bonus no_date 2022年报 nan
 Error: bonus plan error: not find 送转派 (实施方案)
 000408.SZ update bad bonus, bad_plan
 Warning: 000408.SZ no date 1995 NaN NaN (实施方案)
@@ -56,7 +60,7 @@ Warning: 000520.SZ no date 20140325 NaN 20140730 10转5股(实施方案)
 Warning: 000523.SZ no date in 5ys 20211023 NaN 20211208 10转15.69股(实施方案)
 000523.SZ update bad bonus no_date 2021-10-23 1638892800000
 Warning: 000534.SZ no date in 5ys 2022 NaN NaN 10派0.5元(董事会预案)
-000534.SZ insert bad bonus no_date 2022年报 nan
+000534.SZ update bad bonus no_date 2022年报 nan
 Warning: 000557.SZ no date 2008 NaN 20081213 10转1.3409股(实施方案)
 000557.SZ update bad bonus no_date 2008三季报 1229097600000
 Warning: 000557.SZ no date 20061121 NaN 20070226 10转0.2618股(实施方案)
@@ -65,11 +69,10 @@ Warning: 000558.SZ no date 1993 NaN NaN 10送1股派2.488元(实施方案)
 000558.SZ update bad bonus no_date 1993年报 nan
 Warning: 000592.SZ no date 1995 NaN NaN 10派2.3元(实施方案)
 000592.SZ update bad bonus no_date 1995年报 nan
-Warning: 839273.BJ no date in 5ys 2018 NaN NaN 10派2.2元(股东大会预案)
-839273.BJ update bad bonus no_date 2018年报 nan
 Warning: 000595.SZ no date in 5ys 20201028 NaN 20201127 10转5.03股(实施方案)
 000595.SZ update bad bonus no_date 2020-10-28 1606406400000
-Thread-2 cost 2.04s
+Warning: 839273.BJ no date in 5ys 2018 NaN NaN 10派2.2元(股东大会预案)
+839273.BJ update bad bonus no_date 2018年报 nan
 Error: bonus plan error: not find 送转派 新老股东共享95和96年利润(实施方案)
 000608.SZ update bad bonus, bad_plan
 Warning: 000608.SZ no date 1995 NaN NaN 新老股东共享95和96年利润(实施方案)
@@ -78,6 +81,7 @@ Warning: 000609.SZ no date 1995 NaN NaN 10派1.8元(实施方案)
 000609.SZ update bad bonus no_date 1995年报 nan
 Warning: 000622.SZ no date 20121019 NaN 20130111 10转20股(实施方案)
 000622.SZ update bad bonus no_date 2012-10-19 1357833600000
+Thread-2 cost 2.04s
 Warning: 000669.SZ no date 1995 NaN NaN 10派2元(实施方案)
 000669.SZ update bad bonus no_date 1995年报 nan
 Warning: 000670.SZ no date 20140711 NaN 20140711 10转20股(实施方案)
@@ -90,6 +94,8 @@ Warning: 000698.SZ no date 1996 NaN NaN 向老股东10派2元(股东大会预案
 000698.SZ update bad bonus no_date 1996年报 nan
 Warning: 000721.SZ no date 1996 NaN NaN 向老股东10派1.2元(股东大会预案)
 000721.SZ update bad bonus no_date 1996年报 nan
+Warning: 000739.SZ no date in 5ys 2022 NaN NaN 10派2.97元(董事会预案)
+000739.SZ insert bad bonus no_date 2022年报 nan
 Warning: 000751.SZ no date 20131114 NaN 20131231 10转2.7股(实施方案)
 000751.SZ update bad bonus no_date 2013-11-14 1388419200000
 Warning: 000757.SZ no date 20061201 NaN 20070105 10转7股(实施方案)
@@ -109,15 +115,19 @@ Warning: 000971.SZ no date 1999 NaN NaN 向老股东10派1.8元(股东大会预�
 Warning: 000972.SZ no date 20130219 NaN 20130222 10转6股(实施方案)
 000972.SZ update bad bonus no_date 2013-02-19 1361462400000
 Warning: 000975.SZ no date in 5ys 2022 NaN NaN 10派2.8元(董事会预案)
-000975.SZ insert bad bonus no_date 2022年报 nan
+000975.SZ update bad bonus no_date 2022年报 nan
 Warning: 000980.SZ no date in 5ys 20211023 NaN 20211214 10转15股(实施方案)
 000980.SZ update bad bonus no_date 2021-10-23 1639411200000
 Warning: 000982.SZ no date in 5ys 20191029 NaN 20191224 10转13.61股(实施方案)
 000982.SZ update bad bonus no_date 2019-10-29 1577116800000
 Warning: 000988.SZ no date in 5ys 2022 NaN NaN 10派1元(董事会预案)
-000988.SZ insert bad bonus no_date 2022年报 nan
+000988.SZ update bad bonus no_date 2022年报 nan
+Warning: 001205.SZ no date in 5ys 2022 NaN NaN 10派1元(董事会预案)
+001205.SZ insert bad bonus no_date 2022年报 nan
 Warning: 001207.SZ no date in 5ys 2022 NaN NaN 10派2元(董事会预案)
-001207.SZ insert bad bonus no_date 2022年报 nan
+001207.SZ update bad bonus no_date 2022年报 nan
+Warning: 002056.SZ no date in 5ys 2022 NaN NaN 10派3.62元(董事会预案)
+002056.SZ insert bad bonus no_date 2022年报 nan
 Warning: 002072.SZ no date in 5ys 20211119 NaN 20211223 10转10.8909股(实施方案)
 002072.SZ update bad bonus no_date 2021-11-19 1640188800000
 Warning: 002131.SZ no date 20170912 NaN 20171213 10送0.03985947股(实施方案)
@@ -125,17 +135,19 @@ Warning: 002131.SZ no date 20170912 NaN 20171213 10送0.03985947股(实施方案
 Warning: 002131.SZ no date 20130606 NaN 20130621 10送0.079055股(实施方案)
 002131.SZ update bad bonus no_date 2013-06-06 1371744000000
 Warning: 002138.SZ no date in 5ys 2022 NaN NaN 10派2元(董事会预案)
-002138.SZ insert bad bonus no_date 2022年报 nan
+002138.SZ update bad bonus no_date 2022年报 nan
 Warning: 002175.SZ no date in 5ys 20211012 NaN 20211224 10转6.9384138股(实施方案)
 002175.SZ update bad bonus no_date 2021-10-12 1640275200000
 Warning: 002210.SZ no date in 5ys 20201106 NaN 20201229 10转6.1股(实施方案)
 002210.SZ update bad bonus no_date 2020-11-06 1609171200000
+Warning: 002240.SZ no date in 5ys 2022 NaN NaN 10派6.5元(董事会预案)
+002240.SZ insert bad bonus no_date 2022年报 nan
 Warning: 002254.SZ no date in 5ys 2020 NaN NaN 10派6元(董事会预案)
 002254.SZ update bad bonus no_date 2020三季报 nan
 Warning: 002258.SZ no date in 5ys 2022 NaN NaN 10派5元(董事会预案)
-002258.SZ insert bad bonus no_date 2022年报 nan
+002258.SZ update bad bonus no_date 2022年报 nan
 Warning: 002315.SZ no date in 5ys 2022 NaN NaN 10派9元(董事会预案)
-002315.SZ insert bad bonus no_date 2022年报 nan
+002315.SZ update bad bonus no_date 2022年报 nan
 Warning: 002354.SZ no date in 5ys 20201021 NaN 20201207 10转7.84股(实施方案)
 002354.SZ update bad bonus no_date 2020-10-21 1607270400000
 Warning: 002382.SZ no date in 5ys 2021 NaN NaN 10派1元(股东大会预案)
@@ -151,19 +163,21 @@ Warning: 002716.SZ no date in 5ys 20201201 NaN 20201228 10转13.01436股(实施�
 Warning: 002735.SZ no date 2013 NaN NaN 10派0.66元(股东大会预案)
 002735.SZ update bad bonus no_date 2013年报 nan
 Warning: 003037.SZ no date in 5ys 2022 NaN NaN 10派1.3元(董事会预案)
-003037.SZ insert bad bonus no_date 2022年报 nan
+003037.SZ update bad bonus no_date 2022年报 nan
 Warning: 300008.SZ no date in 5ys 20200819 NaN 20201222 10转8股(实施方案)
 300008.SZ update bad bonus no_date 2020-08-19 1608566400000
 Warning: 300033.SZ no date in 5ys 2022 NaN NaN 10派25元(董事会预案)
-300033.SZ insert bad bonus no_date 2022年报 nan
+300033.SZ update bad bonus no_date 2022年报 nan
 Warning: 300071.SZ no date in 5ys 20211116 NaN 20211229 10转3.8股(实施方案)
 300071.SZ update bad bonus no_date 2021-11-16 1640707200000
 Warning: 300116.SZ no date in 5ys 20191212 NaN 20200331 10转8.5股(实施方案)
 300116.SZ update bad bonus no_date 2019-12-12 1585584000000
 Warning: 300278.SZ no date in 5ys 20211203 NaN 20211230 10转15.00423股(实施方案)
 300278.SZ update bad bonus no_date 2021-12-03 1640793600000
+Warning: 300354.SZ no date in 5ys 2022 NaN NaN 10派1.77元(董事会预案)
+300354.SZ insert bad bonus no_date 2022年报 nan
 Warning: 300496.SZ no date in 5ys 2022 NaN NaN 10派3.37元(董事会预案)
-300496.SZ insert bad bonus no_date 2022年报 nan
+300496.SZ update bad bonus no_date 2022年报 nan
 Warning: 300607.SZ no date 20160808 NaN NaN 10派5.51元(股东大会预案)
 300607.SZ update bad bonus no_date 2016-08-08 nan
 Warning: 300607.SZ no date 2015 NaN NaN 10派1.84元(股东大会预案)
@@ -171,25 +185,29 @@ Warning: 300607.SZ no date 2015 NaN NaN 10派1.84元(股东大会预案)
 Warning: 300607.SZ no date 2014 NaN NaN 10派1.84元(股东大会预案)
 300607.SZ update bad bonus no_date 2014年报 nan
 Warning: 300654.SZ no date in 5ys 2022 NaN NaN 10转7股派0.8元(董事会预案)
-300654.SZ insert bad bonus no_date 2022年报 nan
+300654.SZ update bad bonus no_date 2022年报 nan
+Warning: 300700.SZ no date in 5ys 2022 NaN NaN 10转8股(董事会预案)
+300700.SZ insert bad bonus no_date 2022年报 nan
 Warning: 300708.SZ no date in 5ys 2022 NaN NaN 10派0.4元(董事会预案)
-300708.SZ insert bad bonus no_date 2022年报 nan
+300708.SZ update bad bonus no_date 2022年报 nan
 Warning: 300721.SZ no date in 5ys 2022 NaN NaN 10转9股派1.5元(董事会预案)
 300721.SZ update bad bonus no_date 2022年报 nan
 Warning: 300721.SZ no date 2014 NaN NaN 10派0.30元(股东大会预案)
 300721.SZ update bad bonus no_date 2014年报 nan
 Warning: 300724.SZ no date 2015 NaN NaN 10派1.67元(股东大会预案)
 300724.SZ update bad bonus no_date 2015年报 nan
+Warning: 300750.SZ no date in 5ys 2022 NaN NaN 10转8股派25.2元(董事会预案)
+300750.SZ insert bad bonus no_date 2022年报 nan
+Warning: 300796.SZ no date in 5ys 2022 NaN NaN 10转8股派1.2元(董事会预案)
+300796.SZ insert bad bonus no_date 2022年报 nan
 Warning: 300818.SZ no date in 5ys 2022 NaN NaN 10转5股派4元(董事会预案)
-300818.SZ insert bad bonus no_date 2022年报 nan
+300818.SZ update bad bonus no_date 2022年报 nan
 Warning: 300845.SZ no date 2013 NaN NaN 10派0.67元(股东大会预案)
 300845.SZ update bad bonus no_date 2013年报 nan
+Warning: 300896.SZ no date in 5ys 2022 NaN NaN 10派28元(董事会预案)
+300896.SZ insert bad bonus no_date 2022年报 nan
 Warning: 300922.SZ no date in 5ys 2019 NaN NaN 10派1.5元(董事会预案)
 300922.SZ update bad bonus no_date 2019中报 nan
-Warning: 301059.SZ no date in 5ys 2022 NaN NaN 10转9股派3元(股东大会预案)
-301059.SZ update bad bonus no_date 2022年报 nan
-Warning: 301059.SZ no date in 5ys 2022 NaN NaN 10转9股派3元(董事会预案)
-301059.SZ update bad bonus no_date 2022年报 nan
 Warning: 301076.SZ no date in 5ys 2022 NaN NaN 10转3股派6元(董事会预案)
 301076.SZ update bad bonus no_date 2022年报 nan
 Warning: 301089.SZ no date in 5ys 2018 NaN NaN 10派0.30元(董事会预案)
@@ -198,10 +216,16 @@ Warning: 301115.SZ no date 20151204 NaN NaN 10转8.5股(股东大会预案)
 301115.SZ update bad bonus no_date 2015-12-04 nan
 Warning: 301168.SZ no date 20151215 NaN NaN 10派1.6元(股东大会预案)
 301168.SZ update bad bonus no_date 2015-12-15 nan
+Warning: 301179.SZ no date in 5ys 2022 NaN NaN 10转8股派5.2元(董事会预案)
+301179.SZ insert bad bonus no_date 2022年报 nan
 Warning: 301256.SZ no date in 5ys 2022 NaN NaN 10派0.8元(董事会预案)
-301256.SZ insert bad bonus no_date 2022年报 nan
+301256.SZ update bad bonus no_date 2022年报 nan
 Warning: 301263.SZ no date in 5ys 2018 NaN NaN 10派2.00元(股东大会预案)
 301263.SZ update bad bonus no_date 2018年报 nan
+Warning: 600050.SH no date in 5ys 2022 NaN NaN 10派0.427元(董事会预案)
+600050.SH insert bad bonus no_date 2022年报 nan
+Warning: 600063.SH no date in 5ys 2022 NaN NaN 10派1.5元(董事会预案)
+600063.SH insert bad bonus no_date 2022年报 nan
 Warning: 600075.SH no date 20060403 NaN 20060510 10转1.8股(实施方案)
 600075.SH update bad bonus no_date 2006-04-03 1147190400000
 Warning: 600133.SH no date 2005 NaN NaN 10转增3.5股(董事会预案)
@@ -215,7 +239,7 @@ Warning: 600182.SH no date 20160902 NaN NaN 向佳通轮胎(中国)投资有限�
 Warning: 600212.SH no date 20060511 NaN 20060622 10转10股(实施方案)
 600212.SH update bad bonus no_date 2006-05-11 1150905600000
 Warning: 600305.SH no date in 5ys 2022 NaN NaN 10派1.1元(董事会预案)
-600305.SH insert bad bonus no_date 2022年报 nan
+600305.SH update bad bonus no_date 2022年报 nan
 Warning: 600313.SH no date 2000 NaN NaN 向老股东10派0.58元(股东大会预案)
 600313.SH update bad bonus no_date 2000年报 nan
 Warning: 600399.SH no date in 5ys 20181106 NaN 20181226 10转5.17股(实施方案)
@@ -223,9 +247,13 @@ Warning: 600399.SH no date in 5ys 20181106 NaN 20181226 10转5.17股(实施方�
 Warning: 600466.SH no date in 5ys 2020 NaN NaN 10派0.85元(股东大会预案)
 600466.SH update bad bonus no_date 2020年报 nan
 Warning: 600513.SH no date in 5ys 2022 NaN NaN 10派1.5元(董事会预案)
-600513.SH insert bad bonus no_date 2022年报 nan
+600513.SH update bad bonus no_date 2022年报 nan
 Warning: 600557.SH no date in 5ys 2022 NaN NaN 10派2.2元(董事会预案)
 600557.SH update bad bonus no_date 2022年报 nan
+Warning: 600605.SH no date in 5ys 2022 NaN NaN 10派1.0元(董事会预案)
+600605.SH insert bad bonus no_date 2022年报 nan
+Warning: 600681.SH no date in 5ys 2022 NaN NaN 10派1.5元(董事会预案)
+600681.SH update bad bonus no_date 2022年报 nan
 Warning: 600681.SH no date 2005 NaN NaN 10转增4股(董事会预案)
 600681.SH update bad bonus no_date 2005三季报 nan
 Error: bonus plan error: not find 送转派 95年度利润只向老股东分配(实施方案)
@@ -246,7 +274,9 @@ Warning: 600731.SH no date 1995 NaN NaN 老股东10派2.1元(实施方案)
 600731.SH update bad bonus no_date 1995年报 nan
 Warning: 600733.SH no date in 5ys 20180201 NaN 20180201 10送5股(实施方案)
 600733.SH update bad bonus no_date 2018-02-01 1517414400000.0
-Warning: 600733.SH no date 2005 NaN NaN 10转增6.8股 (董事会预案)
+Warning: 600733.SH no date 2005 NaN NaN 10转增6.8股
+
+(董事会预案)
 600733.SH update bad bonus no_date 2005三季报 nan
 Warning: 600734.SH no date 1995 NaN NaN 老股东10派4元(实施方案)
 600734.SH update bad bonus no_date 1995年报 nan
@@ -264,36 +294,52 @@ Warning: 600807.SH no date 1994 NaN NaN 10派1.2元(股东大会预案)
 600807.SH update bad bonus no_date 1994年报 nan
 Warning: 600817.SH no date 20120730 NaN 20120730 10转2.5股(实施方案)
 600817.SH update bad bonus no_date 2012-07-30 1343577600000
+Warning: 600873.SH no date in 5ys 2022 NaN NaN 10派4.0元(董事会预案)
+600873.SH insert bad bonus no_date 2022年报 nan
 Warning: 600955.SH no date in 5ys 2022 NaN NaN 10派1.66元(董事会预案)
-600955.SH insert bad bonus no_date 2022年报 nan
+600955.SH update bad bonus no_date 2022年报 nan
+Warning: 600989.SH no date in 5ys 2022 NaN NaN 10派1.4元(董事会预案)
+600989.SH insert bad bonus no_date 2022年报 nan
 Warning: 601005.SH no date 20171102 NaN 20171225 10转11.50股(实施方案)
 601005.SH update bad bonus no_date 2017-11-02 1514131200000
 Warning: 601901.SH no date in 5ys 2022 NaN NaN 10派0.12元(董事会预案)
-601901.SH insert bad bonus no_date 2022年报 nan
+601901.SH update bad bonus no_date 2022年报 nan
 Warning: 601975.SH no date 20141202 NaN 20141223 10转4.8股(实施方案)
 601975.SH update bad bonus no_date 2014-12-02 1419264000000
 Warning: 603077.SH no date in 5ys 2022 NaN NaN 10派0.45元(董事会预案)
 603077.SH update bad bonus no_date 2022年报 nan
+Warning: 603166.SH no date in 5ys 2022 NaN NaN 10派1元(董事会预案)
+603166.SH insert bad bonus no_date 2022年报 nan
 Warning: 603200.SH no date in 5ys 2022 NaN NaN 10派0.75元(董事会预案)
-603200.SH insert bad bonus no_date 2022年报 nan
+603200.SH update bad bonus no_date 2022年报 nan
+Warning: 603305.SH no date in 5ys 2022 NaN NaN 10转4股派1.2元(董事会预案)
+603305.SH insert bad bonus no_date 2022年报 nan
 Warning: 603317.SH no date in 5ys 2022 NaN NaN 10转4股派3.2元(董事会预案)
-603317.SH insert bad bonus no_date 2022年报 nan
+603317.SH update bad bonus no_date 2022年报 nan
 Warning: 603348.SH no date 2014 NaN NaN 10派1元(股东大会预案)
 603348.SH update bad bonus no_date 2014年报 nan
+Warning: 603606.SH no date in 5ys 2022 NaN NaN 10派2.5元(董事会预案)
+603606.SH insert bad bonus no_date 2022年报 nan
 Warning: 603856.SH no date in 5ys 2022 NaN NaN 10派1.74元(董事会预案)
 603856.SH update bad bonus no_date 2022年报 nan
+Warning: 603929.SH no date in 5ys 2022 NaN NaN 10派2.5元(董事会预案)
+603929.SH insert bad bonus no_date 2022年报 nan
 Warning: 603960.SH no date 2016 NaN NaN 10转3股派1.35元(董事会预案)
 603960.SH update bad bonus no_date 2016年报 nan
+Warning: 605090.SH no date in 5ys 2022 NaN NaN 10派3.0元(董事会预案)
+605090.SH insert bad bonus no_date 2022年报 nan
 Warning: 605111.SH no date 20171025 NaN NaN 10转20股(股东大会预案)
 605111.SH update bad bonus no_date 2017-10-25 nan
+Warning: 605377.SH no date in 5ys 2022 NaN NaN 10派5.2元(董事会预案)
+605377.SH insert bad bonus no_date 2022年报 nan
 Warning: 688082.SH no date in 5ys 2022 NaN NaN 10派3.72元(董事会预案)
-688082.SH insert bad bonus no_date 2022年报 None
+688082.SH update bad bonus no_date 2022年报 None
 Warning: 688091.SH no date in 5ys 2022 NaN NaN 10转1股派3元(董事会预案)
-688091.SH insert bad bonus no_date 2022年报 nan
+688091.SH update bad bonus no_date 2022年报 nan
 Warning: 688095.SH no date 2017 NaN NaN 10派10元(股东大会预案)
 688095.SH update bad bonus no_date 2017年报 nan
 Warning: 688100.SH no date in 5ys 2022 NaN NaN 10派3.3元(董事会预案)
-688100.SH insert bad bonus no_date 2022年报 nan
+688100.SH update bad bonus no_date 2022年报 nan
 Warning: 688310.SH no date 20160205 NaN NaN 10派8.5元(股东大会预案)
 688310.SH update bad bonus no_date 2016-02-05 nan
 Warning: 688669.SH no date 20151214 NaN NaN 10派1元(董事会预案)
@@ -316,5 +362,5 @@ Warning: 835207.BJ no date in 5ys 2018 NaN NaN 10派2元(股东大会预案)
 835207.BJ update bad bonus no_date 2018年报 nan
 Warning: 873339.BJ no date in 5ys 2019 NaN NaN 10派20元(股东大会预案)
 873339.BJ update bad bonus no_date 2019年报 nan
-Thread-1 cost 50.38s
-total cost 50.38s
+Thread-1 cost 48.14s
+total cost 48.14s
