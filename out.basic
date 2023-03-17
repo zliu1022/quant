@@ -1,20 +1,16 @@
-Check token 2023-03-10
-req_basic changed 001337.SZ四川黄金 N川黄金
-req_basic changed 301322.SZC绿通 绿通科技
-req_basic changed 301408.SZ华人健康 C华人
-req_basic changed 603061.SH金海通 N金海通
-req_basic changed 688522.SH纳睿雷达 C纳睿
-req_basic changed 834021.BJ流金科技 流金岁月
-req_basic cost 11.28s
-req_basic insert new 001278.SZ
-req_basic insert new 001366.SZ
-req_basic insert new 001368.SZ
-req_basic insert new 301157.SZ
-req_basic insert new 601121.SH
-req_basic insert new 603153.SH
-req_basic insert new 688502.SH
-req_basic insert new 830974.BJ
-req_basic insert new 835857.BJ
-req_basic insert new 872541.BJ
-token expired, update 7da3658c0a79fd9ef135510bc5189429ce0e3035
-update token 7da3658c0a79fd9ef135510bc5189429ce0e3035 cost  1.23s
+Check token 2023-03-17
+req_basic changed 300716.SZ泉为科技 国立科技
+req_basic changed 301157.SZ华塑科技 C华塑科
+req_basic changed 301322.SZ绿通科技 C绿通
+req_basic changed 601121.SH宝地矿业 N宝地
+req_basic changed 688502.SH茂莱光学 C茂莱
+req_basic changed 872541.BJ铁大科技 N铁大
+req_basic cost 10.20s
+req_basic insert new 301439.SZ
+req_basic insert new 430556.BJ
+req_basic insert new 603073.SH
+req_basic insert new 603282.SH
+req_basic insert new 833575.BJ
+req_basic insert new 837663.BJ
+token expired, update 51d351b43f9ca116112b30f56fbed181c7acbbf4
+update token 51d351b43f9ca116112b30f56fbed181c7acbbf4 cost  1.29s
