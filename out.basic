@@ -1,16 +1,19 @@
-Check token 2023-03-17
-req_basic changed 300716.SZ泉为科技 国立科技
-req_basic changed 301157.SZ华塑科技 C华塑科
-req_basic changed 301322.SZ绿通科技 C绿通
-req_basic changed 601121.SH宝地矿业 N宝地
-req_basic changed 688502.SH茂莱光学 C茂莱
-req_basic changed 872541.BJ铁大科技 N铁大
-req_basic cost 10.20s
-req_basic insert new 301439.SZ
-req_basic insert new 430556.BJ
-req_basic insert new 603073.SH
-req_basic insert new 603282.SH
-req_basic insert new 833575.BJ
-req_basic insert new 837663.BJ
+Check token 2023-03-24
+req_basic changed 000697.SZ*ST炼石 炼石航空
+req_basic changed 002115.SZ互联网 广告包装
+req_basic changed 002358.SZ森源电气 ST森源
+req_basic changed 300390.SZ天华新能 天华超净
+req_basic changed 301439.SZC泓淋 泓淋电力
+req_basic changed 600506.SH统一股份 香梨股份
+req_basic changed 600753.SH庚星股份 东方银星
+req_basic changed 600877.SH电科芯片 声光电科
+req_basic changed 603073.SH彩蝶实业 N彩蝶
+req_basic changed 603859.SH软件服务 专用机械
+req_basic cost 10.98s
+req_basic insert new 301246.SZ
+req_basic insert new 301345.SZ
+req_basic insert new 301378.SZ
+req_basic insert new 603065.SH
+req_basic insert new 830809.BJ
 token expired, update 51d351b43f9ca116112b30f56fbed181c7acbbf4
-update token 51d351b43f9ca116112b30f56fbed181c7acbbf4 cost  1.29s
+update token 51d351b43f9ca116112b30f56fbed181c7acbbf4 cost  2.49s
