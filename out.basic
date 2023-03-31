@@ -1,19 +1,21 @@
-Check token 2023-03-24
-req_basic changed 000697.SZ*ST炼石 炼石航空
-req_basic changed 002115.SZ互联网 广告包装
-req_basic changed 002358.SZ森源电气 ST森源
-req_basic changed 300390.SZ天华新能 天华超净
-req_basic changed 301439.SZC泓淋 泓淋电力
-req_basic changed 600506.SH统一股份 香梨股份
-req_basic changed 600753.SH庚星股份 东方银星
-req_basic changed 600877.SH电科芯片 声光电科
-req_basic changed 603073.SH彩蝶实业 N彩蝶
-req_basic changed 603859.SH软件服务 专用机械
-req_basic cost 10.98s
-req_basic insert new 301246.SZ
-req_basic insert new 301345.SZ
-req_basic insert new 301378.SZ
-req_basic insert new 603065.SH
-req_basic insert new 830809.BJ
-token expired, update 51d351b43f9ca116112b30f56fbed181c7acbbf4
-update token 51d351b43f9ca116112b30f56fbed181c7acbbf4 cost  2.49s
+Check token 2023-03-31
+req_basic changed 002499.SZ科林退 *ST科林 None 环境保护
+req_basic changed 300002.SZ互联网 软件服务
+req_basic changed 301246.SZ宏源药业 C宏源
+req_basic changed 301345.SZ涛涛车业 C涛涛
+req_basic changed 301378.SZ通达海 C通达海
+req_basic changed 301439.SZ泓淋电力 C泓淋
+req_basic changed 688337.SH普源精电 普源精电-U
+req_basic changed 688521.SH芯原股份 芯原股份-U
+req_basic changed 830809.BJ安达科技 N安达
+req_basic cost 10.99s
+req_basic insert new 301314.SZ
+req_basic insert new 301386.SZ
+req_basic insert new 600925.SH
+req_basic insert new 603162.SH
+req_basic insert new 603291.SH
+req_basic insert new 688531.SH
+req_basic insert new 834261.BJ
+req_basic insert new 839792.BJ
+token expired, update ed22783ba339eb1ffc67ec307758bcb3a61b82dd
+update token ed22783ba339eb1ffc67ec307758bcb3a61b82dd cost  1.71s
