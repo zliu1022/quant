@@ -151,12 +151,15 @@ class StockGet:
         new_arr = []
         bonus_arr = []
         date_arr = []
+
+        # debug use
+        #print('bonus2df: dividend_year(报告期)           ashare_date(除权除息日) equity_date(股权登记日) plan_explain(分红方案)')
         for x in data['items']:
             try:
-                y = x['dividend_year'] # 报告期
-                d = x['ashare_ex_dividend_date'] # 除权除息日
-                s = x['plan_explain'] # 分红方案
-                equity_date = x['equity_date'] # 股权登记日
+                y = x['dividend_year']              # 报告期
+                d = x['ashare_ex_dividend_date']    # 除权除息日
+                s = x['plan_explain']               # 分红方案
+                equity_date = x['equity_date']      # 股权登记日
             except:
                 print(ts_code)
                 pprint(x)
@@ -188,6 +191,37 @@ class StockGet:
                 dividend_year_str = y
                 dividend_year = 1900
 
+            # debug use
+            '''
+            date_str = ''
+            if d == d and d != None: # not nan
+                date_str   = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
+            else:
+                date_str = '--------'
+            equity_str = ''
+            if equity_date == equity_date and equity_date != None: # not nan
+                equity_str = datetime.strftime(datetime.fromtimestamp(equity_date/1000), '%Y%m%d')
+                equity_year = datetime.strptime(equity_str,'%Y%m%d').year
+            else:
+                equity_str = '--NaN---'
+                equity_year = 1900
+
+            #如果 ashare_ex_dividend_date 有值，则 data_ok
+            #如果 ashare_ex_dividend_date 没有值，
+            #    如果 dividend_year 是今年，则 date_ok
+            #    如果 dividend_year 不是今年, 则 data_err
+
+            status = 'date_ok'
+            if date_str == '--------' and dividend_year != self.this_year and dividend_year != (self.this_year-1):
+                status = 'date_err'
+            print('          {} {} {}              {}                {} {}                {} {}'.format(
+                y, dividend_year_str, dividend_year, 
+                date_str, 
+                equity_str, equity_year,
+                s,
+                status))
+            '''
+
             ret, base, free, new, bonus = self.plan2digit(s)
             # if ret!=0 base,free,new,bonus = 0, still insert bonus db
             base_arr.append(base)
@@ -211,7 +245,7 @@ class StockGet:
             if d == d and d != None: # not nan
                 date_str = datetime.strftime(datetime.fromtimestamp(d/1000), '%Y%m%d')
                 date_arr.append(date_str)
-            elif dividend_year == self.this_year: # has dividend plan no ex_date in this year
+            elif dividend_year == self.this_year or dividend_year == (self.this_year-1): # has dividend plan no ex_date in this year or last year
                 date_arr.append('')
             else: # ashare_ex_dividend_date == NaN
                 if equity_date == equity_date and equity_date != None: # not nan
