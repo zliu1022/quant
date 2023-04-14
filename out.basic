@@ -1,22 +1,34 @@
-Check token 2023-04-07
-req_basic changed 002006.SZ精工科技 精功科技
-req_basic changed 002022.SZ科华生物 *ST科华
-req_basic changed 301314.SZ科瑞思 C科瑞思
-req_basic changed 301386.SZ未来电器 C未来
-req_basic changed 600301.SH小金属 商贸代理
-req_basic changed 600306.SH*ST商城 ST商城
-req_basic changed 600719.SH大连热电 ST热电
-req_basic changed 600724.SH区域地产 水泥
-req_basic changed 603039.SH泛微网络 ST泛微
-req_basic changed 688531.SHC日联 日联科技
-req_basic changed 839792.BJ东和新材 N东和
-req_basic cost 10.23s
-req_basic insert new 301141.SZ
-req_basic insert new 301203.SZ
-req_basic insert new 301281.SZ
-req_basic insert new 688343.SH
-req_basic insert new 688484.SH
-req_basic insert new 688535.SH
-req_basic insert new 872895.BJ
-token expired, update ed22783ba339eb1ffc67ec307758bcb3a61b82dd
-update token ed22783ba339eb1ffc67ec307758bcb3a61b82dd cost  0.72s
+Check token 2023-04-14
+req_basic changed 000021.SZ元器件 IT设备
+req_basic changed 002076.SZ雪莱特 *ST雪莱
+req_basic changed 002893.SZ京能热力 华通热力
+req_basic changed 300268.SZ*ST佳沃 佳沃食品
+req_basic changed 300317.SZ电气设备 半导体
+req_basic changed 300570.SZ通信设备 元器件
+req_basic changed 301141.SZ中科磁业 C中科磁
+req_basic changed 301203.SZ国泰环保 C国泰环
+req_basic changed 301281.SZ科源制药 C科源
+req_basic changed 603291.SH水务 环境保护
+req_basic changed 688126.SH沪硅产业 沪硅产业-U
+req_basic changed 688256.SH半导体 元器件
+req_basic changed 688343.SH云天励飞-U C云天-U
+req_basic changed 688531.SH日联科技 C日联
+req_basic changed 688535.SH华海诚科 C华海
+req_basic changed 872895.BJ花溪科技 N花溪
+req_basic cost 12.25s
+req_basic insert new 001286.SZ
+req_basic insert new 001287.SZ
+req_basic insert new 001328.SZ
+req_basic insert new 001360.SZ
+req_basic insert new 001367.SZ
+req_basic insert new 301429.SZ
+req_basic insert new 601061.SH
+req_basic insert new 601065.SH
+req_basic insert new 601133.SH
+req_basic insert new 603125.SH
+req_basic insert new 603135.SH
+req_basic insert new 688433.SH
+req_basic insert new 831304.BJ
+req_basic insert new 873593.BJ
+token expired, update 173d1b86b97861e4a0ecbe2d031fbd057d337248
+update token 173d1b86b97861e4a0ecbe2d031fbd057d337248 cost  0.83s
