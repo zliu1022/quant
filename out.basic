@@ -1,34 +1,38 @@
-Check token 2023-04-14
-req_basic changed 000021.SZ元器件 IT设备
-req_basic changed 002076.SZ雪莱特 *ST雪莱
-req_basic changed 002893.SZ京能热力 华通热力
-req_basic changed 300268.SZ*ST佳沃 佳沃食品
-req_basic changed 300317.SZ电气设备 半导体
-req_basic changed 300570.SZ通信设备 元器件
-req_basic changed 301141.SZ中科磁业 C中科磁
-req_basic changed 301203.SZ国泰环保 C国泰环
-req_basic changed 301281.SZ科源制药 C科源
-req_basic changed 603291.SH水务 环境保护
-req_basic changed 688126.SH沪硅产业 沪硅产业-U
-req_basic changed 688256.SH半导体 元器件
-req_basic changed 688343.SH云天励飞-U C云天-U
-req_basic changed 688531.SH日联科技 C日联
-req_basic changed 688535.SH华海诚科 C华海
-req_basic changed 872895.BJ花溪科技 N花溪
-req_basic cost 12.25s
-req_basic insert new 001286.SZ
-req_basic insert new 001287.SZ
-req_basic insert new 001328.SZ
-req_basic insert new 001360.SZ
-req_basic insert new 001367.SZ
-req_basic insert new 301429.SZ
-req_basic insert new 601061.SH
-req_basic insert new 601065.SH
-req_basic insert new 601133.SH
-req_basic insert new 603125.SH
-req_basic insert new 603135.SH
-req_basic insert new 688433.SH
-req_basic insert new 831304.BJ
-req_basic insert new 873593.BJ
+Check token 2023-04-21
+req_basic changed 000552.SZ甘肃能化 靖远煤电
+req_basic changed 000972.SZ中基健康 ST中基
+req_basic changed 001286.SZ陕西能源 C陕西能
+req_basic changed 001287.SZ中电港 C中电港
+req_basic changed 001328.SZ登康口腔 C登康
+req_basic changed 001360.SZ南矿集团 C南矿
+req_basic changed 001367.SZ海森药业 C海森
+req_basic changed 002316.SZ亚联发展 *ST亚联
+req_basic changed 300201.SZ海伦哲 *ST海伦
+req_basic changed 301429.SZC森泰 森泰股份
+req_basic changed 600122.SH*ST宏图 ST宏图
+req_basic changed 600766.SH综合类 黄金
+req_basic changed 600861.SH文教休闲 百货
+req_basic changed 601061.SH中信金属 C中信金
+req_basic changed 601065.SH江盐集团 C江盐
+req_basic changed 601133.SH柏诚股份 C柏诚
+req_basic changed 603125.SH常青科技 C常青
+req_basic changed 603135.SH中重科技 C中重
+req_basic changed 688072.SH拓荆科技 拓荆科技-U
+req_basic changed 688207.SH格灵深瞳 格灵深瞳-U
+req_basic changed 688433.SHC华曙 华曙高科
+req_basic cost 13.72s
+req_basic insert new 301307.SZ
+req_basic insert new 301357.SZ
+req_basic insert new 301387.SZ
+req_basic insert new 603137.SH
+req_basic insert new 688146.SH
+req_basic insert new 688352.SH
+req_basic insert new 688478.SH
+req_basic insert new 688507.SH
+req_basic insert new 688539.SH
+req_basic insert new 830896.BJ
+req_basic insert new 833394.BJ
+req_basic insert new 871694.BJ
 token expired, update 173d1b86b97861e4a0ecbe2d031fbd057d337248
-update token 173d1b86b97861e4a0ecbe2d031fbd057d337248 cost  0.83s
+update token 173d1b86b97861e4a0ecbe2d031fbd057d337248 cost  6.75s
+其他建材 化工原料
