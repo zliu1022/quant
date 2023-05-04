@@ -12,6 +12,10 @@ import pandas as pd
 import tushare as ts
 import sys
 
+basic_token = '0603f0a6ce3d7786d607e65721594ed0d1c23b41d6bc82426d7e4674'
+bonus_url   = "https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol="
+day_url     = "https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count="
+
 class StockGet:
     def __init__(self):
         self.today_str = datetime.now().strftime('%Y%m%d')
@@ -284,6 +288,55 @@ class StockGet:
             df = df.sort_values(by='date', ascending=False)
         return df
 
+    # rewrite by GPT4 begin
+    def extract_year(text):
+        for pattern, offset in [("%Y年", 0), ("中报", 0), ("季报", -1), ("-%m-%d", 0)]:
+            pos = text.find(pattern[:-2])
+            if pos != -1:
+                return text[0:pos + offset] if pattern[-1] == "Y" else datetime.strptime(text, pattern).year
+        return "1900"
+
+    def bonus2df_GPT4(self, ts_code, data):
+        year_arr, base_arr, free_arr, new_arr, bonus_arr, date_arr = [], [], [], [], [], []
+
+        for x in data['items']:
+            try:
+                y, d, s, equity_date = x['dividend_year'], x['ashare_ex_dividend_date'], x['plan_explain'], x['equity_date']
+            except:
+                print(ts_code)
+                pprint(x)
+                quit()
+
+            dividend_year_str = extract_year(y)
+            year_arr.append(dividend_year_str)
+            dividend_year = int(dividend_year_str)
+
+            ret, base, free, new, bonus = self.plan2digit(s)
+            base_arr.append(base)
+            free_arr.append(free)
+            new_arr.append(new)
+            bonus_arr.append(bonus)
+
+        df = pd.DataFrame(data['items'])
+        if len(df.index) != 0:
+            df = df.assign(year=year_arr, date=date_arr, base=base_arr, free=free_arr, new=new_arr, bonus=bonus_arr)
+            df = df.sort_values(by='date', ascending=False)
+        return df
+
+    def test_extract_year():
+        def run_test(test_input, expected_output):
+            result = extract_year(test_input)
+            assert result == expected_output, f"Expected {expected_output}, but got {result} for input {test_input}"
+
+        run_test("2021年", "2021")
+        run_test("2021中报", "2021")
+        run_test("2021季报", "2020")
+        run_test("2021-06-30", 2021)
+        run_test("No match found", "1900")
+
+    #test_extract_year()
+    # rewrite by GPT4 begin
+
     def req_basic(self):
         start_t = time.time()
 
@@ -374,6 +427,7 @@ class StockGet:
                         if df.loc[j, 'dividend_year'] == dividend_year:
                             if new_d == new_d and new_d != None: # not nan
                                 print(ts_code, dividend_year, 'null ex_date update', new_d)
+                                print('Info:', ts_code, dividend_year, 'null ex_date update', new_d)
                                 index_none.append(i)
                 df_ref = df_ref.drop(index_none)
 
