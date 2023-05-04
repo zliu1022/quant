@@ -35,6 +35,7 @@ class StockGet:
         self.col_day = db.day
         self.col_token = db.token
 
+        db.drop_collection('bad_bonus')
         self.col_bad_bonus = db.bad_bonus
 
         self.stock_list = []
@@ -97,7 +98,7 @@ class StockGet:
                 if d_pos != -1:
                     free = free[0:d_pos]
             else:
-                print('Error: bonus plan error: 送 without 股', s)
+                print('Error: bonus plan 送 without 股', s)
                 ret = 1
 
         new_pos =  s.find('转')
@@ -111,7 +112,7 @@ class StockGet:
             else:
                 d_num = self.find_eof_digit(s, new_pos)
                 if d_num == 0:
-                    print('Error: bonus plan error: 转 without 股 and no digit follow', s)
+                    print('Error: bonus plan 转 without 股 and no digit follow', s)
                     ret = 2
                 else:
                     new = s[new_pos+1:new_pos+1+d_num]
@@ -122,11 +123,11 @@ class StockGet:
             if bonus_gu_pos != -1:
                 bonus = s[bonus_pos+1:bonus_gu_pos]
             else:
-                print('Error: bonus plan error: 派 without 元', s)
+                print('Error: bonus plan: 派 without 元', s)
                 ret = 3
 
         if free_pos == -1 and new_pos == -1 and bonus_pos == -1:
-            print('Error: bonus plan error: not find 送转派', s)
+            print('Error: bonus plan: not find 送转派', s)
             ret = 4
         else:
             if free_pos == -1: free_pos = 100
@@ -143,7 +144,7 @@ class StockGet:
                     if d_pos != -1:
                         base = base[0:d_pos]
                     else:
-                        print('Error: bonus plan error: unknown base', s)
+                        print('Error: bonus plan: unknown base', s)
                         ret = 5
 
         return ret, base, free, new, bonus
@@ -259,19 +260,19 @@ class StockGet:
                     equity_str = 'NaN'
                     equity_year = 1900
                 if dividend_year >= (self.this_year-5) or equity_year >= (self.this_year-5):
-                    print('Warning: {} no date in 5ys {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
+                    print('Warning: {} no date 5ys {} {}({}) {} {}'.format(ts_code, y, equity_date, equity_str, dividend_year_str, s))
                 else:
-                    print('Warning: {} no date {} NaN {} {}'.format(ts_code, dividend_year_str, equity_str, s))
+                    print('Warning: {} no date     {} {}({}) {} {}'.format(ts_code, y, equity_date, equity_str, dividend_year_str, s))
 
                 ref_bad = self.col_bad_bonus.find_one({ "ts_code": ts_code })
                 if ref_bad == None:
                     new_dic = { 'ts_code': ts_code , 'no_date':True}
                     self.col_bad_bonus.insert_one(new_dic)
-                    print('{} insert bad bonus no_date {} {}'.format(ts_code, y, equity_date))
+                    #print('{} insert bad bonus no_date {} {}'.format(ts_code, y, equity_date))
                 else:
                     newvalues = { "$set": {'no_date':True}}
                     self.col_bad_bonus.update_one({ "ts_code": ts_code }, newvalues)
-                    print('{} update bad bonus no_date {} {}'.format(ts_code, y, equity_date))
+                    #print('{} update bad bonus no_date {} {}'.format(ts_code, y, equity_date))
 
                 date_arr.append('')
 
@@ -696,7 +697,7 @@ if __name__ == '__main__':
     if sys.argv[1] == 'bonus':
         thread_num = 1250
     elif sys.argv[1] == 'bonus_trans':
-        thread_num = 5000
+        thread_num = 6000
     else:
         thread_num = 240
 
