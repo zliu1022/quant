@@ -416,19 +416,27 @@ class StockGet:
                 # find ashare_ex_dividend_date == null in db
                 # find same dividend_year in resp
                 # if resp's ashare_ex_dividend_date != null, remove db item
+                # if resp's ashare_ex_dividend_date == null, compare their plan_explain
+                #   if their plan_explain different, remove db item
+                #   if their plan_explain same, do nothing
                 index_none = []
                 for i in range(df_ref_len):
                     d = df_ref.loc[i, 'ashare_ex_dividend_date']
-                    dividend_year = df_ref.loc[i, 'dividend_year']
+                    ref_plan_explain = df_ref.loc[i, 'plan_explain']
+                    dividend_year    = df_ref.loc[i, 'dividend_year']
                     if d == d and d != None: # not nan
                         continue
                     for j in range(df_len):
                         new_d = df.loc[j, 'ashare_ex_dividend_date']
+                        new_plan_explain = df.loc[j, 'plan_explain']
                         if df.loc[j, 'dividend_year'] == dividend_year:
                             if new_d == new_d and new_d != None: # not nan
-                                print(ts_code, dividend_year, 'null ex_date update', new_d)
                                 print('Info:', ts_code, dividend_year, 'null ex_date update', new_d)
                                 index_none.append(i)
+                            else: # new ashare_ex_dividend_date == null, compare plan_explain
+                                if ref_plan_explain != new_plan_explain:
+                                    print('Info:', ts_code, dividend_year, 'plan_explain update', ref_plan_explain, '->', new_plan_explain)
+                                    index_none.append(i)
                 df_ref = df_ref.drop(index_none)
 
                 if df_ref_len !=0 or df_len != 0:
@@ -439,11 +447,7 @@ class StockGet:
                 try:
                     data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
                 except:
-                    print('Error: ashare_ex_dividend_date == null')
-                    print()
-                    print(ts_code)
-                    pprint(resp)
-                    print(df_new)
+                    print('Error:', ts_code, 'ashare_ex_dividend_date == null')
                     pprint(aaa)
                     data = sorted(aaa,key = lambda e:e.__getitem__('dividend_year'), reverse=True)
                     print()
