@@ -1,30 +1,38 @@
-Check token 2023-04-28
-req_basic changed 000069.SZ全国地产 旅游景点
-req_basic changed 000416.SZ*ST民控 民生控股
-req_basic changed 000692.SZ*ST惠天 惠天热电
-req_basic changed 002503.SZ*ST搜特 搜于特
-req_basic changed 300010.SZ*ST豆神 豆神教育
-req_basic changed 300209.SZST有棵树 有棵树
-req_basic changed 300313.SZ*ST天山 ST天山
-req_basic changed 301307.SZC美利信 美利信
-req_basic changed 301357.SZ北方长龙 C北方长
-req_basic changed 301387.SZ光大同创 C光大同
-req_basic changed 301429.SZ森泰股份 C森泰
-req_basic changed 600396.SH*ST金山 金山股份
-req_basic changed 600589.SH*ST榕泰 ST榕泰
-req_basic changed 600671.SH*ST目药 ST目药
-req_basic changed 603001.SHST奥康 奥康国际
-req_basic changed 603137.SH恒尚节能 C恒尚
-req_basic changed 603185.SH弘元绿能 上机数控
-req_basic changed 688107.SH安路科技 安路科技-U
-req_basic changed 688146.SHC中船 N中船
-req_basic changed 688272.SH*ST富吉 富吉瑞
-req_basic changed 688352.SH颀中科技 C颀中
-req_basic changed 688433.SH华曙高科 C华曙
-req_basic changed 688478.SHC晶升 晶升股份
-req_basic changed 688507.SH索辰科技 C索辰
-req_basic changed 688539.SH高华科技 C高华
-req_basic cost 11.58s
-req_basic insert new 301360.SZ
-token expired, update bf4ca35131318f0118658f3f4790584a66d8bb83
-update token bf4ca35131318f0118658f3f4790584a66d8bb83 cost 21.56s
+Check token 2023-05-05
+None 软件服务
+req_basic changed 000616.SZ*ST海投 ST海投
+req_basic changed 000711.SZ*ST京蓝 京蓝科技
+req_basic changed 000909.SZST数源 数源科技
+req_basic changed 000918.SZ*ST嘉凯 嘉凯城
+req_basic changed 002021.SZ*ST中捷 ST中捷
+req_basic changed 002052.SZST同洲 *ST同洲
+req_basic changed 002289.SZST宇顺 宇顺电子
+req_basic changed 002504.SZ*ST弘高 ST弘高
+req_basic changed 002776.SZ*ST柏龙 ST柏龙
+req_basic changed 002800.SZST天顺 天顺股份
+req_basic changed 002816.SZ*ST和科 和科达
+req_basic changed 300167.SZST迪威迅 迪威迅
+req_basic changed 300220.SZST金运 金运激光
+req_basic changed 300282.SZ*ST三盛 ST三盛
+req_basic changed 300330.SZ计通退 *ST计通
+req_basic changed 300742.SZ*ST越博 越博动力
+req_basic changed 300799.SZ*ST左江 左江科技
+req_basic changed 300859.SZ*ST西域 西域旅游
+req_basic changed 301307.SZ美利信 C美利信
+req_basic changed 600070.SHST富润 浙江富润
+req_basic changed 600136.SH*ST明诚 ST明诚
+req_basic changed 600290.SH*ST华仪 ST华仪
+req_basic changed 600466.SH*ST蓝光 蓝光发展
+req_basic changed 600543.SH*ST莫高 莫高股份
+req_basic changed 603133.SH*ST碳元 碳元科技
+req_basic changed 603555.SHST贵人 贵人鸟
+req_basic changed 603559.SHST通脉 中通国脉
+req_basic changed 603880.SHST南卫 南卫股份
+req_basic changed 688146.SH中船特气 C中船
+req_basic changed 688153.SH唯捷创芯 唯捷创芯-U
+req_basic changed 688478.SH晶升股份 C晶升
+req_basic changed 688578.SH艾力斯 艾力斯-U
+req_basic cost 14.72s
+req_basic insert new 301293.SZ
+req_basic insert new 688249.SH
+token got 1 days ago bf4ca35131318f0118658f3f4790584a66d8bb83 still valid
