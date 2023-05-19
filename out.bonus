@@ -248,6 +248,7 @@
 000998.SZ update bonus_ori new  resp(10) db(11) new(11)
 000999.SZ update bonus_ori new  resp(10) db(12) new(12)
 001267.SZ update bonus_ori new  resp(10) db(11) new(11)
+001380.SZ insert bonus_ori resp(0)
 001696.SZ update bonus_ori new  resp(10) db(12) new(12)
 001872.SZ update bonus_ori new  resp(10) db(12) new(12)
 001914.SZ update bonus_ori new  resp(10) db(12) new(12)
@@ -695,7 +696,7 @@
 300259.SZ update bonus_ori new  resp(10) db(11) new(11)
 300260.SZ update bonus_ori new  resp(10) db(11) new(11)
 300261.SZ update bonus_ori new  resp(10) db(11) new(11)
-300263.SZ update bonus_ori new  resp(10) db(11) new(12)
+300263.SZ update bonus_ori new  resp(10) db(12) new(12)
 300265.SZ update bonus_ori new  resp(10) db(11) new(11)
 300267.SZ update bonus_ori new  resp(10) db(11) new(11)
 300271.SZ update bonus_ori new  resp(10) db(11) new(11)
@@ -738,17 +739,17 @@
 300445.SZ update bonus_ori new  resp(10) db(11) new(11)
 300476.SZ update bonus_ori new  resp(8) db(9) new(9)
 300498.SZ update bonus_ori new  resp(10) db(11) new(11)
-300658.SZ update bonus_ori new  resp(5) db(4) new(5)
 300828.SZ update bonus_ori new  resp(10) db(11) new(11)
 300850.SZ update bonus_ori new  resp(3) db(4) new(4)
 300941.SZ update bonus_ori new  resp(10) db(11) new(11)
-301325.SZ insert bonus_ori resp(0)
-301390.SZ insert bonus_ori resp(0)
+301332.SZ insert bonus_ori resp(0)
+301382.SZ insert bonus_ori resp(1)
+301387.SZ update bonus_ori new  resp(1) db(0) new(1)
+301428.SZ insert bonus_ori resp(0)
 430047.BJ update bonus_ori new  resp(2) db(3) new(3)
-430090.BJ update bonus_ori new  resp(4) db(5) new(5)
 430198.BJ update bonus_ori new  resp(10) db(11) new(11)
 430556.BJ update bonus_ori new  resp(10) db(11) new(11)
-430685.BJ update bonus_ori new  resp(8) db(9) new(9)
+430718.BJ update bonus_ori new  resp(6) db(7) new(7)
 600000.SH update bonus_ori new  resp(10) db(11) new(11)
 600006.SH update bonus_ori new  resp(10) db(12) new(12)
 600007.SH update bonus_ori new  resp(10) db(12) new(12)
@@ -1221,6 +1222,7 @@
 600895.SH update bonus_ori new  resp(10) db(11) new(11)
 600897.SH update bonus_ori new  resp(10) db(12) new(12)
 600900.SH update bonus_ori new  resp(10) db(11) new(11)
+600938.SH update bonus_ori new  resp(3) db(3) new(4)
 600960.SH update bonus_ori new  resp(10) db(11) new(11)
 600963.SH update bonus_ori new  resp(10) db(11) new(11)
 600965.SH update bonus_ori new  resp(10) db(12) new(12)
@@ -1343,7 +1345,6 @@
 603002.SH update bonus_ori new  resp(10) db(12) new(12)
 603128.SH update bonus_ori new  resp(10) db(11) new(11)
 603167.SH update bonus_ori new  resp(10) db(11) new(11)
-603172.SH insert bonus_ori resp(0)
 603277.SH update bonus_ori new  resp(10) db(11) new(11)
 603328.SH update bonus_ori new  resp(10) db(12) new(12)
 603600.SH update bonus_ori new  resp(10) db(11) new(11)
@@ -1354,644 +1355,1300 @@
 603993.SH update bonus_ori new  resp(10) db(11) new(11)
 603998.SH update bonus_ori new  resp(10) db(11) new(11)
 605098.SH update bonus_ori new  resp(10) db(11) new(11)
-688469.SH insert bonus_ori resp(0)
-688479.SH insert bonus_ori resp(5)
-688507.SH update bonus_ori new  resp(1) db(0) new(1)
+688361.SH insert bonus_ori resp(0)
 688508.SH update bonus_ori new  resp(10) db(11) new(11)
-688535.SH update bonus_ori new  resp(1) db(0) new(1)
+688512.SH insert bonus_ori resp(0)
+688539.SH update bonus_ori new  resp(3) db(2) new(3)
+688552.SH insert bonus_ori resp(0)
+688581.SH insert bonus_ori resp(0)
 830799.BJ update bonus_ori new  resp(10) db(11) new(11)
-830974.BJ update bonus_ori new  resp(4) db(6) new(6)
-831167.BJ update bonus_ori new  resp(6) db(7) new(7)
 831305.BJ update bonus_ori new  resp(10) db(11) new(11)
 831445.BJ update bonus_ori new  resp(10) db(12) new(12)
-831526.BJ update bonus_ori new  resp(9) db(10) new(10)
 831641.BJ update bonus_ori new  resp(10) db(12) new(12)
-831906.BJ update bonus_ori new  resp(5) db(6) new(6)
-832419.BJ update bonus_ori new  resp(3) db(4) new(4)
-833266.BJ update bonus_ori new  resp(2) db(3) new(3)
-833346.BJ update bonus_ori new  resp(7) db(8) new(8)
+833075.BJ update bonus_ori new  resp(9) db(10) new(10)
 833533.BJ update bonus_ori new  resp(10) db(12) new(12)
-834599.BJ update bonus_ori new  resp(7) db(8) new(8)
-835174.BJ update bonus_ori new  resp(3) db(4) new(4)
-836239.BJ update bonus_ori new  resp(8) db(9) new(9)
-836699.BJ insert bonus_ori resp(2)
-838030.BJ update bonus_ori new  resp(5) db(6) new(6)
-838171.BJ update bonus_ori new  resp(5) db(6) new(6)
-838837.BJ insert bonus_ori resp(0)
+833781.BJ update bonus_ori new  resp(7) db(8) new(8)
+834950.BJ update bonus_ori new  resp(7) db(8) new(8)
+837006.BJ insert bonus_ori resp(5)
+838837.BJ update bonus_ori new  resp(4) db(0) new(4)
 839273.BJ update bonus_ori new  resp(5) db(6) new(6)
-871478.BJ insert bonus_ori resp(6)
-871642.BJ update bonus_ori new  resp(1) db(2) new(2)
+839371.BJ update bonus_ori new  resp(0) db(1) new(1)
 871753.BJ update bonus_ori new  resp(4) db(5) new(5)
-872925.BJ update bonus_ori new  resp(4) db(5) new(5)
-Check token 2023-05-12
-Info: 000028.SZ 2022年报 plan_explain update 10转3股派8元(董事会预案) -> 10转3股派8元(股东大会预案)
-Info: 000036.SZ 2022年报 plan_explain update 10派0.34元(董事会预案) -> 10派0.34元(股东大会预案)
-Info: 000042.SZ 2022年报 plan_explain update 10派0.12元(董事会预案) -> 10派0.12元(股东大会预案)
-Info: 000059.SZ 2022年报 plan_explain update 10派1.32元(董事会预案) -> 10派1.32元(股东大会预案)
-Info: 000060.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 000063.SZ 2022年报 null ex_date update 20230516
-Info: 000096.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
-Info: 000301.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 000400.SZ 2022年报 plan_explain update 10派1.4元(董事会预案) -> 10派1.4元(股东大会预案)
-Info: 000404.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 000421.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 000422.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 000519.SZ 2022年报 plan_explain update 10派0.55元(董事会预案) -> 10派0.55元(股东大会预案)
-Info: 000538.SZ 2022年报 plan_explain update 10派15.2元(董事会预案) -> 10派15.2元(股东大会预案)
-Info: 000541.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 000559.SZ 2022年报 null ex_date update 20230516
-Info: 000582.SZ 2022年报 null ex_date update 20230517
-Info: 000591.SZ 2022年报 plan_explain update 10派1.28元(董事会预案) -> 10派1.28元(股东大会预案)
-Info: 000597.SZ 2022年报 null ex_date update 20230516
-Info: 000630.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 000631.SZ 2022年报 null ex_date update 20230517
-Info: 000672.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
-Info: 000683.SZ 2022年报 null ex_date update 20230519
-Info: 000725.SZ 2022年报 plan_explain update 10派0.61元(董事会预案) -> 10派0.61元(股东大会预案)
-Info: 000729.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 000735.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
-Info: 000738.SZ 2022年报 plan_explain update 10派0.53元(董事会预案) -> 10派0.53元(股东大会预案)
-Info: 000753.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
-Info: 000768.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 000778.SZ 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
-Info: 000789.SZ 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
-Info: 000810.SZ 2022年报 null ex_date update 20230518
-Info: 000878.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
-Info: 000900.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 000910.SZ 2022年报 null ex_date update 20230517
-Info: 000920.SZ 2022年报 plan_explain update 10派1.08元(董事会预案) -> 10派1.08元(股东大会预案)
-Info: 000933.SZ 2022年报 null ex_date update 20230518
-Info: 000960.SZ 2022年报 null ex_date update 20230515
-Info: 000963.SZ 2022年报 plan_explain update 10派2.9元(董事会预案) -> 10派2.9元(股东大会预案)
-Info: 000969.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
-Info: 000988.SZ 2022年报 null ex_date update 20230516
-Info: 001203.SZ 2022年报 null ex_date update 20230516
-Info: 001212.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 001215.SZ 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
-Info: 001218.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
-Info: 001228.SZ 2022年报 null ex_date update 20230518
-Info: 001267.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
-Info: 001270.SZ 2022年报 null ex_date update 20230512
-Info: 001283.SZ 2022年报 null ex_date update 20230517
-Info: 001286.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
-Info: 001298.SZ 2022年报 plan_explain update 10转4.5股派3元(董事会预案) -> 10转4.5股派3元(股东大会预案)
-Info: 001314.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 001332.SZ 2022年报 null ex_date update 20230519
-Info: 001336.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
-Info: 001337.SZ 2022年报 null ex_date update 20230517
-Info: 001366.SZ 2022年报 null ex_date update 20230515
-Info: 001979.SZ 2022年报 null ex_date update 20230512
-Info: 002008.SZ 2022年报 null ex_date update 20230518
-Info: 002025.SZ 2022年报 null ex_date update 20230519
-Info: 002034.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 002056.SZ 2022年报 null ex_date update 20230519
-Info: 002063.SZ 2022年报 plan_explain update 10送2股派0.5元(董事会预案) -> 10送2股派0.5元(股东大会预案)
-Info: 002065.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 002066.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 002073.SZ 2022年报 plan_explain update 10派0.46元(董事会预案) -> 10派0.46元(股东大会预案)
-Info: 002079.SZ 2022年报 plan_explain update 10派0.29元(董事会预案) -> 10派0.29元(股东大会预案)
-Info: 002090.SZ 2022年报 plan_explain update 10派0.25元(董事会预案) -> 10派0.25元(股东大会预案)
-Info: 002117.SZ 2022年报 null ex_date update 20230512
-Info: 002126.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 002130.SZ 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
-Info: 002136.SZ 2022年报 null ex_date update 20230519
-Info: 002154.SZ 2022年报 null ex_date update 20230517
-Info: 002166.SZ 2022年报 null ex_date update 20230512
-Info: 002179.SZ 2022年报 null ex_date update 20230516
-Info: 002183.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
-Info: 002192.SZ 2022年报 plan_explain update 10派9.8元(董事会预案) -> 10派9.8元(股东大会预案)
-Info: 002194.SZ 2022年报 null ex_date update 20230516
-Info: 002241.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 002270.SZ 2022年报 null ex_date update 20230515
-Info: 002271.SZ 2022年报 null ex_date update 20230519
-Info: 002273.SZ 2022年报 null ex_date update 20230516
-Info: 002276.SZ 2022年报 plan_explain update 10派0.48元(董事会预案) -> 10派0.48元(股东大会预案)
-Info: 002300.SZ 2022年报 plan_explain update 10送1股派1元(董事会预案) -> 10送1股派1元(股东大会预案)
-Info: 002302.SZ 2022年报 plan_explain update 10派0.95元(董事会预案) -> 10派0.95元(股东大会预案)
-Info: 002317.SZ 2022年报 null ex_date update 20230516
-Info: 002324.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 002334.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
-Info: 002351.SZ 2022年报 null ex_date update 20230515
-Info: 002352.SZ 2022年报 null ex_date update 20230512
-Info: 002368.SZ 2022年报 plan_explain update 10派1.92元(董事会预案) -> 10派1.92元(股东大会预案)
-Info: 002381.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 002391.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 002393.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 002398.SZ 2022年报 null ex_date update 20230512
-Info: 002410.SZ 2022年报 null ex_date update 20230515
-Info: 002415.SZ 2022年报 plan_explain update 10派7.00元(董事会预案) -> 10派7.00元(股东大会预案)
-Info: 002416.SZ 2022年报 null ex_date update 20230519
-Info: 002422.SZ 2022年报 null ex_date update 20230515
-Info: 002429.SZ 2022年报 plan_explain update 10派0.76元(董事会预案) -> 10派0.76元(股东大会预案)
-Info: 002438.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 002455.SZ 2022年报 null ex_date update 20230515
-Info: 002467.SZ 2022年报 null ex_date update 20230515
-Info: 002478.SZ 2022年报 null ex_date update 20230517
-Info: 002489.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
-Info: 002492.SZ 2022年报 null ex_date update 20230512
-Info: 002511.SZ 2022年报 plan_explain update 10派0.62元(董事会预案) -> 10派0.62元(股东大会预案)
-Info: 002518.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
-Info: 002523.SZ 2022年报 plan_explain update 10派0.15元(董事会预案) -> 10派0.15元(股东大会预案)
-Info: 002533.SZ 2022年报 null ex_date update 20230519
-Info: 002539.SZ 2022年报 null ex_date update 20230512
-Info: 002546.SZ 2022年报 null ex_date update 20230518
-Info: 002550.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
-Info: 002553.SZ 2022年报 null ex_date update 20230516
-Info: 002563.SZ 2022年报 null ex_date update 20230518
-Info: 002572.SZ 2022年报 null ex_date update 20230516
-Info: 002588.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 002590.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 002595.SZ 2022年报 plan_explain update 10派3.75元(董事会预案) -> 10派3.75元(股东大会预案)
-Info: 002605.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 002624.SZ 2022年报 null ex_date update 20230512
-Info: 002626.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 002631.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
-Info: 002658.SZ 2022年报 null ex_date update 20230512
-Info: 002660.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 002695.SZ 2022年报 null ex_date update 20230515
-Info: 002697.SZ 2022年报 plan_explain update 10派4.42元(董事会预案) -> 10派4.42元(股东大会预案)
-Info: 002709.SZ 2022年报 null ex_date update 20230516
-Info: 002722.SZ 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
-Info: 002734.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 002735.SZ 2022年报 null ex_date update 20230516
-Info: 002737.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
-Info: 002749.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 002774.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 002777.SZ 2022年报 null ex_date update 20230517
-Info: 002782.SZ 2022年报 null ex_date update 20230512
-Info: 002783.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 002788.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 002790.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 002801.SZ 2022年报 null ex_date update 20230517
-Info: 002815.SZ 2022年报 plan_explain update 10派2.9元(董事会预案) -> 10派2.9元(股东大会预案)
-Info: 002818.SZ 2022年报 null ex_date update 20230512
-Info: 002837.SZ 2022年报 plan_explain update 10转3股派1.9元(董事会预案) -> 10转3股派1.9元(股东大会预案)
-Info: 002838.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
-Info: 002847.SZ 2022年报 null ex_date update 20230518
-Info: 002850.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 002859.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 002866.SZ 2022年报 null ex_date update 20230516
-Info: 002870.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 002884.SZ 2022年报 null ex_date update 20230517
-Info: 002891.SZ 2022年报 plan_explain update 10派0.50元(董事会预案) -> 10派0.50元(股东大会预案)
-Info: 002895.SZ 2022年报 null ex_date update 20230516
-Info: 002903.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 002906.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 002922.SZ 2022年报 null ex_date update 20230516
-Info: 002940.SZ 2022年报 null ex_date update 20230519
-Info: 002949.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 002959.SZ 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
-Info: 002962.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 002986.SZ 2022年报 plan_explain update 10转4股派5元(董事会预案) -> 10转4股派5元(股东大会预案)
-Info: 002987.SZ 2022年报 null ex_date update 20230516
-Info: 002990.SZ 2022年报 null ex_date update 20230516
-Info: 003009.SZ 2022年报 plan_explain update 10派0.93元(董事会预案) -> 10派0.93元(股东大会预案)
-Info: 003015.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 003020.SZ 2022年报 plan_explain update 10转3股派5元(董事会预案) -> 10转3股派5元(股东大会预案)
-Info: 003021.SZ 2022年报 null ex_date update 20230511
-Info: 003027.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 003028.SZ 2022年报 null ex_date update 20230516
-Info: 003036.SZ 2022年报 null ex_date update 20230515
-Info: 003037.SZ 2022年报 null ex_date update 20230512
-Info: 003039.SZ 2022年报 plan_explain update 10派1.11元(董事会预案) -> 10派1.11元(股东大会预案)
-Info: 300007.SZ 2022年报 null ex_date update 20230518
-Info: 300021.SZ 2022年报 null ex_date update 20230517
-Info: 300026.SZ 2022年报 null ex_date update 20230512
-Info: 300037.SZ 2022年报 null ex_date update 20230516
-Info: 300041.SZ 2022年报 plan_explain update 10转3股派1.5元(董事会预案) -> 10转3股派1.5元(股东大会预案)
-Info: 300057.SZ 2022年报 null ex_date update 20230516
-Info: 300073.SZ 2022年报 plan_explain update 10派6.68元(董事会预案) -> 10派6.68元(股东大会预案)
-Info: 300079.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
-Info: 300088.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300092.SZ 2022年报 null ex_date update 20230516
-Info: 300105.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 300138.SZ 2022年报 null ex_date update 20230517
-Info: 300154.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 300160.SZ 2022年报 null ex_date update 20230516
-Info: 300161.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
-Info: 300196.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 300229.SZ 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
-Info: 300231.SZ 2022年报 null ex_date update 20230517
-Info: 300235.SZ 2022年报 null ex_date update 20230516
-Info: 300239.SZ 2022年报 null ex_date update 20230519
-Info: 300253.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
-Info: 300259.SZ 2022年报 null ex_date update 20230516
-Info: 300263.SZ 2022年报 null ex_date update 20230518
-Info: 300263.SZ 2022年报 null ex_date update 20230518
-Info: 300275.SZ 2022年报 plan_explain update 10转6股派0.3元(董事会预案) -> 10转6股派0.3元(股东大会预案)
-Info: 300285.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300305.SZ 2022年报 plan_explain update 10派1.16元(董事会预案) -> 10派1.16元(股东大会预案)
-Info: 300306.SZ 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
-Info: 300316.SZ 2022年报 null ex_date update 20230516
-Info: 300341.SZ 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
-Info: 300348.SZ 2022年报 plan_explain update 10派0.06元(董事会预案) -> 10派0.06元(股东大会预案)
-Info: 300389.SZ 2022年报 null ex_date update 20230517
-Info: 300396.SZ 2022年报 plan_explain update 10派4.8元(董事会预案) -> 10派4.8元(股东大会预案)
-Info: 300403.SZ 2022年报 null ex_date update 20230517
-Info: 300406.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300416.SZ 2022年报 null ex_date update 20230519
-Info: 300435.SZ 2022年报 null ex_date update 20230519
-Info: 300445.SZ 2022年报 null ex_date update 20230512
-Info: 300448.SZ 2022年报 plan_explain update 10派0.15元(董事会预案) -> 10派0.15元(股东大会预案)
-Info: 300451.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
-Info: 300452.SZ 2022年报 null ex_date update 20230517
-Info: 300475.SZ 2022年报 plan_explain update 10派1.4元(董事会预案) -> 10派1.4元(股东大会预案)
-Info: 300476.SZ 2022年报 plan_explain update 10派1.9元(董事会预案) -> 10派1.9元(股东大会预案)
-Info: 300481.SZ 2022年报 null ex_date update 20230522
-Info: 300482.SZ 2022年报 null ex_date update 20230518
-Info: 300501.SZ 2022年报 null ex_date update 20230516
-Info: 300516.SZ 2022年报 null ex_date update 20230517
-Info: 300538.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
-Info: 300541.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300553.SZ 2022年报 null ex_date update 20230516
-Info: 300559.SZ 2022年报 null ex_date update 20230512
-Info: 300561.SZ 2022年报 null ex_date update 20230519
-Info: 300563.SZ 2022年报 plan_explain update 10派0.9元(董事会预案) -> 10派0.9元(股东大会预案)
-Info: 300573.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
-Info: 300582.SZ 2022年报 plan_explain update 10派1.04元(董事会预案) -> 10派1.04元(股东大会预案)
-Info: 300595.SZ 2022年报 null ex_date update 20230516
-Info: 300620.SZ 2022年报 null ex_date update 20230518
-Info: 300623.SZ 2022年报 plan_explain update 10派0.95元(董事会预案) -> 10派0.95元(股东大会预案)
-Info: 300627.SZ 2022年报 plan_explain update 10派2.7元(董事会预案) -> 10派2.7元(股东大会预案)
-Info: 300629.SZ 2022年报 plan_explain update 10转3股派1元(董事会预案) -> 10转3股派1元(股东大会预案)
-Info: 300633.SZ 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
-Info: 300639.SZ 2022年报 null ex_date update 20230522
-Info: 300653.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
-Info: 300676.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
-Info: 300680.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300682.SZ 2022年报 null ex_date update 20230512
-Info: 300685.SZ 2022年报 plan_explain update 10派1.4元(董事会预案) -> 10派1.4元(股东大会预案)
-Info: 300690.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 300692.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 300693.SZ 2022年报 null ex_date update 20230516
-Info: 300703.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 300705.SZ 2022年报 null ex_date update 20230515
-Info: 300711.SZ 2022年报 plan_explain update 10转2股派0.8元(董事会预案) -> 10转2股派0.8元(股东大会预案)
-Info: 300717.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 300723.SZ 2022年报 plan_explain update 10转5股派2元(董事会预案) -> 10转5股派2元(股东大会预案)
-Info: 300726.SZ 2022年报 null ex_date update 20230516
-Info: 300755.SZ 2022年报 plan_explain update 10派1.76元(董事会预案) -> 10派1.76元(股东大会预案)
-Info: 300774.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300775.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300820.SZ 2022年报 plan_explain update 10转5股派5元(董事会预案) -> 10转5股派5元(股东大会预案)
-Info: 300828.SZ 2022年报 null ex_date update 20230519
-Info: 300829.SZ 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
-Info: 300830.SZ 2022年报 plan_explain update 10派0.52元(董事会预案) -> 10派0.52元(股东大会预案)
-Info: 300835.SZ 2022年报 null ex_date update 20230516
-Info: 300839.SZ 2022年报 plan_explain update 10转4股派1.2元(董事会预案) -> 10转4股派1.2元(股东大会预案)
-Info: 300855.SZ 2022年报 plan_explain update 10转3股派1元(董事会预案) -> 10转3股派1元(股东大会预案)
-Info: 300857.SZ 2022年报 null ex_date update 20230516
-Info: 300866.SZ 2022年报 null ex_date update 20230518
-Info: 300867.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
-Info: 300886.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 300887.SZ 2022年报 plan_explain update 10转9股派7元(董事会预案) -> 10转9股派7元(股东大会预案)
-Info: 300893.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300896.SZ 2022年报 null ex_date update 20230515
-Info: 300897.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
-Info: 300898.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 300901.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300907.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 300916.SZ 2022年报 plan_explain update 10转5股派5元(董事会预案) -> 10转5股派5元(股东大会预案)
-Info: 300922.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300929.SZ 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
-Info: 300930.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 300937.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 300939.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
-Info: 300945.SZ 2022年报 null ex_date update 20230517
-Info: 300951.SZ 2022年报 plan_explain update 10派12.45元(董事会预案) -> 10派12.45元(股东大会预案)
-Info: 300993.SZ 2022年报 null ex_date update 20230515
-Info: 300996.SZ 2022年报 null ex_date update 20230517
-Info: 300997.SZ 2022年报 null ex_date update 20230516
-Info: 301000.SZ 2022年报 plan_explain update 10转8股派8元(董事会预案) -> 10转8股派8元(股东大会预案)
-Info: 301005.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 301007.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 301008.SZ 2022年报 null ex_date update 20230517
-Info: 301029.SZ 2022年报 null ex_date update 20230512
-Info: 301055.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 301061.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 301063.SZ 2022年报 null ex_date update 20230519
-Info: 301067.SZ 2022年报 plan_explain update 10转8股派2元(董事会预案) -> 10转8股派2元(股东大会预案)
-Info: 301077.SZ 2022年报 null ex_date update 20230516
-Info: 301091.SZ 2022年报 plan_explain update 10转5股派0.6元(董事会预案) -> 10转5股派0.6元(股东大会预案)
-Info: 301097.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 301100.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 301101.SZ 2022年报 plan_explain update 10转5股派3元(董事会预案) -> 10转5股派3元(股东大会预案)
-Info: 301106.SZ 2022年报 null ex_date update 20230516
-Info: 301110.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
-Info: 301116.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 301118.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 301122.SZ 2022年报 null ex_date update 20230516
-Info: 301131.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 301138.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 301149.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 301160.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 301162.SZ 2022年报 plan_explain update 10转4股派5.5元(董事会预案) -> 10转4股派5.5元(股东大会预案)
-Info: 301167.SZ 2022年报 plan_explain update 10转4股派2.5元(董事会预案) -> 10转4股派2.5元(股东大会预案)
-Info: 301175.SZ 2022年报 plan_explain update 10派0.55元(董事会预案) -> 10派0.55元(股东大会预案)
-Info: 301181.SZ 2022年报 null ex_date update 20230518
-Info: 301182.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 301195.SZ 2022年报 plan_explain update 10转5股派9元(董事会预案) -> 10转5股派9元(股东大会预案)
-Info: 301200.SZ 2022年报 null ex_date update 20230516
-Info: 301217.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 301229.SZ 2022年报 null ex_date update 20230516
-Info: 301256.SZ 2022年报 null ex_date update 20230516
-Info: 301258.SZ 2022年报 plan_explain update 10派5.8元(董事会预案) -> 10派5.8元(股东大会预案)
-Info: 301265.SZ 2022年报 null ex_date update 20230516
-Info: 301270.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 301285.SZ 2022年报 plan_explain update 10派0.25元(董事会预案) -> 10派0.25元(股东大会预案)
-Info: 301296.SZ 2022年报 plan_explain update 10派0.37元(董事会预案) -> 10派0.37元(股东大会预案)
-Info: 301301.SZ 2022年报 plan_explain update 10派0.93元(董事会预案) -> 10派0.93元(股东大会预案)
-Info: 301312.SZ 2022年报 null ex_date update 20230515
-Info: 301326.SZ 2022年报 null ex_date update 20230518
-Info: 301327.SZ 2022年报 plan_explain update 10转3股派20.83元(董事会预案) -> 10转3股派20.83元(股东大会预案)
-Info: 301335.SZ 2022年报 plan_explain update 10送2股转2股派5元(董事会预案) -> 10送2股转2股派5元(股东大会预案)
-Info: 301358.SZ 2022年报 null ex_date update 20230519
-Info: 301367.SZ 2022年报 null ex_date update 20230516
-Info: 301373.SZ 2022年报 null ex_date update 20230517
-Info: 301377.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
-Info: 301386.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
-Info: 430300.BJ 2022年报 null ex_date update 20230519
-Info: 600095.SH 2022年报 plan_explain update 10派0.69元(董事会预案) -> 10派0.69元(股东大会预案)
-Info: 600096.SH 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
-Info: 600120.SH 2022年报 plan_explain update 10派0.79元(董事会预案) -> 10派0.79元(股东大会预案)
-Info: 600173.SH 2022年报 null ex_date update 20230519
-Info: 600232.SH 2022年报 null ex_date update 20230516
-Info: 600252.SH 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
-Info: 600256.SH 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
-Info: 600267.SH 2022年报 null ex_date update 20230519
-Info: 600268.SH 2022年报 plan_explain update 10转2股派0.7元(董事会预案) -> 10转2股派0.7元(股东大会预案)
-Info: 600327.SH 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
-Info: 600330.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 600352.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 600353.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
-Info: 600361.SH 2022年报 null ex_date update 20230518
-Info: 600367.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 600389.SH 2022年报 plan_explain update 10送4.5股派2元(董事会预案) -> 10送4.5股派2元(股东大会预案)
-Info: 600409.SH 2022年报 plan_explain update 10派1.46元(董事会预案) -> 10派1.46元(股东大会预案)
-Info: 600415.SH 2022年报 plan_explain update 10派0.65元(董事会预案) -> 10派0.65元(股东大会预案)
-Info: 600435.SH 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
-Info: 600446.SH 2022年报 plan_explain update 10派0.29元(董事会预案) -> 10派0.29元(股东大会预案)
-Info: 600461.SH 2022年报 plan_explain update 10派4.34元(董事会预案) -> 10派4.34元(股东大会预案)
-Info: 600479.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
-Info: 600483.SH 2022年报 plan_explain update 10送3.0股派4.0元(董事会预案) -> 10送3.0股派4.0元(股东大会预案)
-Info: 600493.SH 2022年报 plan_explain update 10派0.288元(董事会预案) -> 10派0.288元(股东大会预案)
-Info: 600496.SH 2022年报 plan_explain update 10派0.36元(董事会预案) -> 10派0.36元(股东大会预案)
-Info: 600499.SH 2022年报 plan_explain update 10派6.8元(董事会预案) -> 10派6.8元(股东大会预案)
-Info: 600566.SH 2022年报 plan_explain update 10派8.8元(董事会预案) -> 10派8.8元(股东大会预案)
-Info: 600572.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 600573.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 600586.SH 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
-Info: 600588.SH 2022年报 null ex_date update 20230512
-Info: 600658.SH 2022年报 plan_explain update 10派0.53元(董事会预案) -> 10派0.53元(股东大会预案)
-Info: 600660.SH 2022年报 null ex_date update 20230518
-Info: 600710.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 600713.SH 2022年报 null ex_date update 20230518
-Info: 600729.SH 2022年报 plan_explain update 10派6.8元(董事会预案) -> 10派6.8元(股东大会预案)
-Info: 600750.SH 2022年报 null ex_date update 20230519
-Info: 600755.SH 2022年报 plan_explain update 10派6.5元(董事会预案) -> 10派6.5元(股东大会预案)
-Info: 600756.SH 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
-Info: 600795.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 600865.SH 2022年报 null ex_date update 20230519
-Info: 600867.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 600884.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 600888.SH 2022年报 null ex_date update 20230518
-Info: 600958.SH 2022年报 plan_explain update 10派1.50元(董事会预案) -> 10派1.50元(股东大会预案)
-Info: 600966.SH 2022年报 plan_explain update 10派0.1844元(董事会预案) -> 10派0.1844元(股东大会预案)
-Info: 600982.SH 2022年报 plan_explain update 10派1.35元(董事会预案) -> 10派1.35元(股东大会预案)
-Info: 600987.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 600997.SH 2022年报 null ex_date update 20230518
-Info: 601018.SH 2022年报 plan_explain update 10派0.87元(董事会预案) -> 10派0.87元(股东大会预案)
-Info: 601089.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
-Info: 601116.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 601168.SH 2022年报 null ex_date update 20230518
-Info: 601169.SH 2022年报 plan_explain update 10派3.1元(董事会预案) -> 10派3.1元(股东大会预案)
-Info: 601368.SH 2022年报 plan_explain update 10派0.56元(董事会预案) -> 10派0.56元(股东大会预案)
-Info: 601518.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
-Info: 601619.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 601677.SH 2022年报 plan_explain update 10派1.66元(董事会预案) -> 10派1.66元(股东大会预案)
-Info: 601789.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 601868.SH 2022年报 plan_explain update 10派0.252元(董事会预案) -> 10派0.252元(股东大会预案)
-Info: 601916.SH 2022年报 null ex_date update 20230519
-Info: 601921.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
-Info: 601952.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 601992.SH 2022年报 plan_explain update 10派0.67元(董事会预案) -> 10派0.67元(股东大会预案)
-Info: 603002.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 603010.SH 2022年报 null ex_date update 20230517
-Info: 603032.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
-Info: 603050.SH 2022年报 plan_explain update 10转4股派5元(董事会预案) -> 10转4股派5元(股东大会预案)
-Info: 603052.SH 2022年报 null ex_date update 20230516
-Info: 603055.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 603065.SH 2022年报 plan_explain update 10派2.0元(董事会预案) -> 10派2.0元(股东大会预案)
-Info: 603066.SH 2022年报 plan_explain update 10派0.91元(董事会预案) -> 10派0.91元(股东大会预案)
-Info: 603067.SH 2022年报 plan_explain update 10派2.07元(董事会预案) -> 10派2.07元(股东大会预案)
-Info: 603070.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 603071.SH 2022年报 plan_explain update 10派8.0元(董事会预案) -> 10派8.0元(股东大会预案)
-Info: 603078.SH 2022年报 plan_explain update 10转3股派0.7元(董事会预案) -> 10转3股派0.7元(股东大会预案)
-Info: 603093.SH 2022年报 null ex_date update 20230519
-Info: 603097.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 603102.SH 2022年报 null ex_date update 20230516
-Info: 603113.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
-Info: 603115.SH 2022年报 plan_explain update 10派7.5元(董事会预案) -> 10派7.5元(股东大会预案)
-Info: 603126.SH 2022年报 plan_explain update 10派0.9元(董事会预案) -> 10派0.9元(股东大会预案)
-Info: 603129.SH 2022年报 plan_explain update 10派14.1元(董事会预案) -> 10派14.1元(股东大会预案)
-Info: 603130.SH 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
-Info: 603170.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 603171.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 603183.SH 2022年报 plan_explain update 10派0.415元(董事会预案) -> 10派0.415元(股东大会预案)
-Info: 603186.SH 2022年报 null ex_date update 20230516
-Info: 603201.SH 2022年报 plan_explain update 10转4股派4.2元(董事会预案) -> 10转4股派4.2元(股东大会预案)
-Info: 603213.SH 2022年报 plan_explain update 10派4.32元(董事会预案) -> 10派4.32元(股东大会预案)
-Info: 603217.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 603223.SH 2022年报 plan_explain update 10转4股派0.65元(董事会预案) -> 10转4股派0.65元(股东大会预案)
-Info: 603230.SH 2022年报 plan_explain update 10派1.50元(董事会预案) -> 10派1.50元(股东大会预案)
-Info: 603239.SH 2022年报 plan_explain update 10派3.2元(董事会预案) -> 10派3.2元(股东大会预案)
-Info: 603260.SH 2022年报 plan_explain update 10派8.8元(董事会预案) -> 10派8.8元(股东大会预案)
-Info: 603280.SH 2022年报 plan_explain update 10派3.2元(董事会预案) -> 10派3.2元(股东大会预案)
-Info: 603290.SH 2022年报 plan_explain update 10派14.3627元(股东大会预案) -> 10派14.3613元(股东大会预案)
-Info: 603298.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
-Info: 603299.SH 2022年报 plan_explain update 10派3.6元(董事会预案) -> 10派3.6元(股东大会预案)
-Info: 603300.SH 2022年报 null ex_date update 20230518
-Info: 603320.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 603329.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 603337.SH 2022年报 plan_explain update 10派3.2元(董事会预案) -> 10派3.2元(股东大会预案)
-Info: 603383.SH 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
-Info: 603385.SH 2022年报 plan_explain update 10派1.01元(董事会预案) -> 10派1.01元(股东大会预案)
-Info: 603386.SH 2022年报 plan_explain update 10派2.0元(董事会预案) -> 10派2.0元(股东大会预案)
-Info: 603396.SH 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
-Info: 603399.SH 2022年报 null ex_date update 20230515
-Info: 603439.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 603505.SH 2022年报 plan_explain update 10送4股派1.6元(董事会预案) -> 10送4股派1.6元(股东大会预案)
-Info: 603508.SH 2022年报 plan_explain update 10派5.451元(董事会预案) -> 10派5.451元(股东大会预案)
-Info: 603516.SH 2022年报 null ex_date update 20230518
-Info: 603520.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 603529.SH 2022年报 plan_explain update 10转5股派13.04元(董事会预案) -> 10转5股派13.04元(股东大会预案)
-Info: 603530.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 603565.SH 2022年报 null ex_date update 20230518
-Info: 603578.SH 2022年报 null ex_date update 20230519
-Info: 603579.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 603605.SH 2022年报 plan_explain update 10转4股派8.7元(董事会预案) -> 10转4股派8.7元(股东大会预案)
-Info: 603611.SH 2022年报 plan_explain update 10派5.5元(董事会预案) -> 10派5.5元(股东大会预案)
-Info: 603619.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 603636.SH 2022年报 plan_explain update 10派0.85元(董事会预案) -> 10派0.85元(股东大会预案)
-Info: 603650.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 603658.SH 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
-Info: 603678.SH 2022年报 null ex_date update 20230516
-Info: 603686.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 603688.SH 2022年报 null ex_date update 20230518
-Info: 603697.SH 2022年报 null ex_date update 20230512
-Info: 603722.SH 2022年报 null ex_date update 20230512
-Info: 603767.SH 2022年报 null ex_date update 20230517
-Info: 603787.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 603788.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 603838.SH 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
-Info: 603878.SH 2022年报 null ex_date update 20230515
-Info: 603896.SH 2022年报 plan_explain update 10派4.4元(董事会预案) -> 10派4.4元(股东大会预案)
-Info: 603899.SH 2022年报 null ex_date update 20230517
-Info: 603916.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 603927.SH 2022年报 plan_explain update 10派5.5元(董事会预案) -> 10派5.5元(股东大会预案)
-Info: 603949.SH 2022年报 null ex_date update 20230518
-Info: 603977.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 603987.SH 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
-Info: 603995.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 605006.SH 2022年报 plan_explain update 10派2.68元(董事会预案) -> 10派2.68元(股东大会预案)
-Info: 605009.SH 2022年报 plan_explain update 10派7.5元(董事会预案) -> 10派7.5元(股东大会预案)
-Info: 605020.SH 2022年报 plan_explain update 10转4股派2.50元(董事会预案) -> 10转4股派2.50元(股东大会预案)
-Info: 605056.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
-Info: 605086.SH 2022年报 plan_explain update 10派3.3元(董事会预案) -> 10派3.3元(股东大会预案)
-Info: 605098.SH 2022年报 plan_explain update 10派20.0元(董事会预案) -> 10派20.0元(股东大会预案)
-Info: 605100.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 605116.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
-Info: 605117.SH 2022年报 plan_explain update 10转8股派22.6元(董事会预案) -> 10转8股派22.6元(股东大会预案)
-Info: 605128.SH 2022年报 plan_explain update 10派1.25元(董事会预案) -> 10派1.25元(股东大会预案)
-Info: 605166.SH 2022年报 null ex_date update 20230518
-Info: 605167.SH 2022年报 null ex_date update 20230519
-Info: 605168.SH 2022年报 plan_explain update 10转4.5股派22元(董事会预案) -> 10转4.5股派22元(股东大会预案)
-Info: 605169.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 605183.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 605208.SH 2022年报 null ex_date update 20230519
-Info: 605218.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 605258.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 605338.SH 2022年报 plan_explain update 10派3.2元(董事会预案) -> 10派3.2元(股东大会预案)
-Info: 605339.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 605377.SH 2022年报 null ex_date update 20230518
-Info: 605388.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 605488.SH 2022年报 null ex_date update 20230516
-Info: 605507.SH 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
-Info: 688005.SH 2022年报 null ex_date update 20230518
-Info: 688015.SH 2022年报 null ex_date update 20230519
-Info: 688016.SH 2022年报 null ex_date update 20230518
-Info: 688028.SH 2022年报 plan_explain update 10转4股派3元(董事会预案) -> 10转4股派3元(股东大会预案)
-Info: 688035.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 688041.SH 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
-Info: 688050.SH 2022年报 plan_explain update 10派5.1元(董事会预案) -> 10派5.1元(股东大会预案)
-Info: 688073.SH 2022年报 plan_explain update 10转4股派15.4元(董事会预案) -> 10转4股派15.4元(股东大会预案)
-Info: 688077.SH 2022年报 null ex_date update 20230519
-Info: 688087.SH 2022年报 plan_explain update 10转4股派2元(董事会预案) -> 10转4股派2元(股东大会预案)
-Info: 688093.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
-Info: 688103.SH 2022年报 null ex_date update 20230518
-Info: 688106.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 688110.SH 2022年报 plan_explain update 10派1.26元(董事会预案) -> 10派1.26元(股东大会预案)
-Info: 688119.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
-Info: 688143.SH 2022年报 plan_explain update 10转3股派5元(董事会预案) -> 10转3股派5元(股东大会预案)
-Info: 688150.SH 2022年报 null ex_date update 20230518
-Info: 688151.SH 2022年报 plan_explain update 10派0.757元(董事会预案) -> 10派0.757元(股东大会预案)
-Info: 688160.SH 2022年报 null ex_date update 20230512
-Info: 688181.SH 2022年报 plan_explain update 10转4股派3.2元(董事会预案) -> 10转4股派3.2元(股东大会预案)
-Info: 688183.SH 2022年报 null ex_date update 20230517
-Info: 688190.SH 2022年报 plan_explain update 10派5.7元(董事会预案) -> 10派5.7元(股东大会预案)
-Info: 688198.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 688210.SH 2022年报 plan_explain update 10转4股派2.6元(董事会预案) -> 10转4股派2.6元(股东大会预案)
-Info: 688230.SH 2022年报 plan_explain update 10转4股派6元(董事会预案) -> 10转4股派6元(股东大会预案)
-Info: 688251.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 688253.SH 2022年报 null ex_date update 20230519
-Info: 688258.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 688269.SH 2022年报 null ex_date update 20230517
-Info: 688283.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 688289.SH 2022年报 plan_explain update 10派4.321元(董事会预案) -> 10派4.3699元(股东大会预案)
-Info: 688291.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 688293.SH 2022年报 null ex_date update 20230512
-Info: 688296.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
-Info: 688299.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 688308.SH 2022年报 plan_explain update 10转4股派7元(董事会预案) -> 10转4股派7元(股东大会预案)
-Info: 688315.SH 2022年报 null ex_date update 20230518
-Info: 688317.SH 2022年报 plan_explain update 10派12元(董事会预案) -> 10派12元(股东大会预案)
-Info: 688323.SH 2022年报 null ex_date update 20230519
-Info: 688332.SH 2022年报 plan_explain update 10派4.5元(董事会预案) -> 10派4.5元(股东大会预案)
-Info: 688333.SH 2022年报 null ex_date update 20230515
-Info: 688337.SH 2022年报 null ex_date update 20230512
-Info: 688345.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
-Info: 688360.SH 2022年报 plan_explain update 10转4股派2.9元(董事会预案) -> 10转4股派2.9元(股东大会预案)
-Info: 688372.SH 2022年报 plan_explain update 10转3股派8.5元(董事会预案) -> 10转3股派8.5元(股东大会预案)
-Info: 688386.SH 2022年报 null ex_date update 20230518
-Info: 688388.SH 2022年报 plan_explain update 10转4股派5.5元(董事会预案) -> 10转4股派5.5元(股东大会预案)
-Info: 688393.SH 2022年报 plan_explain update 10派1.4元(董事会预案) -> 10派1.4元(股东大会预案)
-Info: 688395.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
-Info: 688398.SH 2022年报 plan_explain update 10转4.5股派2.5元(董事会预案) -> 10转4.5股派2.5元(股东大会预案)
-Info: 688439.SH 2022年报 plan_explain update 10派3.79元(董事会预案) -> 10派3.79元(股东大会预案)
-Info: 688459.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 688475.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 688485.SH 2022年报 plan_explain update 10派1.278元(董事会预案) -> 10派1.278元(股东大会预案)
-Info: 688486.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 688489.SH 2022年报 null ex_date update 20230516
-Info: 688502.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
-Info: 688503.SH 2022年报 plan_explain update 10转4.8股派5.38元(董事会预案) -> 10转4.8股派5.38元(股东大会预案)
-Info: 688513.SH 2022年报 plan_explain update 10派5.6元(董事会预案) -> 10派5.6元(股东大会预案)
-Info: 688518.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
-Info: 688536.SH 2022年报 plan_explain update 10派2.06元(董事会预案) -> 10派2.06元(股东大会预案)
-Info: 688550.SH 2022年报 plan_explain update 10转4股派12元(董事会预案) -> 10转4股派12元(股东大会预案)
-Info: 688551.SH 2022年报 plan_explain update 10派3.7元(董事会预案) -> 10派3.7元(股东大会预案)
-Info: 688556.SH 2022年报 null ex_date update 20230512
-Info: 688568.SH 2022年报 plan_explain update 10转4.9股派2.00元(董事会预案) -> 10转4.9股派2.00元(股东大会预案)
-Info: 688571.SH 2022年报 plan_explain update 10转3股派1.6元(董事会预案) -> 10转3股派1.6元(股东大会预案)
-Info: 688586.SH 2022年报 null ex_date update 20230518
-Info: 688597.SH 2022年报 null ex_date update 20230512
-Info: 688601.SH 2022年报 plan_explain update 10转4.9股派5元(董事会预案) -> 10转4.9股派5元(股东大会预案)
-Info: 688613.SH 2022年报 plan_explain update 10派1.07元(董事会预案) -> 10派1.07元(股东大会预案)
-Info: 688618.SH 2022年报 null ex_date update 20230519
-Info: 688621.SH 2022年报 null ex_date update 20230512
-Info: 688655.SH 2022年报 plan_explain update 10派0.75元(董事会预案) -> 10派0.75元(股东大会预案)
-Info: 688665.SH 2022年报 plan_explain update 10派9元(董事会预案) -> 10派9元(股东大会预案)
-Info: 688668.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
-Info: 688670.SH 2022年报 plan_explain update 10转4股派2元(董事会预案) -> 10转4股派2元(股东大会预案)
-Info: 688681.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 688698.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 688699.SH 2022年报 null ex_date update 20230517
-Info: 688700.SH 2022年报 null ex_date update 20230519
-Info: 688739.SH 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
-Info: 688768.SH 2022年报 plan_explain update 10转4.8股派5.4元(董事会预案) -> 10转4.8股派5.4元(股东大会预案)
-Info: 688798.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
-Info: 830946.BJ 2022年报 null ex_date update 20230512
-Info: 830964.BJ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
-Info: 831039.BJ 2022年报 null ex_date update 20230517
-Info: 831855.BJ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
-Info: 832225.BJ 2022年报 null ex_date update 20230519
-Info: 832491.BJ 2022年报 null ex_date update 20230518
-Info: 832662.BJ 2022年报 plan_explain update 10派2.30元(董事会预案) -> 10派2.30元(股东大会预案)
-Info: 832735.BJ 2022年报 null ex_date update 20230517
-Info: 833230.BJ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
-Info: 833427.BJ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
-Info: 833509.BJ 2022年报 null ex_date update 20230522
-Info: 834062.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 835179.BJ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
-Info: 835185.BJ 2022年报 plan_explain update 10送5股派3.5元(董事会预案) -> 10送5股派3.5元(股东大会预案)
-Info: 835985.BJ 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
-Info: 836247.BJ 2022年报 null ex_date update 20230516
-Info: 836720.BJ 2022年报 null ex_date update 20230516
-Info: 836942.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 837212.BJ 2022年报 plan_explain update 10派0.86元(董事会预案) -> 10派0.86元(股东大会预案)
-Info: 837242.BJ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
-Info: 838262.BJ 2022年报 plan_explain update 10转5股派1.5元(董事会预案) -> 10转5股派1.5元(股东大会预案)
-Info: 839167.BJ 2022年报 plan_explain update 10派0.47元(董事会预案) -> 10派0.47元(股东大会预案)
-Info: 871245.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
-Info: 871553.BJ 2022年报 null ex_date update 20230517
-Info: 871857.BJ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
-Info: 873339.BJ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Info: 873527.BJ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
-Thread-1 cost 1610.35s
-Thread-2 cost 1593.50s
-Thread-3 cost 1622.75s
-Thread-4 cost 1610.23s
-Thread-5 cost 256.11s
-find 5180 stocks
+871970.BJ update bonus_ori new  resp(0) db(1) new(1)
+872541.BJ update bonus_ori new  resp(4) db(5) new(5)
+Check token 2023-05-19
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/f10/cn/bonus.json?&symbol=SZ000905 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x117763ed0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+Info: 000019.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 000025.SZ 2022年报 plan_explain update 10派0.28元(董事会预案) -> 10派0.28元(股东大会预案)
+Info: 000027.SZ 2022年报 plan_explain update 10派1.4元(董事会预案) -> 10派1.4元(股东大会预案)
+Info: 000030.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 000032.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 000065.SZ 2022年报 plan_explain update 10派0.6349元(董事会预案) -> 10派0.6349元(股东大会预案)
+Info: 000153.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 000301.SZ 2022年报 null ex_date update 20230522
+Info: 000407.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 000417.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 000422.SZ 2022年报 null ex_date update 20230522
+Info: 000498.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 000529.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 000538.SZ 2022年报 null ex_date update 20230519
+Info: 000567.SZ 2022年报 plan_explain update 10转4.5股派6.145元(董事会预案) -> 10转4.5股派6.145元(股东大会预案)
+Info: 000570.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 000589.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 000598.SZ 2022年报 plan_explain update 10派1.12元(董事会预案) -> 10派1.12元(股东大会预案)
+Info: 000600.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 000623.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 000628.SZ 2022年报 plan_explain update 10派0.25元(董事会预案) -> 10派0.25元(股东大会预案)
+Info: 000655.SZ 2022年报 null ex_date update 20230525
+Info: 000672.SZ 2022年报 null ex_date update 20230523
+Info: 000682.SZ 2022年报 plan_explain update 10派0.75元(董事会预案) -> 10派0.75元(股东大会预案)
+Info: 000686.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 000690.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 000713.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 000717.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 000718.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 000726.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 000728.SZ 2022年报 null ex_date update 20230523
+Info: 000731.SZ 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
+Info: 000733.SZ 2022年报 plan_explain update 10派11.45元(董事会预案) -> 10派11.45元(股东大会预案)
+Info: 000739.SZ 2022年报 null ex_date update 20230522
+Info: 000795.SZ 2022年报 null ex_date update 20230525
+Info: 000797.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 000801.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 000803.SZ 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
+Info: 000807.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 000811.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 000818.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 000823.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 000833.SZ 2022年报 plan_explain update 10派0.59元(董事会预案) -> 10派0.59元(股东大会预案)
+Info: 000848.SZ 2022年报 null ex_date update 20230524
+Info: 000878.SZ 2022年报 null ex_date update 20230524
+Info: 000885.SZ 2022年报 plan_explain update 10派1.65元(董事会预案) -> 10派1.65元(股东大会预案)
+Info: 000886.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 000902.SZ 2022年报 null ex_date update 20230523
+Info: 000906.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 000922.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 000923.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 000930.SZ 2022年报 plan_explain update 10派5.7元(董事会预案) -> 10派5.7元(股东大会预案)
+Info: 000948.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 000950.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 000951.SZ 2022年报 plan_explain update 10派0.82元(董事会预案) -> 10派0.82元(股东大会预案)
+Info: 000958.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 000966.SZ 2022年报 plan_explain update 10派0.14元(董事会预案) -> 10派0.14元(股东大会预案)
+Info: 000977.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 001202.SZ 2022年报 plan_explain update 10派1.55元(董事会预案) -> 10派1.55元(股东大会预案)
+Info: 001208.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 001213.SZ 2022年报 plan_explain update 10派0.37元(董事会预案) -> 10派0.37元(股东大会预案)
+Info: 001216.SZ 2022年报 plan_explain update 10派2.1元(董事会预案) -> 10派2.1元(股东大会预案)
+Info: 001222.SZ 2022年报 plan_explain update 10转4股派4元(董事会预案) -> 10转4股派4元(股东大会预案)
+Info: 001225.SZ 2022年报 null ex_date update 20230522
+Info: 001229.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 001255.SZ 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
+Info: 001258.SZ 2022年报 plan_explain update 10派0.63元(董事会预案) -> 10派0.63元(股东大会预案)
+Info: 001260.SZ 2022年报 null ex_date update 20230526
+Info: 001267.SZ 2022年报 null ex_date update 20230525
+Info: 001268.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 001296.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 001298.SZ 2022年报 null ex_date update 20230523
+Info: 001301.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 001311.SZ 2022年报 plan_explain update 10转3股派7.1元(董事会预案) -> 10转3股派7.1元(股东大会预案)
+Info: 001313.SZ 2022年报 plan_explain update 10派0.48元(董事会预案) -> 10派0.48元(股东大会预案)
+Info: 001314.SZ 2022年报 null ex_date update 20230523
+Info: 001322.SZ 2022年报 plan_explain update 10派1.84元(董事会预案) -> 10派1.84元(股东大会预案)
+Info: 001323.SZ 2022年报 null ex_date update 20230526
+Info: 001333.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 001338.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 001339.SZ 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
+Info: 001368.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 002004.SZ 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 002006.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 002009.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 002012.SZ 2022年报 null ex_date update 20230525
+Info: 002015.SZ 2022年报 plan_explain update 10派1.9元(董事会预案) -> 10派1.9元(股东大会预案)
+Info: 002020.SZ 2022年报 null ex_date update 20230524
+Info: 002032.SZ 2022年报 null ex_date update 20230526
+Info: 002036.SZ 2022年报 plan_explain update 10派0.09元(董事会预案) -> 10派0.09元(股东大会预案)
+Info: 002051.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 002061.SZ 2022年报 plan_explain update 10转4股派1.7元(董事会预案) -> 10转4股派1.7元(股东大会预案)
+Info: 002075.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002082.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 002085.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002091.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 002093.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 002099.SZ 2022年报 null ex_date update 20230524
+Info: 002105.SZ 2022年报 null ex_date update 20230523
+Info: 002108.SZ 2022年报 null ex_date update 20230526
+Info: 002111.SZ 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 002116.SZ 2022年报 plan_explain update 10派1.854元(董事会预案) -> 10派1.854元(股东大会预案)
+Info: 002120.SZ 2022年报 plan_explain update 10派0.52元(董事会预案) -> 10派0.52元(股东大会预案)
+Info: 002125.SZ 2022年报 plan_explain update 10派1.26元(董事会预案) -> 10派1.26元(股东大会预案)
+Info: 002128.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 002129.SZ 2022年报 null ex_date update 20230526
+Info: 002130.SZ 2022年报 null ex_date update 20230529
+Info: 002132.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002135.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002142.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 002145.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002165.SZ 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
+Info: 002214.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002218.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 002222.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 002223.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 002225.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 002228.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 002230.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002232.SZ 2022年报 null ex_date update 20230526
+Info: 002242.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 002243.SZ 2022年报 null ex_date update 20230526
+Info: 002245.SZ 2022年报 plan_explain update 10派0.35元(董事会预案) -> 10派0.35元(股东大会预案)
+Info: 002246.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002249.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 002250.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002268.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 002281.SZ 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
+Info: 002283.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002293.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 002302.SZ 2022年报 null ex_date update 20230526
+Info: 002311.SZ 2022年报 plan_explain update 10派4.5元(董事会预案) -> 10派4.5元(股东大会预案)
+Info: 002312.SZ 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 002324.SZ 2022年报 null ex_date update 20230523
+Info: 002326.SZ 2022年报 null ex_date update 20230525
+Info: 002327.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 002328.SZ 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 002353.SZ 2022年报 plan_explain update 10派3.3元(董事会预案) -> 10派3.3元(股东大会预案)
+Info: 002363.SZ 2022年报 null ex_date update 20230519
+Info: 002372.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 002376.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 002381.SZ 2022年报 null ex_date update 20230523
+Info: 002385.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002390.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 002391.SZ 2022年报 null ex_date update 20230524
+Info: 002409.SZ 2022年报 plan_explain update 10派3.2元(董事会预案) -> 10派3.2元(股东大会预案)
+Info: 002414.SZ 2022年报 plan_explain update 10转3股派1.3元(董事会预案) -> 10转3股派1.3元(股东大会预案)
+Info: 002415.SZ 2022年报 null ex_date update 20230519
+Info: 002423.SZ 2022年报 plan_explain update 10派0.78元(董事会预案) -> 10派0.78元(股东大会预案)
+Info: 002439.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 002452.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 002462.SZ 2022年报 plan_explain update 10派3.1元(董事会预案) -> 10派3.1元(股东大会预案)
+Info: 002469.SZ 2022年报 null ex_date update 20230525
+Info: 002472.SZ 2022年报 null ex_date update 20230526
+Info: 002489.SZ 2022年报 null ex_date update 20230524
+Info: 002493.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 002508.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 002515.SZ 2022年报 null ex_date update 20230524
+Info: 002518.SZ 2022年报 null ex_date update 20230522
+Info: 002522.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 002538.SZ 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
+Info: 002540.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 002544.SZ 2022年报 plan_explain update 10派1.565元(董事会预案) -> 10派1.565元(股东大会预案)
+Info: 002545.SZ 2022年报 plan_explain update 10派4.1元(董事会预案) -> 10派4.1元(股东大会预案)
+Info: 002550.SZ 2022年报 null ex_date update 20230526
+Info: 002557.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 002559.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 002566.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002579.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 002585.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 002601.SZ 2023一季报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 002606.SZ 2022年报 plan_explain update 10派0.42元(董事会预案) -> 10派0.42元(股东大会预案)
+Info: 002608.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002609.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 002614.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 002615.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 002626.SZ 2022年报 null ex_date update 20230526
+Info: 002632.SZ 2022年报 null ex_date update 20230525
+Info: 002637.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002643.SZ 2022年报 plan_explain update 10派2.95元(董事会预案) -> 10派2.95元(股东大会预案)
+Info: 002649.SZ 2022年报 null ex_date update 20230526
+Info: 002655.SZ 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
+Info: 002673.SZ 2022年报 plan_explain update 10派0.49元(董事会预案) -> 10派0.49元(股东大会预案)
+Info: 002674.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 002677.SZ 2022年报 null ex_date update 20230523
+Info: 002683.SZ 2022年报 null ex_date update 20230522
+Info: 002686.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 002688.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002691.SZ 2022年报 plan_explain update 10派0.07元(董事会预案) -> 10派0.07元(股东大会预案)
+Info: 002697.SZ 2022年报 null ex_date update 20230523
+Info: 002701.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 002714.SZ 2022年报 plan_explain update 10派7.36元(董事会预案) -> 10派7.36元(股东大会预案)
+Info: 002727.SZ 2022年报 null ex_date update 20230526
+Info: 002728.SZ 2022年报 null ex_date update 20230526
+Info: 002738.SZ 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10转4股派10元(股东大会预案)
+Info: 002745.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002746.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002749.SZ 2022年报 null ex_date update 20230519
+Info: 002752.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002758.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 002762.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 002763.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 002768.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 002771.SZ 2022年报 plan_explain update 10派0.13元(董事会预案) -> 10派0.13元(股东大会预案)
+Info: 002774.SZ 2022年报 null ex_date update 20230523
+Info: 002805.SZ 2022年报 null ex_date update 20230526
+Info: 002810.SZ 2022年报 plan_explain update 10派3.00元(董事会预案) -> 10派3.00元(股东大会预案)
+Info: 002815.SZ 2022年报 null ex_date update 20230519
+Info: 002825.SZ 2022年报 plan_explain update 10转4股派3元(董事会预案) -> 10转4股派3元(股东大会预案)
+Info: 002826.SZ 2022年报 plan_explain update 10派1.00元(董事会预案) -> 10派1.00元(股东大会预案)
+Info: 002827.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 002829.SZ 2022年报 plan_explain update 10转2股派3.6元(董事会预案) -> 10转2股派3.6元(股东大会预案)
+Info: 002832.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 002837.SZ 2022年报 null ex_date update 20230519
+Info: 002841.SZ 2022年报 plan_explain update 10派10.5元(董事会预案) -> 10派10.5元(股东大会预案)
+Info: 002850.SZ 2022年报 null ex_date update 20230519
+Info: 002860.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002863.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 002869.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 002870.SZ 2022年报 null ex_date update 20230522
+Info: 002876.SZ 2022年报 null ex_date update 20230523
+Info: 002878.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 002881.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002885.SZ 2022年报 null ex_date update 20230526
+Info: 002886.SZ 2022年报 null ex_date update 20230519
+Info: 002889.SZ 2022年报 plan_explain update 10送4股派1.15元(董事会预案) -> 10送4股派1.15元(股东大会预案)
+Info: 002890.SZ 2022年报 plan_explain update 10转4股派1.4元(董事会预案) -> 10转4股派1.4元(股东大会预案)
+Info: 002891.SZ 2022年报 null ex_date update 20230524
+Info: 002896.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 002900.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 002902.SZ 2022年报 plan_explain update 10派0.33元(董事会预案) -> 10派0.33元(股东大会预案)
+Info: 002903.SZ 2022年报 null ex_date update 20230525
+Info: 002906.SZ 2022年报 null ex_date update 20230524
+Info: 002917.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 002919.SZ 2022年报 plan_explain update 10转3股(董事会预案) -> 10转3股(股东大会预案)
+Info: 002921.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 002923.SZ 2022年报 plan_explain update 10转4股派3.5元(董事会预案) -> 10转4股派3.5元(股东大会预案)
+Info: 002932.SZ 2022年报 plan_explain update 10转4.9股派37元(董事会预案) -> 10转4.9股派37元(股东大会预案)
+Info: 002935.SZ 2022年报 plan_explain update 10转3股派1.5元(董事会预案) -> 10转3股派1.5元(股东大会预案)
+Info: 002937.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 002949.SZ 2022年报 null ex_date update 20230523
+Info: 002956.SZ 2022年报 plan_explain update 10派2.69元(董事会预案) -> 10派2.69元(股东大会预案)
+Info: 002957.SZ 2022年报 plan_explain update 10派2.4元(董事会预案) -> 10派2.4元(股东大会预案)
+Info: 002962.SZ 2022年报 null ex_date update 20230523
+Info: 002965.SZ 2022年报 plan_explain update 10派4.36元(董事会预案) -> 10派4.36元(股东大会预案)
+Info: 002966.SZ 2022年报 plan_explain update 10派3.3元(董事会预案) -> 10派3.3元(股东大会预案)
+Info: 002967.SZ 2022年报 null ex_date update 20230523
+Info: 002969.SZ 2022年报 plan_explain update 10派0.11元(董事会预案) -> 10派0.11元(股东大会预案)
+Info: 002970.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 002972.SZ 2022年报 null ex_date update 20230525
+Info: 002979.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 002981.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 002991.SZ 2022年报 plan_explain update 10派10.73元(董事会预案) -> 10派10.73元(股东大会预案)
+Info: 002997.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 003001.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 003007.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 003008.SZ 2022年报 null ex_date update 20230525
+Info: 003011.SZ 2022年报 null ex_date update 20230526
+Info: 003015.SZ 2022年报 null ex_date update 20230519
+Info: 003017.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 003020.SZ 2022年报 null ex_date update 20230524
+Info: 003023.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 003025.SZ 2022年报 plan_explain update 10转4.5股派3.6元(董事会预案) -> 10转4.5股派3.6元(股东大会预案)
+Info: 003030.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 003040.SZ 2022年报 null ex_date update 20230522
+Info: 003041.SZ 2022年报 plan_explain update 10转2股派4元(董事会预案) -> 10转2股派4元(股东大会预案)
+Info: 003042.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300002.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 300009.SZ 2022年报 null ex_date update 20230519
+Info: 300012.SZ 2022年报 null ex_date update 20230525
+Info: 300014.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 300016.SZ 2022年报 null ex_date update 20230525
+Info: 300018.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300034.SZ 2022年报 plan_explain update 10转6股派2.08元(董事会预案) -> 10转6股派2.08元(股东大会预案)
+Info: 300035.SZ 2022年报 null ex_date update 20230525
+Info: 300039.SZ 2022年报 null ex_date update 20230526
+Info: 300040.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 300041.SZ 2022年报 null ex_date update 20230522
+Info: 300049.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300054.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300070.SZ 2022年报 null ex_date update 20230525
+Info: 300075.SZ 2022年报 plan_explain update 10转2股派0.5元(董事会预案) -> 10转2股派0.5元(股东大会预案)
+Info: 300095.SZ 2022年报 null ex_date update 20230524
+Info: 300099.SZ 2022年报 plan_explain update 10派1.35元(董事会预案) -> 10派1.35元(股东大会预案)
+Info: 300105.SZ 2022年报 null ex_date update 20230524
+Info: 300107.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 300112.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300118.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300120.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300126.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 300151.SZ 2022年报 null ex_date update 20230526
+Info: 300170.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 300171.SZ 2022年报 plan_explain update 10派3.3元(董事会预案) -> 10派3.3元(股东大会预案)
+Info: 300183.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300185.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 300190.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300191.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 300196.SZ 2022年报 null ex_date update 20230524
+Info: 300205.SZ 2022年报 plan_explain update 10派0.45元(董事会预案) -> 10派0.45元(股东大会预案)
+Info: 300213.SZ 2022年报 null ex_date update 20230523
+Info: 300226.SZ 2022年报 null ex_date update 20230519
+Info: 300233.SZ 2022年报 null ex_date update 20230519
+Info: 300236.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300246.SZ 2022年报 null ex_date update 20230525
+Info: 300248.SZ 2022年报 plan_explain update 10派0.65元(董事会预案) -> 10派0.65元(股东大会预案)
+Info: 300255.SZ 2022年报 plan_explain update 10派0.05元(董事会预案) -> 10派0.05元(股东大会预案)
+Info: 300260.SZ 2022年报 plan_explain update 10转8股派1.6元(董事会预案) -> 10转8股派1.6元(股东大会预案)
+Info: 300267.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 300277.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 300284.SZ 2022年报 null ex_date update 20230525
+Info: 300285.SZ 2022年报 null ex_date update 20230526
+Info: 300303.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300305.SZ 2022年报 null ex_date update 20230524
+Info: 300306.SZ 2022年报 null ex_date update 20230523
+Info: 300308.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300320.SZ 2022年报 null ex_date update 20230526
+Info: 300321.SZ 2022年报 plan_explain update 10派0.35元(董事会预案) -> 10派0.35元(股东大会预案)
+Info: 300332.SZ 2022年报 plan_explain update 10派0.85元(董事会预案) -> 10派0.85元(股东大会预案)
+Info: 300349.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300355.SZ 2022年报 plan_explain update 10派0.18元(董事会预案) -> 10派0.18元(股东大会预案)
+Info: 300357.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300358.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300360.SZ 2022年报 null ex_date update 20230526
+Info: 300371.SZ 2022年报 plan_explain update 10送2股派1元(董事会预案) -> 10送2股派1元(股东大会预案)
+Info: 300375.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300376.SZ 2022年报 plan_explain update 10派0.24元(董事会预案) -> 10派0.24元(股东大会预案)
+Info: 300378.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300382.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 300388.SZ 2022年报 null ex_date update 20230523
+Info: 300395.SZ 2022年报 plan_explain update 10派1.9元(董事会预案) -> 10派1.9元(股东大会预案)
+Info: 300396.SZ 2022年报 null ex_date update 20230519
+Info: 300401.SZ 2022年报 null ex_date update 20230524
+Info: 300406.SZ 2022年报 null ex_date update 20230522
+Info: 300407.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300409.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300420.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 300421.SZ 2022年报 null ex_date update 20230525
+Info: 300423.SZ 2022年报 plan_explain update 10派0.32元(董事会预案) -> 10派0.32元(股东大会预案)
+Info: 300425.SZ 2022年报 plan_explain update 10派0.57元(董事会预案) -> 10派0.57元(股东大会预案)
+Info: 300428.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 300430.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 300432.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300433.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300441.SZ 2022年报 null ex_date update 20230524
+Info: 300442.SZ 2022年报 null ex_date update 20230524
+Info: 300450.SZ 2022年报 plan_explain update 10派5.37元(董事会预案) -> 10派5.37元(股东大会预案)
+Info: 300463.SZ 2022年报 plan_explain update 10派3.47元(董事会预案) -> 10派3.47元(股东大会预案)
+Info: 300468.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 300470.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 300474.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300476.SZ 2022年报 null ex_date update 20230522
+Info: 300484.SZ 2022年报 plan_explain update 10派3.6元(董事会预案) -> 10派3.6元(股东大会预案)
+Info: 300485.SZ 2022年报 null ex_date update 20230523
+Info: 300486.SZ 2022年报 plan_explain update 10派0.12元(董事会预案) -> 10派0.12元(股东大会预案)
+Info: 300491.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300498.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300499.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300500.SZ 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
+Info: 300502.SZ 2022年报 plan_explain update 10转4股派1.26元(董事会预案) -> 10转4股派1.26元(股东大会预案)
+Info: 300504.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300507.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300508.SZ 2022年报 null ex_date update 20230523
+Info: 300512.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 300515.SZ 2022年报 plan_explain update 10派1.75元(董事会预案) -> 10派1.75元(股东大会预案)
+Info: 300517.SZ 2022年报 plan_explain update 10派0.26元(董事会预案) -> 10派0.26元(股东大会预案)
+Info: 300518.SZ 2022年报 plan_explain update 10转4股派0.65元(董事会预案) -> 10转4股派0.65元(股东大会预案)
+Info: 300522.SZ 2022年报 plan_explain update 10转2股派1元(董事会预案) -> 10转2股派1元(股东大会预案)
+Info: 300527.SZ 2022年报 plan_explain update 10派0.005183元(董事会预案) -> 10派0.005183元(股东大会预案)
+Info: 300538.SZ 2022年报 null ex_date update 20230519
+Info: 300541.SZ 2022年报 null ex_date update 20230523
+Info: 300542.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 300545.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300558.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 300564.SZ 2022年报 plan_explain update 10派6.25元(董事会预案) -> 10派6.25元(股东大会预案)
+Info: 300566.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300567.SZ 2022年报 null ex_date update 20230525
+Info: 300568.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300569.SZ 2022年报 plan_explain update 10派0.85元(董事会预案) -> 10派0.85元(股东大会预案)
+Info: 300573.SZ 2022年报 null ex_date update 20230522
+Info: 300575.SZ 2022年报 null ex_date update 20230522
+Info: 300576.SZ 2022年报 plan_explain update 10转1股派0.5元(董事会预案) -> 10转1股派0.5元(股东大会预案)
+Info: 300577.SZ 2022年报 plan_explain update 10派0.9元(董事会预案) -> 10派0.9元(股东大会预案)
+Info: 300580.SZ 2022年报 plan_explain update 10转5股派4元(董事会预案) -> 10转5股派4元(股东大会预案)
+Info: 300583.SZ 2022年报 plan_explain update 10派0.15元(董事会预案) -> 10派0.15元(股东大会预案)
+Info: 300587.SZ 2022年报 null ex_date update 20230526
+Info: 300590.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300593.SZ 2022年报 null ex_date update 20230526
+Info: 300597.SZ 2022年报 plan_explain update 10派0.23元(董事会预案) -> 10派0.23元(股东大会预案)
+Info: 300608.SZ 2022年报 plan_explain update 10派0.08元(董事会预案) -> 10派0.08元(股东大会预案)
+Info: 300610.SZ 2022年报 plan_explain update 10派3.3元(董事会预案) -> 10派3.3元(股东大会预案)
+Info: 300618.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300619.SZ 2022年报 plan_explain update 10派0.80元(董事会预案) -> 10派0.80元(股东大会预案)
+Info: 300625.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 300627.SZ 2022年报 null ex_date update 20230519
+Info: 300628.SZ 2022年报 plan_explain update 10转4股派13元(董事会预案) -> 10转4股派13元(股东大会预案)
+Info: 300631.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 300632.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300634.SZ 2022年报 null ex_date update 20230523
+Info: 300636.SZ 2022年报 null ex_date update 20230524
+Info: 300638.SZ 2022年报 plan_explain update 10转2股派1元(董事会预案) -> 10转2股派1元(股东大会预案)
+Info: 300640.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300642.SZ 2022年报 null ex_date update 20230523
+Info: 300644.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300645.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300648.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 300649.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 300651.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300652.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 300656.SZ 2022年报 plan_explain update 10转1股派1元(董事会预案) -> 10转1股派1元(股东大会预案)
+Info: 300660.SZ 2022年报 plan_explain update 10转2股派4.6元(董事会预案) -> 10转2股派4.6元(股东大会预案)
+Info: 300661.SZ 2022年报 plan_explain update 10转3股派3元(董事会预案) -> 10转3股派3元(股东大会预案)
+Info: 300663.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 300664.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300669.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300672.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 300678.SZ 2022年报 null ex_date update 20230526
+Info: 300681.SZ 2022年报 null ex_date update 20230523
+Info: 300684.SZ 2022年报 plan_explain update 10派6.5元(董事会预案) -> 10派6.5元(股东大会预案)
+Info: 300685.SZ 2022年报 null ex_date update 20230523
+Info: 300689.SZ 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 300691.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300694.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300703.SZ 2022年报 null ex_date update 20230526
+Info: 300706.SZ 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 300707.SZ 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 300712.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300718.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 300723.SZ 2022年报 null ex_date update 20230524
+Info: 300725.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300727.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 300729.SZ 2022年报 null ex_date update 20230525
+Info: 300730.SZ 2022年报 plan_explain update 10派0.15元(董事会预案) -> 10派0.15元(股东大会预案)
+Info: 300733.SZ 2022年报 plan_explain update 10转6股派1元(董事会预案) -> 10转6股派1元(股东大会预案)
+Info: 300735.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300737.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300738.SZ 2022年报 plan_explain update 10转2股派0.25元(董事会预案) -> 10转2股派0.25元(股东大会预案)
+Info: 300743.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 300746.SZ 2022年报 null ex_date update 20230526
+Info: 300751.SZ 2022年报 null ex_date update 20230525
+Info: 300757.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300760.SZ 2022年报 plan_explain update 10派45元(董事会预案) -> 10派45元(股东大会预案)
+Info: 300761.SZ 2022年报 null ex_date update 20230523
+Info: 300762.SZ 2022年报 plan_explain update 10派0.14元(董事会预案) -> 10派0.14元(股东大会预案)
+Info: 300763.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 300768.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 300770.SZ 2022年报 plan_explain update 10派13.6元(董事会预案) -> 10派13.6元(股东大会预案)
+Info: 300772.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300785.SZ 2022年报 plan_explain update 10转5股派2元(董事会预案) -> 10转5股派2元(股东大会预案)
+Info: 300786.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 300787.SZ 2022年报 null ex_date update 20230525
+Info: 300789.SZ 2022年报 plan_explain update 10转3股派3.25元(董事会预案) -> 10转3股派3.25元(股东大会预案)
+Info: 300792.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300793.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300797.SZ 2022年报 plan_explain update 10转5股派1.34元(董事会预案) -> 10转5股派1.34元(股东大会预案)
+Info: 300802.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 300808.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 300809.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300811.SZ 2022年报 plan_explain update 10转8股派2元(董事会预案) -> 10转8股派2元(股东大会预案)
+Info: 300815.SZ 2022年报 plan_explain update 10转2股派5.7元(董事会预案) -> 10转2股派5.7元(股东大会预案)
+Info: 300817.SZ 2022年报 plan_explain update 10转2股派2.5元(董事会预案) -> 10转2股派2.5元(股东大会预案)
+Info: 300822.SZ 2022年报 plan_explain update 10送5股派1.5元(董事会预案) -> 10送5股派1.5元(股东大会预案)
+Info: 300823.SZ 2022年报 null ex_date update 20230524
+Info: 300826.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300827.SZ 2022年报 plan_explain update 10转4.5股派1元(董事会预案) -> 10转4.5股派1元(股东大会预案)
+Info: 300837.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 300839.SZ 2022年报 null ex_date update 20230519
+Info: 300840.SZ 2022年报 plan_explain update 10派0.36元(董事会预案) -> 10派0.36元(股东大会预案)
+Info: 300841.SZ 2022年报 null ex_date update 20230524
+Info: 300843.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300847.SZ 2022年报 null ex_date update 20230526
+Info: 300848.SZ 2022年报 plan_explain update 10转5股派1元(董事会预案) -> 10转5股派1元(股东大会预案)
+Info: 300854.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 300856.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 300858.SZ 2022年报 plan_explain update 10转5股派3元(董事会预案) -> 10转5股派3元(股东大会预案)
+Info: 300863.SZ 2022年报 plan_explain update 10转5股派5元(董事会预案) -> 10转5股派5元(股东大会预案)
+Info: 300865.SZ 2022年报 plan_explain update 10派0.65元(董事会预案) -> 10派0.65元(股东大会预案)
+Info: 300871.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 300873.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 300880.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 300881.SZ 2022年报 null ex_date update 20230529
+Info: 300884.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300888.SZ 2022年报 plan_explain update 10转4股派19元(董事会预案) -> 10转4股派19元(股东大会预案)
+Info: 300891.SZ 2022年报 null ex_date update 20230526
+Info: 300894.SZ 2022年报 null ex_date update 20230525
+Info: 300895.SZ 2022年报 plan_explain update 10转1股(董事会预案) -> 10转1股(股东大会预案)
+Info: 300898.SZ 2022年报 null ex_date update 20230524
+Info: 300899.SZ 2022年报 plan_explain update 10派2.3元(董事会预案) -> 10派2.3元(股东大会预案)
+Info: 300900.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300901.SZ 2022年报 null ex_date update 20230523
+Info: 300902.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 300903.SZ 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 300911.SZ 2022年报 null ex_date update 20230525
+Info: 300917.SZ 2022年报 null ex_date update 20230524
+Info: 300918.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 300921.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300922.SZ 2022年报 null ex_date update 20230523
+Info: 300923.SZ 2022年报 plan_explain update 10派2.8元(董事会预案) -> 10派2.8元(股东大会预案)
+Info: 300926.SZ 2022年报 null ex_date update 20230526
+Info: 300927.SZ 2022年报 plan_explain update 10派1.35元(董事会预案) -> 10派1.35元(股东大会预案)
+Info: 300928.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300930.SZ 2022年报 null ex_date update 20230523
+Info: 300937.SZ 2022年报 null ex_date update 20230522
+Info: 300939.SZ 2022年报 null ex_date update 20230522
+Info: 300941.SZ 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
+Info: 300942.SZ 2022年报 plan_explain update 10派0.212元(董事会预案) -> 10派0.212元(股东大会预案)
+Info: 300943.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300946.SZ 2022年报 plan_explain update 10派2.3元(董事会预案) -> 10派2.3元(股东大会预案)
+Info: 300951.SZ 2022年报 null ex_date update 20230522
+Info: 300952.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300955.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 300957.SZ 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
+Info: 300958.SZ 2022年报 plan_explain update 10派1.81元(董事会预案) -> 10派1.81元(股东大会预案)
+Info: 300960.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 300962.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 300965.SZ 2022年报 plan_explain update 10派0.75元(董事会预案) -> 10派0.75元(股东大会预案)
+Info: 300968.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 300971.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 300975.SZ 2022年报 plan_explain update 10派0.22元(董事会预案) -> 10派0.22元(股东大会预案)
+Info: 300976.SZ 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
+Info: 300977.SZ 2022年报 plan_explain update 10转5股派0.5元(董事会预案) -> 10转5股派0.5元(股东大会预案)
+Info: 300978.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300979.SZ 2022年报 null ex_date update 20230524
+Info: 300981.SZ 2022年报 plan_explain update 10转3股派7元(董事会预案) -> 10转3股派7元(股东大会预案)
+Info: 300983.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 300987.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 300989.SZ 2022年报 plan_explain update 10转5股派0.5元(董事会预案) -> 10转5股派0.5元(股东大会预案)
+Info: 300990.SZ 2022年报 plan_explain update 10转8股派8元(董事会预案) -> 10转8股派8元(股东大会预案)
+Info: 300994.SZ 2022年报 plan_explain update 10转2股派5.8元(董事会预案) -> 10转2股派5.8元(股东大会预案)
+Info: 300995.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 300998.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301002.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 301005.SZ 2022年报 null ex_date update 20230523
+Info: 301006.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 301007.SZ 2022年报 null ex_date update 20230526
+Info: 301010.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301011.SZ 2022年报 plan_explain update 10转3股(董事会预案) -> 10转3股(股东大会预案)
+Info: 301012.SZ 2022年报 null ex_date update 20230524
+Info: 301015.SZ 2022年报 null ex_date update 20230525
+Info: 301017.SZ 2022年报 plan_explain update 10派1.15元(董事会预案) -> 10派1.15元(股东大会预案)
+Info: 301018.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301019.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 301021.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301026.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 301027.SZ 2022年报 plan_explain update 10派0.35元(董事会预案) -> 10派0.35元(股东大会预案)
+Info: 301028.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 301031.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 301033.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301036.SZ 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 301040.SZ 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
+Info: 301041.SZ 2022年报 plan_explain update 10派0.48元(董事会预案) -> 10派0.48元(股东大会预案)
+Info: 301042.SZ 2022年报 null ex_date update 20230525
+Info: 301043.SZ 2022年报 null ex_date update 20230526
+Info: 301047.SZ 2022年报 null ex_date update 20230524
+Info: 301048.SZ 2022年报 plan_explain update 10派0.490661元(董事会预案) -> 10派0.490661元(股东大会预案)
+Info: 301053.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301055.SZ 2022年报 null ex_date update 20230524
+Info: 301056.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 301058.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301061.SZ 2022年报 null ex_date update 20230522
+Info: 301065.SZ 2022年报 plan_explain update 10转5股派1.50元(董事会预案) -> 10转5股派1.50元(股东大会预案)
+Info: 301067.SZ 2022年报 null ex_date update 20230524
+Info: 301068.SZ 2022年报 null ex_date update 20230522
+Info: 301073.SZ 2022年报 plan_explain update 10转5股派2元(董事会预案) -> 10转5股派2元(股东大会预案)
+Info: 301079.SZ 2022年报 null ex_date update 20230523
+Info: 301080.SZ 2022年报 plan_explain update 10转5股派15元(董事会预案) -> 10转5股派15元(股东大会预案)
+Info: 301082.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301083.SZ 2022年报 null ex_date update 20230524
+Info: 301085.SZ 2022年报 plan_explain update 10派1.25元(董事会预案) -> 10派1.25元(股东大会预案)
+Info: 301087.SZ 2022年报 null ex_date update 20230525
+Info: 301088.SZ 2022年报 plan_explain update 10派3.66元(董事会预案) -> 10派3.66元(股东大会预案)
+Info: 301089.SZ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 301090.SZ 2022年报 plan_explain update 10派0.83元(董事会预案) -> 10派0.83元(股东大会预案)
+Info: 301091.SZ 2022年报 null ex_date update 20230526
+Info: 301092.SZ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 301093.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 301098.SZ 2022年报 null ex_date update 20230525
+Info: 301099.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 301101.SZ 2022年报 null ex_date update 20230523
+Info: 301103.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 301107.SZ 2022年报 plan_explain update 10派5.5元(董事会预案) -> 10派5.5元(股东大会预案)
+Info: 301108.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 301109.SZ 2022年报 plan_explain update 10派9元(董事会预案) -> 10派9元(股东大会预案)
+Info: 301110.SZ 2022年报 null ex_date update 20230519
+Info: 301112.SZ 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 301117.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 301118.SZ 2022年报 null ex_date update 20230524
+Info: 301119.SZ 2022年报 plan_explain update 10转3股派1.5元(董事会预案) -> 10转3股派1.5元(股东大会预案)
+Info: 301121.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301125.SZ 2022年报 plan_explain update 10转4股派8元(董事会预案) -> 10转4股派8元(股东大会预案)
+Info: 301126.SZ 2022年报 plan_explain update 10派0.29元(董事会预案) -> 10派0.29元(股东大会预案)
+Info: 301128.SZ 2022年报 null ex_date update 20230525
+Info: 301132.SZ 2022年报 null ex_date update 20230523
+Info: 301133.SZ 2022年报 null ex_date update 20230526
+Info: 301136.SZ 2022年报 plan_explain update 10派0.88元(董事会预案) -> 10派0.88元(股东大会预案)
+Info: 301137.SZ 2022年报 plan_explain update 10派0.89元(董事会预案) -> 10派0.89元(股东大会预案)
+Info: 301139.SZ 2022年报 plan_explain update 10派1.04元(董事会预案) -> 10派1.04元(股东大会预案)
+Info: 301141.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301150.SZ 2022年报 plan_explain update 10转3股派13元(董事会预案) -> 10转3股派13元(股东大会预案)
+Info: 301151.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301152.SZ 2022年报 null ex_date update 20230523
+Info: 301155.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301156.SZ 2022年报 plan_explain update 10转4股派6元(董事会预案) -> 10转4股派6元(股东大会预案)
+Info: 301157.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301158.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 301160.SZ 2022年报 null ex_date update 20230519
+Info: 301163.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 301165.SZ 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
+Info: 301166.SZ 2022年报 plan_explain update 10派9元(董事会预案) -> 10派9元(股东大会预案)
+Info: 301168.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301175.SZ 2022年报 null ex_date update 20230525
+Info: 301176.SZ 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
+Info: 301180.SZ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 301185.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301187.SZ 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 301188.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301190.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 301191.SZ 2022年报 plan_explain update 10转3股派10元(董事会预案) -> 10转3股派10元(股东大会预案)
+Info: 301196.SZ 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 301198.SZ 2022年报 null ex_date update 20230526
+Info: 301199.SZ 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 301201.SZ 2022年报 plan_explain update 10转6股派3元(董事会预案) -> 10转6股派3元(股东大会预案)
+Info: 301203.SZ 2022年报 plan_explain update 10派15元(董事会预案) -> 10派15元(股东大会预案)
+Info: 301205.SZ 2022年报 plan_explain update 10转8股派2元(董事会预案) -> 10转8股派2元(股东大会预案)
+Info: 301206.SZ 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 301209.SZ 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 301212.SZ 2022年报 plan_explain update 10派3.8元(董事会预案) -> 10派3.8元(股东大会预案)
+Info: 301218.SZ 2022年报 null ex_date update 20230526
+Info: 301219.SZ 2022年报 plan_explain update 10转3股派12元(董事会预案) -> 10转3股派12元(股东大会预案)
+Info: 301220.SZ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 301221.SZ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 301227.SZ 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 301230.SZ 2022年报 plan_explain update 10转4股派5元(董事会预案) -> 10转4股派5元(股东大会预案)
+Info: 301231.SZ 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 301233.SZ 2022年报 plan_explain update 10派7.77元(董事会预案) -> 10派7.77元(股东大会预案)
+Info: 301235.SZ 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 301236.SZ 2022年报 plan_explain update 10转5股(董事会预案) -> 10转5股(股东大会预案)
+Info: 301238.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301248.SZ 2022年报 plan_explain update 10转5股派2元(董事会预案) -> 10转5股派2元(股东大会预案)
+Info: 301257.SZ 2022年报 plan_explain update 10派1.08元(董事会预案) -> 10派1.08元(股东大会预案)
+Info: 301259.SZ 2022年报 plan_explain update 10转3股派0.3元(董事会预案) -> 10转3股派0.3元(股东大会预案)
+Info: 301263.SZ 2022年报 plan_explain update 10转8股派7元(董事会预案) -> 10转8股派7元(股东大会预案)
+Info: 301266.SZ 2022年报 null ex_date update 20230526
+Info: 301267.SZ 2022年报 plan_explain update 10转5股派2.8元(董事会预案) -> 10转5股派2.8元(股东大会预案)
+Info: 301270.SZ 2022年报 null ex_date update 20230523
+Info: 301276.SZ 2022年报 plan_explain update 10派3.6元(董事会预案) -> 10派3.6元(股东大会预案)
+Info: 301279.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 301281.SZ 2022年报 null ex_date update 20230526
+Info: 301283.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 301286.SZ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 301289.SZ 2022年报 plan_explain update 10转3股派5元(董事会预案) -> 10转3股派5元(股东大会预案)
+Info: 301290.SZ 2022年报 null ex_date update 20230526
+Info: 301300.SZ 2022年报 null ex_date update 20230525
+Info: 301302.SZ 2022年报 plan_explain update 10转5股(董事会预案) -> 10转5股(股东大会预案)
+Info: 301303.SZ 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 301306.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 301309.SZ 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 301311.SZ 2022年报 plan_explain update 10派0.55元(董事会预案) -> 10派0.55元(股东大会预案)
+Info: 301313.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 301314.SZ 2022年报 plan_explain update 10转3股派14元(董事会预案) -> 10转3股派14元(股东大会预案)
+Info: 301316.SZ 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 301317.SZ 2022年报 null ex_date update 20230523
+Info: 301318.SZ 2022年报 plan_explain update 10转5股派3元(董事会预案) -> 10转5股派3元(股东大会预案)
+Info: 301319.SZ 2022年报 null ex_date update 20230525
+Info: 301321.SZ 2022年报 plan_explain update 10转5股(董事会预案) -> 10转5股(股东大会预案)
+Info: 301322.SZ 2022年报 null ex_date update 20230525
+Info: 301331.SZ 2022年报 null ex_date update 20230523
+Info: 301336.SZ 2022年报 plan_explain update 10派2.72元(董事会预案) -> 10派2.72元(股东大会预案)
+Info: 301339.SZ 2022年报 plan_explain update 10派1.69元(董事会预案) -> 10派1.69元(股东大会预案)
+Info: 301349.SZ 2022年报 plan_explain update 10转5股派10元(董事会预案) -> 10转5股派10元(股东大会预案)
+Info: 301356.SZ 2022年报 plan_explain update 10转8股派12.5元(董事会预案) -> 10转8股派12.5元(股东大会预案)
+Info: 301357.SZ 2022年报 plan_explain update 10派5.88元(董事会预案) -> 10派5.88元(股东大会预案)
+Info: 301359.SZ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 301363.SZ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 301366.SZ 2022年报 plan_explain update 10转8股派2.3元(董事会预案) -> 10转8股派2.3元(股东大会预案)
+Info: 301368.SZ 2022年报 plan_explain update 10派1.25元(董事会预案) -> 10派1.25元(股东大会预案)
+Info: 301378.SZ 2022年报 plan_explain update 10转5股派10元(董事会预案) -> 10转5股派10元(股东大会预案)
+Info: 301386.SZ 2022年报 null ex_date update 20230524
+Info: 301388.SZ 2022年报 null ex_date update 20230526
+Info: 301396.SZ 2022年报 plan_explain update 10转2股派3元(董事会预案) -> 10转2股派3元(股东大会预案)
+Info: 301419.SZ 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 301439.SZ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 430418.BJ 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 430478.BJ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 430556.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 430564.BJ 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
+Info: 430685.BJ 2022年报 null ex_date update 20230529
+Info: 600006.SH 2022年报 plan_explain update 10派0.428元(董事会预案) -> 10派0.428元(股东大会预案)
+Info: 600020.SH 2022年报 plan_explain update 10派0.19元(董事会预案) -> 10派0.19元(股东大会预案)
+Info: 600021.SH 2022年报 null ex_date update 20230526
+Info: 600025.SH 2022年报 plan_explain update 10派1.75元(董事会预案) -> 10派1.75元(股东大会预案)
+Info: 600032.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.692元(董事会预案)
+Info: 600050.SH 2022年报 plan_explain update 10派0.427元(董事会预案) -> 10派0.427元(股东大会预案)
+Info: 600051.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 600055.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 600059.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 600063.SH 2022年报 null ex_date update 20230519
+Info: 600066.SH 2022年报 null ex_date update 20230519
+Info: 600072.SH 2022年报 null ex_date update 20230525
+Info: 600081.SH 2022年报 plan_explain update 10派0.7元(股东大会预案) -> 10派0.07362元(股东大会预案)
+Info: 600096.SH 2022年报 null ex_date update 20230519
+Info: 600103.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 600109.SH 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
+Info: 600111.SH 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
+Info: 600113.SH 2022年报 null ex_date update 20230524
+Info: 600114.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 600120.SH 2022年报 null ex_date update 20230524
+Info: 600126.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 600135.SH 2022年报 plan_explain update 10派0.21元(董事会预案) -> 10派0.21元(股东大会预案)
+Info: 600143.SH 2022年报 plan_explain update 10派2.3元(董事会预案) -> 10派2.3元(股东大会预案)
+Info: 600158.SH 2022年报 plan_explain update 10派0.04元(董事会预案) -> 10派0.04元(股东大会预案)
+Info: 600162.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 600163.SH 2022年报 plan_explain update 10派1.0元(董事会预案) -> 10派1.0元(股东大会预案)
+Info: 600176.SH 2022年报 null ex_date update 20230525
+Info: 600180.SH 2022年报 plan_explain update 10派1.33元(董事会预案) -> 10派1.33元(股东大会预案)
+Info: 600183.SH 2022年报 null ex_date update 20230526
+Info: 600184.SH 2022年报 plan_explain update 10派0.57元(董事会预案) -> 10派0.57元(股东大会预案)
+Info: 600206.SH 2022年报 plan_explain update 10派0.96元(董事会预案) -> 10派0.96元(股东大会预案)
+Info: 600220.SH 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 600233.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 600236.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 600251.SH 2022年报 plan_explain update 10派1.84元(董事会预案) -> 10派1.84元(股东大会预案)
+Info: 600273.SH 2022年报 null ex_date update 20230522
+Info: 600276.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 600284.SH 2022年报 null ex_date update 20230525
+Info: 600285.SH 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 600295.SH 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10转4股派10元(股东大会预案)
+Info: 600298.SH 2022年报 null ex_date update 20230522
+Info: 600308.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
+Info: 600309.SH 2022年报 plan_explain update 10派16元(董事会预案) -> 10派16元(股东大会预案)
+Info: 600323.SH 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 600327.SH 2022年报 null ex_date update 20230526
+Info: 600328.SH 2022年报 plan_explain update 10转3股派4.94元(董事会预案) -> 10转3股派4.94元(股东大会预案)
+Info: 600329.SH 2022年报 plan_explain update 10派11.2元(董事会预案) -> 10派11.2元(股东大会预案)
+Info: 600330.SH 2022年报 null ex_date update 20230524
+Info: 600351.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 600353.SH 2022年报 null ex_date update 20230519
+Info: 600356.SH 2022年报 null ex_date update 20230523
+Info: 600363.SH 2022年报 plan_explain update 10派0.59元(董事会预案) -> 10派0.59元(股东大会预案)
+Info: 600366.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 600371.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 600373.SH 2022年报 plan_explain update 10派7.5元(董事会预案) -> 10派7.5元(股东大会预案)
+Info: 600378.SH 2022年报 plan_explain update 10派6.4元(董事会预案) -> 10派6.4元(股东大会预案)
+Info: 600382.SH 2022年报 plan_explain update 10派3.1元(董事会预案) -> 10派3.1元(股东大会预案)
+Info: 600400.SH 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 600415.SH 2022年报 null ex_date update 20230524
+Info: 600433.SH 2022年报 null ex_date update 20230524
+Info: 600438.SH 2022年报 plan_explain update 10派28.58元(董事会预案) -> 10派28.58元(股东大会预案)
+Info: 600452.SH 2022年报 plan_explain update 10送2股派1.8元(董事会预案) -> 10送2股派1.8元(股东大会预案)
+Info: 600459.SH 2022年报 plan_explain update 10派1.65元(董事会预案) -> 10派1.65元(股东大会预案)
+Info: 600467.SH 2022年报 plan_explain update 10派0.13元(董事会预案) -> 10派0.13元(股东大会预案)
+Info: 600468.SH 2022年报 plan_explain update 10派0.34元(董事会预案) -> 10派0.34元(股东大会预案)
+Info: 600475.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 600480.SH 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
+Info: 600481.SH 2022年报 plan_explain update 10派3.0元(董事会预案) -> 10派3.0元(股东大会预案)
+Info: 600486.SH 2022年报 plan_explain update 10送3.0股派13.0元(董事会预案) -> 10送3.0股派13.0元(股东大会预案)
+Info: 600487.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 600497.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 600508.SH 2022年报 plan_explain update 10派7.3元(董事会预案) -> 10派7.3元(股东大会预案)
+Info: 600510.SH 2022年报 plan_explain update 10派2.1元(董事会预案) -> 10派2.1元(股东大会预案)
+Info: 600513.SH 2022年报 null ex_date update 20230526
+Info: 600517.SH 2022年报 plan_explain update 10派0.57元(董事会预案) -> 10派0.57元(股东大会预案)
+Info: 600529.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 600535.SH 2022年报 null ex_date update 20230522
+Info: 600536.SH 2022年报 plan_explain update 10转3股派0.21元(董事会预案) -> 10转3股派0.21元(股东大会预案)
+Info: 600548.SH 2022年报 plan_explain update 10派4.62元(董事会预案) -> 10派4.62元(股东大会预案)
+Info: 600549.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 600556.SH 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 600562.SH 2022年报 plan_explain update 10派1.33元(董事会预案) -> 10派1.33元(股东大会预案)
+Info: 600598.SH 2022年报 null ex_date update 20230525
+Info: 600621.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 600663.SH 2022年报 null ex_date update 20230525
+Info: 600668.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 600674.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 600702.SH 2022年报 plan_explain update 10派15元(董事会预案) -> 10派15元(股东大会预案)
+Info: 600704.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 600708.SH 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 600735.SH 2022年报 plan_explain update 10派0.37元(董事会预案) -> 10派0.37元(股东大会预案)
+Info: 600737.SH 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
+Info: 600740.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 600746.SH 2022年报 plan_explain update 10派2.0元(董事会预案) -> 10派2.0元(股东大会预案)
+Info: 600760.SH 2022年报 plan_explain update 10转4股派4元(董事会预案) -> 10转4股派4元(股东大会预案)
+Info: 600774.SH 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 600782.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 600784.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 600790.SH 2022年报 plan_explain update 10派1.7元(董事会预案) -> 10派1.7元(股东大会预案)
+Info: 600796.SH 2022年报 plan_explain update 10派1.02元(董事会预案) -> 10派1.02元(股东大会预案)
+Info: 600797.SH 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 600810.SH 2022年报 null ex_date update 20230525
+Info: 600850.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 600883.SH 2022年报 plan_explain update 10派1.05元(董事会预案) -> 10派1.05元(股东大会预案)
+Info: 600887.SH 2022年报 plan_explain update 10派10.4元(董事会预案) -> 10派10.4元(股东大会预案)
+Info: 600897.SH 2022年报 plan_explain update 10送4股派0.86元(董事会预案) -> 10送4股派0.86元(股东大会预案)
+Info: 600908.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 600916.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 600919.SH 2022年报 plan_explain update 10派5.156元(董事会预案) -> 10派5.156元(股东大会预案)
+Info: 600925.SH 2023一季报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 600933.SH 2022年报 null ex_date update 20230519
+Info: 600956.SH 2022年报 plan_explain update 10派1.93元(董事会预案) -> 10派1.93元(股东大会预案)
+Info: 600963.SH 2022年报 null ex_date update 20230523
+Info: 600965.SH 2022年报 null ex_date update 20230525
+Info: 600967.SH 2022年报 plan_explain update 10派2.42元(董事会预案) -> 10派2.42元(股东大会预案)
+Info: 600976.SH 2022年报 null ex_date update 20230519
+Info: 600982.SH 2022年报 null ex_date update 20230524
+Info: 600995.SH 2022年报 null ex_date update 20230526
+Info: 601000.SH 2022年报 null ex_date update 20230522
+Info: 601002.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 601012.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 601028.SH 2022年报 plan_explain update 10派0.35元(董事会预案) -> 10派0.35元(股东大会预案)
+Info: 601100.SH 2022年报 plan_explain update 10派6.2元(董事会预案) -> 10派6.2元(股东大会预案)
+Info: 601108.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 601128.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 601133.SH 2022年报 plan_explain update 10派1.45元(董事会预案) -> 10派1.45元(股东大会预案)
+Info: 601137.SH 2022年报 plan_explain update 10派2.1元(董事会预案) -> 10派2.1元(股东大会预案)
+Info: 601156.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 601177.SH 2022年报 plan_explain update 10派0.71元(董事会预案) -> 10派0.71元(股东大会预案)
+Info: 601179.SH 2022年报 plan_explain update 10派0.45元(董事会预案) -> 10派0.45元(股东大会预案)
+Info: 601187.SH 2022年报 plan_explain update 10派2.9元(董事会预案) -> 10派2.9元(股东大会预案)
+Info: 601199.SH 2022年报 plan_explain update 10派0.9元(董事会预案) -> 10派0.9元(股东大会预案)
+Info: 601216.SH 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 601228.SH 2022年报 plan_explain update 10派0.43元(董事会预案) -> 10派0.43元(股东大会预案)
+Info: 601318.SH 2022年报 plan_explain update 10派15元(董事会预案) -> 10派15元(股东大会预案)
+Info: 601339.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 601388.SH 2022年报 plan_explain update 10派0.35元(董事会预案) -> 10派0.35元(股东大会预案)
+Info: 601500.SH 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 601512.SH 2022年报 plan_explain update 10派3.22元(董事会预案) -> 10派3.22元(股东大会预案)
+Info: 601566.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 601567.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 601579.SH 2022年报 null ex_date update 20230519
+Info: 601598.SH 2022年报 plan_explain update 10派1.0元(董事会预案) -> 10派1.0元(股东大会预案)
+Info: 601606.SH 2022年报 plan_explain update 10派0.23元(董事会预案) -> 10派0.23元(股东大会预案)
+Info: 601636.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 601678.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 601702.SH 2022年报 plan_explain update 10派1.0元(董事会预案) -> 10派1.0元(股东大会预案)
+Info: 601801.SH 2022年报 plan_explain update 10派1.85元(董事会预案) -> 10派1.85元(股东大会预案)
+Info: 601811.SH 2022年报 plan_explain update 10派3.4元(董事会预案) -> 10派3.4元(股东大会预案)
+Info: 601827.SH 2022年报 null ex_date update 20230523
+Info: 601872.SH 2022年报 plan_explain update 10派1.9元(董事会预案) -> 10派1.9元(股东大会预案)
+Info: 601958.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 603005.SH 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 603009.SH 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
+Info: 603012.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603013.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 603018.SH 2022年报 plan_explain update 10派2.60元(董事会预案) -> 10派2.60元(股东大会预案)
+Info: 603020.SH 2022年报 plan_explain update 10派0.6元(董事会预案) -> 10派0.6元(股东大会预案)
+Info: 603023.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 603025.SH 2022年报 plan_explain update 10送2.0股派2.0元(董事会预案) -> 10送2.0股派2.0元(股东大会预案)
+Info: 603035.SH 2022年报 plan_explain update 10派4.04元(董事会预案) -> 10派4.04元(股东大会预案)
+Info: 603036.SH 2022年报 plan_explain update 10派1.9元(董事会预案) -> 10派1.9元(股东大会预案)
+Info: 603039.SH 2022年报 null ex_date update 20230524
+Info: 603048.SH 2022年报 plan_explain update 10派2.11元(董事会预案) -> 10派2.11元(股东大会预案)
+Info: 603057.SH 2022年报 plan_explain update 10派7.5元(董事会预案) -> 10派7.5元(股东大会预案)
+Info: 603063.SH 2022年报 null ex_date update 20230519
+Info: 603065.SH 2022年报 null ex_date update 20230526
+Info: 603071.SH 2022年报 null ex_date update 20230524
+Info: 603073.SH 2022年报 plan_explain update 10派3.00元(董事会预案) -> 10派3.00元(股东大会预案)
+Info: 603076.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 603077.SH 2022年报 plan_explain update 10派0.45元(董事会预案) -> 10派0.45元(股东大会预案)
+Info: 603078.SH 2022年报 null ex_date update 20230524
+Info: 603079.SH 2022年报 null ex_date update 20230525
+Info: 603080.SH 2022年报 plan_explain update 10派2.1元(董事会预案) -> 10派2.1元(股东大会预案)
+Info: 603086.SH 2022年报 plan_explain update 10转4股派2.5元(董事会预案) -> 10转4股派2.5元(股东大会预案)
+Info: 603088.SH 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 603089.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603095.SH 2022年报 plan_explain update 10转4股派5元(董事会预案) -> 10转4股派5元(股东大会预案)
+Info: 603096.SH 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
+Info: 603097.SH 2022年报 null ex_date update 20230526
+Info: 603109.SH 2022年报 null ex_date update 20230523
+Info: 603110.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 603118.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 603129.SH 2022年报 null ex_date update 20230519
+Info: 603130.SH 2022年报 null ex_date update 20230524
+Info: 603155.SH 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10派10元(董事会预案)
+Info: 603156.SH 2022年报 plan_explain update 10派18元(董事会预案) -> 10派18元(股东大会预案)
+Info: 603159.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603162.SH 2022年报 null ex_date update 20230525
+Info: 603165.SH 2022年报 plan_explain update 10派4.6元(董事会预案) -> 10派4.6元(股东大会预案)
+Info: 603173.SH 2022年报 plan_explain update 10派1.4元(董事会预案) -> 10派1.4元(股东大会预案)
+Info: 603176.SH 2022年报 plan_explain update 10派0.25元(董事会预案) -> 10派0.25元(股东大会预案)
+Info: 603185.SH 2022年报 plan_explain update 10转4股派24.5元(董事会预案) -> 10转4股派24.5元(股东大会预案)
+Info: 603189.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603190.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 603191.SH 2022年报 null ex_date update 20230525
+Info: 603195.SH 2022年报 plan_explain update 10转4.8股派33元(董事会预案) -> 10转4.8股派33元(股东大会预案)
+Info: 603196.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 603197.SH 2022年报 plan_explain update 10派3.1元(董事会预案) -> 10派3.1元(股东大会预案)
+Info: 603206.SH 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 603209.SH 2022年报 plan_explain update 10转4股派1.5元(董事会预案) -> 10转4股派1.5元(股东大会预案)
+Info: 603211.SH 2022年报 plan_explain update 10派0.75元(董事会预案) -> 10派0.75元(股东大会预案)
+Info: 603212.SH 2022年报 plan_explain update 10派1.25元(董事会预案) -> 10派1.25元(股东大会预案)
+Info: 603214.SH 2022年报 null ex_date update 20230519
+Info: 603215.SH 2022年报 plan_explain update 10派4.8元(董事会预案) -> 10派4.8元(股东大会预案)
+Info: 603218.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 603222.SH 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 603229.SH 2022年报 plan_explain update 10转4股派1.12元(董事会预案) -> 10转4股派1.12元(股东大会预案)
+Info: 603235.SH 2022年报 plan_explain update 10派7.1元(董事会预案) -> 10派7.1元(股东大会预案)
+Info: 603236.SH 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10转4股派10元(股东大会预案)
+Info: 603238.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603239.SH 2022年报 null ex_date update 20230525
+Info: 603260.SH 2022年报 null ex_date update 20230525
+Info: 603261.SH 2022年报 plan_explain update 10派1.35元(董事会预案) -> 10派1.35元(股东大会预案)
+Info: 603266.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 603267.SH 2022年报 null ex_date update 20230519
+Info: 603269.SH 2022年报 plan_explain update 10转4股派2.5元(董事会预案) -> 10转4股派2.5元(股东大会预案)
+Info: 603277.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 603279.SH 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 603281.SH 2022年报 plan_explain update 10转4股派12.0元(董事会预案) -> 10转4股派12.0元(股东大会预案)
+Info: 603288.SH 2022年报 plan_explain update 10送2股派7元(董事会预案) -> 10送2股派7元(股东大会预案)
+Info: 603289.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 603290.SH 2022年报 null ex_date update 20230523
+Info: 603291.SH 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 603297.SH 2022年报 plan_explain update 10派9.6元(董事会预案) -> 10派9.6元(股东大会预案)
+Info: 603298.SH 2022年报 null ex_date update 20230526
+Info: 603301.SH 2022年报 plan_explain update 10派7.5元(董事会预案) -> 10派7.5元(股东大会预案)
+Info: 603303.SH 2022年报 null ex_date update 20230526
+Info: 603309.SH 2022年报 plan_explain update 10派3.4元(董事会预案) -> 10派3.4元(股东大会预案)
+Info: 603311.SH 2022年报 plan_explain update 10派1.20元(董事会预案) -> 10派1.20元(股东大会预案)
+Info: 603318.SH 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 603320.SH 2022年报 null ex_date update 20230522
+Info: 603321.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603327.SH 2022年报 plan_explain update 10转3股派4元(董事会预案) -> 10转3股派4元(股东大会预案)
+Info: 603351.SH 2022年报 plan_explain update 10派2.80元(董事会预案) -> 10派2.80元(股东大会预案)
+Info: 603355.SH 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 603359.SH 2022年报 plan_explain update 10派0.1元(董事会预案) -> 10派0.1元(股东大会预案)
+Info: 603365.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 603378.SH 2022年报 plan_explain update 10派0.75元(董事会预案) -> 10派0.75元(股东大会预案)
+Info: 603379.SH 2022年报 plan_explain update 10派2.39元(董事会预案) -> 10派2.39元(股东大会预案)
+Info: 603383.SH 2022年报 null ex_date update 20230525
+Info: 603387.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 603416.SH 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 603466.SH 2022年报 plan_explain update 10派0.35元(董事会预案) -> 10派0.35元(股东大会预案)
+Info: 603488.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 603489.SH 2022年报 plan_explain update 10转4股派20元(董事会预案) -> 10转4股派20元(股东大会预案)
+Info: 603499.SH 2022年报 plan_explain update 10派0.15元(董事会预案) -> 10派0.15元(股东大会预案)
+Info: 603500.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 603506.SH 2022年报 plan_explain update 10派3.097元(董事会预案) -> 10派3.097元(股东大会预案)
+Info: 603508.SH 2022年报 null ex_date update 20230522
+Info: 603529.SH 2022年报 null ex_date update 20230519
+Info: 603533.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 603551.SH 2022年报 plan_explain update 10派7.5元(董事会预案) -> 10派7.5元(股东大会预案)
+Info: 603556.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 603566.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 603583.SH 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
+Info: 603588.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 603589.SH 2022年报 plan_explain update 10派15元(董事会预案) -> 10派15元(股东大会预案)
+Info: 603590.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 603599.SH 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10转4股派10元(股东大会预案)
+Info: 603600.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 603601.SH 2022年报 plan_explain update 10派0.45元(董事会预案) -> 10派0.45元(股东大会预案)
+Info: 603602.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 603607.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 603613.SH 2022年报 plan_explain update 10转4.5股派2.27元(董事会预案) -> 10转4.5股派2.27元(股东大会预案)
+Info: 603617.SH 2022年报 plan_explain update 10派0.3元(董事会预案) -> 10派0.3元(股东大会预案)
+Info: 603629.SH 2022年报 plan_explain update 10转4股派2.4元(董事会预案) -> 10转4股派2.4元(股东大会预案)
+Info: 603637.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 603639.SH 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 603656.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603657.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 603662.SH 2022年报 plan_explain update 10派2.77元(董事会预案) -> 10派2.77元(股东大会预案)
+Info: 603663.SH 2022年报 plan_explain update 10转4股派1元(董事会预案) -> 10转4股派1元(股东大会预案)
+Info: 603676.SH 2022年报 plan_explain update 10派2.35元(董事会预案) -> 10派2.35元(股东大会预案)
+Info: 603681.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 603696.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 603699.SH 2022年报 plan_explain update 10派3.6元(董事会预案) -> 10派3.6元(股东大会预案)
+Info: 603703.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
+Info: 603706.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 603708.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603711.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 603713.SH 2022年报 null ex_date update 20230523
+Info: 603726.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 603727.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 603738.SH 2022年报 plan_explain update 10转4股派2.1元(董事会预案) -> 10转4股派2.1元(股东大会预案)
+Info: 603739.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603757.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 603766.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 603776.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 603786.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 603787.SH 2022年报 null ex_date update 20230522
+Info: 603799.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 603801.SH 2022年报 plan_explain update 10转4股派7元(董事会预案) -> 10转4股派7元(股东大会预案)
+Info: 603803.SH 2022年报 plan_explain update 10派0.56元(董事会预案) -> 10派0.56元(股东大会预案)
+Info: 603806.SH 2022年报 plan_explain update 10转4股派1.5元(董事会预案) -> 10转4股派1.5元(股东大会预案)
+Info: 603808.SH 2022年报 plan_explain update 10派0.17元(董事会预案) -> 10派0.17元(股东大会预案)
+Info: 603809.SH 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 603811.SH 2022年报 plan_explain update 10转4股派2.5元(董事会预案) -> 10转4股派2.5元(股东大会预案)
+Info: 603819.SH 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 603838.SH 2022年报 null ex_date update 20230526
+Info: 603839.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 603848.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 603855.SH 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 603860.SH 2022年报 null ex_date update 20230525
+Info: 603867.SH 2022年报 plan_explain update 10派5.5元(董事会预案) -> 10派5.5元(股东大会预案)
+Info: 603868.SH 2022年报 plan_explain update 10派20元(董事会预案) -> 10派20元(股东大会预案)
+Info: 603871.SH 2022年报 plan_explain update 10转4股派5元(董事会预案) -> 10转4股派5元(股东大会预案)
+Info: 603876.SH 2022年报 plan_explain update 10转8股派8.6元(董事会预案) -> 10转8股派8.6元(股东大会预案)
+Info: 603877.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 603889.SH 2022年报 plan_explain update 10转4股派4.00元(董事会预案) -> 10转4股派4.00元(股东大会预案)
+Info: 603890.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603898.SH 2022年报 plan_explain update 10派7.19元(董事会预案) -> 10派7.19元(股东大会预案)
+Info: 603901.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 603903.SH 2022年报 plan_explain update 10派1.9元(董事会预案) -> 10派1.9元(股东大会预案)
+Info: 603908.SH 2022年报 plan_explain update 10派12元(董事会预案) -> 10派12元(股东大会预案)
+Info: 603912.SH 2022年报 plan_explain update 10转4股派1元(董事会预案) -> 10转4股派1元(股东大会预案)
+Info: 603918.SH 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 603919.SH 2022年报 null ex_date update 20230523
+Info: 603920.SH 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 603926.SH 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
+Info: 603927.SH 2022年报 null ex_date update 20230525
+Info: 603929.SH 2022年报 null ex_date update 20230525
+Info: 603931.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 603933.SH 2022年报 plan_explain update 10派0.9元(董事会预案) -> 10派0.9元(股东大会预案)
+Info: 603936.SH 2022年报 plan_explain update 10派0.2元(董事会预案) -> 10派0.2元(股东大会预案)
+Info: 603939.SH 2022年报 plan_explain update 10转4股派4元(董事会预案) -> 10转4股派4元(股东大会预案)
+Info: 603956.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 603968.SH 2022年报 plan_explain update 10派8元(董事会预案) -> 10派8元(股东大会预案)
+Info: 603970.SH 2022年报 plan_explain update 10转4股派5.5元(董事会预案) -> 10转4股派5.5元(股东大会预案)
+Info: 603979.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 603980.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 603985.SH 2022年报 plan_explain update 10派0.4元(董事会预案) -> 10派0.4元(股东大会预案)
+Info: 603986.SH 2022年报 plan_explain update 10派6.2元(董事会预案) -> 10派6.2元(股东大会预案)
+Info: 603988.SH 2022年报 plan_explain update 10派0.658元(董事会预案) -> 10派0.658元(股东大会预案)
+Info: 603989.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 603992.SH 2022年报 plan_explain update 10派1.96元(董事会预案) -> 10派1.96元(股东大会预案)
+Info: 605003.SH 2022年报 plan_explain update 10派4.1元(董事会预案) -> 10派4.1元(股东大会预案)
+Info: 605006.SH 2022年报 null ex_date update 20230525
+Info: 605007.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 605009.SH 2022年报 null ex_date update 20230524
+Info: 605011.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 605016.SH 2022年报 plan_explain update 10转4股派1.7元(董事会预案) -> 10转4股派1.7元(股东大会预案)
+Info: 605018.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 605033.SH 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 605066.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 605068.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 605089.SH 2022年报 plan_explain update 10转3.8股派8元(董事会预案) -> 10转3.8股派8元(股东大会预案)
+Info: 605100.SH 2022年报 null ex_date update 20230523
+Info: 605116.SH 2022年报 null ex_date update 20230522
+Info: 605117.SH 2022年报 null ex_date update 20230523
+Info: 605118.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 605123.SH 2022年报 plan_explain update 10派5.18元(董事会预案) -> 10派5.18元(股东大会预案)
+Info: 605138.SH 2022年报 plan_explain update 10派2.04元(董事会预案) -> 10派2.04元(股东大会预案)
+Info: 605151.SH 2022年报 plan_explain update 10派2.9元(董事会预案) -> 10派2.9元(股东大会预案)
+Info: 605155.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 605158.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 605162.SH 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 605169.SH 2022年报 null ex_date update 20230519
+Info: 605189.SH 2022年报 null ex_date update 20230523
+Info: 605196.SH 2022年报 plan_explain update 10派0.51元(董事会预案) -> 10派0.51元(股东大会预案)
+Info: 605222.SH 2022年报 plan_explain update 10派1.06元(董事会预案) -> 10派1.06元(股东大会预案)
+Info: 605255.SH 2022年报 plan_explain update 10派2.2元(董事会预案) -> 10派2.2元(股东大会预案)
+Info: 605259.SH 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10转4股派10元(股东大会预案)
+Info: 605266.SH 2022年报 plan_explain update 10转3股派14.6元(董事会预案) -> 10转3股派14.6元(股东大会预案)
+Info: 605268.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 605288.SH 2022年报 plan_explain update 10派2.7元(董事会预案) -> 10派2.7元(股东大会预案)
+Info: 605296.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 605305.SH 2022年报 plan_explain update 10派3.1元(董事会预案) -> 10派3.1元(股东大会预案)
+Info: 605318.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 605337.SH 2022年报 plan_explain update 10转3股派3元(董事会预案) -> 10转3股派3元(股东大会预案)
+Info: 605358.SH 2022年报 plan_explain update 10派4.2元(董事会预案) -> 10派4.2元(股东大会预案)
+Info: 605365.SH 2022年报 plan_explain update 10派3.0元(董事会预案) -> 10派3.0元(股东大会预案)
+Info: 605369.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 605378.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 605389.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 605399.SH 2022年报 plan_explain update 10转3股派4元(董事会预案) -> 10转3股派4元(股东大会预案)
+Info: 605500.SH 2022年报 plan_explain update 10转4.0股派1.5元(董事会预案) -> 10转4.0股派1.5元(股东大会预案)
+Info: 605507.SH 2022年报 null ex_date update 20230522
+Info: 605566.SH 2022年报 plan_explain update 10派0.35元(董事会预案) -> 10派0.35元(股东大会预案)
+Info: 605577.SH 2022年报 plan_explain update 10派1.1元(董事会预案) -> 10派1.1元(股东大会预案)
+Info: 605589.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 605599.SH 2022年报 plan_explain update 10派4.6元(董事会预案) -> 10派4.6元(股东大会预案)
+Info: 688013.SH 2022年报 plan_explain update 10派2.50元(董事会预案) -> 10派2.50元(股东大会预案)
+Info: 688026.SH 2022年报 plan_explain update 10派0.7124元(董事会预案) -> 10派0.7124元(股东大会预案)
+Info: 688029.SH 2022年报 plan_explain update 10派5.5元(董事会预案) -> 10派5.5元(股东大会预案)
+Info: 688032.SH 2022年报 plan_explain update 10转4.9股派53元(董事会预案) -> 10转4.9股派53元(股东大会预案)
+Info: 688036.SH 2022年报 plan_explain update 10派18元(董事会预案) -> 10派18元(股东大会预案)
+Info: 688049.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 688050.SH 2022年报 null ex_date update 20230523
+Info: 688052.SH 2022年报 plan_explain update 10转4股派8元(董事会预案) -> 10转4股派8元(股东大会预案)
+Info: 688056.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 688057.SH 2022年报 plan_explain update 10派10元(董事会预案) -> 10派10元(股东大会预案)
+Info: 688059.SH 2022年报 null ex_date update 20230522
+Info: 688066.SH 2022年报 plan_explain update 10转4股派1.3元(董事会预案) -> 10转4股派1.3元(股东大会预案)
+Info: 688073.SH 2022年报 null ex_date update 20230525
+Info: 688078.SH 2022年报 null ex_date update 20230519
+Info: 688084.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 688085.SH 2022年报 plan_explain update 10转1股派0.85元(董事会预案) -> 10转1股派0.85元(股东大会预案)
+Info: 688088.SH 2022年报 plan_explain update 10派1.25元(董事会预案) -> 10派1.25元(股东大会预案)
+Info: 688090.SH 2022年报 plan_explain update 10派1.3元(董事会预案) -> 10派1.3元(股东大会预案)
+Info: 688093.SH 2022年报 null ex_date update 20230522
+Info: 688098.SH 2022年报 plan_explain update 10派0.8元(董事会预案) -> 10派0.8元(股东大会预案)
+Info: 688102.SH 2022年报 plan_explain update 10转4股派0.8元(董事会预案) -> 10转4股派0.8元(股东大会预案)
+Info: 688109.SH 2022年报 plan_explain update 10转4.5股(董事会预案) -> 10转4.5股(股东大会预案)
+Info: 688112.SH 2022年报 plan_explain update 10转4.9股派8.5元(董事会预案) -> 10转4.9股派8.5元(股东大会预案)
+Info: 688115.SH 2022年报 null ex_date update 20230519
+Info: 688116.SH 2022年报 plan_explain update 10转4.8股派0.95元(董事会预案) -> 10转4.8股派0.95元(股东大会预案)
+Info: 688117.SH 2022年报 plan_explain update 10转4股派2.5元(董事会预案) -> 10转4股派2.5元(股东大会预案)
+Info: 688120.SH 2022年报 plan_explain update 10转4.9股派5元(董事会预案) -> 10转4.9股派5元(股东大会预案)
+Info: 688125.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 688138.SH 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 688152.SH 2022年报 plan_explain update 10转4.9股派4.9元(董事会预案) -> 10转4.9股派4.9元(股东大会预案)
+Info: 688157.SH 2022年报 plan_explain update 10转4股派3.1元(董事会预案) -> 10转4股派3.1元(股东大会预案)
+Info: 688162.SH 2022年报 plan_explain update 10派3.3元(董事会预案) -> 10派3.3元(股东大会预案)
+Info: 688163.SH 2022年报 plan_explain update 10派7.5元(董事会预案) -> 10派7.5元(股东大会预案)
+Info: 688166.SH 2022年报 plan_explain update 10派1.14元(董事会预案) -> 10派1.14元(股东大会预案)
+Info: 688167.SH 2022年报 plan_explain update 10派4.27元(董事会预案) -> 10派4.27元(股东大会预案)
+Info: 688170.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 688171.SH 2022年报 plan_explain update 10派1.4元(董事会预案) -> 10派1.4元(股东大会预案)
+Info: 688179.SH 2022年报 plan_explain update 10转4股派2.5元(董事会预案) -> 10转4股派2.5元(股东大会预案)
+Info: 688182.SH 2022年报 plan_explain update 10派0.7元(董事会预案) -> 10派0.7元(股东大会预案)
+Info: 688186.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 688193.SH 2022年报 plan_explain update 10派1.25元(董事会预案) -> 10派1.25元(股东大会预案)
+Info: 688198.SH 2022年报 null ex_date update 20230525
+Info: 688200.SH 2022年报 plan_explain update 10转4.8股派14.00元(董事会预案) -> 10转4.8股派14.00元(股东大会预案)
+Info: 688201.SH 2022年报 plan_explain update 10转4.8股派3.65元(董事会预案) -> 10转4.8股派3.65元(股东大会预案)
+Info: 688202.SH 2022年报 plan_explain update 10转4股派3.90元(董事会预案) -> 10转4股派3.90元(股东大会预案)
+Info: 688209.SH 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 688210.SH 2022年报 null ex_date update 20230524
+Info: 688226.SH 2022年报 plan_explain update 10派1.38元(董事会预案) -> 10派1.38元(股东大会预案)
+Info: 688228.SH 2022年报 plan_explain update 10派4.43元(董事会预案) -> 10派4.43元(股东大会预案)
+Info: 688232.SH 2022年报 plan_explain update 10派6元(董事会预案) -> 10派6元(股东大会预案)
+Info: 688238.SH 2022年报 plan_explain update 10转3股(董事会预案) -> 10转3股(股东大会预案)
+Info: 688257.SH 2022年报 plan_explain update 10转4股派5元(董事会预案) -> 10转4股派5元(股东大会预案)
+Info: 688259.SH 2022年报 plan_explain update 10派3.5元(董事会预案) -> 10派3.5元(股东大会预案)
+Info: 688261.SH 2022年报 plan_explain update 10转4股派14.76元(董事会预案) -> 10转4股派14.76元(股东大会预案)
+Info: 688262.SH 2022年报 plan_explain update 10转4股派2.5元(董事会预案) -> 10转4股派2.5元(股东大会预案)
+Info: 688267.SH 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
+Info: 688270.SH 2022年报 plan_explain update 10转4股派3元(董事会预案) -> 10转4股派3元(股东大会预案)
+Info: 688273.SH 2022年报 plan_explain update 10派8.00元(董事会预案) -> 10派8.00元(股东大会预案)
+Info: 688275.SH 2022年报 plan_explain update 10转4.8股派35.2元(董事会预案) -> 10转4.8股派35.2元(股东大会预案)
+Info: 688278.SH 2022年报 null ex_date update 20230519
+Info: 688281.SH 2022年报 plan_explain update 10转4.9股派3.6元(董事会预案) -> 10转4.9股派3.6元(股东大会预案)
+Info: 688282.SH 2022年报 plan_explain update 10派5.5元(董事会预案) -> 10派5.5元(股东大会预案)
+Info: 688283.SH 2022年报 null ex_date update 20230522
+Info: 688291.SH 2022年报 null ex_date update 20230523
+Info: 688292.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 688295.SH 2022年报 null ex_date update 20230523
+Info: 688313.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 688320.SH 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 688327.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
+Info: 688329.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 688332.SH 2022年报 null ex_date update 20230525
+Info: 688338.SH 2022年报 plan_explain update 10转3股派2.6元(董事会预案) -> 10转3股派2.6元(股东大会预案)
+Info: 688350.SH 2022年报 plan_explain update 10派2.48元(董事会预案) -> 10派2.48元(股东大会预案)
+Info: 688355.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 688356.SH 2022年报 null ex_date update 20230524
+Info: 688357.SH 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10转4股派10元(股东大会预案)
+Info: 688358.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 688360.SH 2022年报 null ex_date update 20230525
+Info: 688367.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 688369.SH 2022年报 plan_explain update 10转4.9股派3元(董事会预案) -> 10转4.9股派3元(股东大会预案)
+Info: 688377.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 688378.SH 2022年报 plan_explain update 10转4股派10元(董事会预案) -> 10转4股派10元(股东大会预案)
+Info: 688380.SH 2022年报 plan_explain update 10派4.50元(董事会预案) -> 10派4.50元(股东大会预案)
+Info: 688381.SH 2022年报 plan_explain update 10派2.6元(董事会预案) -> 10派2.6元(股东大会预案)
+Info: 688390.SH 2022年报 plan_explain update 10转4股派16元(董事会预案) -> 10转4股派16元(股东大会预案)
+Info: 688393.SH 2022年报 null ex_date update 20230525
+Info: 688398.SH 2022年报 null ex_date update 20230524
+Info: 688400.SH 2022年报 plan_explain update 10派1.25元(董事会预案) -> 10派1.25元(股东大会预案)
+Info: 688408.SH 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 688419.SH 2022年报 null ex_date update 20230523
+Info: 688420.SH 2022年报 null ex_date update 20230523
+Info: 688426.SH 2022年报 plan_explain update 10转2股派5.2元(董事会预案) -> 10转2股派5.2元(股东大会预案)
+Info: 688455.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 688468.SH 2022年报 plan_explain update 10派3.47元(董事会预案) -> 10派3.47元(股东大会预案)
+Info: 688475.SH 2022年报 null ex_date update 20230524
+Info: 688480.SH 2022年报 plan_explain update 10派5.1元(董事会预案) -> 10派5.1元(股东大会预案)
+Info: 688498.SH 2022年报 plan_explain update 10转4股派6.5元(董事会预案) -> 10转4股派6.5元(股东大会预案)
+Info: 688499.SH 2022年报 plan_explain update 10转4股派4元(董事会预案) -> 10转4股派4元(股东大会预案)
+Info: 688502.SH 2022年报 null ex_date update 20230522
+Info: 688503.SH 2022年报 null ex_date update 20230525
+Info: 688513.SH 2022年报 null ex_date update 20230523
+Info: 688516.SH 2022年报 plan_explain update 10派16元(董事会预案) -> 10派16元(股东大会预案)
+Info: 688526.SH 2022年报 plan_explain update 10派1.9元(董事会预案) -> 10派1.9元(股东大会预案)
+Info: 688529.SH 2022年报 plan_explain update 10派1.11元(董事会预案) -> 10派1.11元(股东大会预案)
+Info: 688531.SH 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 688533.SH 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 688536.SH 2022年报 null ex_date update 20230519
+Info: 688551.SH 2022年报 null ex_date update 20230519
+Info: 688553.SH 2022年报 null ex_date update 20230525
+Info: 688558.SH 2022年报 plan_explain update 10派5元(董事会预案) -> 10派5元(股东大会预案)
+Info: 688571.SH 2022年报 null ex_date update 20230524
+Info: 688579.SH 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 688580.SH 2022年报 plan_explain update 10派6.876元(董事会预案) -> 10派6.876元(股东大会预案)
+Info: 688585.SH 2022年报 null ex_date update 20230523
+Info: 688599.SH 2022年报 plan_explain update 10派4.78元(董事会预案) -> 10派4.78元(股东大会预案)
+Info: 688600.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 688609.SH 2022年报 plan_explain update 10派0.38元(董事会预案) -> 10派0.38元(股东大会预案)
+Info: 688616.SH 2022年报 plan_explain update 10派2.1元(董事会预案) -> 10派2.1元(股东大会预案)
+Info: 688628.SH 2022年报 null ex_date update 20230522
+Info: 688636.SH 2022年报 plan_explain update 10转4.9股(董事会预案) -> 10转4.9股(股东大会预案)
+Info: 688639.SH 2022年报 plan_explain update 10转4.5股派9元(董事会预案) -> 10转4.5股派9元(股东大会预案)
+Info: 688658.SH 2022年报 plan_explain update 10派11元(董事会预案) -> 10派11元(股东大会预案)
+Info: 688661.SH 2022年报 plan_explain update 10派1.6元(董事会预案) -> 10派1.6元(股东大会预案)
+Info: 688663.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 688668.SH 2022年报 null ex_date update 20230526
+Info: 688670.SH 2022年报 null ex_date update 20230526
+Info: 688677.SH 2022年报 plan_explain update 10转4股派8元(董事会预案) -> 10转4股派8元(股东大会预案)
+Info: 688679.SH 2022年报 null ex_date update 20230519
+Info: 688687.SH 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 688690.SH 2022年报 plan_explain update 10派1.03元(董事会预案) -> 10派1.03元(股东大会预案)
+Info: 688696.SH 2022年报 plan_explain update 10派21.4680元(董事会预案) -> 10派21.4680元(股东大会预案)
+Info: 688697.SH 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 688707.SH 2022年报 plan_explain update 10派7元(董事会预案) -> 10派7元(股东大会预案)
+Info: 688711.SH 2022年报 plan_explain update 10送1股派0.64元(董事会预案) -> 10送1股派0.64元(股东大会预案)
+Info: 688739.SH 2022年报 null ex_date update 20230526
+Info: 688777.SH 2022年报 plan_explain update 10转4.5股派7.5元(董事会预案) -> 10转4.5股派7.5元(股东大会预案)
+Info: 688779.SH 2022年报 plan_explain update 10派2.316元(董事会预案) -> 10派2.316元(股东大会预案)
+Info: 688789.SH 2022年报 plan_explain update 10转4.5股派9元(董事会预案) -> 10转4.5股派9元(股东大会预案)
+Info: 688793.SH 2022年报 plan_explain update 10转4股(董事会预案) -> 10转4股(股东大会预案)
+Info: 688800.SH 2022年报 null ex_date update 20230519
+Info: 688819.SH 2022年报 null ex_date update 20230519
+Info: 830839.BJ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 831010.BJ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 831087.BJ 2022年报 plan_explain update 10派1.5元(董事会预案) -> 10派1.5元(股东大会预案)
+Info: 831445.BJ 2022年报 null ex_date update 20230523
+Info: 831526.BJ 2022年报 plan_explain update 10派0.5元(董事会预案) -> 10派0.5元(股东大会预案)
+Info: 831689.BJ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 831726.BJ 2022年报 null ex_date update 20230524
+Info: 831832.BJ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 831834.BJ 2022年报 plan_explain update 10派4.2元(董事会预案) -> 10派4.2元(股东大会预案)
+Info: 831856.BJ 2022年报 plan_explain update 10转1.00股派1元(董事会预案) -> 10转1.00股派1元(股东大会预案)
+Info: 831906.BJ 2022年报 plan_explain update 10派1.50元(董事会预案) -> 10派1.50元(股东大会预案)
+Info: 831961.BJ 2022年报 plan_explain update 10派0.43元(董事会预案) -> 10派0.43元(股东大会预案)
+Info: 832419.BJ 2022年报 null ex_date update 20230524
+Info: 832662.BJ 2022年报 null ex_date update 20230522
+Info: 832885.BJ 2022年报 plan_explain update 10转10股派1.05元(董事会预案) -> 10转10股派1.05元(股东大会预案)
+Info: 833171.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 833230.BJ 2022年报 null ex_date update 20230523
+Info: 833427.BJ 2022年报 null ex_date update 20230525
+Info: 833454.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 833523.BJ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 833575.BJ 2023一季报 null ex_date update 20230526
+Info: 834261.BJ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 834407.BJ 2022年报 plan_explain update 10派1.50元(董事会预案) -> 10派1.50元(股东大会预案)
+Info: 834599.BJ 2022年报 null ex_date update 20230524
+Info: 834639.BJ 2022年报 plan_explain update 10转0.80股派1.6元(董事会预案) -> 10转0.80股派1.6元(股东大会预案)
+Info: 835174.BJ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 835185.BJ 2022年报 null ex_date update 20230522
+Info: 835368.BJ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 835640.BJ 2022年报 null ex_date update 20230524
+Info: 835985.BJ 2022年报 null ex_date update 20230524
+Info: 836077.BJ 2022年报 null ex_date update 20230525
+Info: 836239.BJ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 836260.BJ 2022年报 plan_explain update 10派3元(董事会预案) -> 10派3元(股东大会预案)
+Info: 836414.BJ 2022年报 plan_explain update 10转10股派0.6元(董事会预案) -> 10转10股派0.6元(股东大会预案)
+Info: 836807.BJ 2022年报 plan_explain update 10派2.5元(董事会预案) -> 10派2.5元(股东大会预案)
+Info: 836826.BJ 2022年报 plan_explain update 10转2股派1.5元(董事会预案) -> 10转2股派1.5元(股东大会预案)
+Info: 837046.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 837242.BJ 2022年报 null ex_date update 20230529
+Info: 837663.BJ 2022年报 plan_explain update 10派5.81元(董事会预案) -> 10派5.81元(股东大会预案)
+Info: 838030.BJ 2022年报 null ex_date update 20230519
+Info: 838163.BJ 2022年报 plan_explain update 10派1.2元(董事会预案) -> 10派1.2元(股东大会预案)
+Info: 838171.BJ 2022年报 null ex_date update 20230519
+Info: 838262.BJ 2022年报 null ex_date update 20230524
+Info: 838670.BJ 2022年报 null ex_date update 20230525
+Info: 838810.BJ 2022年报 plan_explain update 10派2元(董事会预案) -> 10派2元(股东大会预案)
+Info: 838924.BJ 2022年报 plan_explain update 10派0.25元(董事会预案) -> 10派0.25元(股东大会预案)
+Info: 839729.BJ 2022年报 plan_explain update 10派2.8元(董事会预案) -> 10派2.8元(股东大会预案)
+Info: 839790.BJ 2022年报 plan_explain update 10派1元(董事会预案) -> 10派1元(股东大会预案)
+Info: 870357.BJ 2022年报 plan_explain update 10转3股派6元(董事会预案) -> 10转3股派6元(股东大会预案)
+Info: 870508.BJ 2022年报 plan_explain update 10派4元(董事会预案) -> 10派4元(股东大会预案)
+Info: 871634.BJ 2022年报 null ex_date update 20230524
+Info: 871981.BJ 2022年报 plan_explain update 10派1.8元(董事会预案) -> 10派1.8元(股东大会预案)
+Info: 872190.BJ 2022年报 null ex_date update 20230522
+Info: 872808.BJ 2022年报 plan_explain update 10转15.119317股派3元(董事会预案) -> 10转15.119317股派3元(股东大会预案)
+Info: 872925.BJ 2022年报 plan_explain update 10转10股派2元(董事会预案) -> 10转10股派2元(股东大会预案)
+Info: 873152.BJ 2022年报 plan_explain update 10转3股派0.75元(董事会预案) -> 10转3股派0.75元(股东大会预案)
+Thread-1 cost 3522.61s
+Thread-2 cost 3511.59s
+Thread-3 cost 3514.40s
+Thread-4 cost 3514.40s
+Thread-5 cost 536.96s
+find 5189 stocks
+retry 1 times https://stock.xueqiu.com/v5/stock/f10/cn/bonus.json?&symbol=SZ000905
 token got 0 days ago ebd3592a6f07cb960b9cb980e00fbb4dce12da70 still valid
-total cost 1622.75s
+total cost 3522.62s
