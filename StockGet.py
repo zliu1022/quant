@@ -432,7 +432,8 @@ class StockGet:
                         new_plan_explain = df.loc[j, 'plan_explain']
                         if df.loc[j, 'dividend_year'] == dividend_year:
                             if new_d == new_d and new_d != None: # not nan
-                                print('Info:', ts_code, dividend_year, 'null ex_date update', new_d)
+                                new_d_str = datetime.strftime(datetime.fromtimestamp(new_d/1000), '%Y%m%d')
+                                print('Info:', ts_code, dividend_year, 'null ex_date update', new_d_str)
                                 index_none.append(i)
                             else: # new ashare_ex_dividend_date == null, compare plan_explain
                                 if ref_plan_explain != new_plan_explain:
@@ -464,8 +465,10 @@ class StockGet:
                 df_new_len = len(df_new.index)
                 if df_new_len > df_len or df_new_len > df_ref_len:
                     print('{} update bonus_ori new  resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
+                '''
                 else:
                     print('{} update bonus_ori keep resp({}) db({}) new({})'.format(ts_code, df_len, df_ref_len, df_new_len))
+                '''
             else:
                 aaa = df.to_dict('records')
                 data = sorted(aaa,key = lambda e:e.__getitem__('ashare_ex_dividend_date'), reverse=True)
@@ -538,7 +541,8 @@ class StockGet:
                     print('{} {}-{} in db, already up to date'.format(ts_code, early_date, last_date))
                     continue
                 else:
-                    print('{} {}-{} in db, try to get {:3d} days'.format(ts_code, early_date, last_date, new_req_days))
+                    pass
+                    #print('{} {}-{} in db, try to get {:3d} days'.format(ts_code, early_date, last_date, new_req_days))
 
                 url = day_url + str(new_req_days) + "&symbol=" + ts_code_symbol + "&begin=" + last_dateTimp
             else:
