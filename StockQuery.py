@@ -24,7 +24,6 @@ class StockQuery:
         self.day = []
         return
 
-    # return:
     # dict_keys(['_id', 'ts_code', 'symbol', 'name', 'industry', 'list_status', 'list_date', 'delist_date'])
     def query_basic(self, ts_code):
         if ts_code == None:
@@ -55,7 +54,7 @@ class StockQuery:
             return df
         return None
 
-    # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'plan_explain'])
+    # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'ashare_ex_dividend_date', 'equity_date', 'plan_explain', 'cancle_dividend_date'])
     def query_bonus_code(self, ts_code):
         v = {'ts_code': ts_code}
         ref = self.col_bonus.find_one(v)
@@ -64,7 +63,7 @@ class StockQuery:
             #self.stock_list = list(ref['items'])
             self.bonus = ref['items']
             print('query_bonus_code', ts_code)
-            print('format', self.stock_list[0].keys())
+            print('format', self.bonus[0].keys())
             return self.bonus
         return None
 
@@ -91,6 +90,7 @@ class StockQuery:
         df = pd.DataFrame()
         return None
 
+    # 搜索分红计划匹配字符串
     # dict_keys(['_id'])
     #[{'_id': {'code': '603060.SH',
     #          'date': '20220609',
@@ -381,7 +381,7 @@ if __name__ == '__main__':
     ref = sq.stat_day_amount(start_date, end_date, amount)
     for item in ref:
         ts_code = item['_id']['ts_code']
-        amount = item['amount']
+        amount = item['avg_amount']
         num = item['num']
         if num > 150:
             print('%s %3d %.1f' % (ts_code, num, amount))
