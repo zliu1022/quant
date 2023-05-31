@@ -12,6 +12,8 @@ from Utils import create_buy_table
 from Utils import RecTime
 import math
 import sys
+from StockRecover import recover_price_forward
+from StockRecover import recover_price_backward
 
 class StockDraw:
     def __init__(self):
@@ -147,90 +149,6 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
     plt.show()
     plt.close()
     return
-
-# Recover Price Backward, first date price is baseline
-# input: df, df_bonus
-# return: df_back
-def recover_price_backward(df_in, df_bonus):
-    rt = RecTime()
-    df = df_in.copy()
-    day_len = len(df.index)
-    first_date = df.index[0]
-    for i in range(day_len):
-        #print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
-
-        # 后复权，则以开始日价格为基准，除权日晚于开始日, 早于当前日，当日价格需要复权
-        # 开始日 <= 除权日 <= 当前日，除权日当日也需要复权
-        ret = df_bonus[df_bonus.index>=first_date]
-        ret = ret[ret.index<=df.index[i]]
-        if ret.empty == True:
-            #print()
-            continue
-        bonus_len = len(ret.index)
-        #print(' {:2d} ex-d'.format(bonus_len), end='')
-
-        high = df.high[i]
-        low = df.low[i]
-        for j in range(bonus_len):
-            base = float(ret.base[j])
-            free = float(ret.free[j])
-            new = float(ret.new[j])
-            bonus = float(ret.bonus[j])
-
-            high = round((high * (base+free+new) + bonus)/base, 2)
-            low = round((low * (base+free+new) + bonus)/base, 2)
-
-        df.high[i] = high
-        df.low[i] = low
-        #print(' -> {:7.2f} {:7.2f}'.format(low, high))
-
-    #df_back = df.copy()
-    #sd.draw_df(ts_code+'-back', df_back)
-    rt.show_ms()
-    return df
-
-# forward recover ex-dividend, baseline is last date price
-# input: df, df_bonus
-# return: df_back
-def recover_price_forward(df_in, df_bonus):
-    rt = RecTime()
-
-    df = df_in.copy()
-    day_len = len(df.index)
-    if day_len == 0:
-        return df
-    if df_bonus.empty == True:
-        return df
-
-    last_date = df.index[day_len-1]
-    #print('recover_price_forward {} - {}'.format(df.index[0], last_date))
-    for i in range(day_len):
-        #print('{} {:9.2f} {:9.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
-        ret = df_bonus[df_bonus.index<=last_date]
-        ret = ret[ret.index>df.index[i]]
-        if ret.empty == True:
-            #print()
-            continue
-
-        high = df.high[i]
-        low = df.low[i]
-        bonus_len = len(ret.index)
-        #print(' {:2d} ex-d'.format(bonus_len), end='')
-        for j in range(bonus_len):
-            base = float(ret.base[j])
-            free = float(ret.free[j])
-            new = float(ret.new[j])
-            bonus = float(ret.bonus[j])
-
-            high = (high * base - bonus)/(base + free + new)
-            low = (low * base - bonus)/(base + free + new)
-
-        df.high[i] = math.floor(high*100)/100
-        df.low[i] = math.ceil(low*100)/100
-        #print(' -> {:9.3f} {:9.3f}'.format(df.low[i], df.high[i]))
-
-    rt.show_ms()
-    return df
 
 # 统计上涨 chg_perc 幅度下，次数、最大下跌幅度、最大下跌天数
 # stat change percentage
@@ -653,7 +571,8 @@ def sim_chg(ts_code, start_date, end_date, chg_perc, interval):
             ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
             ret['profit'], ret['max_cost'], ret['cur_hold'], ret['cur_qty']))
         print()
-        #if len(df_stat.index)>=10: break
+
+        if len(df_stat.index)>=10: break
 
     print('summary report')
     print('{} - {} inc_exp_perc {:.1f}% interval {:.1f}%'.format(
@@ -703,7 +622,8 @@ def draw_example(ts_code, start_date, end_date, chg_perc):
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
     df_bonus = sq.query_bonus_code_df(ts_code)
-    df = df_day.drop(columns=['open', 'close'])
+    #df = df_day.drop(columns=['open', 'close'])
+    df = df_day
 
     # 前复权
     df_forw = recover_price_forward(df, df_bonus)
@@ -730,21 +650,19 @@ def draw_example(ts_code, start_date, end_date, chg_perc):
 
 if __name__ == '__main__':
     if len(sys.argv) == 4:
-        start_date = '20190902'
-        end_date   = '20221125'
+        start_date = '20220101'
+        end_date   = '20230526'
         ts_code  = sys.argv[1]
         chg_perc = float(sys.argv[2])
         interval = float(sys.argv[3])
-        #draw_example(ts_code, start_date, end_date, chg_perc)
+        draw_example(ts_code, start_date, end_date, chg_perc)
         sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval)
         quit()
 
-    ts_code    = '002475.SZ' # 立讯
-    #ts_code    = None
-    start_date = '20190901'
-    end_date   = '20221231'
-    #chg_perc   = 0.35
-    #interval   = 0.05
+    #ts_code    = '002475.SZ' # 立讯
+    ts_code    = None       # all stocks
+    start_date = '20200101'
+    end_date   = '20230125'
     chg_perc   = 0.55
     interval   = 0.03
 
@@ -755,7 +673,6 @@ if __name__ == '__main__':
     df_stat = sim_chg(ts_code, start_date, end_date, chg_perc, interval)
     draw_stat_chg(df_stat, title_str)
     df_stat.to_csv(title_str + '.csv', index=False)
-    #sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval)
 
 '''
 def sim_chg(ts_code, start_date, end_date, chg_perc, interval):
@@ -766,8 +683,8 @@ def sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval):
         def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
 '''
     #ts_code    = '688223.SH' # 晶科能源
-    #ts_code    = '000590.SZ' #
-    #ts_code    = '000610.SZ' #
+    #ts_code    = '000590.SZ' # 启迪药业
+    #ts_code    = '000610.SZ' # 西安旅游
     #ts_code    = '600519.SH' # 茅台
     #ts_code    = '002241.SZ' # 歌尔
     #ts_code    = '002273.SZ' # 水晶
@@ -778,10 +695,10 @@ def sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval):
     #ts_code    = '000055.SZ' # 方大集团
     #ts_code    = '001218.SZ' # 丽臣实业
 
-    #ts_code    = '000501.SZ' #
-    #ts_code    = '601186.SH' #
+    #ts_code    = '000501.SZ' # 武商集团
+    #ts_code    = '601186.SH' # 中国铁建
 
-    #ts_code    = '000610.SZ' #
-    #ts_code    = '002317.SZ' #
-    #ts_code    = '002528.SZ' #
+    #ts_code    = '002317.SZ' # 众生药业
+    #ts_code    = '002528.SZ' # 英飞拓
 
+    #ts_code='002456.SZ' # 欧菲光
