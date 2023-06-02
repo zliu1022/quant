@@ -8,13 +8,15 @@ if __name__ == '__main__':
     sq = StockQuery()
 
     ts_code    = '002475.SZ'
-    #start_date = '20220101'
-    #end_date   = '20230526'
 
     ref = sq.query_day_code(ts_code)
+
+    # 获取日线数据的真实开始、结束日期
     start_date = ref[len(ref)-1]['date']
     end_date = ref[0]['date']
+
     #format dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
+    # 对每一个日线数据进行说明
     for i in range(2):
         for k in ref[0].keys():
             d = ref[i][k]
@@ -33,19 +35,24 @@ if __name__ == '__main__':
         print()
     print()
 
+    # 日线数据第一个最近, 得到最近一天和次近一天
     d0 = ref[0]
     d1 = ref[1]
+
+    # 下面是一个常人容易想到的筛选方式
+    # 一个是验证下符合下面的股票不存在，另一个验证我的想法就是价格的波动和这些都没有关系
     '''
-    涨幅3到5%:        OK
-    量比＞1:          OK
+    涨幅3到5%:        OK, 蜡烛线有各种阶梯数据，考虑收盘数据作为对比
+    量比＞1:          OK, 量比指分钟级别成交股票数量相比于5天平均值，可以考虑按天               从日线计算得到5日均线;需要思考从日线的量能否看出有大单,有大单是否就会涨
     换手率5到10%:     OK
-    市值50到200亿:    OK
-    成交量持续放大:   OK
-    价格历史新高:     复权OK，求历史最高价格OK, 需要看是哪个价格open/close/high/low
-    热点题材板块:     NOK, 哪里可以获取热点题材
-    分时价格涨速超过上证指数: 可以修正为日涨速
-    下午出现当日新高: NOK
+    市值50到200亿:    OK, 采用换手率来反推
+    成交量持续放大:   OK, 指成交的股票数量
+    价格历史新高:     OK, 复权后的历史最高价格，也考虑收盘价
+    热点题材板块:     NOK                                                                       哪里可以获取热点题材
+    分时价格涨速超过上证指数: 可以修正为日涨速，就是涨幅百分比；                                上证指数怎么获得
+    下午出现当日新高: NOK, 也就是high这个点出现在下午，这个日线没有
     '''
+
     '涨幅：delta_close,  delta_high,  delta_low, delta_avgp'
     delta_close = d0['close'] - d1['close']
     delta_high  = d0['high']  - d1['high']
@@ -79,5 +86,19 @@ if __name__ == '__main__':
         'low': ['min','max','average'],
         'close': ['min','max','average']
         })
-    print(df_stat['close']['max'])
-    print(df_stat['close']['average'])
+    print('{:.2f}'.format(df_stat['close']['max']))
+    print('{:.2f}'.format(df_stat['close']['average']))
+
+    ref = sq.query_basic(ts_code)
+    print(len(ref))
+    print(ref[0].keys())
+    print(ref[0].items())
+    for item in ref:
+        ts_code = item['ts_code']
+        list_date = item['list_date']
+        if list_date < start_date:
+            sq.check_day(ts_code, start_date, end_date)
+        else:
+            sq.check_day(ts_code, list_date, end_date)
+    print()
+
