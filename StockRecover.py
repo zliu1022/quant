@@ -63,13 +63,17 @@ def recover_price_forward(df_in, df_bonus):
 
     last_date = df.index[day_len-1]
     #print('recover_price_forward {} - {}'.format(df.index[0], last_date))
+    #print('date          open      low       high     close  no.    ->      open       low      high     close')
     for i in range(day_len):
-        #print('{} {:9.2f} {:9.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
         ret = df_bonus[df_bonus.index<=last_date]
         ret = ret[ret.index>df.index[i]]
         if ret.empty == True:
+            #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.index[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
             #print()
             continue
+        #print(ret)
+
+        #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.index[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
 
         high = df.high[i]
         low = df.low[i]
@@ -77,6 +81,7 @@ def recover_price_forward(df_in, df_bonus):
         close = df.close[i]
         bonus_len = len(ret.index)
         #print(' {:2d} ex-d'.format(bonus_len), end='')
+
         for j in range(bonus_len):
             base = float(ret.base[j])
             free = float(ret.free[j])
@@ -92,7 +97,7 @@ def recover_price_forward(df_in, df_bonus):
         df.low[i] = math.ceil(low*100)/100
         df.open[i] = math.ceil(p_open*100)/100
         df.close[i] = math.ceil(close*100)/100
-        #print(' -> {:9.3f} {:9.3f}'.format(df.low[i], df.high[i]))
+        #print(' -> {:9.3f} {:9.3f} {:9.3f} {:9.3f}'.format(df.open[i], df.low[i], df.high[i], df.close[i]))
 
     rt.show_ms()
     return df
