@@ -1,31 +1,4 @@
-Check token 2023-06-09
-req_basic changed 000809.SZ铁岭新城 ST新城
-req_basic changed 001373.SZ翔腾新材 N翔腾
-req_basic changed 002122.SZ汇洲智能 天马股份
-req_basic changed 002321.SZ华英农业 ST华英
-req_basic changed 300551.SZ软件服务 IT设备
-req_basic changed 301310.SZC鑫宏业 鑫宏业
-req_basic changed 301337.SZ亚华电子 C亚华
-req_basic changed 301353.SZ普莱得 C普莱得
-req_basic changed 600227.SH赤天化 圣济堂
-req_basic changed 600242.SHNone 互联网
-req_basic changed 600301.SH华锡有色 南化股份
-req_basic changed 600532.SHNone 医疗保健
-req_basic changed 600767.SHNone 医疗保健
-req_basic changed 600781.SHNone 化学制药
-req_basic changed 688086.SH退紫晶 *ST紫晶
-req_basic changed 688523.SHC环宇 航天环宇
-req_basic changed 688555.SH退泽达 *ST泽达
-req_basic changed 688593.SH新相微 N新相微
-req_basic changed 830779.BJ武汉蓝电 N蓝电
-req_basic cost 12.36s
-req_basic insert new 301320.SZ
-req_basic insert new 301323.SZ
-req_basic insert new 301383.SZ
-req_basic insert new 688472.SH
-req_basic insert new 688570.SH
-req_basic insert new 688576.SH
-req_basic insert new 688623.SH
-req_basic insert new 836221.BJ
-token expired, update 92653cab19163fc842ad5747ac2c2cdee44c935e
-update token 92653cab19163fc842ad5747ac2c2cdee44c935e cost  2.23s
+Check token 2023-06-12
+update token 1ce5d8004d990273892c085f2b8dc832edd23fde cost  1.61s
+token expired, update 1ce5d8004d990273892c085f2b8dc832edd23fde
+req_basic cost 10.98s
