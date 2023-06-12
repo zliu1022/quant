@@ -22,6 +22,8 @@ class StockQuery:
 
         self.stock_list = []
         self.day = []
+
+        self.col_mktvalue = db.mktvalue
         return
 
     # dict_keys(['_id', 'ts_code', 'symbol', 'name', 'industry', 'list_status', 'list_date', 'delist_date'])
@@ -35,8 +37,21 @@ class StockQuery:
             self.stock_list.append(ref)
 
         if ref != None:
-            print('query_basic')
-            print('format', self.stock_list[0].keys())
+            #print('query_basic')
+            #print('format', self.stock_list[0].keys())
+            return self.stock_list
+        return None
+
+    def select_mktvalue(self, minv, maxv):
+        v = {'mktvalue': {'$gte':minv, '$lt':maxv}}
+        ref = self.col_mktvalue.find(v)
+        self.stock_list = list(ref)
+
+        if ref != None:
+            #print('select_mktvalue', len(self.stock_list))
+            if len(self.stock_list) != 0:
+                #print('format', self.stock_list[0].keys())
+                pass
             return self.stock_list
         return None
 
@@ -164,8 +179,11 @@ class StockQuery:
             df_tmp = df[df['date']>=start_date]
             df_tmp = df_tmp[df_tmp['date']<=end_date]
             self.stock_list = df_tmp.to_dict('records')
-            print('query_day_code_date', ts_code, start_date, end_date)
-            print('format', self.stock_list[0].keys())
+            #print('query_day_code_date', ts_code, start_date, end_date)
+            if df_tmp.empty:
+                #print('empty result')
+                return None
+            #print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
 
