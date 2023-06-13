@@ -3,9 +3,9 @@
 
 from StockQuery import StockQuery
 from StockRecover import recover_price_forward
-from StockDraw import f2exp10
-from StockDraw import stat_chg
-from StockDraw import sim_chg_single
+from StockSim import f2exp10
+from StockSim import stat_chg
+from StockSim import sim_chg_single
 
 if __name__ == '__main__':
     sq = StockQuery()
