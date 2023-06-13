@@ -42,7 +42,7 @@ class StockQuery:
             return self.stock_list
         return None
 
-    def select_mktvalue(self, minv, maxv):
+    def query_mktvalue(self, minv, maxv):
         v = {'mktvalue': {'$gte':minv, '$lt':maxv}}
         ref = self.col_mktvalue.find(v)
         self.stock_list = list(ref)
