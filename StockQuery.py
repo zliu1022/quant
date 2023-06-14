@@ -48,9 +48,9 @@ class StockQuery:
         self.stock_list = list(ref)
 
         if ref != None:
-            #print('select_mktvalue', len(self.stock_list))
+            print('select_mktvalue', len(self.stock_list))
             if len(self.stock_list) != 0:
-                #print('format', self.stock_list[0].keys())
+                print('format', self.stock_list[0].keys())
                 pass
             return self.stock_list
         return None
