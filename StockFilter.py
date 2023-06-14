@@ -8,11 +8,6 @@ import pandas as pd
 from pymongo import MongoClient
 from StockDraw import recover_price_forward
 
-client = MongoClient(port=27017)
-db = client.stk1
-db.drop_collection('mktvalue')
-col_mktvalue = db.mktvalue
-
 def filter_single_example():
     sq = StockQuery()
 
@@ -114,6 +109,12 @@ def filter_single_example():
 
 def filter_mktvalue(start_date, end_date):
     rt = RecTime()
+
+    client = MongoClient(port=27017)
+    db = client.stk1
+    db.drop_collection('mktvalue')
+    col_mktvalue = db.mktvalue
+
     df_stat    = pd.DataFrame()
 
     sq = StockQuery()
@@ -161,7 +162,7 @@ def filter_mktvalue(start_date, end_date):
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
 
     title_str = 'mktvalue'
-    df_stat.to_csv(title_str + '.csv', index=False)
+    #df_stat.to_csv(title_str + '.csv', index=False)
 
     rt.show_s()
     return df_stat
