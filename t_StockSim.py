@@ -9,6 +9,7 @@ from StockQuery import StockQuery
 import numpy as np
 from StockDraw import draw_stat_chg
 from StockDraw import draw_example
+import pandas as pd
 
 if __name__ == '__main__':
     #ts_code    = '688223.SH' # 晶科能源
@@ -49,20 +50,24 @@ if __name__ == '__main__':
     interval   = 0.03
 
     if ts_code == None:
-        title_str = 'stat-{:.1f}%-{}-mv1000'.format(chg_perc*100, interval)
-    else:
-        title_str = 'stat-{}-{:.1f}%-{}'.format(ts_code, chg_perc*100, interval)
-
-    if ts_code == None:
-        v1 = 5000.0
-        v2 = np.inf
-        code_list = sq.select_mktvalue(v1, v2)
         #code_list = sq.query_basic(None)
+        #title_str = 'stat-{:.1f}%-{}'.format(chg_perc*100, interval)
+
+        v1 = 1000.0
+        v2 = np.inf
+        title_str = 'stat-{:.1f}%-{}-mktvalue-{:.0f}-{:.0f}'.format(chg_perc*100, interval, v1, v2)
+        code_list = sq.query_mktvalue(v1, v2)
+
         print('Found {:4d}'.format(len(code_list)))
     else:
         code_list = [{'ts_code':ts_code}]
+        title_str = 'stat-{}-{:.1f}%-{}'.format(ts_code, chg_perc*100, interval)
 
     df_stat = sim_chg(sq, code_list, start_date, end_date, chg_perc, interval)
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
+        print(df_stat)
+
+    quit()
     draw_stat_chg(df_stat, title_str)
     df_stat.to_csv(title_str + '.csv', index=False)
 
