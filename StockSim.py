@@ -344,16 +344,20 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         cur_hold = 0.0
         cur_qty  = 0.0
 
+    last_index = df_forw.index[-1]
     ret = {
-        'profit':      profit,
+        'profit':      round(profit,2),
         'inc_num':     inc_num, 
-        'max_dec_perc':max_dec_perc, 
+        'max_dec_perc':round(max_dec_perc,2), 
         'max_dec_days':max_dec_days, 
-        'max_cost':    max_cost, 
-        'cur_hold':    cur_hold,
-        'cur_qty':    cur_qty
+        'max_cost':    round(max_cost,2), 
+        'profit_ratio': round(profit/max_cost, 2),
+        'cur_hold':    round(cur_hold,2),
+        'cur_qty':     cur_qty,
+        'cur_p':       round(cur_hold/cur_qty,2),
+        'cur_lowp':    df_forw.loc[last_index, 'low'],
+        'cur_highp':   df_forw.loc[last_index, 'high']
     }
-    
     rt.show_ms()
     return ret
 
@@ -367,29 +371,20 @@ def sim_chg(sq, code_list, start_date, end_date, chg_perc, interval):
         ret = sq.check_bad_bonus(ts_code)
         if ret != 0:
             continue
-
         if ts_code == '601919.SH': # 前复权出现负数 start_date = '20200101' end_date   = '20230602'
             continue
         if ts_code == '831726.BJ': # max_cost == 0
             continue
 
-        num = 0
-        avg_amount = 0
-        print('{} {:3d} {:,.1f}'.format(ts_code, num, avg_amount))
+        df_amount = sq.stat_amount(ts_code, start_date, end_date, 0)
+        num = int(df_amount[0]['num'])
+        avg_amount = float(df_amount[0]['avg_amount'])/100000000.0
+        print('{} {} {:.1f} {} {:3d} {:,.1f}'.format(ts_code, item['name'], item['mktvalue'], item['date'], num, avg_amount))
 
         ret = sim_chg_single(sq, ts_code, start_date, end_date, chg_perc, interval)
 
-        df_item = pd.DataFrame([{
-                'ts_code':     ts_code,
-                'inc_num':     ret['inc_num'],
-                'max_dec_perc':round(ret['max_dec_perc'],2),
-                'max_dec_days':ret['max_dec_days'],
-                'max_cost':    ret['max_cost'],
-                'profit':      ret['profit'],
-                'profit_ratio':ret['profit']/ret['max_cost'],
-                'cur_hold':    ret['cur_hold'],
-                'cur_qty':    ret['cur_qty']
-            }])
+        df_item = pd.DataFrame([ret])
+        df_item.insert(loc=0, column='ts_code', value=ts_code)
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
 
         win_or_loss = 'draw'
@@ -397,11 +392,13 @@ def sim_chg(sq, code_list, start_date, end_date, chg_perc, interval):
             win_or_loss = 'win '
         elif ret['profit'] < 0.0:
             win_or_loss = 'lost'
-        print('          win  ts_code   days  amt num max_dec% dec_days profit   maxcost  curhold   curqty')
-        print('summary   {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
+        print('          win  ts_code   days  amt num max_dec% dec_days profit   maxcost  curhold   curqty    cur_p  cur_lowp   cur_highp')
+        print('summary   {} {} {:4d} {:4.1f} {:3d} {:7.1f}% {:8d} {:6.1f} {:8.1f} {:8.1f} {:8.1f} {:8.1f} {:8.1f} {:8.1f}'.format(
             win_or_loss,
             ts_code, num, avg_amount/100000000, ret['inc_num'], ret['max_dec_perc'], ret['max_dec_days'],
-            ret['profit'], ret['max_cost'], ret['cur_hold'], ret['cur_qty']))
+            ret['profit'], ret['max_cost'], ret['cur_hold'], ret['cur_qty'],
+            ret['cur_p'], ret['cur_lowp'], ret['cur_highp']
+            ))
         print()
 
         #if len(df_stat.index)>=10: break
