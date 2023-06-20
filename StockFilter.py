@@ -7,6 +7,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from pymongo import MongoClient
 from StockDraw import recover_price_forward
+from pprint import pprint
+
+client = MongoClient(port=27017)
+db = client.stk1
 
 def filter_single_example():
     sq = StockQuery()
@@ -193,12 +197,112 @@ def draw_mktvalue_fromfile():
     plt.savefig(title_str + '.png', dpi=150)
     plt.show()
 
+def filter_test_set(start_date, end_date, v1, v2, v3):
+    col_name='mkttest'
+    col_mktvalue = db[col_name]
+
+    v = {
+        'start_date':start_date, 
+        'end_date':  end_date
+    }
+    mktvalue_arr = [
+        {'ts_code':'601919.SH', 'name':'a', 'mktvalue':v1},
+        {'ts_code':'002475.SZ', 'name':'b', 'mktvalue':v2},
+        {'ts_code':'600001.SH', 'name':'c', 'mktvalue':v2}
+    ]
+    data = {
+        'start_date':start_date, 
+        'end_date':  end_date,
+        'mv': mktvalue_arr
+    }
+    ret = col_mktvalue.find_one(v)
+    if ret == None:
+        print('insert')
+        ret = col_mktvalue.insert_one(data)
+    else:
+        print('update')
+        ret = col_mktvalue.update_one(v, {'$set': data})
+    print('filter_test_set OK', start_date, end_date, v1, v2, v3)
+
+def filter_test_get(start_date, v1, v2):
+    col_name='mkttest'
+    col_mktvalue = db[col_name]
+
+    v = {
+        'start_date': {'$gte': start_date},
+        'end_date':   {'$lte': start_date},
+        'mv': {
+            '$elemMatch': {
+                'mktvalue': {'$gte': v1, '$lte': v2}
+            }
+        }
+    }
+
+    results = col_mktvalue.find_one(v)
+    if results != None:
+        print('filter_test_get OK', start_date, v1, v2)
+        print(results)
+        for result in results:
+            print(result)
+
+def filter_test_agg(start_date, v1, v2):
+    col_name = 'mkttest'
+    col_mktvalue = db[col_name]
+
+    v = [
+        {
+            '$match': {
+                'start_date': {'$lte': start_date},
+                'end_date':   {'$gte': start_date}
+            }
+        },
+        {
+            '$unwind': '$mv'
+        },
+        {
+            '$match': {
+                'mv.mktvalue': {'$gte': v1, '$lte': v2}
+            }
+        },
+        {
+            '$group': {
+                '_id': '$_id',
+                'start_date': {'$first': '$start_date'},
+                'end_date': {'$first': '$end_date'},
+                'mv': {'$push': '$mv'}
+            }
+        }
+    ]
+
+    results = col_mktvalue.aggregate(v)
+
+    l = list(results)
+    pprint(l[0]['mv'][0])
+
+    df = pd.DataFrame(results)
+    print('dataframe')
+    print(df.keys())
+    print(df)
+
+    for result in results:
+        pprint(result['mv'])
+
+    count = col_mktvalue.count_documents({'start_date': {'$lte': start_date}, 'end_date': {'$gte': start_date}})
+    print('Total matching documents:', count)
+
+
 # 筛选指定条件的code，存储到单独的collection中，后续通过不同条件select出来
 if __name__ == '__main__':
     start_date = '20200101'
     end_date   = '20200115'
 
-    filter_single_example()
-
+    #filter_single_example()
     #filter_mktvalue(start_date, end_date)
     #draw_mktvalue_fromfile()
+
+    #filter_test_set('20200101', '20200115', 10,20,30)
+    #filter_test_set('20230101', '20230115', 20,30,40)
+
+    filter_test_agg('20200105', 10, 50)
+    #filter_test_get('20230110', 15, 20)
+
