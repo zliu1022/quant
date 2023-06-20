@@ -142,8 +142,8 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
     ax2.axes.xaxis.set_ticks(arr_ticks)
 
     title_str = ts_code + '_' + df_day.index[0] + '_' + df_day.index[day_len-1] + '_' + str(chg_perc)
-    #plt.savefig(title_str + '.png', dpi=150)
-    plt.show()
+    plt.savefig(title_str + '.png', dpi=150)
+    #plt.show()
     plt.close()
     return
 
