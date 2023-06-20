@@ -236,7 +236,10 @@ def print_stat_month(ts_code, df_stat, df_forw):
 
     df_tmp = df_stat[(df_stat.status=='win') | (df_stat.status=='loss')]
     df_tmp = 300000/df_tmp.max_cost*df_tmp.profit
-    avg_profit = df_tmp.sum()/df_tmp.count()
+    if df_tmp.count() != 0:
+        avg_profit = df_tmp.sum()/df_tmp.count()
+    else:
+        avg_profit = 0.0
     print('average_profit   {:.1f} {:.2f}%'.format(avg_profit, round(avg_profit/300000*100,2) ))
     print()
 
@@ -345,6 +348,10 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         cur_qty  = 0.0
 
     last_index = df_forw.index[-1]
+    if cur_qty==0:
+        cur_p = np.inf
+    else:
+        cur_p = round(cur_hold/cur_qty,2)
     ret = {
         'profit':      round(profit,2),
         'inc_num':     inc_num, 
@@ -354,7 +361,7 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         'profit_ratio': round(profit/max_cost, 2),
         'cur_hold':    round(cur_hold,2),
         'cur_qty':     cur_qty,
-        'cur_p':       round(cur_hold/cur_qty,2),
+        'cur_p':       cur_p,
         'cur_lowp':    df_forw.loc[last_index, 'low'],
         'cur_highp':   df_forw.loc[last_index, 'high']
     }
@@ -461,6 +468,8 @@ if __name__ == '__main__':
     ts_code    = '002475.SZ'
     draw_example(ts_code, start_date, end_date, chg_perc)
     sim_chg_monthly(sq, ts_code, start_date, end_date, chg_perc, interval)
+
+    quit()
 
     ts_code    = None       # all stocks
     if ts_code == None:
