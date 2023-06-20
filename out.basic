@@ -1,36 +1,30 @@
-Check token 2023-06-16
-req_basic changed 000426.SZ兴业银锡 兴业矿业
-req_basic changed 000606.SZ顺利退 *ST顺利 None 互联网
-req_basic changed 000806.SZ银河退 *ST银河 None 电气设备
-req_basic changed 002177.SZ御银股份 *ST御银
-req_basic changed 002366.SZ融发核电 台海核电
-req_basic changed 002417.SZ深南退 *ST深南
-req_basic changed 002535.SZ林州重机 ST林重
-req_basic changed 002667.SZ威领股份 鞍重股份
-req_basic changed 002781.SZ奇信退 *ST奇信 None 装修装饰
-req_basic changed 300273.SZ和佳退 *ST和佳 None 医疗保健
-req_basic changed 300336.SZ新文退 *ST新文 None 广告包装
-req_basic changed 300392.SZ腾信退 *ST腾信
-req_basic changed 301310.SZ鑫宏业 C鑫宏业
-req_basic changed 301320.SZC豪江 豪江智能
-req_basic changed 301323.SZ新莱福 C新莱福
-req_basic changed 301383.SZC天键 天键股份
-req_basic changed 600601.SH方正科技 *ST方科
-req_basic changed 600654.SHST中安 *ST中安
-req_basic changed 600666.SHST瑞德 *ST瑞德
-req_basic changed 600726.SH华电能源 *ST华源
-req_basic changed 600822.SH汽车服务 商贸代理
-req_basic changed 688086.SHNone IT设备
-req_basic changed 688472.SHC阿特斯 阿特斯
-req_basic changed 688523.SH航天环宇 C环宇
-req_basic changed 688555.SHNone 软件服务
-req_basic changed 688570.SH天玛智控 C天玛
-req_basic changed 688576.SH西山科技 C西山
-req_basic changed 688623.SH双元科技 N双元
-req_basic changed 836221.BJ易实精密 N易实
-req_basic cost 10.95s
-req_basic insert new 301225.SZ
-req_basic insert new 301232.SZ
-req_basic insert new 301287.SZ
-req_basic insert new 301355.SZ
-token got 0 days ago 1ce5d8004d990273892c085f2b8dc832edd23fde still valid
+Check token 2023-06-20
+req_basic changed 000038.SZ 大通退 -> *ST大通 None -> 综合类
+req_basic changed 000546.SZ ST金圆 金圆股份
+req_basic changed 002076.SZ 星光股份 雪莱特
+req_basic changed 002411.SZ 必康退 *ST必康 None 医药商业
+req_basic changed 002417.SZ None 软件服务
+req_basic changed 002751.SZ 易尚退 *ST易尚
+req_basic changed 300089.SZ 文化退 *ST文化
+req_basic changed 300356.SZ 光一退 *ST光一
+req_basic changed 300370.SZ 安控科技 *ST安控
+req_basic changed 300392.SZ None 互联网
+req_basic changed 300526.SZ 中潜退 *ST中潜 None 专用机械
+req_basic changed 301225.SZ C恒勃 恒勃股份
+req_basic changed 301232.SZ C飞沃 N飞沃
+req_basic changed 301320.SZ 豪江智能 C豪江
+req_basic changed 301355.SZ 南王科技 C南王
+req_basic changed 301383.SZ 天键股份 C天键
+req_basic changed 600248.SH 陕建股份 陕西建工
+req_basic changed 688472.SH 阿特斯 C阿特斯
+req_basic cost 10.81s
+req_basic insert new 301262.SZ
+req_basic insert new 301315.SZ
+req_basic insert new 301376.SZ
+req_basic insert new 301448.SZ
+req_basic insert new 688334.SH
+req_basic insert new 688443.SH
+req_basic insert new 688543.SH
+req_basic insert new 833455.BJ
+token expired, update 1ce5d8004d990273892c085f2b8dc832edd23fde
+update token 1ce5d8004d990273892c085f2b8dc832edd23fde cost  1.78s
