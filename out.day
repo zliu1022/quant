@@ -1,74 +1,66 @@
-Check token 2023-06-16
+Check token 2023-06-20
 token got 0 days ago 1ce5d8004d990273892c085f2b8dc832edd23fde still valid
-find 5218 stocks
+find 5226 stocks
 Error: No kline, maybe restday SH600260
-Error: No kline, maybe restday SZ002499
-Error: No kline, maybe restday SZ002751
 Error: No kline, maybe restday SZ000732
-Error: No kline, maybe restday SZ000038
+Error: No kline, maybe restday SZ002499
+Error: No kline, maybe restday SZ002013
 Error: No kline, maybe restday SZ002503
 Error: No kline, maybe restday SZ002504
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SZ002258&begin=1686585600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11eb469d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SZ002258&begin=1686585600000
-Error: No kline, maybe restday SZ002013
-Error: No kline, maybe restday SZ002513
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH603281&begin=1686585600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11ddb2110>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH603281&begin=1686585600000
 Error: No kline, maybe restday SH600311
-Error: No kline, maybe restday SZ000150
 Error: No kline, maybe restday SZ000790
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH601956&begin=1686585600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11d154d90>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH600638&begin=1686585600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11ee19e90>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH601956&begin=1686585600000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH600638&begin=1686585600000
-Error: No kline, maybe restday SZ300526
+Error: No kline, maybe restday SH601916
+Error: No kline, maybe restday SZ000150
+Error: No kline, maybe restday SH688065
 Error: No kline, maybe restday SZ002564
 Error: No kline, maybe restday SZ300297
+Error: No kline, maybe restday SH600077
 Error: No kline, maybe restday SZ300309
 Error: No kline, maybe restday SZ300319
 Error: No kline, maybe restday SH600393
-Error: No kline, maybe restday SZ000540
 Error: No kline, maybe restday SZ300330
+Error: No kline, maybe restday SH603042
 Error: No kline, maybe restday SZ002113
-Error: No kline, maybe restday SZ300089
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH603530&begin=1686585600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11ef04cd0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH603530&begin=1686585600000
+Error: No kline, maybe restday SZ000540
+Error: No kline, maybe restday SZ002118
 Error: No kline, maybe restday SH600122
-Error: No kline, maybe restday SH600421
 Error: No kline, maybe restday SZ000918
 Error: No kline, maybe restday SH600139
-Error: No kline, maybe restday SZ300356
 Error: No kline, maybe restday SZ000587
 Error: No kline, maybe restday SH600466
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH601199&begin=1686585600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11d35a3d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=4&symbol=SH601199&begin=1686585600000
-Thread-22 cost 152.56s
+Error: No item key in day resp SZ301315
+Error: No item key in day resp SZ301376
+Error: No kline, maybe restday SH600491
 Error: No kline, maybe restday SZ002656
-Error: No kline, maybe restday SZ002411
+Error: No item key in day resp SH688543
+Error: No item key in day resp BJ833455
+Thread-22 cost 236.13s
+Error: No kline, maybe restday SZ000616
 Error: No kline, maybe restday SH601258
+Error: No kline, maybe restday SZ000996
 Error: No kline, maybe restday SZ000656
+Thread-20 cost 273.00s
+Error: No kline, maybe restday SH600530
 Error: No kline, maybe restday SZ000667
 Error: No kline, maybe restday SZ000671
-Error: No kline, maybe restday SH600530
-Thread-11 cost 192.09s
-Thread-20 cost 192.88s
-Thread-19 cost 194.31s
-Thread-18 cost 198.10s
-Thread-21 cost 198.75s
-Thread-10 cost 201.09s
-Thread-17 cost 202.28s
-Thread-16 cost 202.42s
-Thread-12 cost 203.55s
-Thread-7 cost 205.04s
-Thread-15 cost 205.23s
-Thread-6 cost 206.54s
-Thread-14 cost 206.55s
-Thread-8 cost 206.75s
-Thread-1 cost 207.18s
-Thread-4 cost 207.27s
-Thread-3 cost 207.43s
-Thread-9 cost 207.50s
-Thread-13 cost 207.75s
-Thread-2 cost 208.50s
-Thread-5 cost 208.54s
-total cost 208.54s
+Thread-11 cost 281.06s
+Thread-19 cost 282.21s
+Thread-10 cost 285.08s
+Thread-18 cost 286.52s
+Thread-17 cost 288.12s
+Thread-16 cost 288.49s
+Thread-21 cost 288.47s
+Thread-12 cost 288.97s
+Thread-6 cost 295.35s
+Thread-2 cost 296.21s
+Thread-14 cost 296.23s
+Thread-15 cost 297.00s
+Thread-7 cost 297.20s
+Thread-13 cost 297.92s
+Thread-3 cost 298.18s
+Thread-8 cost 299.10s
+Thread-1 cost 299.14s
+Thread-9 cost 300.46s
+Thread-4 cost 302.97s
+Thread-5 cost 306.00s
+total cost 306.02s
