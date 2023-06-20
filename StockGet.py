@@ -363,13 +363,13 @@ class StockGet:
                 continue
 
             if df.loc[i, 'name'] != ref['name'] or df.loc[i, 'symbol'] != ref['symbol'] or df.loc[i, 'industry'] != ref['industry'] or df.loc[i, 'list_status'] != ref['list_status'] or df.loc[i, 'list_date'] != ref['list_date'] or df.loc[i, 'delist_date'] != ref['delist_date']:
-                print('req_basic changed', df.loc[i, 'ts_code'], end='')
-                df.loc[i, 'name'] != ref['name'] and print(df.loc[i, 'name'], ref['name'])
-                df.loc[i, 'symbol'] != ref['symbol'] and print(df.loc[i, 'symbol'], ref['symbol'])
-                df.loc[i, 'industry'] != ref['industry'] and print(df.loc[i, 'industry'], ref['industry'])
-                df.loc[i, 'list_status'] != ref['list_status'] and print(df.loc[i, 'list_status'], ref['list_status'])
-                df.loc[i, 'list_date'] != ref['list_date'] and print(df.loc[i, 'list_date'], ref['list_date'])
-                df.loc[i, 'delist_date'] != ref['delist_date'] and print(df.loc[i, 'delist_date'], ref['delist_date'])
+                print('req_basic changed', df.loc[i, 'ts_code'], end=' ')
+                df.loc[i, 'name'] != ref['name'] and print('name', df.loc[i, 'name'], '->', ref['name'], end=' ')
+                df.loc[i, 'symbol'] != ref['symbol'] and print('symbol', df.loc[i, 'symbol'], '->', ref['symbol'], end=' ')
+                df.loc[i, 'industry'] != ref['industry'] and print('industry', df.loc[i, 'industry'], '->', ref['industry'], end=' ')
+                df.loc[i, 'list_status'] != ref['list_status'] and print('list_status', df.loc[i, 'list_status'], '->', ref['list_status'], end=' ')
+                df.loc[i, 'list_date'] != ref['list_date'] and print('list_date', df.loc[i, 'list_date'], '->', ref['list_date'], end=' ')
+                df.loc[i, 'delist_date'] != ref['delist_date'] and print('delist_date', df.loc[i, 'delist_date'], '->', ref['delist_date'], end=' ')
                 print()
                 self.col_basic.update_one({'ts_code':df.loc[i, 'ts_code']}, {'$set':df.loc[i].to_dict()})
                 continue
@@ -433,11 +433,11 @@ class StockGet:
                         if df.loc[j, 'dividend_year'] == dividend_year:
                             if new_d == new_d and new_d != None: # not nan
                                 new_d_str = datetime.strftime(datetime.fromtimestamp(new_d/1000), '%Y%m%d')
-                                print('Info:', ts_code, dividend_year, 'null ex_date update', new_d_str)
+                                print('Info:', ts_code, dividend_year, 'ashare_ex_dividend_date NaN ->', new_d_str)
                                 index_none.append(i)
                             else: # new ashare_ex_dividend_date == null, compare plan_explain
                                 if ref_plan_explain != new_plan_explain:
-                                    print('Info:', ts_code, dividend_year, 'plan_explain update', ref_plan_explain, '->', new_plan_explain)
+                                    print('Info:', ts_code, dividend_year, 'plan_explain', ref_plan_explain, '->', new_plan_explain)
                                     index_none.append(i)
                 df_ref = df_ref.drop(index_none)
 
