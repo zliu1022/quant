@@ -358,7 +358,6 @@ class StockGet:
             ref = self.col_basic.find_one({'ts_code':df.loc[i, 'ts_code']})
             if ref == None:
                 print('req_basic insert new', df.loc[i, 'ts_code'])
-                print()
                 self.col_basic.insert_one(df.loc[i].to_dict())
                 continue
 
