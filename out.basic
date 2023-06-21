@@ -1,30 +1,15 @@
-Check token 2023-06-20
-req_basic changed 000038.SZ 大通退 -> *ST大通 None -> 综合类
-req_basic changed 000546.SZ ST金圆 金圆股份
-req_basic changed 002076.SZ 星光股份 雪莱特
-req_basic changed 002411.SZ 必康退 *ST必康 None 医药商业
-req_basic changed 002417.SZ None 软件服务
-req_basic changed 002751.SZ 易尚退 *ST易尚
-req_basic changed 300089.SZ 文化退 *ST文化
-req_basic changed 300356.SZ 光一退 *ST光一
-req_basic changed 300370.SZ 安控科技 *ST安控
-req_basic changed 300392.SZ None 互联网
-req_basic changed 300526.SZ 中潜退 *ST中潜 None 专用机械
-req_basic changed 301225.SZ C恒勃 恒勃股份
-req_basic changed 301232.SZ C飞沃 N飞沃
-req_basic changed 301320.SZ 豪江智能 C豪江
-req_basic changed 301355.SZ 南王科技 C南王
-req_basic changed 301383.SZ 天键股份 C天键
-req_basic changed 600248.SH 陕建股份 陕西建工
-req_basic changed 688472.SH 阿特斯 C阿特斯
-req_basic cost 10.81s
-req_basic insert new 301262.SZ
-req_basic insert new 301315.SZ
-req_basic insert new 301376.SZ
-req_basic insert new 301448.SZ
-req_basic insert new 688334.SH
-req_basic insert new 688443.SH
-req_basic insert new 688543.SH
-req_basic insert new 833455.BJ
-token expired, update 1ce5d8004d990273892c085f2b8dc832edd23fde
-update token 1ce5d8004d990273892c085f2b8dc832edd23fde cost  1.78s
+Check token 2023-06-21
+token got 1 days ago 1ce5d8004d990273892c085f2b8dc832edd23fde still valid
+req_basic changed 002211.SZ name 宏达新材 -> ST宏达 
+req_basic changed 002751.SZ industry None -> 文教休闲 
+req_basic changed 300089.SZ industry None -> 文教休闲 
+req_basic changed 300356.SZ industry None -> 电气设备 
+req_basic changed 301262.SZ name C海看 -> N海看 
+req_basic changed 301287.SZ name 康力源 -> C康力源 
+req_basic changed 301315.SZ name N威士顿 -> 威士顿 
+req_basic changed 301376.SZ name N致欧 -> 致欧科技 
+req_basic changed 688443.SH name C智翔-U -> N智翔-U 
+req_basic changed 688543.SH name N国科 -> 国科军工 
+req_basic insert new 832651.BJ
+req_basic changed 833455.BJ name N汇隆 -> 汇隆活塞 
+req_basic cost 11.26s
