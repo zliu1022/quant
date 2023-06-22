@@ -438,7 +438,9 @@ class StockGet:
                                 if ref_plan_explain != new_plan_explain:
                                     print('Info:', ts_code, dividend_year, 'plan_explain', ref_plan_explain, '->', new_plan_explain)
                                     index_none.append(i)
+
                 df_ref = df_ref.drop(index_none)
+                df_ref_len = len(df_ref.index)
 
                 if df_ref_len !=0 or df_len != 0:
                     df_new = pd.concat([df, df_ref]).sort_values(by='ashare_ex_dividend_date', ascending=False).drop_duplicates().reset_index(drop=True)
