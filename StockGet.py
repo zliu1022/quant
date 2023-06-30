@@ -357,7 +357,7 @@ class StockGet:
 
             ref = self.col_basic.find_one({'ts_code':df.loc[i, 'ts_code']})
             if ref == None:
-                print('req_basic insert new', df.loc[i, 'ts_code'])
+                print('req_basic insert new', df.loc[i, 'ts_code'], df.loc[i, 'name'], df.loc[i, 'industry'])
                 self.col_basic.insert_one(df.loc[i].to_dict())
                 continue
 
@@ -641,7 +641,7 @@ class StockGet:
         if len(err_stock)>0:
             print(threading.current_thread().name, 'Error', len(err_stock), err_stock)
         end_t = time.time()
-        print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
+        #print('{} cost {:.2f}s'.format(threading.current_thread().name, end_t - start_t))
 
     def get_stocks(self, thread_num):
         if len(self.stock_list) == 0: return []
