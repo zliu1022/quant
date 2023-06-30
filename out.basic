@@ -1,15 +1,35 @@
-Check token 2023-06-21
-token got 1 days ago 1ce5d8004d990273892c085f2b8dc832edd23fde still valid
-req_basic changed 002211.SZ name 宏达新材 -> ST宏达 
-req_basic changed 002751.SZ industry None -> 文教休闲 
-req_basic changed 300089.SZ industry None -> 文教休闲 
-req_basic changed 300356.SZ industry None -> 电气设备 
-req_basic changed 301262.SZ name C海看 -> N海看 
-req_basic changed 301287.SZ name 康力源 -> C康力源 
-req_basic changed 301315.SZ name N威士顿 -> 威士顿 
-req_basic changed 301376.SZ name N致欧 -> 致欧科技 
-req_basic changed 688443.SH name C智翔-U -> N智翔-U 
-req_basic changed 688543.SH name N国科 -> 国科军工 
-req_basic insert new 832651.BJ
-req_basic changed 833455.BJ name N汇隆 -> 汇隆活塞 
-req_basic cost 11.26s
+Check token 2023-06-30
+update token 57b2a0b86ca3e943ee1ffc69509952639be342b9 cost  0.68s
+token expired, update 57b2a0b86ca3e943ee1ffc69509952639be342b9
+req_basic changed 000004.SZ name 国华网安 -> ST国华 
+req_basic changed 000571.SZ name 新大洲A -> ST大洲 
+req_basic changed 002564.SZ name *ST天沃 -> 天沃科技 
+req_basic changed 300053.SZ name 航宇微 -> 欧比特 
+req_basic insert new 300804.SZ
+req_basic insert new 301170.SZ
+req_basic insert new 301210.SZ
+req_basic changed 301225.SZ name 恒勃股份 -> C恒勃 
+req_basic changed 301232.SZ name 飞沃科技 -> C飞沃 
+req_basic changed 301262.SZ name 海看股份 -> C海看 
+req_basic insert new 301291.SZ
+req_basic insert new 301295.SZ
+req_basic changed 301315.SZ name 威士顿 -> N威士顿 
+req_basic changed 301376.SZ name 致欧科技 -> N致欧 
+req_basic insert new 301395.SZ
+req_basic insert new 301397.SZ
+req_basic changed 301448.SZ name 开创电气 -> C开创 
+req_basic changed 600310.SH name 广西能源 -> 桂东电力 
+req_basic changed 600866.SH industry 饲料 -> 食品 
+req_basic changed 688334.SH name 西高院 -> C西高院 
+req_basic insert new 688429.SH
+req_basic changed 688443.SH name 智翔金泰-U -> C智翔-U 
+req_basic changed 688543.SH name 国科军工 -> N国科 
+req_basic insert new 688582.SH
+req_basic insert new 688620.SH
+req_basic insert new 688629.SH
+req_basic insert new 688631.SH
+req_basic insert new 832175.BJ
+req_basic changed 833455.BJ name 汇隆活塞 -> N汇隆 
+req_basic insert new 836208.BJ
+req_basic insert new 836717.BJ
+req_basic cost 10.64s
