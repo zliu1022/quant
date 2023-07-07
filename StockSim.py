@@ -9,6 +9,7 @@ import numpy as np
 from datetime import datetime
 import math
 from dateutil.relativedelta import relativedelta
+from pprint import pprint
 
 # 统计上涨 chg_perc 幅度下，次数、最大下跌幅度、最大下跌天数
 # stat change percentage
@@ -130,7 +131,7 @@ def stat_chg(df, start_date, chg_perc):
     df['inc_perc'] = df['inc_perc'].map('{:.1f}%'.format)
     '''
 
-    rt.show_ms()
+    #rt.show_ms()
     return df, total_num, max_dec_perc, max_dec_days
 
 def sim_chg_monthly_single(sq, ts_code, start_date, end_date, chg_perc, interval):
@@ -316,7 +317,7 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
 
         dec_perc, mid_ret = step_num(item_chg.dec_perc, interval, m_10)
         df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
-        print('item_chg.dec_perc {} mid_ret {} dec_perc {}'.format(item_chg.dec_perc, mid_ret, dec_perc))
+        print('item_chg.dec_perc {:.3f} mid_ret {} dec_perc {}'.format(item_chg.dec_perc, mid_ret, dec_perc))
         with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
             print(df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)<=(dec_perc+interval)])
         try:
@@ -365,7 +366,7 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         'cur_lowp':    df_forw.loc[last_index, 'low'],
         'cur_highp':   df_forw.loc[last_index, 'high']
     }
-    rt.show_ms()
+    #rt.show_ms()
     return ret
 
 def sim_chg(sq, code_list, start_date, end_date, chg_perc, interval):
@@ -377,10 +378,6 @@ def sim_chg(sq, code_list, start_date, end_date, chg_perc, interval):
 
         ret = sq.check_bad_bonus(ts_code)
         if ret != 0:
-            continue
-        if ts_code == '601919.SH': # 前复权出现负数 start_date = '20200101' end_date   = '20230602'
-            continue
-        if ts_code == '831726.BJ': # max_cost == 0
             continue
 
         df_amount = sq.stat_amount(ts_code, start_date, end_date, 0)
