@@ -38,6 +38,8 @@ if __name__ == '__main__':
     end_date   = '20230602'
 
     if len(sys.argv) == 4:
+        start_date = '20200701'
+        end_date   = '20230620'
         ts_code  = sys.argv[1]
         chg_perc = float(sys.argv[2])
         interval = float(sys.argv[3])
