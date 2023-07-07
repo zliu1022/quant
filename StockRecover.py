@@ -93,13 +93,20 @@ def recover_price_forward(df_in, df_bonus):
             p_open = (p_open * base - bonus)/(base + free + new)
             close = (close * base - bonus)/(base + free + new)
 
+        # 截取小数点用的方式竟然还不一样，应该是错了，ceil是取更大的值，floor是取更小的值, 修改为四舍五入
+        '''
         df.high[i] = math.floor(high*100)/100
         df.low[i] = math.ceil(low*100)/100
         df.open[i] = math.ceil(p_open*100)/100
         df.close[i] = math.ceil(close*100)/100
+        '''
+        df.high[i] = round(high*100)/100
+        df.low[i] = round(low*100)/100
+        df.open[i] = round(p_open*100)/100
+        df.close[i] = round(close*100)/100
         #print(' -> {:9.3f} {:9.3f} {:9.3f} {:9.3f}'.format(df.open[i], df.low[i], df.high[i], df.close[i]))
 
-    #rt.show_ms()
+    rt.show_ms()
     return df
 
 if __name__ == '__main__':
