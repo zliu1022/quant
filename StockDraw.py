@@ -188,7 +188,6 @@ def draw_example(ts_code, start_date, end_date, chg_perc):
     df_forw = recover_price_forward(df, df_bonus)
 
     # 统计上涨 0.1 幅度下，次数、最大下跌幅度、最大下跌天数
-    #chg_perc = 0.35
     df_chg, total_num, max_dec_perc, max_dec_days = stat_chg(df_forw, start_date, chg_perc)
     print('{} {} -{:.1f}% {:3d}'.format(ts_code, total_num, max_dec_perc, max_dec_days))
     print(df_chg)
