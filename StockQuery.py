@@ -77,14 +77,13 @@ class StockQuery:
         if ref != None:
             #self.stock_list = list(ref['items'])
             self.bonus = ref['items']
-            print('query_bonus_code', ts_code)
-            print('format', self.bonus[0].keys())
+            #print('query_bonus_code', ts_code)
+            #print('format', self.bonus[0].keys())
             return self.bonus
         return None
 
     # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'plan_explain'])
     def query_bonus_code_df(self, ts_code):
-        rt = RecTime()
         v = {'ts_code': ts_code}
         ref = self.col_bonus.find_one(v)
 
@@ -98,8 +97,7 @@ class StockQuery:
             df = df.drop(columns=['date', 'year', 'dividend_year', 'plan_explain'])
             df = df.sort_values(by='date')
 
-            print('query_bonus_code', ts_code)
-            rt.show_ms()
+            #print('query_bonus_code', ts_code)
             return df
 
         df = pd.DataFrame()
@@ -152,6 +150,75 @@ class StockQuery:
             return self.stock_list
         return None
 
+    # 返回指定时间范围的bonus个数
+    # format dict_keys(['_id', 'items', 'num'])
+    def query_bonus_date(self, start_date, end_date):
+        unwind_stage = { '$unwind': '$items' }
+        match_stage = {   
+                    '$match': { 
+                        '$and': [
+                            { 'items.date': { '$gte':start_date} },
+                            { 'items.date': { '$lte':end_date} }
+                        ]
+                    }
+                }
+        group_stage = {}
+        sort_stage = {}
+        group_stage = {
+                    '$group': { 
+                        '_id': {
+                            'code': '$ts_code'
+                        },
+                        'items': { '$push': "$items" },
+                        'num': { '$count': {} }
+                    }
+                }
+        sort_stage = { '$sort': { 'num': -1 } }
+        v = [ unwind_stage, match_stage, group_stage, sort_stage ]
+        ref = self.col_bonus.aggregate(v)
+        if ref != None:
+            self.stock_list = list(ref)
+            print('query_bonus_date', start_date, end_date, len(self.stock_list))
+            print('format', self.stock_list[0].keys())
+            return self.stock_list
+        return None
+
+    # 返回指定code，指定时间范围的bonus个数
+    def query_bonus_code_date(self, ts_code, start_date, end_date):
+        unwind_stage = { '$unwind': '$items' }
+        match_stage = {   
+                    '$match': { 
+                        '$and': [
+                            { 'ts_code': ts_code },
+                            { 'items.date': { '$gte':start_date} },
+                            { 'items.date': { '$lte':end_date} }
+                        ]
+                    }
+                }
+        group_stage = {}
+        sort_stage = {}
+        group_stage = {
+                    '$group': { 
+                        '_id': {
+                            'code': '$ts_code'
+                        },
+                        'items': { '$push': "$items" },
+                        'num': { '$count': {} }
+                    }
+                }
+        sort_stage = { '$sort': { 'num': -1 } }
+        v = [ unwind_stage, match_stage, group_stage, sort_stage ]
+        ref = self.col_bonus.aggregate(v)
+        if ref != None:
+            self.stock_list = list(ref)
+            #print('query_bonus_code_date', ts_code, start_date, end_date, len(self.stock_list))
+            if len(self.stock_list) != 0:
+                pass
+                #print('format', self.stock_list[0].keys())
+            #else: ref != None but ref == []
+            return self.stock_list
+        return None
+
     # dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
     def query_day_code(self, ts_code):
         v = {'ts_code': ts_code}
@@ -196,11 +263,11 @@ class StockQuery:
             df = pd.DataFrame(ref['day'])
             df_tmp = df[df['date']>=start_date]
             df_tmp = df_tmp[df_tmp['date']<=end_date]
-            print('query_day_code_date_df', ts_code, start_date, end_date, 'actually', df_tmp.iloc[len(df_tmp.index)-1].date, df_tmp.iloc[0].date)
+            #print('query_day_code_date_df', ts_code, start_date, end_date, 'actually', df_tmp.iloc[len(df_tmp.index)-1].date, df_tmp.iloc[0].date)
             df_tmp.index = df_tmp['date']
             df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
             df_tmp = df_tmp.sort_values(by='date')
-            print('format', df_tmp.columns)
+            #print('format', df_tmp.columns)
             return df_tmp
         return None
 
@@ -335,6 +402,11 @@ class StockQuery:
         return
 
     def check_bad_bonus(self, ts_code):
+        if ts_code == '601919.SH': # 前复权出现负数 start_date = '20200101' end_date   = '20230602'
+            return 1
+        if ts_code == '831726.BJ': # max_cost == 0
+            return 1
+
         v = {'ts_code': ts_code}
         ref = self.col_bad_bonus.find_one(v)
         if ref == None:
