@@ -93,8 +93,9 @@ class StockQuery:
             if df.empty == True:
                 df = pd.DataFrame()
                 return df
-            df.index = df['date']
-            df = df.drop(columns=['date', 'year', 'dividend_year', 'plan_explain'])
+            #df.index = df['date']
+            #df = df.drop(columns=['date', 'year', 'dividend_year', 'plan_explain'])
+            df = df.drop(columns=['year', 'dividend_year', 'plan_explain'])
             df = df.sort_values(by='date')
 
             #print('query_bonus_code', ts_code)
@@ -264,8 +265,9 @@ class StockQuery:
             df_tmp = df[df['date']>=start_date]
             df_tmp = df_tmp[df_tmp['date']<=end_date]
             #print('query_day_code_date_df', ts_code, start_date, end_date, 'actually', df_tmp.iloc[len(df_tmp.index)-1].date, df_tmp.iloc[0].date)
-            df_tmp.index = df_tmp['date']
-            df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
+            #df_tmp.index = df_tmp['date']
+            #df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
+            df_tmp = df_tmp.drop(columns=['chg', 'percent', 'turnoverrate', 'volume'])
             df_tmp = df_tmp.sort_values(by='date')
             #print('format', df_tmp.columns)
             return df_tmp
