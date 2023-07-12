@@ -221,8 +221,7 @@ def print_single(sq, ts_code, start_date, end_date, chg_perc, interval):
 if __name__ == '__main__':
     #testds_np()
     #testds_pandas()
-    testds_list()
-    quit()
+    #testds_list()
 
     sq = StockQuery()
 
@@ -249,7 +248,6 @@ if __name__ == '__main__':
         ]
     code_list = sq.query_basic(None)
     #stat_chg_bonus(sq, code_list, start_date, end_date, chg_perc, interval)
-
 
     # 20200101 - 20230630, 出现过2次chg中含多次XD的，且XD 3次
     code_list = [
@@ -350,4 +348,5 @@ if __name__ == '__main__':
     ts_code = '002050.SZ'
     start_date = '20200708'
     end_date   = '20220610'
-    sim_single(sq, ts_code, start_date, end_date, chg_perc, interval)
+    #sim_single(sq, ts_code, start_date, end_date, chg_perc, interval)
+
