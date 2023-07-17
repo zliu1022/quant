@@ -268,7 +268,11 @@ class StockQuery:
             #df_tmp.index = df_tmp['date']
             #df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
             df_tmp = df_tmp.drop(columns=['chg', 'percent', 'turnoverrate', 'volume'])
-            df_tmp = df_tmp.sort_values(by='date')
+            #df_tmp = df_tmp.sort_values(by='date')
+            #df_tmp = df_tmp.reset_index(drop=True)
+            df_tmp.sort_values(by='date', inplace=True)
+            df_tmp.reset_index(drop=True, inplace=True)
+
             #print('format', df_tmp.columns)
             return df_tmp
         return None
