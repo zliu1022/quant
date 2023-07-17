@@ -29,36 +29,43 @@ def stat_chg(df, start_date, chg_perc):
     day_len = len(df.index)
     for i in range(day_len):
         #print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end=' ')
-        if df.index[i] < start_date:
+        #if df.index[i] < start_date:
+        #if df.loc[i, 'date'] < start_date:
+        if df.iloc[i]['date'] < start_date:
             continue
-        if df.index[i] >= start_date and len(arr_firstmin) == 0:
+        #if df.index[i] >= start_date and len(arr_firstmin) == 0:
+        #if df.iloc[i]['date'] >= start_date and len(arr_firstmin) == 0:
+        if df.date[i] >= start_date and len(arr_firstmin) == 0:
             #print('df.index[i] == start_date')
-            cur_min = (df.low[i] + df.high[i])/2.0
+            #cur_min = (df.low[i] + df.high[i])/2.0
+            cur_min = (df['low'].iloc[i] + df['high'].iloc[i])/2.0
+
             s_date = df.index[i]
 
             arr_firstmin.append(cur_min)
-            arr_sfirst_date.append(df.index[i])
+            arr_sfirst_date.append(df.date[i])
             #print('first', df.low[i], ' -> cur_firstmin', df.index[i])
             continue
 
         # update min
         if df.low[i] < cur_min:
+
             if cur_min == 99999.0:
                 cur_min = (df.low[i] + df.high[i])/2.0
                 arr_firstmin.append(cur_min)
 
-                arr_sfirst_date.append(df.index[i])
+                arr_sfirst_date.append(df.date[i])
                 s_date = df.index[i]
                 #print('first', df.low[i], ' -> cur_firstmin', df.index[i])
             else:
                 cur_min = df.low[i]
-                s_date = df.index[i]
+                s_date = df.date[i]
                 #print('df.low[i] ', df.low[i], ' -> cur_min', s_date)
             continue
 
         if (df.high[i]-cur_min)/cur_min >= chg_perc:
             cur_max = df.high[i]
-            e_date = df.index[i]
+            e_date = df.date[i]
             #print('df.high[i] ', df.high[i], ' -> cur_max', e_date)
             #print()
 
