@@ -208,6 +208,8 @@ def print_single(sq, ts_code, start_date, end_date, chg_perc, interval):
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date) 
     df_bonus = sq.query_bonus_code_df(ts_code)
+    print(df_bonus)
+    quit()
     df_forw  = recover_price_forward(df_day, df_bonus)
     ret = sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval)
     print('hold {} cost {} profit {} dec_perc {}%'.format(
@@ -343,7 +345,7 @@ if __name__ == '__main__':
     #print_single(sq, ts_code, start_date, end_date, chg_perc, interval)
     start_date = '20220728'
     end_date   = '20230619'
-    #print_single(sq, ts_code, start_date, end_date, chg_perc, interval)
+    print_single(sq, ts_code, start_date, end_date, chg_perc, interval)
 
     ts_code = '002050.SZ'
     start_date = '20200708'
