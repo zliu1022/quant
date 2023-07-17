@@ -129,11 +129,11 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
     arr_ticks = []
     day_len = len(df_day.index)
 
-    index_date = datetime.strptime(df_day.index[0], '%Y%m%d')
+    index_date = datetime.strptime(df_day.date[0], '%Y%m%d')
     arr_ticks.append(df_day.index[0])
 
     for i in range(day_len):
-        cur_date = datetime.strptime(df_day.index[i], '%Y%m%d')
+        cur_date = datetime.strptime(df_day.date[i], '%Y%m%d')
         if (cur_date-index_date).days > 87 and cur_date.day<=3:
             arr_ticks.append(df_day.index[i])
             index_date = cur_date
@@ -141,7 +141,7 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
     ax1.axes.xaxis.set_ticks(arr_ticks)
     ax2.axes.xaxis.set_ticks(arr_ticks)
 
-    title_str = ts_code + '_' + df_day.index[0] + '_' + df_day.index[day_len-1] + '_' + str(chg_perc)
+    title_str = ts_code + '_' + df_day.date[0] + '_' + df_day.date[day_len-1] + '_' + str(chg_perc)
     plt.savefig(title_str + '.png', dpi=150)
     #plt.show()
     plt.close()
