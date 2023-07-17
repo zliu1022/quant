@@ -36,8 +36,8 @@ def recover_price_backward(df_in, df_bonus):
             high = round((high * (base+free+new) + bonus)/base, 2)
             low = round((low * (base+free+new) + bonus)/base, 2)
 
-        df.high[i] = high
-        df.low[i] = low
+        df.loc[i, 'high'] = high
+        df.loc[i, 'low'] = low
         #print(' -> {:7.2f} {:7.2f}'.format(low, high))
 
     #df_back = df.copy()
@@ -67,6 +67,9 @@ def recover_price_forward(df_in, df_bonus):
     for i in range(day_len):
         ret = df_bonus[df_bonus.index<=last_date]
         ret = ret[ret.index>df.index[i]]
+        #ret = ret.reset_index(drop=True)
+        ret = ret.sort_values(by='date').reset_index(drop=True)
+
         if ret.empty == True:
             #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.index[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
             #print()
@@ -100,10 +103,10 @@ def recover_price_forward(df_in, df_bonus):
         df.open[i] = math.ceil(p_open*100)/100
         df.close[i] = math.ceil(close*100)/100
         '''
-        df.high[i] = round(high*100)/100
-        df.low[i] = round(low*100)/100
-        df.open[i] = round(p_open*100)/100
-        df.close[i] = round(close*100)/100
+        df.loc[i, 'high'] = round(high*100)/100
+        df.loc[i, 'low'] = round(low*100)/100
+        df.loc[i, 'open'] = round(p_open*100)/100
+        df.loc[i, 'close'] = round(close*100)/100
         #print(' -> {:9.3f} {:9.3f} {:9.3f} {:9.3f}'.format(df.open[i], df.low[i], df.high[i], df.close[i]))
 
     rt.show_ms()
