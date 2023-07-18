@@ -20,11 +20,22 @@ class StockQuery:
         self.col_day = db.day
         self.col_bad_bonus = db.bad_bonus
 
+        ak = client.ak_board
+        self.col_bd_details = ak.boarddetails
+        self.col_bd = ak.boardinfo
+
         self.stock_list = []
         self.day = []
 
         self.col_mktvalue = db.mktvalue
         return
+
+    def query_bd(self, ts_code):
+        ref = self.col_bd_details.find({ '代码': ts_code })
+        if ref != None:
+            df = pd.DataFrame(ref)
+            return df
+        return None
 
     # dict_keys(['_id', 'ts_code', 'symbol', 'name', 'industry', 'list_status', 'list_date', 'delist_date'])
     def query_basic(self, ts_code):
@@ -100,9 +111,8 @@ class StockQuery:
 
             #print('query_bonus_code', ts_code)
             return df
-
         df = pd.DataFrame()
-        return None
+        return df
 
     # 搜索分红计划匹配字符串
     # dict_keys(['_id'])
@@ -266,8 +276,7 @@ class StockQuery:
             df_tmp = df_tmp[df_tmp['date']<=end_date]
             #print('query_day_code_date_df', ts_code, start_date, end_date, 'actually', df_tmp.iloc[len(df_tmp.index)-1].date, df_tmp.iloc[0].date)
             #df_tmp.index = df_tmp['date']
-            #df_tmp = df_tmp.drop(columns=['date', 'chg', 'percent', 'turnoverrate', 'volume'])
-            df_tmp = df_tmp.drop(columns=['chg', 'percent', 'turnoverrate', 'volume'])
+            df_tmp = df_tmp.drop(columns=['chg', 'percent'])
             #df_tmp = df_tmp.sort_values(by='date')
             #df_tmp = df_tmp.reset_index(drop=True)
             df_tmp.sort_values(by='date', inplace=True)
@@ -275,8 +284,8 @@ class StockQuery:
 
             #print('format', df_tmp.columns)
             return df_tmp
-        return None
-
+        df = pd.DataFrame()
+        return df
 
     # dict_keys(['_id', 'avg_amount', 'num'])
     def stat_day_amount(self, start_date=None, end_date=None, amount=None):
