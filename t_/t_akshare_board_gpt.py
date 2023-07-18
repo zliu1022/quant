@@ -64,7 +64,7 @@ def save_stock_list_to_db(col, symbol):
     try:
         df = ak.stock_board_cons_ths(symbol=symbol)
     except Exception as e:
-        print("Error: save_stock_list_to_db {} {}}".format(symbol, e))
+        print("Error: save_stock_list_to_db {} {}".format(symbol, e))
         return
 
     df['板块代码'] = symbol
@@ -75,7 +75,8 @@ def save_stock_list_to_db(col, symbol):
 def save_update_info_to_db(col_updateinfo):
     update_time = pd.Timestamp.now().strftime("%Y-%m-%d")
     data = {"update_time": update_time}
-    col_updateinfo.insert_one(data)
+    col_updateinfo.update_one( { }, { '$set': data }, upsert=True )
+
     print("更新信息已成功保存到数据库。", update_time)
 
 def query_board():
@@ -111,20 +112,20 @@ if __name__ == '__main__':
 
     client = MongoClient(port=27017)
     db = client.ak_board
-
     col_name = 'boardinfo'
+    col_name = 'boarddetails'
+    col_updateinfo = db.updateinfo
+
+    '''
     col_board      = db[col_name]
     if col_name not in db.list_collection_names():
         print('create collection {}'.format(col_name))
         db.create_collection(col_name)
 
-    col_name = 'boarddetails'
     col_board_list = db[col_name]
     if col_name not in db.list_collection_names():
         print('create collection {}'.format(col_name))
         db.create_collection(col_name)
-
-    col_updateinfo = db.updateinfo
     
     save_sector_info_to_db(col_board)
 
@@ -134,6 +135,7 @@ if __name__ == '__main__':
     for _, row in df_sector_info.iterrows():
         symbol = row["代码"]
         save_stock_list_to_db(col_board_list, symbol)
+    '''
 
     # 保存更新信息到数据库
     save_update_info_to_db(col_updateinfo)
