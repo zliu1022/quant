@@ -11,11 +11,14 @@ from pprint import pprint
 
 client = MongoClient(port=27017)
 db = client.stk1
+col_mktvalue = db.mktvalue
 
+# 打印单个code的所有信息, 为筛选做准备
 def filter_single_example():
     sq = StockQuery()
 
     ts_code    = '002475.SZ'
+    ts_code    = '831087.BJ'
 
     ref = sq.query_day_code(ts_code)
 
@@ -111,13 +114,12 @@ def filter_single_example():
     print()
 
 
+# 计算start_date, end_date 日期范围内的mktvalue,并放入mktvalue
+# 和 StockQuery 中的 query_mktvalue(self, minv, maxv) 配合使用
 def filter_mktvalue(start_date, end_date):
     rt = RecTime()
 
-    client = MongoClient(port=27017)
-    db = client.stk1
-    db.drop_collection('mktvalue')
-    col_mktvalue = db.mktvalue
+    #db.drop_collection('mktvalue')
 
     df_stat    = pd.DataFrame()
 
@@ -125,6 +127,7 @@ def filter_mktvalue(start_date, end_date):
     ref = sq.query_basic(None)
     #print('Found {:4d}'.format(len(ref)))
 
+    arr = []
     for item in ref:
         ts_code = item['ts_code']
         ret = sq.check_bad_bonus(ts_code)
@@ -138,23 +141,25 @@ def filter_mktvalue(start_date, end_date):
         ref = sq.query_day_code_date(ts_code, start_date, end_date)
         # 日线数据第一个最近, 得到最近一天和次近一天
         if ref == None:
-            print('{} {} {} {} null'.format(ts_code, info['name'], info['industry'], info['list_date']))
+            #print('{} {} {} {} null'.format(ts_code, info['name'], info['industry'], info['list_date']))
             continue
 
         d0 = ref[0]
         if d0['turnoverrate'] == 0:
-            print('{} {} {} {} turnoverrate==0'.format(ts_code, info['name'], info['industry'], info['list_date']))
+            #print('{} {} {} {} turnoverrate==0'.format(ts_code, info['name'], info['industry'], info['list_date']))
             continue
         mktvalue = round((d0['volume']/(d0['turnoverrate']/100.0) * d0['close']) / 100000000.0, 2)
-        print('{} {} {} {} {:.2f} 亿元 ({})'.format(ts_code, info['name'], info['industry'], info['list_date'], mktvalue, d0['date']))
+        #print('{} {} {} {} {:.2f} 亿元 ({})'.format(ts_code, info['name'], info['industry'], info['list_date'], mktvalue, d0['date']))
 
         new_dic = {
             'ts_code':ts_code, 
             'name':   info['name'],
+            'industry': info['industry'],
             'mktvalue':mktvalue, 
             'date':d0['date']
             }
-        col_mktvalue.insert_one(new_dic)
+        arr.append(new_dic)
+        #col_mktvalue.insert_one(new_dic)
 
         df_item = pd.DataFrame([{
                 'ts_code':     ts_code,
@@ -165,6 +170,9 @@ def filter_mktvalue(start_date, end_date):
             }])
         df_stat = pd.concat([df_stat, df_item]).reset_index(drop=True)
 
+    update_mktvalue(start_date, end_date, arr)
+
+    # 如果写入文件，后续可用 draw_mktvalue_fromfile 来画分布图
     title_str = 'mktvalue'
     #df_stat.to_csv(title_str + '.csv', index=False)
 
@@ -180,7 +188,6 @@ def draw_mktvalue_fromfile():
 
     title_str = 'mktvalue'
 
-    #df_stat.to_csv(title_str + '.csv', index=False)
     df_stat = pd.read_csv(title_str + '.csv')
     column = df_stat.mktvalue
 
@@ -196,6 +203,28 @@ def draw_mktvalue_fromfile():
     ax1.set_title(title_str)
     plt.savefig(title_str + '.png', dpi=150)
     plt.show()
+
+def update_mktvalue(start_date, end_date, arr):
+    #col_name='mkttest'
+    #col_mktvalue = db[col_name]
+
+    v = {
+        'start_date':start_date, 
+        'end_date':  end_date
+    }
+    data = {
+        'start_date':start_date, 
+        'end_date':  end_date,
+        'mv': arr
+    }
+    ret = col_mktvalue.find_one(v)
+    if ret == None:
+        print('insert')
+        ret = col_mktvalue.insert_one(data)
+    else:
+        print('update')
+        ret = col_mktvalue.update_one(v, {'$set': data})
+    print('update_mktvalue OK', start_date, end_date, len(arr))
 
 def filter_test_set(start_date, end_date, v1, v2, v3):
     col_name='mkttest'
@@ -224,31 +253,7 @@ def filter_test_set(start_date, end_date, v1, v2, v3):
         ret = col_mktvalue.update_one(v, {'$set': data})
     print('filter_test_set OK', start_date, end_date, v1, v2, v3)
 
-def filter_test_get(start_date, v1, v2):
-    col_name='mkttest'
-    col_mktvalue = db[col_name]
-
-    v = {
-        'start_date': {'$gte': start_date},
-        'end_date':   {'$lte': start_date},
-        'mv': {
-            '$elemMatch': {
-                'mktvalue': {'$gte': v1, '$lte': v2}
-            }
-        }
-    }
-
-    results = col_mktvalue.find_one(v)
-    if results != None:
-        print('filter_test_get OK', start_date, v1, v2)
-        print(results)
-        for result in results:
-            print(result)
-
 def filter_test_agg(start_date, v1, v2):
-    col_name = 'mkttest'
-    col_mktvalue = db[col_name]
-
     v = [
         {
             '$match': {
@@ -258,6 +263,9 @@ def filter_test_agg(start_date, v1, v2):
         },
         {
             '$unwind': '$mv'
+        },
+        {
+            '$sort': {'mv.mktvalue': 1}
         },
         {
             '$match': {
@@ -275,34 +283,36 @@ def filter_test_agg(start_date, v1, v2):
     ]
 
     results = col_mktvalue.aggregate(v)
-
     l = list(results)
-    pprint(l[0]['mv'][0])
 
-    df = pd.DataFrame(results)
-    print('dataframe')
-    print(df.keys())
-    print(df)
-
-    for result in results:
-        pprint(result['mv'])
-
-    count = col_mktvalue.count_documents({'start_date': {'$lte': start_date}, 'end_date': {'$gte': start_date}})
-    print('Total matching documents:', count)
+    df = pd.DataFrame(l[0]['mv'])
+    print(f'filter_test_agg {start_date} {v1} {v2}')
+    print('Total:', len(df.index))
+    print(df.iloc[0:3])
 
 
 # 筛选指定条件的code，存储到单独的collection中，后续通过不同条件select出来
 if __name__ == '__main__':
     start_date = '20200101'
     end_date   = '20200115'
-
     #filter_single_example()
-    #filter_mktvalue(start_date, end_date)
+
+    filter_mktvalue('20200101', '20200115')
+    filter_mktvalue('20210101', '20210115')
+    filter_mktvalue('20220101', '20220115')
+    filter_mktvalue('20230101', '20230115')
+
     #draw_mktvalue_fromfile()
 
+    # 预先计算多个不同时间范围的市值
     #filter_test_set('20200101', '20200115', 10,20,30)
     #filter_test_set('20230101', '20230115', 20,30,40)
 
-    filter_test_agg('20200105', 10, 50)
-    #filter_test_get('20230110', 15, 20)
+    # 在 20200105 这段时间附近，找 10~50 之间市值的code
+    #filter_test_agg('20200105', 10, 50)
+    #filter_test_agg('20230110', 15, 20)
+    filter_test_agg('20200110', 11, 11.5)
+    filter_test_agg('20210110', 11, 11.5)
+    filter_test_agg('20220110', 11, 11.5)
+    filter_test_agg('20230110', 11, 11.5)
 
