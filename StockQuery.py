@@ -53,17 +53,58 @@ class StockQuery:
             return self.stock_list
         return None
 
+    '''
     def query_mktvalue(self, minv, maxv):
         v = {'mktvalue': {'$gte':minv, '$lt':maxv}}
         ref = self.col_mktvalue.find(v)
         self.stock_list = list(ref)
 
         if ref != None:
-            print('select_mktvalue', len(self.stock_list))
+            #print('select_mktvalue', len(self.stock_list))
             if len(self.stock_list) != 0:
-                print('format', self.stock_list[0].keys())
+                #print('format', self.stock_list[0].keys())
                 pass
             return self.stock_list
+        return None
+    '''
+    def query_mktvalue(self, start_date, minv, maxv):
+        v = [
+            {
+                '$match': {
+                    'start_date': {'$lte': start_date},
+                    'end_date':   {'$gte': start_date}
+                }
+            },
+            {
+                '$unwind': '$mv'
+            },
+            {
+                '$sort': {'mv.mktvalue': 1}
+            },
+            {
+                '$match': {
+                    'mv.mktvalue': {'$gte': minv, '$lte': maxv}
+                }
+            },
+            {
+                '$group': {
+                    '_id': '$_id',
+                    'start_date': {'$first': '$start_date'},
+                    'end_date': {'$first': '$end_date'},
+                    'mv': {'$push': '$mv'}
+                }
+            }
+        ]
+
+        results = self.col_mktvalue.aggregate(v)
+        l = list(results)
+
+        if len(l) != 0:
+            df = pd.DataFrame(l[0]['mv'])
+            print(f'query_mktvalue {start_date} {minv} {maxv}', end=' ')
+            print('Total:', len(df.index))
+            #print(df.iloc[0:3])
+            return l[0]['mv']
         return None
 
     def query_basic_df(self, ts_code):
