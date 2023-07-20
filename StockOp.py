@@ -6,14 +6,24 @@ import pandas as pd
 import numpy as np
 from StockQuery import StockQuery
 from Utils import RecTime
+import sys
 
 class StockOp:
     def __init__(self, i, chg_perc, interval, start_date, end_date):
-        ts_code = i['ts_code']
-        print('__init__', ts_code)
-        self.ts_code = ts_code
-        self.name = i['name']
-        self.industry = i['industry']
+        if isinstance(i, str):
+            self.ts_code = i
+            self.name = ''
+            self.industry = ''
+            self.begin_mv = 0.0
+        elif isinstance(i, dict):
+            self.ts_code = i['ts_code']
+            self.name = i['name']
+            self.industry = i['industry']
+            self.begin_mv = i['mktvalue']
+        else:
+            return
+
+        print('__init__', self.ts_code)
         self.start_date = start_date
         self.end_date = end_date
 
@@ -31,8 +41,8 @@ class StockOp:
         self.init_deal()
 
         sq = StockQuery()
-        df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date) 
-        df_bonus = sq.query_bonus_code_df(ts_code)
+        df_day   = sq.query_day_code_date_df(self.ts_code, start_date, end_date) 
+        df_bonus = sq.query_bonus_code_df(self.ts_code)
 
         self.day_df = pd.DataFrame()
         self.bonus_df = pd.DataFrame()
@@ -45,11 +55,10 @@ class StockOp:
         d0_mktvalue = d0['volume']/(d0['turnoverrate']/100) * d0['close']
         self.mktvalue = d0_mktvalue
 
-        df_bd = sq.query_bd(i['symbol'])
-        print(len(df_bd.index))
-        print(df_bd)
-        self.pe = df_bd[0]['市盈率']
-        quit()
+        df_bd = sq.query_bd(self.ts_code.split('.')[0])
+        self.pe = 0
+        if not df_bd.empty:
+            self.pe = df_bd.iloc[0]['市盈率']
 
     def __del__(self):
         if self.day_df is not None:
@@ -111,21 +120,25 @@ class StockOp:
             if not self.bonus_df.empty:
                 bonus = self.bonus_df[self.bonus_df["date"] == date]
                 if len(bonus) > 0:
-                    # method1: XD the original value
-                    self.min_price = self.xd(self.min_price, bonus)
-                    self.first_buy_price = self.xd(self.first_buy_price, bonus)
-                    self.sell_exp_price = self.min_price * self.chg_perc
-                    self.next_buy_price = self.first_buy_price * (1-self.interval*self.buy_count)
+                    if self.buy_count != 0: # 还未开始first_buy也无需除权
+                        # method1: XD the original value
+                        self.min_price = self.xd(self.min_price, bonus)
+                        self.first_buy_price = self.xd(self.first_buy_price, bonus)
+                        self.sell_exp_price = self.min_price * self.chg_perc
+                        self.next_buy_price = self.first_buy_price * (1-self.interval*self.buy_count)
 
-                    # method2: XD the current value
-                    # 这个逻辑有矛盾，虽然这次next_buy进行了除权
-                    # 但下一次买时，next_buy会按照first_buy计算，和这次XD完全无关了，肯定没道理
-                    '''
-                    self.sell_exp_price = self.xd(self.sell_exp_price, bonus)
-                    self.next_buy_price = self.xd(self.next_buy_price, bonus)
-                    '''
+                        # method2: XD the current value
+                        # 这个逻辑有矛盾，虽然这次next_buy进行了除权
+                        # 但下一次买时，next_buy会按照first_buy计算，和这次XD完全无关了，肯定没道理
+                        '''
+                        self.sell_exp_price = self.xd(self.sell_exp_price, bonus)
+                        self.next_buy_price = self.xd(self.next_buy_price, bonus)
+                        '''
 
-                    #print('{} XD first/min/next/sell {:.3f} {:.3f} {:.3f}({}) {:.3f}'.format(date, self.first_buy_price, self.min_price, self.next_buy_price, self.next_buy_qty, self.sell_exp_price))
+                        #print('{} XD first/min/next/sell {:.3f} {:.3f} {:.3f}({}) {:.3f}'.format(date, self.first_buy_price, self.min_price, self.next_buy_price, self.next_buy_qty, self.sell_exp_price))
+                    else:
+                        #print(f'{date} XD still no first buy')
+                        pass
 
             # 更新最低价、卖出价
             if row["low"] < self.min_price:
@@ -181,12 +194,24 @@ class StockOp:
             print(self.day_df)
             return
         day = today_df.iloc[-1]
+
+        if self.df_stat.empty:
+            print('{} {} {:.0f} {} no profit first day?'.format(self.ts_code, self.name, self.mktvalue, self.pe))
+            return
+
         last = self.df_stat.iloc[-1]
         unit_cost = last['accum_cost']/last['accum_qty']
-        profit = (day['high'] - unit_cost)*last['accum_qty']
-        print('{} {} {} {:.0f} {}'.format(self.ts_code, self.name, self.industry, self.mktvalue, self.pe), end=' ')
-        print('profit {:.0f} {:.0f}'.format(self.accum_profit, profit), end=' ')
+        cur_profit = (day['high'] - unit_cost)*last['accum_qty']
+
+        norm_co = self.max_cost/1000000
+        norm_accum_profit = self.accum_profit/norm_co
+        norm_cur_profit = cur_profit/norm_co
+
+        print('{} {} {} {:.1f}({:.1f}) {}'.format(self.ts_code, self.name, self.industry, self.mktvalue/100000000, self.begin_mv, self.pe), end=' ')
+        print('profit {:.0f} {:.0f}'.format(self.accum_profit, cur_profit), end=' ')
+        print('norm {:.0f} {:.0f}'.format(norm_accum_profit, norm_cur_profit), end=' ')
         print('max_cost {:.0f}'.format(self.max_cost), end=' ')
+
         if pd.isna(last['date']):
             print('hold {:.2f}*{:.0f}({}-{})'.format(
                 unit_cost, last['accum_qty'], day['low'], day['high']))
@@ -194,45 +219,76 @@ class StockOp:
         return
 
 if __name__ == '__main__':
-    #so = StockOp("600938.SH", chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230630")
-    #so.process_day()
-    #quit()
     rt = RecTime()
-    code_list = [
-            {'ts_code': '002315.SZ'},
-            {'ts_code': '002919.SZ'},
-            {'ts_code': '300211.SZ'},
-            {'ts_code': '300476.SZ'},
-            {'ts_code': '300620.SZ'},
-            {'ts_code': '300654.SZ'},
-            {'ts_code': '300678.SZ'},
-            {'ts_code': '301052.SZ'},
-            {'ts_code': '301179.SZ'},
-            {'ts_code': '301312.SZ'},
-            {'ts_code': '600666.SH'},
-            {'ts_code': '688160.SH'}
-        ]
     sq = StockQuery()
-    code_list = sq.query_basic(None)
+
+    # 一个code
+    #so = StockOp("600938.SH", chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230630")
     '''
-    stock_codes = [item['ts_code'] for item in code_list]
-    start_code = '688627.SH'
-    start_index = stock_codes.index(start_code)
-    for i in range(start_index, len(code_list)):
-        so = StockOp(code_list[i]['ts_code'], chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230717")
+    ts_code    = '002456.SZ' # 欧菲光
+    ts_code    = '300476.SZ'
+    ts_code = '601398.SH'
+    ts_code = '601857.SH'
+    so = StockOp(ts_code, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230717")
+    so.process_day()
+    so.show_stat()
+    quit()
     '''
+
+    # 固定列表
+    '''
+    code_list = [
+            '002315.SZ',
+            '002919.SZ',
+            '300211.SZ',
+            '300476.SZ',
+            '300620.SZ',
+            '300654.SZ',
+            '300678.SZ',
+            '301052.SZ',
+            '301179.SZ',
+            '301312.SZ',
+            '600666.SH',
+            '688160.SH'
+        ]
     for item in code_list:
         so = StockOp(item, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230717")
         so.process_day()
         so.show_stat()
         del so
-        quit()
-    rt.show_s()
     quit()
+    '''
 
-    ts_code    = '002456.SZ' # 欧菲光
-    ts_code    = '300476.SZ' # 欧菲光
-    so = StockOp(ts_code, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230717")
-    so.process_day()
-    so.show_stat()
+    # 查询
+    '''
+    code_list = sq.query_basic(None)
+    # 一旦出现异常，可以恢复到异常发生时的代码继续
+    stock_codes = [item['ts_code'] for item in code_list]
+    start_code = '688627.SH'
+    start_index = stock_codes.index(start_code)
+    start_index = 0
+    for i in range(start_index, len(code_list)):
+        so = StockOp(code_list[i]['ts_code'], chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230717")
+        so.process_day()
+        so.show_stat()
+        del so
+        quit()
+    '''
 
+    # 采用mktvalue进行筛选
+    if len(sys.argv) == 3:
+        start_date = sys.argv[1]
+        end_date   = sys.argv[2]
+    #v1 = 10000; v2 = np.inf # 市值超过万亿的：中国石油，贵州茅台，工商银行，其中工商银行基本不波动，没有盈利空间
+    v1 = 0; v2 = np.inf # 市值超过万亿的：中国石油，贵州茅台，工商银行，其中工商银行基本不波动，没有盈利空间
+    code_list = sq.query_mktvalue(start_date, v1, v2)
+    stock_codes = [item['ts_code'] for item in code_list]
+    start_index = 0
+    #start_index = stock_codes.index('601398.SH')
+    for i in range(start_index, len(code_list)):
+        so = StockOp(code_list[i], chg_perc=1.55, interval=0.03, start_date=start_date, end_date=end_date)
+        so.process_day()
+        so.show_stat()
+        del so
+
+    rt.show_s()
