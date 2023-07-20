@@ -15,34 +15,35 @@ if __name__ == '__main__':
 
     # select mktvalue [0, 10) 亿
     v1 = 0; v2 = 10
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},   {:4d}) {:4d}'.format(v1, v2, len(ref)))
 
     v1 = 10; v2 = 20
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},   {:4d}) {:4d}'.format(v1, v2, len(ref)))
 
     v1 = 20; v2 = 50
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},   {:4d}) {:4d}'.format(v1, v2, len(ref)))
 
     v1 = 50; v2 = 100
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},   {:4d}) {:4d}'.format(v1, v2, len(ref)))
 
     v1 = 100; v2 = 200
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},   {:4d}) {:4d}'.format(v1, v2, len(ref)))
 
     v1 = 200; v2 = 500
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},   {:4d}) {:4d}'.format(v1, v2, len(ref)))
 
     v1 = 500; v2 = 1000
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},   {:4d}) {:4d}'.format(v1, v2, len(ref)))
 
     v1 = 1000; v2 = np.inf
-    ref = sq.query_mktvalue(v1, v2)
+    ref = sq.query_mktvalue(start_date, v1, v2)
     print('[{:4d},    inf) {:4d}'.format(v1, len(ref)))
+    print(ref[0])
 
