@@ -1,28 +1,22 @@
-Check token 2023-07-17
-update token 197a3a870824d1754f6edf083d719bd1a3aabe88 cost  1.04s
+Check token 2023-07-21
+update token 197a3a870824d1754f6edf083d719bd1a3aabe88 cost  0.78s
 token expired, update 197a3a870824d1754f6edf083d719bd1a3aabe88
-req_basic changed 002265.SZ industry 专用机械 -> 汽车配件 
-req_basic changed 300297.SZ name 蓝盾退 -> *ST蓝盾 industry None -> 软件服务 
-req_basic changed 301202.SZ name 朗威股份 -> C朗威 
-req_basic changed 301210.SZ name 金杨股份 -> C金杨 
-req_basic insert new 301261.SZ 恒工精密 机械基件
-req_basic insert new 301272.SZ C英华特 专用机械
-req_basic changed 301291.SZ name 明阳电气 -> C明阳电 
-req_basic insert new 301329.SZ N信音 元器件
-req_basic insert new 301370.SZ C国科恒 医药商业
-req_basic insert new 301381.SZ C赛维 互联网
-req_basic insert new 301393.SZ C昊帆 化工原料
-req_basic changed 301395.SZ name 仁信新材 -> C仁信 
-req_basic insert new 301456.SZ C盘古 电气设备
-req_basic changed 301488.SZ name 豪恩汽电 -> C豪恩 
-req_basic insert new 301503.SZ N智迪 IT设备
-req_basic changed 600388.SH name 龙净环保 -> ST龙净 
-req_basic changed 603162.SH industry 水运 -> 港口 
-req_basic changed 688582.SH name 芯动联科 -> C芯动 
-req_basic insert new 688603.SH 天承科技 化工原料
-req_basic insert new 688627.SH 精智达 专用机械
-req_basic insert new 688638.SH C誉辰 专用机械
-req_basic insert new 833751.BJ N惠同 小金属
-req_basic insert new 838701.BJ 豪声电子 元器件
-req_basic insert new 873576.BJ 天力复合 小金属
-req_basic cost 11.75s
+req_basic changed 002951.SZ name ST金时 -> 金时科技 
+req_basic changed 301272.SZ name 英华特 -> C英华特 
+req_basic changed 301329.SZ name C信音 -> N信音 
+req_basic changed 301370.SZ name 国科恒泰 -> C国科恒 
+req_basic changed 301381.SZ name 赛维时代 -> C赛维 
+req_basic changed 301393.SZ name 昊帆生物 -> C昊帆 
+req_basic insert new 301499.SZ 维科精密 汽车配件
+req_basic changed 301503.SZ name C智迪 -> N智迪 
+req_basic insert new 301505.SZ C苏州规 建筑工程
+req_basic insert new 301512.SZ N智信 专用机械
+req_basic changed 688535.SH industry 半导体 -> 化工原料 
+req_basic insert new 688563.SH C航材 航空
+req_basic insert new 688602.SH N康鹏 化工原料
+req_basic insert new 688610.SH C埃科 电器仪表
+req_basic changed 688627.SH name C精智达 -> 精智达 
+req_basic changed 688638.SH name 誉辰智能 -> C誉辰 
+req_basic insert new 832982.BJ N锦波 医疗保健
+req_basic changed 833751.BJ name 惠同新材 -> N惠同 
+req_basic cost 11.19s
