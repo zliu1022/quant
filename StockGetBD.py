@@ -13,23 +13,6 @@ import numpy as np
 today_str = datetime.datetime.now().strftime('%Y-%m-%d')
 today_dt= datetime.datetime.strptime(today_str,'%Y-%m-%d')
 
-def convert_date_injson(data):
-    #{'日期': datetime.date(2023, 6, 9), '概念名称': '算力租赁', '成分股数量': 39, '网址': 'http://q.10jqka.com.cn/gn/detail/code/309068/', '代码': '309068'}
-    #转换为：
-    #{'日期': '2023-06-09', '概念名称': '算力租赁', '成分股数量': 39, '网址': 'http://q.10jqka.com.cn/gn/detail/code/309068/', '代码': '309068'}
-    converted_data = []
-    for record in data:
-        if record['日期'] is not None:
-            try:
-                record['日期'] = record['日期'].strftime('%Y-%m-%d')
-            except Exception as e:
-                print('Error: convert date{}'.format(e))
-                print(record)
-                print()
-                continue
-        converted_data.append(record)
-    return converted_data
-
 def get_bdlist_ori(col):
     #df_new = pd.read_csv('t_akshare_board.csv', dtype={'代码': str}) # 从文件读取，调试使用
     df_new = ak.stock_board_concept_name_ths()
@@ -51,6 +34,7 @@ def get_bdlist_ori(col):
     data = df_new.to_dict('records')
     col.insert_many(data)
 
+# test case, 为了测试df比较函数，随意删除df中的数据
 def do_new_remove():
     # Randomly delete a row from df_new_modified
     random_index = np.random.choice(df_new.index, 1, replace=False)
@@ -107,7 +91,11 @@ def compare_df(df_new, df_cur):
 
     return df_diff_new, df_diff_remove, df_diff_namechg, df_diff_num
 
+# 仅仅针对2个df，都只有'代码'列，进行对比
 def compare_df_v2(df_new, df_cur):
+    df_new = df_new.drop(columns=['序号', '名称', '现价', '涨跌幅', '涨跌', '涨速',  '换手', '量比', '振幅', '成交额', '流通股', '流通市值', '市盈率'])
+    df_cur = df_cur.drop(columns=['序号', '名称', '现价', '涨跌幅', '涨跌', '涨速',  '换手', '量比', '振幅', '成交额', '流通股', '流通市值', '市盈率'])
+
     df_name_all = pd.merge(df_cur, df_new, left_index=True, right_index=True, how='outer', suffixes=('_cur', '_new'))
     df_name_diff = df_name_all[df_name_all['代码_cur'] != df_name_all['代码_new']]
 
@@ -161,34 +149,24 @@ def get_bdinfo_ori(col, symbol, bdname):
         return
 
     # 新数据去重
-    dup_codes = df_new[df_new.duplicated('代码', keep=False)]['代码']
+    dup_codes = df_new[df_new.duplicated('代码', keep=False)][['代码', '名称']]
     if not dup_codes.empty:
-        print(f"{symbol} {bdname} dup {dup_codes.values}")
+        print(f"{symbol} {bdname} dup\n {dup_codes}")
     df_new.drop_duplicates(subset='代码', keep='first', inplace=True)
 
-    # 从数据库中获取旧的数据
+    # 和数据库中旧的数据比较
     data_old = list(col.find({'板块代码': symbol}))
     df_cur = pd.DataFrame(data_old)
     df_cur.drop(columns=['_id', '板块代码'], inplace=True)
-
     df_new = df_new.sort_values(by='代码').reset_index(drop=True)
     df_cur = df_cur.sort_values(by='代码').reset_index(drop=True)
-
     # Find new and removed codes
     new_codes = df_new[~df_new['代码'].isin(df_cur['代码'])][['代码', '名称']]
     removed_codes = df_cur[~df_cur['代码'].isin(df_new['代码'])][['代码', '名称']]
-
-    # Print new and removed codes along with their names
     if not new_codes.empty:
         print(f"{symbol} {bdname} new\n {new_codes}")
     if not removed_codes.empty:
         print(f"{symbol} {bdname} removed\n {removed_codes}")
-
-    quit()
-
-    #df_new = df_new.drop(columns=['序号', '名称', '现价', '涨跌幅', '涨跌', '涨速',  '换手', '量比', '振幅', '成交额', '流通股', '流通市值', '市盈率'])
-    #df_cur = df_cur.drop(columns=['序号', '名称', '现价', '涨跌幅', '涨跌', '涨速',  '换手', '量比', '振幅', '成交额', '流通股', '流通市值', '市盈率'])
-    #compare_df_v2(df_new, df_cur)
 
     df_new['板块代码'] = symbol
     data = df_new.to_dict("records")
@@ -199,8 +177,7 @@ def save_update_info_to_db(col_updateinfo):
     update_time = pd.Timestamp.now().strftime("%Y-%m-%d")
     data = {"update_time": update_time}
     col_updateinfo.update_one( { }, { '$set': data }, upsert=True )
-
-    print("更新信息已成功保存到数据库。", update_time)
+    print("update time", update_time)
 
 def query_board():
     global akboardfile_str
@@ -235,8 +212,7 @@ if __name__ == '__main__':
     #get_bdlist_ori(col_bdlist_ori)
 
     # get board info new -> ori
-    ret = get_bdinfo_ori(col_bdinfo, "302035", "人工智能")
-    quit()
+    #ret = get_bdinfo_ori(col_bdinfo, "302035", "人工智能")
 
     df_bdlist = pd.DataFrame(list(col_bdlist.find())) # 获取板块信息
     for i, row in df_bdlist.iterrows():
@@ -254,10 +230,16 @@ if __name__ == '__main__':
     else:
         print("compare_bdlist returned None")
 
-    # update bdlist_ori -> bdlist
+    # update bdlist_ori -> cur
+    # db.bdlist.drop()
+    # db.bdlist_ori.find().forEach(function(doc) { db.bdlist.insertOne(doc); });
     if result is not None and len(df_diff_remove.index) == 0:
         col_bdlist.drop()
         data = list(db.bdlist_ori.find({}))
         db.bdlist.insert_many(data)
         pass
+
+    # replace bdinfo ori -> cur
+    # db.bdinfo.drop()
+    # db.bdinfo_ori.find().forEach(function(doc) { db.bdinfo.insertOne(doc); });
 
