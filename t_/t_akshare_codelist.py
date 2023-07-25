@@ -7,7 +7,8 @@ import pandas as pd
 
 today_str = datetime.datetime.now().strftime('%Y-%m-%d')
 today_dt= datetime.datetime.strptime(today_str,'%Y-%m-%d')
-akfile_str = 't_akshare_codelist_' + today_str + '.csv'
+#akfile_str = 't_akshare_codelist_' + today_str + '.csv'
+akfile_str = 't_akshare_board' + '.csv'
 
 def get_codelist():
     global akfile_str
