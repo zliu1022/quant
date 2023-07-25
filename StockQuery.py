@@ -21,8 +21,8 @@ class StockQuery:
         self.col_bad_bonus = db.bad_bonus
 
         ak = client.ak_board
-        self.col_bd_details = ak.boarddetails
-        self.col_bd = ak.boardinfo
+        self.col_bdinfo = ak.bdinfo
+        self.col_bd = ak.bdlist
 
         self.stock_list = []
         self.day = []
@@ -31,7 +31,7 @@ class StockQuery:
         return
 
     def query_bd(self, ts_code):
-        ref = self.col_bd_details.find({ '代码': ts_code })
+        ref = self.col_bdinfo.find({ '代码': ts_code })
         if ref != None:
             df = pd.DataFrame(ref)
             return df
