@@ -82,6 +82,7 @@ def compare_df(df_new, df_cur):
     df_all = pd.merge(df_cur, df_new, left_index=True, right_index=True, how='outer', suffixes=('_cur', '_new'))
     df_all = df_all.drop(df_name_diff.index)
     df_diff_num = df_all[df_all['成分股数量_cur'] != df_all['成分股数量_new']]
+    df_diff_num = df_all[(df_all['成分股数量_cur'].notna()) & (df_new['成分股数量_cur'].notna()) & df_all['成分股数量_cur'] != df_all['成分股数量_new']]
     df_diff_num = df_diff_num.drop(columns=['概念名称_new'])
     if len(df_diff_num.index)>0:
         print('number change', len(df_diff_num.index))
@@ -209,7 +210,14 @@ if __name__ == '__main__':
     col_bdinfo = db.bdinfo
 
     # get board list new -> ori
-    #get_bdlist_ori(col_bdlist_ori)
+    get_bdlist_ori(col_bdlist_ori)
+
+    # compare ori with current
+    result = compare_bdlist(col_bdlist_ori, col_bdlist)
+    if result is not None:
+        df_diff_new, df_diff_remove, df_diff_namechg, df_diff_num = result
+    else:
+        print("compare_bdlist returned None")
 
     # get board info new -> ori
     #ret = get_bdinfo_ori(col_bdinfo, "302035", "人工智能")
@@ -221,14 +229,8 @@ if __name__ == '__main__':
         ret = get_bdinfo_ori(col_bdinfo_ori, symbol, bdname)
 
     save_update_info_to_db(col_updateinfo)
-    quit()
 
-    # compare ori with current
-    result = compare_bdlist(col_bdlist_ori, col_bdlist)
-    if result is not None:
-        df_diff_new, df_diff_remove, df_diff_namechg, df_diff_num = result
-    else:
-        print("compare_bdlist returned None")
+    quit()
 
     # update bdlist_ori -> cur
     # db.bdlist.drop()
