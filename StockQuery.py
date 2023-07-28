@@ -22,7 +22,7 @@ class StockQuery:
 
         ak = client.ak_board
         self.col_bdinfo = ak.bdinfo
-        self.col_bd = ak.bdlist
+        self.col_bdlist = ak.bdlist
 
         self.stock_list = []
         self.day = []
@@ -30,8 +30,22 @@ class StockQuery:
         self.col_mktvalue = db.mktvalue
         return
 
-    def query_bd(self, ts_code):
+    def query_bd_tscode(self, ts_code):
         ref = self.col_bdinfo.find({ '代码': ts_code })
+        if ref != None:
+            df = pd.DataFrame(ref)
+            return df
+        return None
+
+    def query_bd_bdcode(self, bd_code):
+        ref = self.col_bdinfo.find({'板块代码': bd_code })
+        if ref != None:
+            df = pd.DataFrame(ref)
+            return df
+        return None
+
+    def query_bdlist(self, bd_code):
+        ref = self.col_bdlist.find({'代码': bd_code })
         if ref != None:
             df = pd.DataFrame(ref)
             return df
