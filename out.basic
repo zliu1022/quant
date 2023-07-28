@@ -1,22 +1,28 @@
-Check token 2023-07-21
-update token 197a3a870824d1754f6edf083d719bd1a3aabe88 cost  0.78s
-token expired, update 197a3a870824d1754f6edf083d719bd1a3aabe88
-req_basic changed 002951.SZ name ST金时 -> 金时科技 
-req_basic changed 301272.SZ name 英华特 -> C英华特 
-req_basic changed 301329.SZ name C信音 -> N信音 
-req_basic changed 301370.SZ name 国科恒泰 -> C国科恒 
-req_basic changed 301381.SZ name 赛维时代 -> C赛维 
-req_basic changed 301393.SZ name 昊帆生物 -> C昊帆 
-req_basic insert new 301499.SZ 维科精密 汽车配件
-req_basic changed 301503.SZ name C智迪 -> N智迪 
-req_basic insert new 301505.SZ C苏州规 建筑工程
-req_basic insert new 301512.SZ N智信 专用机械
-req_basic changed 688535.SH industry 半导体 -> 化工原料 
-req_basic insert new 688563.SH C航材 航空
-req_basic insert new 688602.SH N康鹏 化工原料
-req_basic insert new 688610.SH C埃科 电器仪表
-req_basic changed 688627.SH name C精智达 -> 精智达 
-req_basic changed 688638.SH name 誉辰智能 -> C誉辰 
-req_basic insert new 832982.BJ N锦波 医疗保健
-req_basic changed 833751.BJ name 惠同新材 -> N惠同 
-req_basic cost 11.19s
+Check token 2023-07-28
+update token 715ae77c7b72c67549b80e153e894ef2e19f0446 cost  1.43s
+token expired, update 715ae77c7b72c67549b80e153e894ef2e19f0446
+req_basic changed 002264.SZ industry 互联网 -> 广告包装 
+req_basic changed 002265.SZ name 建设工业 -> 西仪股份 
+req_basic changed 002470.SZ name 金正大 -> ST金正 
+req_basic insert new 301172.SZ C君逸 软件服务
+req_basic changed 301329.SZ name 信音电子 -> C信音 
+req_basic insert new 301446.SZ C福事特 机械基件
+req_basic changed 301456.SZ name 盘古智能 -> C盘古 
+req_basic insert new 301468.SZ C博盈 专用机械
+req_basic changed 301499.SZ name C维科精 -> 维科精密 
+req_basic changed 301503.SZ name 智迪科技 -> C智迪 
+req_basic changed 301505.SZ name 苏州规划 -> C苏州规 
+req_basic changed 301512.SZ name 智信精密 -> N智信 
+req_basic insert new 301515.SZ C港通 医疗保健
+req_basic insert new 301519.SZ N舜禹 水务
+req_basic changed 600128.SH name 苏豪弘业 -> 弘业股份 
+req_basic insert new 688450.SH C光格 软件服务
+req_basic changed 688563.SH name 航材股份 -> C航材 
+req_basic changed 688602.SH name 康鹏科技 -> N康鹏 
+req_basic changed 688610.SH name 埃科光电 -> C埃科 
+req_basic insert new 688612.SH C威迈 汽车配件
+req_basic changed 688627.SH name 精智达 -> C精智达 
+req_basic insert new 688646.SH 逸飞激光 专用机械
+req_basic insert new 688651.SH C盛邦 软件服务
+req_basic changed 832982.BJ name 锦波生物 -> N锦波 
+req_basic cost 12.47s
