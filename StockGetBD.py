@@ -82,7 +82,7 @@ def compare_df(df_new, df_cur):
     df_all = pd.merge(df_cur, df_new, left_index=True, right_index=True, how='outer', suffixes=('_cur', '_new'))
     df_all = df_all.drop(df_name_diff.index)
     df_diff_num = df_all[df_all['成分股数量_cur'] != df_all['成分股数量_new']]
-    df_diff_num = df_all[(df_all['成分股数量_cur'].notna()) & (df_new['成分股数量_cur'].notna()) & df_all['成分股数量_cur'] != df_all['成分股数量_new']]
+    df_diff_num = df_all[(df_all['成分股数量_cur'].notna()) & (df_all['成分股数量_new'].notna()) & df_all['成分股数量_cur'] != df_all['成分股数量_new']]
     df_diff_num = df_diff_num.drop(columns=['概念名称_new'])
     if len(df_diff_num.index)>0:
         print('number change', len(df_diff_num.index))
