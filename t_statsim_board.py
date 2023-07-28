@@ -122,7 +122,7 @@ def stat_board_from_board():
 
     print(df_all_bd)
     if not df_all_bd.empty:
-        df_all_bd.to_csv("all-20200101-20230717-board-fromcode.csv", index=False)
+        df_all_bd.to_csv("all-20200101-20230725-board-fromcode.csv", index=False)
 
 if __name__ == '__main__':
     stat_board_from_board()
