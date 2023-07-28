@@ -55,7 +55,7 @@ class StockOp:
         d0_mktvalue = d0['volume']/(d0['turnoverrate']/100) * d0['close']
         self.mktvalue = d0_mktvalue
 
-        df_bd = sq.query_bd(self.ts_code.split('.')[0])
+        df_bd = sq.query_bd_tscode(self.ts_code.split('.')[0])
         self.pe = 0
         if not df_bd.empty:
             self.pe = df_bd.iloc[0]['市盈率']
@@ -224,7 +224,6 @@ if __name__ == '__main__':
 
     # 一个code
     #so = StockOp("600938.SH", chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230630")
-    '''
     ts_code    = '002456.SZ' # 欧菲光
     ts_code    = '300476.SZ'
     ts_code = '601398.SH'
@@ -233,7 +232,6 @@ if __name__ == '__main__':
     so.process_day()
     so.show_stat()
     quit()
-    '''
 
     # 固定列表
     '''
