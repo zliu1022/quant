@@ -135,6 +135,13 @@ class StockQuery:
             return df
         return None
 
+    def query_industry_df(self, industry_code):
+        ref = self.col_basic.find({ 'industry': industry_code })
+        df = pd.DataFrame(ref)
+        if ref != None:
+            return df
+        return None
+
     # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'ashare_ex_dividend_date', 'equity_date', 'plan_explain', 'cancle_dividend_date'])
     def query_bonus_code(self, ts_code):
         v = {'ts_code': ts_code}
