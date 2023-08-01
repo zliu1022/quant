@@ -120,9 +120,16 @@ def stat_board_from_board():
     df_all_bd['norm_accum_mean_profit'] = df_all_bd['norm_accum_profit'] / df_all_bd['count']
     df_all_bd['norm_cur_mean_profit'] = df_all_bd['norm_cur_profit'] / df_all_bd['count']
 
-    print(df_all_bd)
+    bd_accum = df_all_bd.sort_values('norm_accum_mean_profit', ascending=False)
+    bd_cur = df_all_bd.sort_values('norm_cur_mean_profit', ascending=False)
+    print('norm_accum_mean_profit')
+    print(bd_accum.head(10))
+    print('norm_cur_mean_profit')
+    print(bd_cur.head(10))
+    '''
     if not df_all_bd.empty:
         df_all_bd.to_csv("all-20200101-20230725-board-fromcode.csv", index=False)
+    '''
 
 if __name__ == '__main__':
     stat_board_from_board()
