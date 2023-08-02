@@ -57,7 +57,7 @@ class StockQuery:
             ref = self.col_basic.find()
             self.stock_list = list(ref)
         else:
-            ref = self.col_basic.find_one({ 'ts_code': ts_code })
+            ref = self.col_basic.find_one({ 'ts_code': { '$regex' : ts_code } })
             self.stock_list = []
             self.stock_list.append(ref)
 
