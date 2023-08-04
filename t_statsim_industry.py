@@ -3,7 +3,7 @@
 
 import pandas as pd
 
-filename = "all-20200101-20230717.csv"
+filename = "all-20200101-20230717-industry.csv"
 print(f'get data from {filename}')
 df = pd.read_csv(filename)
 
