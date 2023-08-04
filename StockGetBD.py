@@ -168,6 +168,7 @@ def get_bdinfo_ori(col, symbol, bdname):
         print(f"{symbol} {bdname} new\n {new_codes}")
     if not removed_codes.empty:
         print(f"{symbol} {bdname} removed\n {removed_codes}")
+    print()
 
     df_new['板块代码'] = symbol
     data = df_new.to_dict("records")
