@@ -1,28 +1,21 @@
-Check token 2023-07-28
-update token 715ae77c7b72c67549b80e153e894ef2e19f0446 cost  1.43s
+Check token 2023-08-04
+update token 715ae77c7b72c67549b80e153e894ef2e19f0446 cost  1.01s
 token expired, update 715ae77c7b72c67549b80e153e894ef2e19f0446
-req_basic changed 002264.SZ industry 互联网 -> 广告包装 
-req_basic changed 002265.SZ name 建设工业 -> 西仪股份 
-req_basic changed 002470.SZ name 金正大 -> ST金正 
-req_basic insert new 301172.SZ C君逸 软件服务
-req_basic changed 301329.SZ name 信音电子 -> C信音 
-req_basic insert new 301446.SZ C福事特 机械基件
-req_basic changed 301456.SZ name 盘古智能 -> C盘古 
-req_basic insert new 301468.SZ C博盈 专用机械
-req_basic changed 301499.SZ name C维科精 -> 维科精密 
-req_basic changed 301503.SZ name 智迪科技 -> C智迪 
-req_basic changed 301505.SZ name 苏州规划 -> C苏州规 
-req_basic changed 301512.SZ name 智信精密 -> N智信 
-req_basic insert new 301515.SZ C港通 医疗保健
-req_basic insert new 301519.SZ N舜禹 水务
-req_basic changed 600128.SH name 苏豪弘业 -> 弘业股份 
-req_basic insert new 688450.SH C光格 软件服务
-req_basic changed 688563.SH name 航材股份 -> C航材 
-req_basic changed 688602.SH name 康鹏科技 -> N康鹏 
-req_basic changed 688610.SH name 埃科光电 -> C埃科 
-req_basic insert new 688612.SH C威迈 汽车配件
-req_basic changed 688627.SH name 精智达 -> C精智达 
-req_basic insert new 688646.SH 逸飞激光 专用机械
-req_basic insert new 688651.SH C盛邦 软件服务
-req_basic changed 832982.BJ name 锦波生物 -> N锦波 
-req_basic cost 12.47s
+req_basic changed 300159.SZ name 新研股份 -> ST新研 
+req_basic changed 300332.SZ name 天壕能源 -> 天壕环境 
+req_basic changed 301172.SZ name 君逸数码 -> C君逸 
+req_basic insert new 301362.SZ 民爆光电 电气设备
+req_basic insert new 301371.SZ C敷尔佳 日用化工
+req_basic changed 301446.SZ name 福事特 -> C福事特 
+req_basic changed 301468.SZ name 博盈特焊 -> C博盈 
+req_basic changed 301499.SZ name 维科精密 -> C维科精 
+req_basic insert new 301509.SZ N金凯 化学制药
+req_basic changed 301515.SZ name 港通医疗 -> C港通 
+req_basic insert new 301518.SZ N长华 化工原料
+req_basic changed 301519.SZ name 舜禹股份 -> N舜禹 
+req_basic insert new 603119.SH C浙荣 汽车配件
+req_basic changed 688450.SH name 光格科技 -> C光格 
+req_basic changed 688612.SH name 威迈斯 -> C威迈 
+req_basic changed 688646.SH name C逸飞 -> 逸飞激光 
+req_basic changed 688651.SH name 盛邦安全 -> C盛邦 
+req_basic cost 10.50s
