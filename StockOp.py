@@ -232,6 +232,7 @@ class StockOp:
         norm_accum_profit = self.accum_profit/norm_co
         norm_cur_profit = cur_profit/norm_co
 
+        # date code name industry mv(begin_mv) pe profit(accum cur) norm_profit(accum cur) max_cost
         print('{} {}'.format(self.start_date, self.end_date), end=' ')
         print('{:9} {:8} {:8} {:7.1f}({:7.1f}) {}'.format(self.ts_code, self.name, self.industry, self.mktvalue/100000000, self.begin_mv, self.pe), end=' ')
         print('profit {:7.0f} {:7.0f}'.format(self.accum_profit, cur_profit), end=' ')
@@ -275,6 +276,7 @@ if __name__ == '__main__':
     so = StockOp()
 
     # 一个code
+    '''
     #so = StockOp("600938.SH", chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230630")
     ts_code    = '002456.SZ' # 欧菲光
     ts_code    = '300476.SZ'
@@ -289,10 +291,10 @@ if __name__ == '__main__':
         so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
         so.show_stat()
     quit()
+    '''
 
     # 固定列表
-    '''
-    code_list = [
+    code_list = [ # 未知列表
         '002315.SZ',
         '002919.SZ',
         '300211.SZ',
@@ -343,13 +345,31 @@ if __name__ == '__main__':
         '300144.SZ',
         '603136.SH'
     ]
+    code_list = [ # industry 铅锌,旅游景点,轻工机械,化工机械,四个industry，按照norm_cur_profit排序，全部是盈利的前17个
+        '000060.SZ', #  中金岭南	铅锌
+        '002698.SZ', #  博实股份	化工机械
+        '002033.SZ', #	丽江股份	旅游景点
+        '600497.SH', #	驰宏锌锗	铅锌
+        '000852.SZ', #	石化机械	化工机械
+        '000751.SZ', #	锌业股份	铅锌
+        '002611.SZ', #	东方精工	轻工机械
+        '603199.SH', #	九华旅游	旅游景点
+        '002444.SZ', #	巨星科技	轻工机械
+        '300228.SZ', #	富瑞特装	化工机械
+        '600706.SH', #	曲江文旅	旅游景点
+        '600054.SH', #	黄山旅游	旅游景点
+        '000426.SZ', #	兴业银锡	铅锌
+        '300195.SZ', #	长荣股份	轻工机械
+        '000603.SZ', #	盛达资源	铅锌
+        '600531.SH', #	豫光金铅	铅锌
+        '600961.SH'  #	株冶集团	铅锌
+    ]
+    date_list = so.op_days(start_date="20200101", end_date="20230728", start_interval=180, interval=270)
     for item in code_list:
-        so = StockOp(item, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230717")
-        so.process_day()
-        so.show_stat()
-        del so
+        for i,d in enumerate(date_list):
+            so.Op(item, chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
+            so.show_stat()
     quit()
-    '''
 
     # 查询
     '''
