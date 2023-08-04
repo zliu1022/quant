@@ -10,7 +10,7 @@ db = client.ak_board
 col_bdinfo = db.bdinfo
 col_bdlist = db.bdlist
 
-df_all_code = pd.read_csv("all-20200101-20230717.csv")
+df_all_code = pd.read_csv("all-20200101-20230717-industry.csv")
 df_all_bd = pd.DataFrame(columns=['board_code', 'name', 'num', 'norm_accum_profit', 'norm_cur_profit', 'count'])
 
 def stat_board_from_code():
