@@ -157,7 +157,7 @@ class StockQuery:
 
     # dict_keys(['year', 'date', 'base', 'free', 'new', 'bonus', 'dividend_year', 'plan_explain'])
     def query_bonus_code_df(self, ts_code):
-        v = {'ts_code': ts_code}
+        v = {'ts_code': { '$regex' : ts_code }}
         ref = self.col_bonus.find_one(v)
 
         if ref != None:
@@ -330,7 +330,7 @@ class StockQuery:
     # dict_keys(['date', 'open', 'high', 'low', 'close', 'amount'])
     def query_day_code_date_df(self, ts_code, start_date, end_date):
         ret = []
-        v = {'ts_code': ts_code}
+        v = {'ts_code': { '$regex' : ts_code }}
         ref = self.col_day.find_one(v)
         if ref != None:
             df = pd.DataFrame(ref['day'])
