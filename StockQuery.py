@@ -67,6 +67,19 @@ class StockQuery:
             return self.stock_list
         return None
 
+    def query_basic_name(self, name):
+        if name == None:
+            ref = self.col_basic.find()
+            self.stock_list = list(ref)
+        else:
+            ref = self.col_basic.find_one({ 'name': { '$regex' : name} })
+            self.stock_list = []
+            self.stock_list.append(ref)
+
+        if ref != None:
+            return self.stock_list
+        return None
+
     '''
     def query_mktvalue(self, minv, maxv):
         v = {'mktvalue': {'$gte':minv, '$lt':maxv}}
@@ -119,6 +132,66 @@ class StockQuery:
             print('Total:', len(df.index))
             #print(df.iloc[0:3])
             return l[0]['mv']
+        return None
+
+    def query_mktvalue_industry(self, start_date, industry):
+        v = [
+            { '$match': {
+                'start_date': {'$lte': start_date},
+                'end_date':   {'$gte': start_date}
+                }
+            },
+            { '$unwind': '$mv' },
+            { '$sort': {'mv.mktvalue': 1} },
+            { '$match': { 'mv.industry': industry } },
+            {
+                '$group': {
+                    '_id': '$_id',
+                    'start_date': {'$first': '$start_date'},
+                    'end_date': {'$first': '$end_date'},
+                    'mv': {'$push': '$mv'}
+                }
+            }
+        ]
+
+        results = self.col_mktvalue.aggregate(v)
+        l = list(results)
+
+        if len(l) != 0:
+            df = pd.DataFrame(l[0]['mv'])
+            print(f'query_mktvalue {start_date} {industry}', end=' ')
+            print('Total:', len(df.index))
+            #print(df.iloc[0:3])
+            #return l[0]['mv']
+            return df
+        return None
+
+    def query_mktvalue_code(self, start_date, code):
+        v = [
+            { '$match': {
+                'start_date': {'$lte': start_date},
+                'end_date':   {'$gte': start_date}
+                }
+            },
+            { '$unwind': '$mv' },
+            { '$sort': {'mv.mktvalue': 1} },
+            { '$match': { 'mv.ts_code': code} },
+            {
+                '$group': {
+                    '_id': '$_id',
+                    'start_date': {'$first': '$start_date'},
+                    'end_date': {'$first': '$end_date'},
+                    'mv': {'$push': '$mv'}
+                }
+            }
+        ]
+
+        results = self.col_mktvalue.aggregate(v)
+        l = list(results)
+
+        if len(l) != 0:
+            df = pd.DataFrame(l[0]['mv'])
+            return df
         return None
 
     def query_basic_df(self, ts_code):
@@ -479,10 +552,12 @@ class StockQuery:
         return
 
     def check_bad_bonus(self, ts_code):
+        '''
         if ts_code == '601919.SH': # 前复权出现负数 start_date = '20200101' end_date   = '20230602'
             return 1
         if ts_code == '831726.BJ': # max_cost == 0
             return 1
+        '''
 
         v = {'ts_code': ts_code}
         ref = self.col_bad_bonus.find_one(v)
