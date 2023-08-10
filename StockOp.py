@@ -59,7 +59,10 @@ class StockOp:
         self.bonus_df = df_bonus
 
         d0 = df_day.iloc[-1]
-        d0_mktvalue = d0['volume']/(d0['turnoverrate']/100) * d0['close']
+        if d0['turnoverrate'] != 0:
+            d0_mktvalue = d0['volume']/(d0['turnoverrate']/100) * d0['close']
+        else:
+            d0_mktvalue = 0
         self.mktvalue = d0_mktvalue
 
         df_bd = sq.query_bd_tscode(self.ts_code.split('.')[0])
@@ -264,7 +267,29 @@ class StockOp:
             print('hold {:.2f}*{:.0f}({}-{})'.format(
                 unit_cost, last['accum_qty'], day['low'], day['high']))
         print()
-        return
+
+        #对(self.df_stat)进行一个总结: 去除date是NaN的行数,即卖出次数, min_max_days的平均
+        sell_counts = self.df_stat['date'].count()
+        avg_mm_days = self.df_stat['min_max_days'][self.df_stat['date'].notna()].mean()
+
+        summary_dict = {
+            "start_date": self.start_date,
+            "end_date":   self.end_date,
+            "ts_code":    self.ts_code,
+            "name":       self.name,
+            "industry":   self.industry,
+            "mv":         round(self.mktvalue/100000000,2),
+            "mv_ori":     self.begin_mv,
+            "pe":         self.pe,
+            "profit_accum": round(self.accum_profit,2),
+            "profit_cur":  round(cur_profit,2),
+            "norm_accum_profit": round(norm_accum_profit,2),
+            "norm_cur_profit": round(norm_cur_profit,2),
+            "max_cost": round(self.max_cost,2),
+            "sell_counts": sell_counts,
+            "avg_mm_days": round(avg_mm_days,2)
+        }
+        return summary_dict
 
     def op_month(self, start_date, end_date):
         start_d = datetime.strptime(start_date, '%Y%m%d')
@@ -405,38 +430,45 @@ def t_all(sq, so):
 
     # 一旦出现异常，可以恢复到异常发生时的代码继续
     stock_codes = [item['ts_code'] for item in code_list]
-    start_code = '688627.SH'
-    start_index = stock_codes.index(start_code)
+    #start_code = '688627.SH'
+    #start_index = stock_codes.index(start_code)
     start_index = 0
 
+    date_list = so.op_days(start_date="20200101", end_date="20230728", start_interval=180, interval=270)
     for i in range(start_index, len(code_list)):
-        so = StockOp(code_list[i]['ts_code'], chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230717")
-        so.process_day()
-        so.show_stat()
-        del so
-
+        for _,d in enumerate(date_list):
+            so.Op(code_list[i]['ts_code'], chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
+            so.show_stat()
     rt.show_s()
     quit()
 
 def t_mv(sq, so):
+    df_all = pd.DataFrame()
+
     if len(sys.argv) == 3:
         start_date = sys.argv[1]
         end_date   = sys.argv[2]
     else:
         start_date = "20200101"
 
-    v1 = 30; v2 = 300
-    #v1 = 0; v2 = np.inf # 市值超过万亿的：中国石油，贵州茅台，工商银行，其中工商银行基本不波动，没有盈利空间
+    #v1 = 100; v2 = 5000
+    #v1 = 30; v2 = 300
+    v1 = 0; v2 = np.inf # 市值超过万亿的：中国石油，贵州茅台，工商银行，其中工商银行基本不波动，没有盈利空间
     code_list = sq.query_mktvalue(start_date, v1, v2)
 
-    stock_codes = [item['ts_code'] for item in code_list]
+    #stock_codes = [item['ts_code'] for item in code_list]
+    #start_index = stock_codes.index('601577.SH')
     start_index = 0
-    start_index = stock_codes.index('300273.SZ')
     date_list = so.op_days(start_date="20200101", end_date="20230728", start_interval=180, interval=270)
     for i in range(start_index, len(code_list)):
         for _,d in enumerate(date_list):
             so.Op(code_list[i], chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
-            so.show_stat()
+            summary = so.show_stat()
+            df_all = df_all.append(summary, ignore_index=True)
+
+    start_date="20200101"
+    df_filename = "mv" + str(v1) + "-" + str(v2) + "-" + start_date + "-op_days.csv"
+    df_all.to_csv(df_filename, index=False)
     rt.show_s()
     quit()
 
