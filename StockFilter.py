@@ -253,7 +253,7 @@ def filter_test_set(start_date, end_date, v1, v2, v3):
         ret = col_mktvalue.update_one(v, {'$set': data})
     print('filter_test_set OK', start_date, end_date, v1, v2, v3)
 
-def filter_test_agg(start_date, v1, v2):
+def filter_agg(start_date, v1, v2):
     v = [
         {
             '$match': {
@@ -286,17 +286,62 @@ def filter_test_agg(start_date, v1, v2):
     l = list(results)
 
     df = pd.DataFrame(l[0]['mv'])
-    print(f'filter_test_agg {start_date} {v1} {v2}')
+    print(f'filter_agg {start_date} {v1} {v2}')
     print('Total:', len(df.index))
     print(df.iloc[0:3])
 
+def filter_name(name):
+    v = [
+        { '$unwind': '$mv' },
+        { '$sort': {'start_date': 1} },
+        { '$match': { 'mv.name': { '$regex' : name } } },
+        {
+            '$group': {
+                '_id': '$_id',
+                'start_date': {'$first': '$start_date'},
+                'end_date':   {'$first': '$end_date'},
+                'mv': {'$push': '$mv'}
+            }
+        }
+    ]
+    results = col_mktvalue.aggregate(v)
+    l = list(results)
 
-# 筛选指定条件的code，存储到单独的collection中，后续通过不同条件select出来
+    df = pd.DataFrame(l)
+    print(f'filter_name {name}')
+    df = df.drop(columns=['_id'])
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):
+        print(df)
+    return df
+
+def filter_code(code):
+    v = [
+        { '$unwind': '$mv' },
+        { '$sort': {'start_date': 1} },
+        { '$match': { 'mv.ts_code': { '$regex' : code } } },
+        {
+            '$group': {
+                '_id': '$_id',
+                'start_date': {'$first': '$start_date'},
+                'end_date':   {'$first': '$end_date'},
+                'mv': {'$push': '$mv'}
+            }
+        }
+    ]
+    ret = col_mktvalue.aggregate(v)
+    df = pd.DataFrame(ret)
+    df = df.drop(columns=['_id'])
+    print(f'filter_name {code}')
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):
+        print(df)
+    return df
+
 if __name__ == '__main__':
     start_date = '20200101'
     end_date   = '20200115'
     #filter_single_example()
 
+    '''
     filter_mktvalue('20200101', '20200115')
     filter_mktvalue('20210101', '20210115')
     filter_mktvalue('20220101', '20220115')
@@ -304,15 +349,19 @@ if __name__ == '__main__':
 
     #draw_mktvalue_fromfile()
 
-    # 预先计算多个不同时间范围的市值
+    # 预先计算多个不同时间范围的市值, 放入 col_name='mkttest'
     #filter_test_set('20200101', '20200115', 10,20,30)
     #filter_test_set('20230101', '20230115', 20,30,40)
 
     # 在 20200105 这段时间附近，找 10~50 之间市值的code
-    #filter_test_agg('20200105', 10, 50)
-    #filter_test_agg('20230110', 15, 20)
-    filter_test_agg('20200110', 11, 11.5)
-    filter_test_agg('20210110', 11, 11.5)
-    filter_test_agg('20220110', 11, 11.5)
-    filter_test_agg('20230110', 11, 11.5)
+    #filter_agg('20200105', 10, 50)
+    #filter_agg('20230110', 15, 20)
+    filter_agg('20200110', 11, 11.5)
+    filter_agg('20210110', 11, 11.5)
+    filter_agg('20220110', 11, 11.5)
+    filter_agg('20230110', 11, 11.5)
+    '''
+
+    filter_name("朱老六")
+    filter_code("601919.SH")
 
