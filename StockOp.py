@@ -328,16 +328,16 @@ def t_1code(sq, so):
     #so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200818", end_date="20200923")
     #so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20210624", end_date="20230728")
 
-    ts_code = '002050.SZ' #逐步对照过
-    so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200708", end_date="20220610")
-    quit()
+    #ts_code = '002050.SZ' #逐步对照过
+    #so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200708", end_date="20220610")
 
-    ts_code = '002475.SZ'
-    so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230728")
+    #ts_code = '002475.SZ'
+    #so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230728")
 
-    so.show_stat()
+    #so.show_stat()
 
     ts_code = '831726'
+    ts_code = '000670'
     date_list = so.op_days(start_date="20200101", end_date="20230728", start_interval=180, interval=270)
     for _,d in enumerate(date_list):
         so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
@@ -417,11 +417,14 @@ def t_codes(sq, so):
         '600531.SH', #	豫光金铅	铅锌
         '600961.SH'  #	株冶集团	铅锌
     ]
+    code_list = [
+        '000670'
+    ]
     date_list = so.op_days(start_date="20200101", end_date="20230728", start_interval=180, interval=270)
     for item in code_list:
         for i,d in enumerate(date_list):
             so.Op(item, chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
-            so.show_stat()
+            summary = so.show_stat()
     rt.show_s()
     quit()
 
