@@ -27,8 +27,7 @@ def tscode(sq, ts_code):
     df_ref = sq.query_bd_tscode(ts_code.split('.')[0])
 
     # mktvalue
-    start_date = "20200101"
-    df_mv = sq.query_mktvalue_code(start_date, ts_code)
+    df_mv = sq.query_mktvalue_code(ts_code)
 
     '''
     print(basic)
@@ -36,7 +35,9 @@ def tscode(sq, ts_code):
     print(df_mv)
     '''
 
-    print(ts_code, name, 'mv', df_mv.iloc[0]['mktvalue'], 'pe', df_ref.iloc[0]['市盈率'], industry)
+    print(ts_code, name, 'pe', df_ref.iloc[0]['市盈率'], industry)
+    for i, row in df_mv.iterrows():
+        print('    mv', row['start_date'], row['end_date'], row['mv'][0]['mktvalue'])
     print()
 
     df_i = sq.query_industry_df(industry)
