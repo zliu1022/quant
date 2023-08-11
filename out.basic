@@ -1,21 +1,19 @@
-Check token 2023-08-04
-update token 715ae77c7b72c67549b80e153e894ef2e19f0446 cost  1.01s
-token expired, update 715ae77c7b72c67549b80e153e894ef2e19f0446
-req_basic changed 300159.SZ name 新研股份 -> ST新研 
-req_basic changed 300332.SZ name 天壕能源 -> 天壕环境 
-req_basic changed 301172.SZ name 君逸数码 -> C君逸 
-req_basic insert new 301362.SZ 民爆光电 电气设备
-req_basic insert new 301371.SZ C敷尔佳 日用化工
-req_basic changed 301446.SZ name 福事特 -> C福事特 
-req_basic changed 301468.SZ name 博盈特焊 -> C博盈 
-req_basic changed 301499.SZ name 维科精密 -> C维科精 
-req_basic insert new 301509.SZ N金凯 化学制药
-req_basic changed 301515.SZ name 港通医疗 -> C港通 
-req_basic insert new 301518.SZ N长华 化工原料
-req_basic changed 301519.SZ name 舜禹股份 -> N舜禹 
-req_basic insert new 603119.SH C浙荣 汽车配件
-req_basic changed 688450.SH name 光格科技 -> C光格 
-req_basic changed 688612.SH name 威迈斯 -> C威迈 
-req_basic changed 688646.SH name C逸飞 -> 逸飞激光 
-req_basic changed 688651.SH name 盛邦安全 -> C盛邦 
-req_basic cost 10.50s
+Check token 2023-08-11
+update token 370309a4cfdfe4bc2704623d41715a1159be59eb cost  0.90s
+token expired, update 370309a4cfdfe4bc2704623d41715a1159be59eb
+req_basic changed 002195.SZ name 岩山科技 -> 二三四五 
+req_basic insert new 300904.SZ C威力 电气设备
+req_basic insert new 301348.SZ C蓝箭 半导体
+req_basic changed 301371.SZ name 敷尔佳 -> C敷尔佳 
+req_basic insert new 301372.SZ N科净源 环境保护
+req_basic insert new 301487.SZ C盟固利 化工原料
+req_basic changed 301509.SZ name 金凯生科 -> N金凯 
+req_basic changed 301518.SZ name 长华化学 -> N长华 
+req_basic changed 603119.SH name 浙江荣泰 -> C浙荣 
+req_basic insert new 603296.SH C华勤 元器件
+req_basic insert new 688347.SH C华虹 半导体
+req_basic changed 688646.SH name 逸飞激光 -> C逸飞 
+req_basic insert new 688671.SH C碧兴 环境保护
+req_basic insert new 834058.BJ 华洋赛车 摩托车
+req_basic insert new 870726.BJ 鸿智科技 家用电器
+req_basic cost 12.92s
