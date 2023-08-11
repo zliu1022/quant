@@ -1,8 +1,6 @@
-Check token 2023-08-04
-token got 0 days ago 715ae77c7b72c67549b80e153e894ef2e19f0446 still valid
-find 5282 stocks
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ001323&begin=1690560000000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1202b5990>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ001323&begin=1690560000000
+Check token 2023-08-11
+token got 0 days ago 370309a4cfdfe4bc2704623d41715a1159be59eb still valid
+find 5291 stocks
 Error: No kline, maybe restday SH600260
 Error: No kline, maybe restday SZ002751
 Error: No kline, maybe restday SZ002499
@@ -11,8 +9,6 @@ Error: No kline, maybe restday SZ002503
 Error: No kline, maybe restday SZ002504
 Error: No kline, maybe restday SZ002013
 Error: No kline, maybe restday SZ000038
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ002779&begin=1690560000000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11eb4e950>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ002779&begin=1690560000000
 Error: No kline, maybe restday SZ002781
 Error: No kline, maybe restday SH600311
 Error: No kline, maybe restday SZ000150
@@ -23,30 +19,32 @@ Error: No kline, maybe restday SH688086
 Error: No kline, maybe restday SZ300297
 Error: No kline, maybe restday SH600077
 Error: No kline, maybe restday SZ300309
+Error: No kline, maybe restday SH600393
+Error: No kline, maybe restday SZ002113
 Error: No kline, maybe restday SZ300330
 Error: No kline, maybe restday SH688555
-Error: No kline, maybe restday SZ002113
-Error: No kline, maybe restday SH600393
-Error: No kline, maybe restday SZ000540
-Error: No kline, maybe restday SZ300336
 Error: No kline, maybe restday SZ300089
+Error: No kline, maybe restday SZ000540
 Error: No kline, maybe restday SZ002118
+Error: No kline, maybe restday SZ300336
 Error: No kline, maybe restday SH600122
 Error: No kline, maybe restday SZ000918
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ301252&begin=1691164800000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11862bdd0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ301252&begin=1691164800000
 Error: No kline, maybe restday SH600139
 Error: No kline, maybe restday SZ300356
-Error: No kline, maybe restday SZ000587
 Error: No kline, maybe restday SH600466
-Error: No kline, maybe restday SZ000606
-Error: No kline, maybe restday SH600767
+Error: No kline, maybe restday SZ000587
 Error: No kline, maybe restday SZ002411
-Error: No kline, maybe restday SZ300392
-Error: No kline, maybe restday SZ000616
-Error: No kline, maybe restday SH601258
+Error: No kline, maybe restday SH600767
+Error: No kline, maybe restday SZ000606
 Error: No kline, maybe restday SZ002417
+Error: No kline, maybe restday SZ300392
+Error: No kline, maybe restday SH601258
+Error: No kline, maybe restday SZ000616
 Error: No kline, maybe restday SH600781
 Error: No kline, maybe restday SZ000667
-Error: No kline, maybe restday SZ000671
 Error: No kline, maybe restday SH600532
+Error: No kline, maybe restday SZ000671
 Error: No kline, maybe restday SH600242
-total cost 214.01s
+total cost 199.97s
