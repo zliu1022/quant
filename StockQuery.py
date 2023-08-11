@@ -134,7 +134,7 @@ class StockQuery:
             return l[0]['mv']
         return None
 
-    def query_mktvalue_industry(self, start_date, industry):
+    def query_mktvalue_date_industry(self, start_date, industry):
         v = [
             { '$match': {
                 'start_date': {'$lte': start_date},
@@ -143,7 +143,7 @@ class StockQuery:
             },
             { '$unwind': '$mv' },
             { '$sort': {'mv.mktvalue': 1} },
-            { '$match': { 'mv.industry': industry } },
+            { '$match': { 'mv.industry': {'$regex':industry} } },
             {
                 '$group': {
                     '_id': '$_id',
@@ -166,7 +166,27 @@ class StockQuery:
             return df
         return None
 
-    def query_mktvalue_code(self, start_date, code):
+    def query_mktvalue_industry(self, industry):
+        v = [
+            { '$unwind': '$mv' },
+            { '$sort': {'mv.mktvalue': 1} },
+            { '$match': { 'mv.industry': {'$regex':industry} } },
+            {
+                '$group': {
+                    '_id': '$_id',
+                    'start_date': {'$first': '$start_date'},
+                    'end_date': {'$first': '$end_date'},
+                    'mv': {'$push': '$mv'}
+                }
+            }
+        ]
+        ret = self.col_mktvalue.aggregate(v)
+        df = pd.DataFrame(ret)
+        if df.empty:
+            return None
+        return df
+
+    def query_mktvalue_date_code(self, start_date, code):
         v = [
             { '$match': {
                 'start_date': {'$lte': start_date},
@@ -185,14 +205,32 @@ class StockQuery:
                 }
             }
         ]
-
         results = self.col_mktvalue.aggregate(v)
         l = list(results)
-
         if len(l) != 0:
             df = pd.DataFrame(l[0]['mv'])
             return df
         return None
+
+    def query_mktvalue_code(self, code):
+        v = [
+            { '$unwind': '$mv' },
+            { '$match': { 'mv.ts_code': {'$regex':code} } },
+            {
+                '$group': {
+                    '_id': '$_id',
+                    'start_date': {'$first': '$start_date'},
+                    'end_date': {'$first': '$end_date'},
+                    'mv': {'$push': '$mv'}
+                }
+            },
+            { '$sort': {'mv.mktvalue': 1} }
+        ]
+        ret = self.col_mktvalue.aggregate(v)
+        df = pd.DataFrame(ret)
+        if df.empty:
+            return None
+        return df
 
     def query_basic_df(self, ts_code):
         if ts_code == None:
@@ -208,8 +246,8 @@ class StockQuery:
             return df
         return None
 
-    def query_industry_df(self, industry_code):
-        ref = self.col_basic.find({ 'industry': industry_code })
+    def query_industry_df(self, industry):
+        ref = self.col_basic.find({ 'industry': {'$regex':industry} })
         df = pd.DataFrame(ref)
         if ref != None:
             return df
