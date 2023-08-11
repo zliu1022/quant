@@ -17,18 +17,19 @@ if __name__ == '__main__':
         industry = '铅锌'
 
     df = sq.query_industry_df(industry)
-
-    start_date = '20200101'
-    df_mv = sq.query_mktvalue_industry(start_date, industry)
+    print(df)
+    df_mv = sq.query_mktvalue_industry(industry)
+    print(df_mv)
+    quit()
 
     for i, row in df.iterrows():
         code = row['ts_code']
         name = row['name']
+        print(code, name)
 
-        selected_rows = df_mv.loc[df_mv['ts_code'] == code, 'mktvalue']
-        if not selected_rows.empty:
-            mv = selected_rows.iloc[0]
-        else:
-            mv = None  # 或者其他适当的默认值
-        print(i, code, name, mv)
+        for i, row in df_mv.iterrows():
+            arr = row['mv']
+            for i in arr:
+                if i['ts_code'] == code:
+                    print('    ', row['start_date'], row['end_date'], i['mktvalue'])
 
