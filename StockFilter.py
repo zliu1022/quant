@@ -364,4 +364,5 @@ if __name__ == '__main__':
 
     filter_name("朱老六")
     filter_code("601919.SH")
+    filter_code("000670")
 
