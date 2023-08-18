@@ -19,14 +19,12 @@ class StockOp:
             self.ts_code = i
             self.name = ''
             self.industry = 'None'
-            self.begin_mv = 0.0
         elif isinstance(i, dict):
             self.ts_code = i['ts_code']
             self.name = i['name']
             self.industry = i['industry']
             if self.industry == None:
                 self.industry = 'None'
-            self.begin_mv = i['mktvalue']
         else:
             return
 
@@ -58,12 +56,20 @@ class StockOp:
         self.day_df = df_day[(df_day["date"] >= start_date) & (df_day["date"] <= end_date)]
         self.bonus_df = df_bonus
 
-        d0 = df_day.iloc[-1]
-        if d0['turnoverrate'] != 0:
-            d0_mktvalue = d0['volume']/(d0['turnoverrate']/100) * d0['close']
+        d_first = df_day.iloc[0]
+        d_end = df_day.iloc[-1]
+
+        if d_end['turnoverrate'] != 0:
+            mv = d_end['volume']/(d_end['turnoverrate']/100) * d_end['close']
         else:
-            d0_mktvalue = 0
-        self.mktvalue = d0_mktvalue
+            mv = 0
+        self.mv = round(mv/100000000,2)
+
+        if d_first['turnoverrate'] != 0:
+            mv_ori = d_first['volume']/(d_first['turnoverrate']/100) * d_first['close']
+        else:
+            mv_ori = 0
+        self.mv_ori = round(mv_ori/100000000,2)
 
         df_bd = sq.query_bd_tscode(self.ts_code.split('.')[0])
         self.pe = 0
@@ -245,7 +251,7 @@ class StockOp:
         day = df_rows.iloc[-1]
 
         if self.df_stat.empty:
-            print('{} {} {:.0f} {} no profit first day?'.format(self.ts_code, self.name, self.mktvalue, self.pe))
+            print('{} {} {:.0f} {} no profit first day?'.format(self.ts_code, self.name, self.mv, self.pe))
             return
 
         last = self.df_stat.iloc[-1]
@@ -256,9 +262,9 @@ class StockOp:
         norm_accum_profit = self.accum_profit/norm_co
         norm_cur_profit = cur_profit/norm_co
 
-        # date code name industry mv(begin_mv) pe profit(accum cur) norm_profit(accum cur) max_cost
+        # date code name industry mv(mv_ori) pe profit(accum cur) norm_profit(accum cur) max_cost
         print('{} {}'.format(self.start_date, self.end_date), end=' ')
-        print('{:9} {:8} {:8} {:7.1f}({:7.1f}) {}'.format(self.ts_code, self.name, self.industry, self.mktvalue/100000000, self.begin_mv, self.pe), end=' ')
+        print('{:9} {:8} {:8} {:7.1f}({:7.1f}) {}'.format(self.ts_code, self.name, self.industry, self.mv, self.mv_ori, self.pe), end=' ')
         print('profit {:7.0f} {:7.0f}'.format(self.accum_profit, cur_profit), end=' ')
         print('norm {:7.0f} {:7.0f}'.format(norm_accum_profit, norm_cur_profit), end=' ')
         print('max_cost {:7.0f}'.format(self.max_cost), end=' ')
@@ -278,8 +284,8 @@ class StockOp:
             "ts_code":    self.ts_code,
             "name":       self.name,
             "industry":   self.industry,
-            "mv":         round(self.mktvalue/100000000,2),
-            "mv_ori":     self.begin_mv,
+            "mv":         self.mv,
+            "mv_ori":     self.mv_ori,
             "pe":         self.pe,
             "profit_accum": round(self.accum_profit,2),
             "profit_cur":  round(cur_profit,2),
@@ -429,6 +435,7 @@ def t_codes(sq, so):
     quit()
 
 def t_all(sq, so):
+    df_all = pd.DataFrame()
     code_list = sq.query_basic(None)
 
     # 一旦出现异常，可以恢复到异常发生时的代码继续
@@ -440,8 +447,13 @@ def t_all(sq, so):
     date_list = so.op_days(start_date="20200101", end_date="20230728", start_interval=180, interval=270)
     for i in range(start_index, len(code_list)):
         for _,d in enumerate(date_list):
-            so.Op(code_list[i]['ts_code'], chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
-            so.show_stat()
+            so.Op(code_list[i], chg_perc=1.55, interval=0.03, start_date=d['start_date'], end_date=d['end_date'])
+            summary = so.show_stat()
+            df_all = df_all.append(summary, ignore_index=True)
+
+    start_date="20200101"
+    df_filename = "mv" + "-" + "all-" + start_date + "-op_days.csv"
+    df_all.to_csv(df_filename, index=False)
     rt.show_s()
     quit()
 
@@ -487,8 +499,8 @@ if __name__ == '__main__':
     #t_codes(sq, so)
 
     # 查询
-    #t_all(sq, so)
+    t_all(sq, so)
 
     # 采用mktvalue进行筛选
-    t_mv(sq, so)
+    #t_mv(sq, so)
 
