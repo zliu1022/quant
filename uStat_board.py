@@ -10,8 +10,12 @@ db = client.ak_board
 col_bdinfo = db.bdinfo
 col_bdlist = db.bdlist
 
-#df_all_code = pd.read_csv("all-20200101-20230717-industry.csv")
-df_all_code = pd.read_csv("mv0-inf-20200101-op_days.csv")
+filename = "mv30-300-20200101-op_days.csv"
+#filename = "mv100-5000-20200101-op_days.csv"
+#filename = "mv0-inf-20200101-op_days.csv"
+
+print(f'get data from {filename}')
+df_all_code = pd.read_csv(filename)
 
 df_all_bd = pd.DataFrame(columns=['board_code', 'name', 'num', 'norm_accum_profit', 'norm_cur_profit', 'count'])
 
