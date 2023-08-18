@@ -339,7 +339,8 @@ def filter_code(code):
 if __name__ == '__main__':
     start_date = '20200101'
     end_date   = '20200115'
-    #filter_single_example()
+    filter_single_example()
+    quit()
 
     '''
     filter_mktvalue('20200101', '20200115')
