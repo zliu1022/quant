@@ -3,8 +3,8 @@
 
 import pandas as pd
 
-filename = "mv30-300-20200101-op_days.csv"
-#filename = "mv100-5000-20200101-op_days.csv"
+#filename = "mv30-300-20200101-op_days.csv"
+filename = "mv100-5000-20200101-op_days.csv"
 #filename = "mv0-inf-20200101-op_days.csv"
 
 print(f'get data from {filename}')
@@ -53,7 +53,7 @@ industry_stats['company_count'] = industry_counts
 stats_accum = industry_stats.sort_values('norm_accum_profit_mean', ascending=False)
 stats_cur   = industry_stats.sort_values('norm_cur_profit_mean', ascending=False)
 
-num = 3 
+num = 30
 stats_accum_top = stats_accum.head(num)[ ['company_count', 'norm_accum_profit_mean', 'norm_cur_profit_mean', 'sell_counts_mean', 'avg_mm_days_mean'] ]
 stats_cur_top   = stats_cur.head(num)  [ ['company_count', 'norm_accum_profit_mean', 'norm_cur_profit_mean', 'sell_counts_mean', 'avg_mm_days_mean'] ]
 
