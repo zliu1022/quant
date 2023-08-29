@@ -1,25 +1,19 @@
-Check token 2023-08-18
-update token 370309a4cfdfe4bc2704623d41715a1159be59eb cost  0.88s
-token expired, update 370309a4cfdfe4bc2704623d41715a1159be59eb
-req_basic changed 000529.SZ industry 食品 -> 出版业 
-req_basic changed 000995.SZ name 皇台酒业 -> *ST皇台 
-req_basic changed 300904.SZ name 威力传动 -> C威力 
-req_basic changed 301348.SZ name 蓝箭电子 -> C蓝箭 
-req_basic changed 301372.SZ name 科净源 -> N科净源 
-req_basic insert new 301418.SZ 协昌科技 电气设备
-req_basic changed 301487.SZ name 盟固利 -> C盟固利 
-req_basic insert new 301498.SZ C乖宝 饲料
-req_basic insert new 301510.SZ C固高 电器仪表
-req_basic insert new 301511.SZ C德福 电气设备
-req_basic insert new 301533.SZ N威马 农用机械
-req_basic changed 603296.SH name 华勤技术 -> C华勤 
-req_basic changed 688347.SH name 华虹公司 -> C华虹 
-req_basic insert new 688548.SH C广钢 化工原料
-req_basic insert new 688573.SH C信宇人 专用机械
-req_basic insert new 688592.SH C司南 通信设备
-req_basic changed 688671.SH name 碧兴物联 -> C碧兴 
-req_basic insert new 688693.SH N锴威特 半导体
-req_basic insert new 836504.BJ 博迅生物 医疗保健
-req_basic insert new 837174.BJ N宏裕 广告包装
-req_basic insert new 837748.BJ 路桥信息 软件服务
-req_basic cost 13.05s
+Check token 2023-08-28
+update token a0f5e0d91bc0846f43452e89ae79e08167c42068 cost  0.85s
+token expired, update a0f5e0d91bc0846f43452e89ae79e08167c42068
+req_basic changed 301418.SZ name C协昌 -> 协昌科技 
+req_basic insert new 301421.SZ C波长 元器件
+req_basic insert new 301469.SZ C恒达 造纸
+req_basic changed 301498.SZ name 乖宝宠物 -> C乖宝 
+req_basic changed 301510.SZ name 固高科技 -> C固高 
+req_basic changed 301511.SZ name 德福科技 -> C德福 
+req_basic changed 301533.SZ name C威马 -> N威马 
+req_basic insert new 603275.SH C众辰 电器仪表
+req_basic changed 688548.SH name 广钢气体 -> C广钢 
+req_basic changed 688573.SH name 信宇人 -> C信宇人 
+req_basic insert new 688591.SH 泰凌微 半导体
+req_basic changed 688592.SH name 司南导航 -> C司南 
+req_basic changed 688693.SH name C锴威特 -> N锴威特 
+req_basic changed 837174.BJ name 宏裕包材 -> N宏裕 
+req_basic insert new 872953.BJ 国子软件 软件服务
+req_basic cost 11.07s
