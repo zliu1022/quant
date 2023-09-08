@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import threading
 import requests
 import time
-from pymongo import MongoClient
+from pymongo import MongoClient, ASCENDING
 from pprint import pprint
 import pandas as pd
 import tushare as ts
@@ -658,11 +658,17 @@ class StockGet:
 
     def db_basicfind(self, code):
         if code == None:
-            ref = self.col_basic.find()
+            ref = self.col_basic.find().sort("ts_code", ASCENDING)
             if ref != None:
-                self.stock_list = []
-                for x in ref:
-                    self.stock_list.append(x)
+                self.stock_list = list(ref)
+
+                '''
+                # recover req from last_end
+                tmp_list = list(ref)
+                last_end = '600059.SH'
+                last_index = next((index for (index, d) in enumerate(tmp_list) if d['ts_code'] == last_end), None)
+                self.stock_list = tmp_list[last_index+1:] if last_index is not None else []
+                '''
         else:
             ref = self.col_basic.find_one({ 'ts_code': code })
             if ref != None:
