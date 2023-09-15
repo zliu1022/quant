@@ -1,17 +1,17 @@
-Check token 2023-09-08
-update token a0f5e0d91bc0846f43452e89ae79e08167c42068 cost  1.09s
-token expired, update a0f5e0d91bc0846f43452e89ae79e08167c42068
-req_basic changed 000520.SZ name 凤凰航运 -> 长航凤凰 
-req_basic changed 300157.SZ name 新锦动力 -> 恒泰艾普 
-req_basic changed 300256.SZ name 星星科技 -> ST星星 
-req_basic changed 300338.SZ name 开元教育 -> ST开元 
-req_basic insert new 301251.SZ C威尔高 元器件
-req_basic insert new 301507.SZ C民生健 化学制药
-req_basic changed 301525.SZ name 儒竞科技 -> C儒竞 
-req_basic changed 301528.SZ name 多浦乐 -> C多浦乐 
-req_basic changed 600372.SH name 中航机载 -> 中航电子 
-req_basic changed 603270.SH name C金帝 -> N金帝 
-req_basic insert new 688549.SH 中巨芯 元器件
-req_basic insert new 831627.BJ N力王 电气设备
-req_basic changed 870976.BJ name 视声智能 -> N视声 
-req_basic cost 11.06s
+Check token 2023-09-15
+update token 29bdb37dee2432c294425cc9e8f45710a62643a5 cost  0.92s
+token expired, update 29bdb37dee2432c294425cc9e8f45710a62643a5
+req_basic changed 300051.SZ name 琏升科技 -> 三五互联 
+req_basic changed 300140.SZ name 节能环境 -> 中环装备 
+req_basic changed 301251.SZ name 威尔高 -> C威尔高 
+req_basic changed 301507.SZ name 民生健康 -> C民生健 
+req_basic insert new 301529.SZ C福赛 汽车配件
+req_basic insert new 301550.SZ N斯菱 汽车配件
+req_basic insert new 603075.SH C热威 家用电器
+req_basic changed 603270.SH name 金帝股份 -> C金帝 
+req_basic changed 688549.SH name 中巨芯-U -> 中巨芯 
+req_basic insert new 688702.SH C盛科-U 半导体
+req_basic changed 831627.BJ name 力王股份 -> N力王 
+req_basic insert new 832469.BJ 富恒新材 塑料
+req_basic insert new 836419.BJ N万德 化工原料
+req_basic cost 13.11s
