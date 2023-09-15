@@ -35,7 +35,7 @@ class StockOpInv:
         # 设置初始参数, 整个过程，多次交易不改变
         self.chg_perc = chg_perc
         self.interval = interval
-        self.dec_buy_ratio = 5
+        self.dec_sell_ratio = 5
         self.df_stat = pd.DataFrame()
 
         # 设置初始参数, 整个过程，多次交易不断累加
@@ -92,18 +92,17 @@ class StockOpInv:
 
     # 每次卖出后的清零
     def init_deal(self):
-        self.first_buy_price = 0.0
-        self.first_buy_date = ""
-        self.next_buy_price = 9999.0
-        self.next_buy_qty = 100
-        self.buy_count = 0
+        self.first_sell_price = 0.0
+        self.first_sell_date = ""
+        self.next_sell_price = 0.0
+        self.next_sell_qty = 100
+        self.sell_count = 0
 
-        self.first_buy_price_forsell = 0.0
-        self.min_price_forsell = 9999.0
+        self.max_price_forbuy = 0.0
 
-        self.min_price = 9999.0
-        self.min_date = ""
-        self.sell_exp_price = 0.0
+        self.max_price = 0.0
+        self.max_date = ""
+        self.buy_exp_price = 0.0
 
         self.accum_cost = 0.0
         self.accum_qty = 0
@@ -123,24 +122,24 @@ class StockOpInv:
         
     def push_stat(self, date, cur_profit):
         if isinstance(date, str):
-            min_d = datetime.strptime(self.min_date, "%Y%m%d")
-            max_d = datetime.strptime(date, "%Y%m%d")
-            min_max_days = (max_d - min_d).days
+            max_d = datetime.strptime(self.max_date, "%Y%m%d")
+            min_d = datetime.strptime(date, "%Y%m%d")
+            max_min_days = (min_d - max_d).days
         else:
-            min_max_days = np.nan
+            max_min_days = np.nan
 
         self.df_stat = self.df_stat.append(
             {"date": date, 
-            "first_buy_price": round(self.first_buy_price,2),
-            "first_buy_date": self.first_buy_date,
-            "min_price": round(self.min_price,2),
-            "min_date": self.min_date,
-            "buy_count": self.buy_count,
+            "first_sell_price": round(self.first_sell_price,2),
+            "first_sell_date": self.first_sell_date,
+            "max_price": round(self.max_price,2),
+            "max_date": self.max_date,
+            "sell_count": self.sell_count,
             "accum_cost": round(self.accum_cost,2),
             "accum_qty": self.accum_qty,
-            "sell_price": round(self.sell_exp_price,2),
-            "sell_date": date,
-            "min_max_days":min_max_days,
+            "buy_price": round(self.buy_exp_price,2),
+            "buy_date": date,
+            "max_min_days":max_min_days,
             "profit": round(cur_profit,2)}, 
             ignore_index=True)
 
@@ -152,30 +151,26 @@ class StockOpInv:
         if len(bonus) <= 0:
             return
 
-        if self.buy_count != 0: # 还未开始first_buy也无需除权
+        if self.sell_count != 0: # 还未开始first_buy也无需除权
             # method1: XD the original value
-            self.min_price_forsell = self.xd(self.min_price_forsell, bonus, debug)
-            self.first_buy_price_fornext = self.xd(self.first_buy_price_fornext, bonus, debug)
-            self.sell_exp_price = self.min_price_forsell * self.chg_perc
-            self.next_buy_price = self.first_buy_price_fornext * (1-self.interval*self.buy_count)
+            self.max_price_forbuy = self.xd(self.max_price_forbuy, bonus, debug)
+            self.first_sell_price_fornext = self.xd(self.first_sell_price_fornext, bonus, debug)
+            self.buy_exp_price = self.max_price_forbuy / self.chg_perc
+            self.next_sell_price = self.first_sell_price_fornext * (1+self.interval*self.sell_count)
 
             #增加profit
-            self.accum_profit += float(xd['bonus']) * ( self.accum_qty / float(xd['base']))
-
-            # method2: XD the current value
-            # 这个逻辑有矛盾，虽然这次next_buy进行了除权
-            # 但下一次买时，next_buy会按照first_buy计算，和这次XD完全无关了，肯定没道理
-            '''
-            self.sell_exp_price = self.xd(self.sell_exp_price, bonus)
-            self.next_buy_price = self.xd(self.next_buy_price, bonus)
-            '''
+            cur_profit = float(bonus['bonus']) * ( self.accum_qty / float(bonus['base']))
+            self.accum_profit += -1 * cur_profit
 
             if debug:
-                print('    {} XD first/first_fornext/min/min_forsell/next/sell {:.3f} {:.3f} {:.3f} {:.3f} {:.3f}({}) {:.3f}'.format(date,
-                    self.first_buy_price, self.first_buy_price_fornext, self.min_price, self.min_price_forsell, self.next_buy_price, self.next_buy_qty, self.sell_exp_price))
+                print('    {} XD first/first_fornext max/max_forbuy next_buy/sell_exp  {:.3f} {:.3f} {:.1f} | {:.3f} {:.3f} | {:.3f} x {} {:.3f}'.format(date,
+                    self.first_sell_price, self.first_sell_price_fornext, self.sell_count, 
+                    self.max_price, self.max_price_forbuy, 
+                    self.next_sell_price, self.next_sell_qty, self.buy_exp_price))
+                print('    {} XD profit {:.3f} x {:.3f} / {:.3f} = {:.3f}'.format(date, self.accum_qty, float(bonus['bonus']), float(bonus['base']), cur_profit))
         else:
             if debug:
-                print(f'    {date} XD still no first buy')
+                print(f'    {date} XD still no first sell')
             pass
 
     def Op(self, i, chg_perc, interval, start_date, end_date, debug=0):
@@ -203,119 +198,38 @@ class StockOpInv:
             #           当天最低最高价范围很大: 不是第一天，先对已有的min除权，先考虑卖出；第一天，只考虑买入
             # 更新最低价、卖出价
 
-            # 判断是否卖出
-            if self.buy_count != 0 and row["high"] >= self.sell_exp_price:
-                cur_profit = self.sell_exp_price * self.accum_qty - self.accum_cost
-                self.accum_profit += cur_profit
-                if self.max_cost < self.accum_cost:
-                    self.max_cost = self.accum_cost
-                if debug:
-                    print('    {} sell {:.2f} = {:.2f} * {:.1f} - {:.2f}'.format(date, cur_profit, self.sell_exp_price, self.accum_qty, self.accum_cost))
-
-                self.push_stat(date, cur_profit)
-                self.init_deal()
-                continue
-
-            # 判断是否买入
-            while row["low"] <= self.next_buy_price:
-                if self.buy_count == 0:
-                    self.first_buy_price = (row['open'] + ((row["low"] + row["high"]) / 2)) /2 #low和high差距太大时，再和open做下平均
-                    #self.first_buy_price = (row["low"] + row["high"]) / 2
-                    self.first_buy_date = date
-
-                    self.first_buy_price_fornext = self.first_buy_price
-                    self.next_buy_price = self.first_buy_price_fornext
-                self.accum_cost += self.next_buy_price * self.next_buy_qty
-                self.accum_qty += self.next_buy_qty
-                self.buy_count += 1
-                if debug:
-                    print('    {} buy{} {:.3f} x {:.1f} = {:.1f}'.format(date, self.buy_count, self.next_buy_price, self.next_buy_qty, self.next_buy_price*self.next_buy_qty))
-
-                self.next_buy_price = self.first_buy_price_fornext * (1-self.interval*self.buy_count)
-                self.next_buy_qty = np.round(np.exp2(self.buy_count/self.dec_buy_ratio))*100
-        
-            # 更新最低价、卖出价
-            if self.buy_count != 0 and row["low"] < self.min_price_forsell:
-                if debug:
-                    print('    {} min {:.2f} {:.2f} -> {:.2f}'.format(date, self.min_price, self.min_price_forsell, row["low"]))
-                # min_price不进行除权，min_price_forsell需要除权
-                self.min_price = row["low"]
-                self.min_price_forsell = self.min_price
-                self.min_date = date
-                self.sell_exp_price = self.min_price_forsell * self.chg_perc
-
-        if self.buy_count != 0:
-            self.push_stat(np.nan, np.nan)
-            if self.max_cost < self.accum_cost:
-                self.max_cost = self.accum_cost
-
-    # 先卖再买
-    def Op_inv(self, i, chg_perc, interval, start_date, end_date, debug=0):
-        self.set(i, chg_perc, interval, start_date, end_date)
-
-        if self.day_df.empty:
-            return
-
-        # 遍历每一天
-        if debug:
-            print('date       low      high      open     close');
-        for i, row in self.day_df.iterrows():
-            date = str(row["date"])
-
-            if debug:
-                print('{} {:8.3f} {:8.3f}  {:8.3f} {:8.3f}'.format(date, row['low'], row['high'], row['open'], row['close']));
-
-            # 判断是否存在除权的情况
-            self.Op_xd(date, debug)
-
-            # 当然价格可能：先低再高、先高再低
-            # 策略：优先处理卖, 并且采用以前的min价格得到的sell_exp, 因此注释掉下面的代码; 当天只进行一种操作，要么买，要么卖
-            # 然后考虑：第一次买入，更新min当天除权，
-            #           第一次买入当天除权:    不参与除权
-            #           当天最低最高价范围很大: 不是第一天，先对已有的min除权，先考虑卖出；第一天，只考虑买入
-            # 更新最低价、卖出价
-
             # 判断是否卖出 -> 买入
-            if self.buy_count != 0 and row["high"] >= self.sell_exp_price:
-                cur_profit = self.sell_exp_price * self.accum_qty - self.accum_cost
+            if self.sell_count != 0 and row["low"] <= self.buy_exp_price:
+                cur_profit = self.buy_exp_price * self.accum_qty - self.accum_cost
                 self.accum_profit += cur_profit
                 if self.max_cost < self.accum_cost:
                     self.max_cost = self.accum_cost
                 if debug:
-                    print('    {} sell {:.2f} = {:.2f} * {:.1f} - {:.2f}'.format(date, cur_profit, self.sell_exp_price, self.accum_qty, self.accum_cost))
+                    print('    {} buy  {:.2f} = {:.2f} * {:.1f} - {:.2f}'.format(date, cur_profit, self.buy_exp_price, self.accum_qty, self.accum_cost))
 
                 self.push_stat(date, cur_profit)
                 self.init_deal()
                 continue
 
             # 判断是否买入 -> 卖出
-            while row["low"] <= self.next_buy_price:
-                if self.buy_count == 0:
-                    self.first_buy_price = (row['open'] + ((row["low"] + row["high"]) / 2)) /2 #low和high差距太大时，再和open做下平均
-                    #self.first_buy_price = (row["low"] + row["high"]) / 2
-                    self.first_buy_date = date
+            while row["high"] > self.next_sell_price:
+                if self.sell_count == 0:
+                    self.first_sell_price = (row['open'] + ((row["low"] + row["high"]) / 2)) /2 #low和high差距太大时，再和open做下平均
+                    self.first_sell_date = date
 
-                    self.first_buy_price_fornext = self.first_buy_price
-                    self.next_buy_price = self.first_buy_price_fornext
-                self.accum_cost += self.next_buy_price * self.next_buy_qty
-                self.accum_qty += self.next_buy_qty
-                self.buy_count += 1
+                    self.first_sell_price_fornext = self.first_sell_price
+                    self.next_sell_price = self.first_sell_price_fornext
+                self.accum_cost += self.next_sell_price * self.next_sell_qty
+                self.accum_qty += self.next_sell_qty
+                self.sell_count += 1
                 if debug:
-                    print('    {} buy{} {:.3f} x {:.1f} = {:.1f}'.format(date, self.buy_count, self.next_buy_price, self.next_buy_qty, self.next_buy_price*self.next_buy_qty))
+                    print('    {} sell{} {:.3f} x {:.1f} = {:.1f}'.format(date, self.sell_count, self.next_sell_price, self.next_sell_qty, self.next_sell_price*self.next_sell_qty))
 
-                self.next_buy_price = self.first_buy_price_fornext * (1-self.interval*self.buy_count)
-                self.next_buy_qty = np.round(np.exp2(self.buy_count/self.dec_buy_ratio))*100
+                self.next_sell_price = self.first_sell_price_fornext * (1+self.interval*self.sell_count)
+                self.next_sell_qty = np.round(np.exp2(self.sell_count/self.dec_sell_ratio))*100
         
             # 更新最低价、卖出价 -> 最高价、买入价
-            if self.buy_count != 0 and row["low"] < self.min_price_forsell:
-                if debug:
-                    print('    {} min {:.2f} {:.2f} -> {:.2f}'.format(date, self.min_price, self.min_price_forsell, row["low"]))
-                # min_price不进行除权，min_price_forsell需要除权
-                self.min_price = row["low"]
-                self.min_price_forsell = self.min_price
-                self.min_date = date
-                self.sell_exp_price = self.min_price_forsell * self.chg_perc
-            if self.sell_count != 0 and row["low"] > self.max_price_forbuy:
+            if self.sell_count != 0 and row["high"] > self.max_price_forbuy:
                 if debug:
                     print('    {} max {:.2f} {:.2f} -> {:.2f}'.format(date, self.max_price, self.max_price_forbuy, row["high"]))
                 # max_price不进行除权，max_price_forbuy需要除权
@@ -324,15 +238,10 @@ class StockOpInv:
                 self.max_date = date
                 self.buy_exp_price = self.max_price_forbuy / self.chg_perc
 
-        if self.buy_count != 0:
+        if self.sell_count != 0:
             self.push_stat(np.nan, np.nan)
             if self.max_cost < self.accum_cost:
                 self.max_cost = self.accum_cost
-
-        if self.sell_count != 0:
-            self.push_stat_inv(np.nan, np.nan)
-            if self.max_debt < self.accum_debt:
-                self.max_debt = self.accum_debt
 
     def show_stat(self):
         print('{} {}-{} {} {}'.format(self.ts_code, self.start_date, self.end_date, self.chg_perc, self.interval))
@@ -341,7 +250,8 @@ class StockOpInv:
             print()
             return
         with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):
-            print(self.df_stat)
+            print(self.df_stat.to_string(float_format="{:.1f}".format))
+            #print(self.df_stat)
 
         '''
         today_df = self.day_df[self.day_df["date"] == self.end_date]
@@ -382,7 +292,7 @@ class StockOpInv:
 
         #对(self.df_stat)进行一个总结: 去除date是NaN的行数,即卖出次数, min_max_days的平均
         sell_counts = self.df_stat['date'].count()
-        avg_mm_days = self.df_stat['min_max_days'][self.df_stat['date'].notna()].mean()
+        avg_mm_days = self.df_stat['max_min_days'][self.df_stat['date'].notna()].mean()
 
         summary_dict = {
             "start_date": self.start_date,
@@ -434,10 +344,12 @@ class StockOpInv:
         return d
 
 def t_1code(sq, so):
-    ts_code    = '002475.SZ'
+    #ts_code    = '002475.SZ'
     #ts_code    = '600519.SH' # 茅台
     #ts_code    = '002273.SZ' # 水晶
     #ts_code    = '000425.SZ' # 徐工
+    #ts_code = '002456.SZ' # 欧菲光
+    ts_code = sys.argv[1]
     so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230901", debug=1)
 
     #ts_code = "830946.BJ" # 在20210624-20220321 出现6次卖，norm盈利440675,11743
