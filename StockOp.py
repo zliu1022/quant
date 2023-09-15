@@ -160,7 +160,8 @@ class StockOp:
             self.next_buy_price = self.first_buy_price_fornext * (1-self.interval*self.buy_count)
 
             #增加profit
-            self.accum_profit += float(xd['bonus']) * ( self.accum_qty / float(xd['base']))
+            cur_profit = float(bonus['bonus']) * ( self.accum_qty / float(bonus['base']))
+            self.accum_profit += cur_profit
 
             # method2: XD the current value
             # 这个逻辑有矛盾，虽然这次next_buy进行了除权
@@ -171,8 +172,11 @@ class StockOp:
             '''
 
             if debug:
-                print('    {} XD first/first_fornext/min/min_forsell/next/sell {:.3f} {:.3f} {:.3f} {:.3f} {:.3f}({}) {:.3f}'.format(date,
-                    self.first_buy_price, self.first_buy_price_fornext, self.min_price, self.min_price_forsell, self.next_buy_price, self.next_buy_qty, self.sell_exp_price))
+                print('    {} XD first/first_fornext/buy_count | min/min_forsell | next_buy/sell_exp {:.3f} {:.3f} {:.1f} | {:.3f} {:.3f} | {:.3f} x {} {:.3f}'.format(date,
+                    self.first_buy_price, self.first_buy_price_fornext, self.buy_count,
+                    self.min_price, self.min_price_forsell, 
+                    self.next_buy_price, self.next_buy_qty, self.sell_exp_price))
+                print('    {} XD profit {:.3f} x {:.3f} / {:.3f} = {:.3f}'.format(date, self.accum_qty, float(bonus['bonus']), float(bonus['base']), cur_profit))
         else:
             if debug:
                 print(f'    {date} XD still no first buy')
@@ -225,11 +229,19 @@ class StockOp:
 
                     self.first_buy_price_fornext = self.first_buy_price
                     self.next_buy_price = self.first_buy_price_fornext
+                if self.accum_qty == 0:
+                    cost_each_before = np.nan
+                else:
+                    cost_each_before = self.accum_cost / self.accum_qty
                 self.accum_cost += self.next_buy_price * self.next_buy_qty
                 self.accum_qty += self.next_buy_qty
                 self.buy_count += 1
                 if debug:
-                    print('    {} buy{} {:.3f} x {:.1f} = {:.1f}'.format(date, self.buy_count, self.next_buy_price, self.next_buy_qty, self.next_buy_price*self.next_buy_qty))
+                    cost_each_cur = self.accum_cost / self.accum_qty
+                    cost_each_chg = (cost_each_before - cost_each_cur) / cost_each_before
+                    print('    {} buy{} {:.3f} x {:.1f} = {:.1f} {:.1f}->{:.1f} {:.3f}->{:.3f} {:.1f}%'.format(date, 
+                        self.buy_count, self.next_buy_price, self.next_buy_qty, self.next_buy_price*self.next_buy_qty,
+                        self.accum_qty-self.next_buy_qty, self.accum_qty, cost_each_before, cost_each_cur, cost_each_chg*100.0))
 
                 self.next_buy_price = self.first_buy_price_fornext * (1-self.interval*self.buy_count)
                 self.next_buy_qty = np.round(np.exp2(self.buy_count/self.dec_buy_ratio))*100
@@ -255,8 +267,11 @@ class StockOp:
             print('day_df empty')
             print()
             return
+
+        #self.df_stat['accum_cost'] = self.df_stat['accum_cost'].round(1)
         with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):
-            print(self.df_stat)
+            print(self.df_stat.to_string(float_format="{:.1f}".format))
+            #print(self.df_stat)
 
         '''
         today_df = self.day_df[self.day_df["date"] == self.end_date]
@@ -349,10 +364,11 @@ class StockOp:
         return d
 
 def t_1code(sq, so):
-    ts_code    = '002475.SZ'
-    #ts_code    = '600519.SH' # 茅台
-    #ts_code    = '002273.SZ' # 水晶
     #ts_code    = '000425.SZ' # 徐工
+    #ts_code    = '002273.SZ' # 水晶
+    #ts_code    = '600519.SH' # 茅台
+    #ts_code    = '002475.SZ'
+    ts_code = sys.argv[1]
     so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230901", debug=1)
 
     #ts_code = "830946.BJ" # 在20210624-20220321 出现6次卖，norm盈利440675,11743
