@@ -1,13 +1,3 @@
-Check token 2023-09-21
-update token 29bdb37dee2432c294425cc9e8f45710a62643a5 cost  0.92s
-token expired, update 29bdb37dee2432c294425cc9e8f45710a62643a5
-req_basic changed 002182.SZ name 宝武镁业 -> 云海金属 
-req_basic insert new 301500.SZ N飞南 环境保护
-req_basic changed 301529.SZ name 福赛科技 -> C福赛 
-req_basic insert new 301548.SZ C崇德 机械基件
-req_basic changed 301550.SZ name C斯菱 -> N斯菱 
-req_basic changed 603075.SH name 热威股份 -> C热威 
-req_basic changed 688702.SH name 盛科通信-U -> C盛科-U 
-req_basic insert new 688716.SH C中研 化工原料
-req_basic changed 836419.BJ name 万德股份 -> N万德 
-req_basic cost 12.92s
+Check token 2023-09-22
+token got 1 days ago 29bdb37dee2432c294425cc9e8f45710a62643a5 still valid
+req_basic cost 12.66s
