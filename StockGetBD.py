@@ -9,6 +9,7 @@ import datetime
 import os
 from pprint import pprint
 import numpy as np
+from Utils import RecTime
 
 today_str = datetime.datetime.now().strftime('%Y-%m-%d')
 today_dt= datetime.datetime.strptime(today_str,'%Y-%m-%d')
@@ -202,6 +203,7 @@ def query_board():
     return df
 
 if __name__ == '__main__':
+    rt = RecTime()
     client = MongoClient(port=27017)
     db = client.ak_board
     col_updateinfo = db.updateinfo
@@ -231,6 +233,7 @@ if __name__ == '__main__':
 
     save_update_info_to_db(col_updateinfo)
 
+    rt.show_s()
     quit()
 
     # update bdlist_ori -> cur
