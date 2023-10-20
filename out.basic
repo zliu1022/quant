@@ -1,14 +1,15 @@
-Check token 2023-10-13
-update token f56996335e7084331652c772453245851c42d712 cost  0.85s
+Check token 2023-10-20
+update token f56996335e7084331652c772453245851c42d712 cost  0.91s
 token expired, update f56996335e7084331652c772453245851c42d712
-req_basic changed 002002.SZ name ST鸿达 -> 鸿达兴业 
-req_basic changed 301500.SZ name 飞南资源 -> C飞南 
-req_basic changed 301520.SZ name 万邦医药 -> C万邦医 
-req_basic changed 301558.SZ name C三态 -> 三态股份 
-req_basic insert new 301559.SZ C中集 专用机械
-req_basic changed 600530.SH name ST交昂 -> *ST交昂 
-req_basic changed 603276.SH name 恒兴新材 -> C恒兴 
-req_basic insert new 688657.SH C浩辰 软件服务
-req_basic changed 688719.SH name C爱科 -> 爱科赛博 
-req_basic insert new 832786.BJ 骑士乳业 乳制品
-req_basic cost 12.22s
+req_basic changed 000546.SZ name 金圆股份 -> ST金圆 
+req_basic changed 000911.SZ name 广农糖业 -> 南宁糖业 
+req_basic insert new 301517.SZ C陕华达 元器件
+req_basic changed 301558.SZ name 三态股份 -> C三态 
+req_basic changed 301559.SZ name 中集环科 -> C中集 
+req_basic changed 600322.SH name 津投城开 -> 天房发展 
+req_basic insert new 603193.SH C润本 日用化工
+req_basic insert new 603273.SH 天元智能 专用机械
+req_basic changed 688657.SH name 浩辰软件 -> C浩辰 
+req_basic changed 688719.SH name 爱科赛博 -> C爱科 
+req_basic insert new 873726.BJ 卓兆点胶 机械基件
+req_basic cost 12.05s
