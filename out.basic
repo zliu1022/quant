@@ -1,15 +1,9 @@
-Check token 2023-10-20
-update token f56996335e7084331652c772453245851c42d712 cost  0.91s
-token expired, update f56996335e7084331652c772453245851c42d712
-req_basic changed 000546.SZ name 金圆股份 -> ST金圆 
-req_basic changed 000911.SZ name 广农糖业 -> 南宁糖业 
-req_basic insert new 301517.SZ C陕华达 元器件
-req_basic changed 301558.SZ name 三态股份 -> C三态 
-req_basic changed 301559.SZ name 中集环科 -> C中集 
-req_basic changed 600322.SH name 津投城开 -> 天房发展 
-req_basic insert new 603193.SH C润本 日用化工
-req_basic insert new 603273.SH 天元智能 专用机械
-req_basic changed 688657.SH name 浩辰软件 -> C浩辰 
-req_basic changed 688719.SH name 爱科赛博 -> C爱科 
-req_basic insert new 873726.BJ 卓兆点胶 机械基件
-req_basic cost 12.05s
+Check token 2023-10-27
+update token e2f0876e8fd368a0be2b6d38a49ed2dd5eec7557 cost  0.96s
+token expired, update e2f0876e8fd368a0be2b6d38a49ed2dd5eec7557
+req_basic changed 300108.SZ name ST吉药 -> *ST吉药 
+req_basic insert new 301489.SZ C思泉 元器件
+req_basic changed 301517.SZ name 陕西华达 -> C陕华达 
+req_basic changed 603193.SH name 润本股份 -> C润本 
+req_basic changed 603273.SH name C天元 -> 天元智能 
+req_basic cost 12.69s
