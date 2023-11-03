@@ -1,9 +1,18 @@
-Check token 2023-10-27
-update token e2f0876e8fd368a0be2b6d38a49ed2dd5eec7557 cost  0.96s
+Check token 2023-11-03
+update token e2f0876e8fd368a0be2b6d38a49ed2dd5eec7557 cost  1.23s
 token expired, update e2f0876e8fd368a0be2b6d38a49ed2dd5eec7557
-req_basic changed 300108.SZ name ST吉药 -> *ST吉药 
-req_basic insert new 301489.SZ C思泉 元器件
-req_basic changed 301517.SZ name 陕西华达 -> C陕华达 
-req_basic changed 603193.SH name 润本股份 -> C润本 
-req_basic changed 603273.SH name C天元 -> 天元智能 
-req_basic cost 12.69s
+req_basic insert new 001376.SZ 百通能源 供气供热
+req_basic insert new 001378.SZ C德冠 塑料
+req_basic changed 002251.SZ name *ST步高 -> 步步高 
+req_basic changed 300099.SZ name 尤洛卡 -> 精准信息 
+req_basic changed 300518.SZ name 新迅达 -> 盛讯达 
+req_basic changed 300817.SZ name 双飞集团 -> 双飞股份 
+req_basic changed 301489.SZ name 思泉新材 -> C思泉 
+req_basic insert new 301555.SZ C惠柏 化工原料
+req_basic changed 600084.SH name 中信尼雅 -> 中葡股份 
+req_basic insert new 603107.SH C汽配 汽车配件
+req_basic changed 603273.SH name 天元智能 -> C天元 
+req_basic insert new 833030.BJ N立方 软件服务
+req_basic insert new 839493.BJ 并行科技 软件服务
+req_basic insert new 873693.BJ 阿为特 机械基件
+req_basic cost 12.57s
