@@ -1,9 +1,12 @@
-Check token 2023-11-24
-update token 4fda997cf0d3bc4ef43eba42532cf38a54bcbc00 cost  5.51s
+Check token 2023-12-01
+update token 4fda997cf0d3bc4ef43eba42532cf38a54bcbc00 cost  1.06s
 token expired, update 4fda997cf0d3bc4ef43eba42532cf38a54bcbc00
-req_basic changed 002547.SZ industry 汽车配件 -> 通信设备 
-req_basic changed 600250.SH name 南京商旅 -> 南纺股份 
-req_basic changed 688648.SH name 中邮科技 -> C中邮 
-req_basic changed 688653.SH name C康希 -> N康希 
-req_basic insert new 873570.BJ 坤博精工 机械基件
-req_basic cost 14.07s
+req_basic changed 001306.SZ name 夏厦精密 -> C夏厦 
+req_basic changed 002806.SZ industry 汽车配件 -> 铝 
+req_basic insert new 301508.SZ N中机 电器仪表
+req_basic insert new 301568.SZ C思泰克 专用机械
+req_basic changed 603778.SH name 国晟科技 -> 乾景园林 
+req_basic insert new 688652.SH C京仪 半导体
+req_basic changed 688653.SH name 康希通信 -> C康希 
+req_basic insert new 835579.BJ 机科股份 机械基件
+req_basic cost 18.25s
