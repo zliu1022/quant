@@ -1,18 +1,22 @@
-Check token 2023-12-15
-update token a97fa15a5bb947c53ed434a6c0364dd03f36962c cost  0.79s
-token expired, update a97fa15a5bb947c53ed434a6c0364dd03f36962c
-req_basic changed 000523.SZ name 红棉股份 -> 广州浪奇 
-req_basic changed 000537.SZ name 中绿电 -> 广宇发展 
-req_basic changed 000982.SZ industry 电气设备 -> 纺织 
-req_basic insert new 001239.SZ C永达 工程机械
-req_basic changed 002306.SZ industry 酒店餐饮 -> 互联网 
-req_basic insert new 301459.SZ C丰茂 橡胶
-req_basic changed 301508.SZ name 中机认检 -> C中机 
-req_basic changed 301516.SZ name C中远通 -> 中远通 
-req_basic changed 601083.SH name 锦江航运 -> C锦江 
-req_basic insert new 603231.SH 索宝蛋白 食品
-req_basic changed 688529.SH name 豪森智能 -> 豪森股份 
-req_basic changed 688720.SH name 艾森股份 -> C艾森 
-req_basic insert new 831175.BJ N派诺 软件服务
-req_basic insert new 836547.BJ 无锡晶海 化学制药
-req_basic cost 24.79s
+Check token 2023-12-29
+update token 9eb4932f3197a06d242009fa2ee386ce66c8799f cost 10.74s
+token expired, update 9eb4932f3197a06d242009fa2ee386ce66c8799f
+req_basic changed 001239.SZ name 永达股份 -> C永达 
+req_basic insert new 001358.SZ 兴欣新材 化工原料
+req_basic changed 002485.SZ name ST雪发 -> *ST雪发 
+req_basic insert new 301413.SZ 安培龙 元器件
+req_basic changed 301459.SZ name 丰茂股份 -> C丰茂 
+req_basic changed 301516.SZ name 中远通 -> C中远通 
+req_basic insert new 301526.SZ C国际复 玻璃
+req_basic insert new 301566.SZ N达利 元器件
+req_basic insert new 301578.SZ C辰奕 IT设备
+req_basic changed 600720.SH name 中交设计 -> 祁连山 
+req_basic insert new 601096.SH 宏盛华源 钢加工
+req_basic insert new 603004.SH C鼎龙 化工原料
+req_basic insert new 603373.SH 安邦护卫 综合类
+req_basic changed 688469.SH name 芯联集成-U -> 芯联集成 
+req_basic changed 831175.BJ name 派诺科技 -> N派诺 
+req_basic insert new 833284.BJ 灵鸽科技 专用机械
+req_basic insert new 836961.BJ 西磁科技 专用机械
+req_basic insert new 871263.BJ 莱赛激光 电器仪表
+req_basic cost 34.44s
