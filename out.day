@@ -1,30 +1,82 @@
-Check token 2023-12-29
+Check token 2024-01-06
 token got 0 days ago 9eb4932f3197a06d242009fa2ee386ce66c8799f still valid
-find 5380 stocks
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600608&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600301&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH601825&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000007&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600886&begin=1702656000000
+find 5382 stocks
 Error: No kline, maybe restday SH600311
 Error: No kline, maybe restday SZ000038
+Error: No kline, maybe restday SZ000046
 Error: No kline, maybe restday SZ000732
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ001333&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1136f1490>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600967&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138db750>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000738&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138db650>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300949&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138db1d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600657&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1136fa110>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002988&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1136ef9d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002469&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x113919050>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300443&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138dbcd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603282&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1136f1ad0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH601969&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138dead0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688285&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1136f14d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600351&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138de7d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300196&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x115ddbf90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000063&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x115de09d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300688&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x115de0fd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002723&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x115dddad0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002225&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x115ddd150>: Failed to establish a new connection: [Errno 61] Connection refused'))
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603779&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600035&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600967&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300949&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=BJ838402&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ001333&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000738&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000063&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603282&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600657&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002988&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300443&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ301216&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688285&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002469&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300196&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600351&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688009&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300688&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002225&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002723&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH601969&begin=1703865600000
 Error: No kline, maybe restday SZ000150
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000153&begin=1702656000000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11dd04410>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000153&begin=1702656000000
-Error: No kline, maybe restday SZ002751
-Error: No kline, maybe restday SH600077
-Error: No kline, maybe restday SZ002013
 Error: No kline, maybe restday SZ002499
+Error: No kline, maybe restday SZ002751
+Error: No kline, maybe restday SZ002013
+Error: No kline, maybe restday SH600077
 Error: No kline, maybe restday SZ002503
 Error: No kline, maybe restday SZ002504
-Error: No kline, maybe restday SZ000806
 Error: No kline, maybe restday SH600393
+Error: No kline, maybe restday SZ000806
+Error: No kline, maybe restday SH688337
+Error: No kline, maybe restday SZ002776
 Error: No kline, maybe restday SZ002781
 Error: No kline, maybe restday SH688086
 Error: No kline, maybe restday SH600122
@@ -33,57 +85,68 @@ Error: No kline, maybe restday SZ300526
 Error: No kline, maybe restday SH600139
 Error: No kline, maybe restday SZ000540
 Error: No kline, maybe restday SH600466
-Error: No kline, maybe restday SH600767
+Error: No kline, maybe restday SH603958
 Error: No kline, maybe restday SZ300297
-Error: No kline, maybe restday SZ000918
+Error: No kline, maybe restday SH600767
 Error: No kline, maybe restday SZ300309
 Error: No kline, maybe restday SH600781
 Error: No kline, maybe restday SH601258
+Error: No kline, maybe restday SZ000918
 Error: No kline, maybe restday SZ000587
 Error: No kline, maybe restday SZ002113
+Error: No kline, maybe restday SZ300330
 Error: No kline, maybe restday SZ300089
 Error: No kline, maybe restday SZ002118
-Error: No kline, maybe restday SZ300330
-Error: No kline, maybe restday SZ000606
 Error: No kline, maybe restday SZ300336
+Error: No kline, maybe restday SZ000606
 Error: No kline, maybe restday SZ000616
 Error: No kline, maybe restday SH600532
-Error: No kline, maybe restday SH688555
 Error: No kline, maybe restday SZ300356
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error: No kline, maybe restday SH688555
+Error: No kline, maybe restday SZ000657
 Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
 Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600841&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH603197&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000993&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH601618&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ002397&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH688234&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH605199&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300373&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300889&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH688573&begin=1702656000000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300625&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000657&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600559&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600237&begin=1702656000000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300625&begin=1702656000000
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300143&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138c33d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300386&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x113e5f0d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603681&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x114331ed0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002398&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11569d110>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ301568&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x114fafbd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000661&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1138c3790>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600562&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x114d3f510>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600843&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1132f39d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=BJ835579&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11453d850>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600238&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11453d7d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300143&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x113cec710>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603201&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x114c98d90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300902&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x113cecbd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002655&begin=1703865600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x114c98550>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603681&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=BJ835579&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300143&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600562&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600238&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300386&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600843&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002398&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000987&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000661&begin=1703865600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603201&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ301568&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300902&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002655&begin=1703865600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603681&begin=1703865600000
 Error: No kline, maybe restday SH600242
 Error: No kline, maybe restday SZ000666
 Error: No kline, maybe restday SZ000667
+Error: No kline, maybe restday SZ300392
 Error: No kline, maybe restday SZ000671
 Error: No kline, maybe restday SZ002411
 Error: No kline, maybe restday SH600260
-Error: No kline, maybe restday SZ300392
 Error: No kline, maybe restday SZ002417
-total cost 141.19s
+Error: No kline, maybe restday SH600290
+total cost 164.71s
