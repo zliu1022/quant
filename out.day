@@ -1,78 +1,89 @@
-Check token 2023-12-15
-token got 0 days ago a97fa15a5bb947c53ed434a6c0364dd03f36962c still valid
-find 5369 stocks
+Check token 2023-12-29
+token got 0 days ago 9eb4932f3197a06d242009fa2ee386ce66c8799f still valid
+find 5380 stocks
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600608&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600301&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH601825&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000007&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600886&begin=1702656000000
 Error: No kline, maybe restday SH600311
 Error: No kline, maybe restday SZ000038
 Error: No kline, maybe restday SZ000732
-Error: No kline, maybe restday SH600077
 Error: No kline, maybe restday SZ000150
-Error: No kline, maybe restday SZ002013
-Error: No kline, maybe restday SH600393
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000153&begin=1702656000000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11dd04410>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000153&begin=1702656000000
 Error: No kline, maybe restday SZ002751
-Error: No kline, maybe restday SZ000806
+Error: No kline, maybe restday SH600077
+Error: No kline, maybe restday SZ002013
 Error: No kline, maybe restday SZ002499
 Error: No kline, maybe restday SZ002503
 Error: No kline, maybe restday SZ002504
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
-Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
-Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
-Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH603367&begin=1702051200000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11e7e57d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ002510&begin=1702051200000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x120fee350>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ002264&begin=1702051200000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11fdfa350>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH601058&begin=1702051200000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11e98eb10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ300001&begin=1702051200000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11df3bd50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH600406&begin=1702051200000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH603885&begin=1702051200000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH688728&begin=1702051200000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH600718&begin=1702051200000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH600117&begin=1702051200000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ301013&begin=1702051200000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH603367&begin=1702051200000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ002264&begin=1702051200000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ002510&begin=1702051200000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH601058&begin=1702051200000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SZ300001&begin=1702051200000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH688728&begin=1702051200000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH603885&begin=1702051200000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH600406&begin=1702051200000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=7&symbol=SH600718&begin=1702051200000
+Error: No kline, maybe restday SZ000806
+Error: No kline, maybe restday SH600393
+Error: No kline, maybe restday SZ002781
 Error: No kline, maybe restday SH688086
 Error: No kline, maybe restday SH600122
-Error: No kline, maybe restday SZ002781
-Error: No kline, maybe restday SH600139
 Error: No kline, maybe restday SZ300273
 Error: No kline, maybe restday SZ300526
+Error: No kline, maybe restday SH600139
 Error: No kline, maybe restday SZ000540
 Error: No kline, maybe restday SH600466
 Error: No kline, maybe restday SH600767
 Error: No kline, maybe restday SZ300297
-Error: No kline, maybe restday SH600781
-Error: No kline, maybe restday SZ300309
 Error: No kline, maybe restday SZ000918
+Error: No kline, maybe restday SZ300309
+Error: No kline, maybe restday SH600781
 Error: No kline, maybe restday SH601258
-Error: No kline, maybe restday SZ300089
-Error: No kline, maybe restday SZ002113
 Error: No kline, maybe restday SZ000587
+Error: No kline, maybe restday SZ002113
+Error: No kline, maybe restday SZ300089
 Error: No kline, maybe restday SZ002118
 Error: No kline, maybe restday SZ300330
-Error: No kline, maybe restday SZ300336
 Error: No kline, maybe restday SZ000606
-Error: No kline, maybe restday SH688555
+Error: No kline, maybe restday SZ300336
 Error: No kline, maybe restday SZ000616
 Error: No kline, maybe restday SH600532
+Error: No kline, maybe restday SH688555
 Error: No kline, maybe restday SZ300356
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600841&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH603197&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000993&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH601618&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ002397&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH688234&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH605199&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300373&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300889&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH688573&begin=1702656000000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300625&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000657&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600559&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600237&begin=1702656000000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300625&begin=1702656000000
 Error: No kline, maybe restday SH600242
-Error: No kline, maybe restday SH600260
 Error: No kline, maybe restday SZ000666
 Error: No kline, maybe restday SZ000667
 Error: No kline, maybe restday SZ000671
-Error: No kline, maybe restday SZ300392
 Error: No kline, maybe restday SZ002411
+Error: No kline, maybe restday SH600260
+Error: No kline, maybe restday SZ300392
 Error: No kline, maybe restday SZ002417
-total cost 177.30s
+total cost 141.19s
