@@ -1,22 +1,16 @@
-Check token 2023-12-29
-update token 9eb4932f3197a06d242009fa2ee386ce66c8799f cost 10.74s
+Check token 2024-01-06
+update token 9eb4932f3197a06d242009fa2ee386ce66c8799f cost  1.63s
 token expired, update 9eb4932f3197a06d242009fa2ee386ce66c8799f
-req_basic changed 001239.SZ name 永达股份 -> C永达 
-req_basic insert new 001358.SZ 兴欣新材 化工原料
-req_basic changed 002485.SZ name ST雪发 -> *ST雪发 
-req_basic insert new 301413.SZ 安培龙 元器件
-req_basic changed 301459.SZ name 丰茂股份 -> C丰茂 
-req_basic changed 301516.SZ name 中远通 -> C中远通 
-req_basic insert new 301526.SZ C国际复 玻璃
-req_basic insert new 301566.SZ N达利 元器件
-req_basic insert new 301578.SZ C辰奕 IT设备
-req_basic changed 600720.SH name 中交设计 -> 祁连山 
-req_basic insert new 601096.SH 宏盛华源 钢加工
-req_basic insert new 603004.SH C鼎龙 化工原料
-req_basic insert new 603373.SH 安邦护卫 综合类
-req_basic changed 688469.SH name 芯联集成-U -> 芯联集成 
-req_basic changed 831175.BJ name 派诺科技 -> N派诺 
-req_basic insert new 833284.BJ 灵鸽科技 专用机械
-req_basic insert new 836961.BJ 西磁科技 专用机械
-req_basic insert new 871263.BJ 莱赛激光 电器仪表
-req_basic cost 34.44s
+req_basic changed 002775.SZ name 文科股份 -> 文科园林 
+req_basic changed 300096.SZ name ST易联众 -> 易联众 
+req_basic changed 300188.SZ name 国投智能 -> 美亚柏科 
+req_basic changed 300682.SZ name 朗新集团 -> 朗新科技 
+req_basic changed 301526.SZ name 国际复材 -> C国际复 
+req_basic changed 301566.SZ name C达利 -> N达利 
+req_basic changed 301578.SZ name 辰奕智能 -> C辰奕 
+req_basic changed 600223.SH industry 日用化工 -> 区域地产 
+req_basic changed 600720.SH industry 建筑工程 -> 水泥 
+req_basic changed 603004.SH name 鼎龙科技 -> C鼎龙 
+req_basic insert new 688717.SH C艾罗 电气设备
+req_basic insert new 873690.BJ N捷众 汽车配件
+req_basic cost 13.95s
