@@ -1,16 +1,11 @@
-Check token 2024-01-06
-update token 9eb4932f3197a06d242009fa2ee386ce66c8799f cost  1.63s
-token expired, update 9eb4932f3197a06d242009fa2ee386ce66c8799f
-req_basic changed 002775.SZ name 文科股份 -> 文科园林 
-req_basic changed 300096.SZ name ST易联众 -> 易联众 
-req_basic changed 300188.SZ name 国投智能 -> 美亚柏科 
-req_basic changed 300682.SZ name 朗新集团 -> 朗新科技 
-req_basic changed 301526.SZ name 国际复材 -> C国际复 
-req_basic changed 301566.SZ name C达利 -> N达利 
-req_basic changed 301578.SZ name 辰奕智能 -> C辰奕 
-req_basic changed 600223.SH industry 日用化工 -> 区域地产 
-req_basic changed 600720.SH industry 建筑工程 -> 水泥 
-req_basic changed 603004.SH name 鼎龙科技 -> C鼎龙 
-req_basic insert new 688717.SH C艾罗 电气设备
-req_basic insert new 873690.BJ N捷众 汽车配件
-req_basic cost 13.95s
+Check token 2024-01-14
+update token 4418c7deafa5b566e73966d73045c92752601c18 cost 37.59s
+token expired, update 4418c7deafa5b566e73966d73045c92752601c18
+req_basic insert new 001387.SZ N雪祺 家用电器
+req_basic changed 301566.SZ name 达利凯普 -> C达利 
+req_basic insert new 603312.SH N西典 电气设备
+req_basic insert new 603325.SH C博隆 机械基件
+req_basic changed 688717.SH name 艾罗能源 -> C艾罗 
+req_basic changed 873690.BJ name 捷众科技 -> N捷众 
+req_basic insert new 873806.BJ N云星宇 软件服务
+req_basic cost 42.39s
