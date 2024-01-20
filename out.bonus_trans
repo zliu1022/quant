@@ -1,4 +1,4 @@
-Check token 2024-01-14
+Check token 2024-01-20
 token got 0 days ago 4418c7deafa5b566e73966d73045c92752601c18 still valid
 find 5386 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
@@ -14,18 +14,18 @@ Error: bonus plan: not find 送转派 (实施方案)
 000408.SZ insert bad bonus, bad_plan
 Warning: 000408.SZ no date     1995年报 nan(NaN) 1995 (实施方案)
 Warning: 000409.SZ no date     2015-05-13 nan(NaN) 20150513 10转0.9股(董事会预案)
-Warning: 000410.SZ no date 5ys 2019-10-30 1576771200000.0(20191220) 20191030 10转12股(实施方案)
 Error: bonus plan: not find 送转派 新股东不参与95年度利润分配(实施方案)
-000410.SZ update bad bonus, bad_plan
+000410.SZ insert bad bonus, bad_plan
 Warning: 000410.SZ no date     1995年报 nan(NaN) 1995 新股东不参与95年度利润分配(实施方案)
+Warning: 000410.SZ no date 5ys 2019-10-30 1576771200000.0(20191220) 20191030 10转12股(实施方案)
 Warning: 000413.SZ no date     1995年报 nan(NaN) 1995 国家股和法人股10派2.5元,职工股10派2.5元(实施方案)
 Warning: 000420.SZ no date     1995年报 nan(NaN) 1995 老股东10派4.1元(实施方案)
 Error: bonus plan: not find 送转派 以盈余公积弥补亏损(实施方案)
 000503.SZ insert bad bonus, bad_plan
 Warning: 000503.SZ no date     1995年报 nan(NaN) 1995 以盈余公积弥补亏损(实施方案)
 Warning: 000506.SZ no date     2006-12-01 1230220800000(20081226) 20061201 10转3.5股(实施方案)
-Warning: 000509.SZ no date     2005三季报 nan(NaN) 2005 10转4.15股(董事会预案)
 Warning: 000509.SZ no date     2014-01-07 1389110400000.0(20140108) 20140107 10转25股(实施方案)
+Warning: 000509.SZ no date     2005三季报 nan(NaN) 2005 10转4.15股(董事会预案)
 Warning: 000520.SZ no date     2014-03-25 1406649600000(20140730) 20140325 10转5股(实施方案)
 Warning: 000523.SZ no date 5ys 2021-10-23 1638892800000(20211208) 20211023 10转15.69股(实施方案)
 Warning: 000557.SZ no date     2008三季报 1229097600000(20081213) 2008 10转1.3409股(实施方案)
@@ -144,4 +144,4 @@ Warning: 838670.BJ no date 5ys 2019中报 nan(NaN) 2019 10派2.5元(股东大会
 Warning: 839273.BJ no date     2018年报 nan(NaN) 2018 10派2.2元(股东大会预案)
 Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会预案)
 Warning: 873339.BJ no date 5ys 2019年报 nan(NaN) 2019 10派20元(股东大会预案)
-total cost 155.98s
+total cost 62.77s
