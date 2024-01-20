@@ -1,11 +1,12 @@
-Check token 2024-01-14
-update token 4418c7deafa5b566e73966d73045c92752601c18 cost 37.59s
-token expired, update 4418c7deafa5b566e73966d73045c92752601c18
-req_basic insert new 001387.SZ N雪祺 家用电器
-req_basic changed 301566.SZ name 达利凯普 -> C达利 
-req_basic insert new 603312.SH N西典 电气设备
-req_basic insert new 603325.SH C博隆 机械基件
-req_basic changed 688717.SH name 艾罗能源 -> C艾罗 
-req_basic changed 873690.BJ name 捷众科技 -> N捷众 
-req_basic insert new 873806.BJ N云星宇 软件服务
-req_basic cost 42.39s
+Check token 2024-01-20
+token got 0 days ago 4418c7deafa5b566e73966d73045c92752601c18 still valid
+req_basic insert new 001379.SZ N腾达 机械基件
+req_basic changed 001387.SZ name 雪祺电气 -> N雪祺 
+req_basic insert new 301567.SZ C贝隆 元器件
+req_basic changed 600759.SH name ST洲际 -> *ST洲际 
+req_basic insert new 601033.SH C永兴 环境保护
+req_basic changed 603312.SH name 西典新能 -> N西典 
+req_basic changed 603325.SH name 博隆技术 -> C博隆 
+req_basic insert new 837403.BJ 康农种业 种植业
+req_basic changed 873806.BJ name 云星宇 -> N云星宇 
+req_basic cost 13.91s
