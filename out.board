@@ -1,18 +1,18 @@
 board list
              日期  ...      代码
-0    2024-01-10  ...  309113
-1    2024-01-09  ...  307550
-2    2024-01-02  ...  309108
-3    2023-12-27  ...  309106
-4    2023-12-20  ...  309105
+0    2024-01-25  ...  309115
+1    2024-01-10  ...  309113
+2    2024-01-09  ...  307550
+3    2024-01-02  ...  309108
+4    2023-12-27  ...  309106
 ..          ...  ...     ...
-561        None  ...  308760
-587        None  ...  300309
-588        None  ...  300134
-622        None  ...  300337
-696        None  ...  300008
+533        None  ...  300265
+590        None  ...  300309
+591        None  ...  300134
+644        None  ...  300351
+699        None  ...  300008
 
-[399 rows x 5 columns]
+[400 rows x 5 columns]
 new
        概念名称_cur     概念名称_new
 代码                          
@@ -32,6 +32,7 @@ new
 309106      NaN         小米汽车
 309108      NaN        可控核聚变
 309113      NaN  飞行汽车(eVTOL)
+309115      NaN         低空经济
 
 remove
        概念名称_cur 概念名称_new
@@ -60,718 +61,549 @@ number change 379
 代码                                     
 300008      新能源汽车      642.0        NaN
 300013        大飞机       89.0       97.0
-300018       参股保险       86.0       82.0
-300019       网络游戏       68.0       68.0
-300023       食品安全       46.0       54.0
+300018       参股保险       86.0       83.0
+300019       网络游戏       68.0       69.0
+300023       食品安全       46.0       55.0
 ...           ...        ...        ...
 309062  同花顺中特估100      100.0      100.0
 309063   MR（混合现实）       28.0       54.0
 309065      英伟达概念       28.0       39.0
-309066       空间计算       32.0       46.0
+309066       空间计算       32.0       47.0
 309068       算力租赁       43.0       78.0
 
 [379 rows x 3 columns]
 
 300008 新能源汽车 new
           代码    名称
-674  688028   沃尔德
-728  831278  泰德股份
+740  837821  则成电子
+
+300008 新能源汽车 removed
+          代码    名称
+385  300995  奇德新材
+
+300018 参股保险 new
+         代码    名称
+75  601969  海南矿业
+
+300019 网络游戏 new
+         代码    名称
+51  301302  华如科技
+
+300023 食品安全 new
+         代码    名称
+26  300645  正元智慧
+
+300037 智能电网 new
+          代码    名称
+184  870299  灿能电力
 
 300066 海峡两岸 new
-         代码     名称
-18  300096  ST易联众
-21  300605   恒锋信息
-43  605299   舒华体育
-45  688196   卓越新能
-46  833171   国航远洋
-
-300100 参股券商 new
          代码    名称
-33  000961  中南建设
+14  002593  日上集团
 
-300105 海工装备 new
-        代码    名称
-4  002085  万丰奥威
+300082 军工 new
+          代码    名称
+406  603150  万朗磁塑
+498  836270  天铭科技
+
+300106 生物疫苗 removed
+         代码    名称
+23  300443  金雷股份
 
 300163 车联网 new
-         代码    名称
-11  000957  中通客车
+          代码    名称
+22   002236  大华股份
+33   002413  雷科防务
+35   002446  盛路通信
+44   002806  华锋股份
+66   300270  中威电子
+69   300322   硕贝德
+95   600104  上汽集团
+100  600406  国电南瑞
+110  601633  长城汽车
+112  601965  中国汽研
+118  603508  思维列控
+119  603528  多伦科技
+122  688023  安恒信息
+123  688080   映翰通
+127  688326  经纬恒润
 
 300168 创投 new
           代码    名称
-282  603043  广州酒家
-286  603150  万朗磁塑
-
-300168 创投 removed
-          代码     名称
-226  600290  *ST华仪
+254  600679  上海凤凰
+267  600836  上海易连
 
 300186 电子商务 new
           代码    名称
-101  002342  巨力索具
-134  002577  雷柏科技
-137  002591  恒大高新
-207  300086  康芝药业
-297  600156  华升股份
-318  600448  华纺股份
-330  600593  大连圣亚
-362  601065  江盐集团
-376  601969  海南矿业
-439  605077  华康股份
-448  605299  舒华体育
-
-300200 风电 new
-         代码    名称
-37  002085  万丰奥威
-80  002855  捷荣技术
-
-300221 固废处理 new
-         代码    名称
-92  601033  永兴股份
+49   001238  浙江正特
+169  002790   瑞尔特
+289  301558  三态股份
+320  600439   瑞贝卡
+412  603558  健盛集团
 
 300238 核电 new
-         代码    名称
-19  001379  腾达科技
-46  002611  东方精工
-59  300068  南都电源
-
-300309 苹果概念 removed
-         代码    名称
-19  002333  罗普斯金
-
-300337 石墨烯 new
-         代码    名称
-20  002404  嘉欣丝绸
-
-300378 物联网 new
           代码    名称
-79   002611  东方精工
-307  832876  慧为智能
+126  600744  华银电力
+158  603855  华荣股份
 
-300435 转基因 new
+300265 金改 new
          代码    名称
-12  837403  康农种业
+39  600643  爱建集团
+
+300269 举牌 new
+        代码    名称
+4  002117  东港股份
+
+300358 天然气 new
+         代码    名称
+33  002483  润邦股份
+
+300374 污水处理 new
+        代码    名称
+1  000151  中成股份
+
+300374 污水处理 removed
+          代码    名称
+146  601113  华鼎股份
+
+300378 物联网 removed
+          代码   名称
+135  300330  计通退
 
 300440 智能交通 new
-         代码   名称
-69  300830  金现代
+         代码    名称
+89  600654  ST中安
 
-300730 节能环保 new
-          代码    名称
-133  300801  泰和科技
-210  601033  永兴股份
-227  603150  万朗磁塑
-233  603217  元利科技
+300444 互联网医疗 new
+         代码    名称
+73  301337  亚华电子
 
-300733 锂电池 new
-          代码    名称
-9    000531  穗恒运A
-164  300351  永贵电器
-338  603683  晶华新材
-384  688598  金博股份
+300723 无线充电 new
+         代码    名称
+39  688385  复旦微电
+
+300756 网络安全 new
+         代码    名称
+20  002236  大华股份
 
 300786 充电桩 new
           代码    名称
-222  603680  今创集团
-
-300806 文化传媒 new
-         代码    名称
-40  002329  皇氏集团
-
-300814 家用电器 new
-         代码    名称
-11  001387  雪祺电气
-59  600083  博信股份
+173  600171  上海贝岭
 
 300816 机器人概念 new
           代码    名称
-340  301567  贝隆精密
+126  002757  南兴股份
+413  603375   盛景微
+489  688515   裕太微
+
+300835 大数据 new
+          代码    名称
+154  300448  浩云科技
 
 300836 乡村振兴 new
           代码    名称
-192  600692  亚通股份
-206  601969  海南矿业
-239  837403  康农种业
+209  603043  广州酒家
+214  603182  嘉华股份
 
 300841 新型城镇化 new
           代码    名称
-8    000628  高新发展
-15   000961  中南建设
-25   002271  东方雨虹
-38   002609  捷顺科技
-142  603018  华设集团
-164  605178  时空科技
+135  600868  梅雁吉祥
+
+300843 5G new
+          代码    名称
+55   002335  科华数据
+63   002426  胜利精密
+71   002484  江海股份
+161  300376   易事特
+236  301195  北路智控
+239  301236  软通动力
+324  688135  利扬芯片
+334  688312  燕麦科技
 
 300862 ST板块 removed
          代码     名称
-81  600290  *ST华仪
+51  002776  *ST柏龙
 
 300870 新股与次新股 new
           代码    名称
-22   001379  腾达科技
-132  301567  贝隆精密
-140  601033  永兴股份
-285  837403  康农种业
-
-300870 新股与次新股 removed
-          代码    名称
-54   301317  鑫磊股份
-186  688435  英方软件
-195  688485  九州一轨
-291  839371  欧福蛋业
-304  873152  天宏锂电
+134  301577  美信科技
+179  603375   盛景微
+251  831396  许昌智能
 
 300883 新材料概念 new
-          代码    名称
-68   002404  嘉欣丝绸
-73   002565  顺灏股份
-256  601113  华鼎股份
-277  603217  元利科技
+         代码    名称
+88  002813  路畅科技
 
 300889 无人机 new
-         代码    名称
-77  300802  矩子科技
-88  301567  贝隆精密
+          代码     名称
+4    000711  *ST京蓝
+33   002415   海康威视
+35   002510    天汽模
+39   002579   中京电子
+49   002984    森麒麟
+73   300489   光智科技
+80   300691   联合光电
+82   300722   新余国科
+121  603712    七一二
+129  688084   晶品特装
+133  688282   理工导航
+137  688333    铂力特
+138  688509   正元地信
 
 300890 高端装备 new
           代码    名称
-88   300220  ST金运
-244  871263  莱赛激光
+223  688433  华曙高科
 
 300900 融资融券 new
            代码    名称
-305   001379  腾达科技
-896   300045  华力创通
-1736  301567  贝隆精密
-2341  601033  永兴股份
-3491  837403  康农种业
+1738  301577  美信科技
+2639  603375   盛景微
+3368  831396  许昌智能
 
-300917 语音技术 new
-        代码   名称
-2  001287  中电港
-
-300923 生态农业 new
+301016 传感器 new
          代码    名称
-33  600853  龙建股份
+57  300836  佰奥智能
 
-300925 土壤修复 new
+301050 手机游戏 new
          代码    名称
-2   000779   甘咨询
-70  601969  海南矿业
-
-300931 碳交易 new
-         代码    名称
-25  300830   金现代
-36  600917  重庆燃气
-
-300941 工业母机 new
-         代码    名称
-24  002975  博杰股份
-59  600335  国机汽车
+43  301302  华如科技
 
 301079 光伏概念 new
           代码    名称
-101  002451  摩恩电气
-141  002706  良信股份
-156  002863  今飞凯达
-218  300395   菲利华
-499  835179  凯德石英
-
-301079 光伏概念 removed
-          代码    名称
-12   000530  冰山冷热
-29   000755  山西路桥
-46   001258  立新能源
-147  002769   普路通
-264  300919  中伟股份
+202  300263  隆华科技
+431  603618  杭电股份
+438  603843  正平股份
 
 301085 芯片概念 new
-          代码    名称
-462  835179  凯德石英
+          代码   名称
+313  603375  盛景微
 
-301096 钠离子电池 new
+301121 特斯拉 removed
+          代码    名称
+129  300995  奇德新材
+
+301128 上海自贸区 new
          代码    名称
-25  300068  南都电源
+0   000571  新大洲A
+1   002269  美邦服饰
+5   430139  华岭股份
+22  600689  上海三毛
+24  600836  上海易连
+33  603003  龙宇股份
+40  603499  翔港科技
+43  603729  龙韵股份
+44  603730  岱美股份
+50  688238  和元生物
+54  830799  艾融软件
 
-301121 特斯拉 new
-          代码    名称
-196  603799  华友钴业
+301128 上海自贸区 removed
+         代码    名称
+0   002162  悦心健康
+1   002183   怡亚通
+2   002210  飞马国际
+3   002244  滨江集团
+6   300013  新宁物流
+7   300226  上海钢联
+25  600705  中航产融
 
 301166 人脸识别 new
-         代码    名称
-49  300645  正元智慧
+         代码   名称
+55  300830  金现代
 
 301175 智能穿戴 new
          代码    名称
-67  301567  贝隆精密
+25  002577  雷柏科技
+
+301209 互联网金融 new
+          代码    名称
+88   300551  古鳌科技
+140  603918  金桥信息
+145  839790  联迪信息
 
 301223 在线旅游 new
-         代码    名称
-0   000069  华侨城A
-2   000558  莱茵体育
-4   000637  ST实华
-9   000961  中南建设
-11  002004  华邦健康
-12  002033  丽江股份
-13  002059  云南旅游
-16  002431  棕榈股份
-19  002582   好想你
-21  002694  顾地科技
-23  002717  岭南股份
-26  300052   中青宝
-28  300144  宋城演艺
-29  300197  节能铁汉
-30  300237  美晨生态
-31  300844  山水比德
-33  300949  奥雅股份
-34  300989  蕾奥规划
-39  600054  黄山旅游
-44  600358  国旅联合
-45  600561  江西长运
-47  600593  大连圣亚
-50  600697  欧亚集团
-51  600706  曲江文旅
-52  600749  西藏旅游
-54  600996  贵广网络
-56  603136   天目湖
-61  605303  园林股份
-
-301227 在线教育 new
-         代码    名称
-72  300365  恒华科技
-
-301236 福建自贸区 new
          代码     名称
-17  300096  ST易联众
+4   000620  *ST新联
+56  601969   海南矿业
+60  603388   元成股份
+61  603466    风语筑
 
-301258 机器视觉 new
-          代码    名称
-0    000584  ST工智
-117  688038  中科通达
+301248 两轮车 new
+         代码    名称
+22  873152  天宏锂电
 
 301270 参股银行 new
           代码    名称
-108  600593  大连圣亚
+145  601969  海南矿业
 
 301278 小米概念 new
           代码    名称
-143  300773   拉卡拉
-186  301567  贝隆精密
-237  688286  敏芯股份
+41   002402   和而泰
+188  301577  美信科技
+192  600360  华微电子
+196  600651  飞乐音响
 
 301286 无人驾驶 new
           代码    名称
-145  601238  广汽集团
-
-301365 一带一路 new
-          代码    名称
-379  601137  博威合金
-
-301471 汽车电子 new
-          代码    名称
-57   002676  顺威股份
-152  301135  瑞德智能
-
-301491 粤港澳大湾区 new
-          代码    名称
-17   000045  深纺织A
-197  601033  永兴股份
-
-301494 养老概念 new
-          代码    名称
-26   002432  九安医疗
-27   002435  长江健康
-34   002663  普邦股份
-57   300597  吉大通信
-69   301187  欧圣电气
-71   301236  软通动力
-112  605299  舒华体育
-113  688580  伟思医疗
-
-301494 养老概念 removed
-         代码    名称
-17  002172  澳洋健康
-
-301522 集成电路概念 new
-          代码   名称
-182  688209  英集芯
-
-301522 集成电路概念 removed
-         代码    名称
-32  002404  嘉欣丝绸
-
-301531 首发新股 new
-        代码    名称
-0  301577  美信科技
-
-301531 首发新股 removed
-        代码    名称
-0  001379  腾达科技
-1  301567  贝隆精密
-
-301558 阿里巴巴概念 new
-         代码    名称
-31  002591  恒大高新
-77  300645  正元智慧
-
-301564 跨境电商 new
-          代码    名称
-48   002577  雷柏科技
-102  301004  嘉益股份
-113  301318   维海德
-139  600448  华纺股份
-177  603511  爱慕股份
-188  605155   西大门
-189  605299  舒华体育
-
-301572 玉米 new
-         代码    名称
-0   000638  万方发展
-21  837403  康农种业
-
-Error: get_bdinfo_ori 301577 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /gn/detail/field/199112/order/desc/page/1/ajax/1/code/301577 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11e802a10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-301620 工业4.0 new
-          代码    名称
-39   002342  巨力索具
-145  300830   金现代
-
-301624 PPP概念 new
-          代码    名称
-139  601033  永兴股份
-
-Error: get_bdinfo_ori 301636 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /gn/detail/field/199112/order/desc/page/149/ajax/1/code/301636 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11f51b2d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-301699 虚拟现实 new
-          代码    名称
-207  301567  贝隆精密
-
-301715 证金持股 removed
-         代码    名称
-87  600030  中信证券
-
-301726 人民币贬值受益 new
-          代码    名称
-28   001379  腾达科技
-278  301459  丰茂股份
-336  603161  科华控股
-424  834765   美之高
-430  873339  恒太照明
-
-301780 工业互联网 new
-          代码    名称
-203  603213  镇洋发展
-
-301786 军民融合 new
-          代码    名称
-52   002591  恒大高新
-129  600990  四创电子
-
-301797 智能物流 new
-         代码    名称
-26  002611  东方精工
-
-301799 健康中国 new
-         代码    名称
-51  300086  康芝药业
-91  600730  中国高科
-
-302010 腾讯概念 new
-         代码    名称
-89  300645  正元智慧
-
-302035 人工智能 new
-          代码    名称
-112  002624  完美世界
-312  300836  佰奥智能
-320  300911  亿田智能
-330  300989  蕾奥规划
-381  600228  返利科技
-416  603038  华立股份
-452  605299  舒华体育
-487  688232  新点软件
-
-302045 区块链 new
-         代码    名称
-68  002663  普邦股份
-
-302059 网络直播 new
-          代码    名称
-7    000721  西安饮食
-23   002186   全聚德
-41   002404  嘉欣丝绸
-54   002661  克明食品
-127  600593  大连圣亚
-147  603101  汇嘉时代
-174  836826  盖世食品
-
-302436 新零售 new
-          代码    名称
-18   000702  正虹科技
-31   000950  重药控股
-32   000972  中基健康
-63   002342  巨力索具
-77   002565  顺灏股份
-173  600448  华纺股份
-186  600692  亚通股份
-213  601065  江盐集团
-233  603215  比依股份
-254  603711   香飘飘
-258  603801  志邦家居
-273  605299  舒华体育
-281  834765   美之高
-
-302674 特色小镇 new
-         代码    名称
-25  600239  云南城投
-34  603099   长白山
-
-302674 特色小镇 removed
-         代码    名称
-27  600393  ST粤泰
-
-306380 储能 new
-          代码    名称
-105  002706  良信股份
-265  600207  安彩高科
-
-306398 自由贸易港 new
-         代码    名称
-24  601969  海南矿业
-
-307408 边缘计算 new
-          代码    名称
-117  603018  华设集团
-
-308016 农业种植 new
-         代码    名称
-43  600692  亚通股份
-53  837403  康农种业
-
-308172 知识产权保护 new
-         代码    名称
-26  301558  三态股份
-
-308172 知识产权保护 removed
-         代码   名称
-16  300356  光一退
-
-308294 固态电池 removed
-         代码    名称
-31  300317  珈伟新能
-
-308296 送转填权 removed
-        代码    名称
-2  301208  中亦科技
-3  600188  兖矿能源
-
-308366 抖音概念 new
-          代码    名称
-66   300556  丝路视觉
-105  600858  银座股份
-
-308384 消费电子概念 new
-          代码    名称
-155  301567  贝隆精密
-
-308432 长三角一体化 removed
-         代码   名称
-31  002615  哈尔斯
-
-308458 半年报预增 new
-          代码    名称
-0    000530  冰山冷热
-1    000729  燕京啤酒
-2    000768  中航西飞
-3    000897  津滨发展
-4    000972  中基健康
-..      ...   ...
-112  688510  航亚科技
-113  688533  上声电子
-114  688612   威迈斯
-115  688676  金盘科技
-116  839167  同享科技
-
-[85 rows x 2 columns]
-
-308458 半年报预增 removed
-          代码     名称
-0    000100  TCL科技
-1    000338   潍柴动力
-2    000426   兴业银锡
-3    000521   长虹美菱
-4    000531   穗恒运A
-..      ...    ...
-116  688591    泰凌微
-117  688599   天合光能
-118  688719   爱科赛博
-119  835368   连城数控
-120  836414    欧普泰
-
-[89 rows x 2 columns]
-
-308477 电力物联网 new
-         代码    名称
-15  002730  电光科技
-
-308491 氢能源 new
-          代码    名称
-43   002356  赫美集团
-72   300072  海新能科
-199  603269  海鸥股份
-211  603813  原尚股份
-
-308606 智慧政务 new
-         代码    名称
-77  300645  正元智慧
-83  300830   金现代
-
-308630 网红经济 new
-         代码   名称
-11  002186  全聚德
-
-308642 数据中心 new
-          代码    名称
-234  835207  众诚科技
-
-308697 注册制次新股 new
-          代码    名称
-13   001379  腾达科技
-123  301567  贝隆精密
-126  601033  永兴股份
-
-308697 注册制次新股 removed
-         代码    名称
-45  301317  鑫磊股份
-
-308699 科创次新股 removed
-         代码    名称
-10  688435  英方软件
-18  688485  九州一轨
-
-308708 辅助生殖 removed
-         代码    名称
-10  002172  澳洋健康
-
-308717 物业管理 new
-         代码    名称
-57  600153  建发股份
-
-308728 碳中和 new
-          代码    名称
-24   001376  百通能源
-72   300164  通源石油
-145  601969  海南矿业
-146  603018  华设集团
-
-308729 光伏建筑一体化 new
-         代码    名称
-20  002325  洪涛股份
-32  002641  公元股份
-79  600692  亚通股份
-92  603018  华设集团
-
-308731 鸿蒙概念 new
-          代码    名称
-26   002530  金财互联
-28   002609  捷顺科技
-54   300253  卫宁健康
-112  688232  新点软件
-114  688489  三未信安
-
-308740 专精特新 new
-          代码    名称
-30   002171  楚江新材
-125  300220  ST金运
-411  301567  贝隆精密
-
-308752 元宇宙 new
-          代码    名称
-143  600593  大连圣亚
-
-308753 抽水蓄能 new
-         代码    名称
-16  002342  巨力索具
-
-308760 绿色电力 new
-          代码    名称
-57   002775  文科股份
-135  601033  永兴股份
-145  601877  正泰电器
-
-308792 智能制造 new
-          代码    名称
-6    000619  海螺新材
-11   000922  佳电股份
-14   001225  和泰机电
-43   002333  罗普斯金
-77   002921  联诚精密
-213  603325  博隆技术
-263  871263  莱赛激光
-
-308841 智慧灯杆 new
-         代码    名称
-30  603018  华设集团
-
-308854 中俄贸易概念 new
-         代码   名称
-61  301272  英华特
-
-308870 数字经济 new
-          代码    名称
-12   000619  海螺新材
-147  300486  东杰智能
-232  603813  原尚股份
-
-308883 华为鲲鹏 new
-         代码    名称
-58  300605  恒锋信息
-
-308926 露营经济 new
-         代码    名称
-40  600593  大连圣亚
-
-308956 粮食概念 new
-         代码    名称
-37  837403  康农种业
-
-308969 超超临界发电 new
-         代码   名称
-32  300830  金现代
-
-308972 比亚迪概念 new
-          代码    名称
-104  002735  王子新材
-
-308989 生物质能发电 new
-         代码    名称
-28  601033  永兴股份
-
-308992 TOPCON电池 new
-         代码    名称
-46  603331  百达精工
-
-309034 国企改革 new
-           代码    名称
-705   600172  黄河旋风
-1123  601033  永兴股份
-
-309040 POE胶膜 new
-        代码   名称
-7  002623  亚玛顿
-
-309060 数据要素 new
-          代码    名称
-57   300059  东方财富
-93   300486  东杰智能
-171  600556   天下秀
-
-309066 空间计算 new
-         代码    名称
-0   000810  创维数字
-21  301172  君逸数码
-
-309068 算力租赁 new
-         代码    名称
-29  300397  天和防务
-
-update time 2024-01-20
-<module> rt_cost 1067.74 s
+67   300099   尤洛卡
+191  688521  芯原股份
+
+Error: get_bdinfo_ori 301306 No tables found
+Error: get_bdinfo_ori 301346 No tables found
+Error: get_bdinfo_ori 301362 No tables found
+Error: get_bdinfo_ori 301365 No tables found
+Error: get_bdinfo_ori 301377 No tables found
+Error: get_bdinfo_ori 301402 No tables found
+Error: get_bdinfo_ori 301414 No tables found
+Error: get_bdinfo_ori 301455 No tables found
+Error: get_bdinfo_ori 301459 No tables found
+Error: get_bdinfo_ori 301470 No tables found
+Error: get_bdinfo_ori 301471 No tables found
+Error: get_bdinfo_ori 301477 No tables found
+Error: get_bdinfo_ori 301490 No tables found
+Error: get_bdinfo_ori 301491 No tables found
+Error: get_bdinfo_ori 301494 No tables found
+Error: get_bdinfo_ori 301496 No tables found
+Error: get_bdinfo_ori 301497 No tables found
+Error: get_bdinfo_ori 301505 No tables found
+Error: get_bdinfo_ori 301511 No tables found
+Error: get_bdinfo_ori 301518 No tables found
+Error: get_bdinfo_ori 301522 No tables found
+Error: get_bdinfo_ori 301524 No tables found
+Error: get_bdinfo_ori 301531 No tables found
+Error: get_bdinfo_ori 301539 No tables found
+Error: get_bdinfo_ori 301541 No tables found
+Error: get_bdinfo_ori 301543 No tables found
+Error: get_bdinfo_ori 301546 No tables found
+Error: get_bdinfo_ori 301558 No tables found
+Error: get_bdinfo_ori 301564 No tables found
+Error: get_bdinfo_ori 301565 No tables found
+Error: get_bdinfo_ori 301572 No tables found
+Error: get_bdinfo_ori 301576 No tables found
+Error: get_bdinfo_ori 301577 No tables found
+Error: get_bdinfo_ori 301582 No tables found
+Error: get_bdinfo_ori 301602 No tables found
+Error: get_bdinfo_ori 301605 No tables found
+Error: get_bdinfo_ori 301610 No tables found
+Error: get_bdinfo_ori 301620 No tables found
+Error: get_bdinfo_ori 301623 No tables found
+Error: get_bdinfo_ori 301624 No tables found
+Error: get_bdinfo_ori 301628 No tables found
+Error: get_bdinfo_ori 301630 No tables found
+Error: get_bdinfo_ori 301632 No tables found
+Error: get_bdinfo_ori 301636 No tables found
+Error: get_bdinfo_ori 301669 No tables found
+Error: get_bdinfo_ori 301699 No tables found
+Error: get_bdinfo_ori 301713 No tables found
+Error: get_bdinfo_ori 301715 No tables found
+Error: get_bdinfo_ori 301726 No tables found
+Error: get_bdinfo_ori 301780 No tables found
+Error: get_bdinfo_ori 301783 No tables found
+Error: get_bdinfo_ori 301786 No tables found
+Error: get_bdinfo_ori 301794 No tables found
+Error: get_bdinfo_ori 301797 No tables found
+Error: get_bdinfo_ori 301799 No tables found
+Error: get_bdinfo_ori 301997 No tables found
+Error: get_bdinfo_ori 302010 No tables found
+Error: get_bdinfo_ori 302027 No tables found
+Error: get_bdinfo_ori 302034 No tables found
+Error: get_bdinfo_ori 302035 No tables found
+Error: get_bdinfo_ori 302045 No tables found
+Error: get_bdinfo_ori 302046 No tables found
+Error: get_bdinfo_ori 302059 No tables found
+Error: get_bdinfo_ori 302131 No tables found
+Error: get_bdinfo_ori 302142 No tables found
+Error: get_bdinfo_ori 302144 No tables found
+Error: get_bdinfo_ori 302150 No tables found
+Error: get_bdinfo_ori 302154 No tables found
+Error: get_bdinfo_ori 302166 No tables found
+Error: get_bdinfo_ori 302174 No tables found
+Error: get_bdinfo_ori 302182 No tables found
+Error: get_bdinfo_ori 302436 No tables found
+Error: get_bdinfo_ori 302674 No tables found
+Error: get_bdinfo_ori 303944 No tables found
+Error: get_bdinfo_ori 304756 No tables found
+Error: get_bdinfo_ori 305376 No tables found
+Error: get_bdinfo_ori 305790 No tables found
+Error: get_bdinfo_ori 305794 No tables found
+Error: get_bdinfo_ori 306380 No tables found
+Error: get_bdinfo_ori 306398 No tables found
+Error: get_bdinfo_ori 306750 No tables found
+Error: get_bdinfo_ori 306912 No tables found
+Error: get_bdinfo_ori 307408 No tables found
+Error: get_bdinfo_ori 307512 No tables found
+Error: get_bdinfo_ori 307550 No tables found
+Error: get_bdinfo_ori 307816 No tables found
+Error: get_bdinfo_ori 307816 No tables found
+Error: get_bdinfo_ori 307822 No tables found
+Error: get_bdinfo_ori 307826 No tables found
+Error: get_bdinfo_ori 307904 No tables found
+Error: get_bdinfo_ori 307940 No tables found
+Error: get_bdinfo_ori 307954 No tables found
+Error: get_bdinfo_ori 308002 No tables found
+Error: get_bdinfo_ori 308014 No tables found
+Error: get_bdinfo_ori 308016 No tables found
+Error: get_bdinfo_ori 308172 No tables found
+Error: get_bdinfo_ori 308202 No tables found
+Error: get_bdinfo_ori 308294 No tables found
+Error: get_bdinfo_ori 308296 No tables found
+Error: get_bdinfo_ori 308300 No tables found
+Error: get_bdinfo_ori 308366 No tables found
+Error: get_bdinfo_ori 308384 No tables found
+Error: get_bdinfo_ori 308428 No tables found
+Error: get_bdinfo_ori 308432 No tables found
+Error: get_bdinfo_ori 308438 No tables found
+Error: get_bdinfo_ori 308458 No tables found
+Error: get_bdinfo_ori 308467 No tables found
+Error: get_bdinfo_ori 308473 No tables found
+Error: get_bdinfo_ori 308477 No tables found
+Error: get_bdinfo_ori 308479 No tables found
+Error: get_bdinfo_ori 308491 No tables found
+Error: get_bdinfo_ori 308501 No tables found
+Error: get_bdinfo_ori 308507 No tables found
+Error: get_bdinfo_ori 308517 No tables found
+Error: get_bdinfo_ori 308525 No tables found
+Error: get_bdinfo_ori 308527 No tables found
+Error: get_bdinfo_ori 308531 No tables found
+Error: get_bdinfo_ori 308535 No tables found
+Error: get_bdinfo_ori 308537 No tables found
+Error: get_bdinfo_ori 308547 No tables found
+Error: get_bdinfo_ori 308555 No tables found
+Error: get_bdinfo_ori 308560 No tables found
+Error: get_bdinfo_ori 308566 No tables found
+Error: get_bdinfo_ori 308568 No tables found
+Error: get_bdinfo_ori 308572 No tables found
+Error: get_bdinfo_ori 308582 No tables found
+Error: get_bdinfo_ori 308588 No tables found
+Error: get_bdinfo_ori 308590 No tables found
+Error: get_bdinfo_ori 308594 No tables found
+Error: get_bdinfo_ori 308606 No tables found
+Error: get_bdinfo_ori 308612 No tables found
+Error: get_bdinfo_ori 308620 No tables found
+Error: get_bdinfo_ori 308624 No tables found
+Error: get_bdinfo_ori 308628 No tables found
+Error: get_bdinfo_ori 308630 No tables found
+Error: get_bdinfo_ori 308632 No tables found
+Error: get_bdinfo_ori 308634 No tables found
+Error: get_bdinfo_ori 308636 No tables found
+Error: get_bdinfo_ori 308638 No tables found
+Error: get_bdinfo_ori 308642 No tables found
+Error: get_bdinfo_ori 308646 No tables found
+Error: get_bdinfo_ori 308651 No tables found
+Error: get_bdinfo_ori 308657 No tables found
+Error: get_bdinfo_ori 308659 No tables found
+Error: get_bdinfo_ori 308661 No tables found
+Error: get_bdinfo_ori 308690 No tables found
+Error: get_bdinfo_ori 308692 No tables found
+Error: get_bdinfo_ori 308694 No tables found
+Error: get_bdinfo_ori 308696 No tables found
+Error: get_bdinfo_ori 308697 No tables found
+Error: get_bdinfo_ori 308698 No tables found
+Error: get_bdinfo_ori 308699 No tables found
+Error: get_bdinfo_ori 308700 No tables found
+Error: get_bdinfo_ori 308708 No tables found
+Error: get_bdinfo_ori 308709 No tables found
+Error: get_bdinfo_ori 308710 No tables found
+Error: get_bdinfo_ori 308712 No tables found
+Error: get_bdinfo_ori 308716 No tables found
+Error: get_bdinfo_ori 308717 No tables found
+Error: get_bdinfo_ori 308718 No tables found
+Error: get_bdinfo_ori 308719 No tables found
+Error: get_bdinfo_ori 308725 No tables found
+Error: get_bdinfo_ori 308728 No tables found
+Error: get_bdinfo_ori 308729 No tables found
+Error: get_bdinfo_ori 308731 No tables found
+Error: get_bdinfo_ori 308732 No tables found
+Error: get_bdinfo_ori 308733 No tables found
+Error: get_bdinfo_ori 308734 No tables found
+Error: get_bdinfo_ori 308740 No tables found
+Error: get_bdinfo_ori 308742 No tables found
+Error: get_bdinfo_ori 308743 No tables found
+Error: get_bdinfo_ori 308748 No tables found
+Error: get_bdinfo_ori 308752 No tables found
+Error: get_bdinfo_ori 308753 No tables found
+Error: get_bdinfo_ori 308760 No tables found
+Error: get_bdinfo_ori 308761 No tables found
+Error: get_bdinfo_ori 308774 No tables found
+Error: get_bdinfo_ori 308775 No tables found
+Error: get_bdinfo_ori 308791 No tables found
+Error: get_bdinfo_ori 308792 No tables found
+Error: get_bdinfo_ori 308794 No tables found
+Error: get_bdinfo_ori 308801 No tables found
+Error: get_bdinfo_ori 308803 No tables found
+Error: get_bdinfo_ori 308805 No tables found
+Error: get_bdinfo_ori 308806 No tables found
+Error: get_bdinfo_ori 308809 No tables found
+Error: get_bdinfo_ori 308810 No tables found
+Error: get_bdinfo_ori 308814 No tables found
+Error: get_bdinfo_ori 308818 No tables found
+Error: get_bdinfo_ori 308820 No tables found
+Error: get_bdinfo_ori 308822 No tables found
+Error: get_bdinfo_ori 308828 No tables found
+Error: get_bdinfo_ori 308829 No tables found
+Error: get_bdinfo_ori 308832 No tables found
+Error: get_bdinfo_ori 308834 No tables found
+Error: get_bdinfo_ori 308841 No tables found
+Error: get_bdinfo_ori 308850 No tables found
+Error: get_bdinfo_ori 308854 No tables found
+Error: get_bdinfo_ori 308855 No tables found
+Error: get_bdinfo_ori 308862 No tables found
+Error: get_bdinfo_ori 308864 No tables found
+Error: get_bdinfo_ori 308869 No tables found
+Error: get_bdinfo_ori 308870 No tables found
+Error: get_bdinfo_ori 308874 No tables found
+Error: get_bdinfo_ori 308876 No tables found
+Error: get_bdinfo_ori 308883 No tables found
+Error: get_bdinfo_ori 308885 No tables found
+Error: get_bdinfo_ori 308887 No tables found
+Error: get_bdinfo_ori 308888 No tables found
+Error: get_bdinfo_ori 308893 No tables found
+Error: get_bdinfo_ori 308896 No tables found
+Error: get_bdinfo_ori 308901 No tables found
+Error: get_bdinfo_ori 308915 No tables found
+Error: get_bdinfo_ori 308926 No tables found
+Error: get_bdinfo_ori 308931 No tables found
+Error: get_bdinfo_ori 308935 No tables found
+Error: get_bdinfo_ori 308941 No tables found
+Error: get_bdinfo_ori 308956 No tables found
+Error: get_bdinfo_ori 308969 No tables found
+Error: get_bdinfo_ori 308972 No tables found
+Error: get_bdinfo_ori 308977 No tables found
+Error: get_bdinfo_ori 308984 No tables found
+Error: get_bdinfo_ori 308989 No tables found
+Error: get_bdinfo_ori 308991 No tables found
+Error: get_bdinfo_ori 308992 No tables found
+Error: get_bdinfo_ori 309000 No tables found
+Error: get_bdinfo_ori 309004 No tables found
+Error: get_bdinfo_ori 309007 No tables found
+Error: get_bdinfo_ori 309020 No tables found
+Error: get_bdinfo_ori 309022 No tables found
+Error: get_bdinfo_ori 309023 No tables found
+Error: get_bdinfo_ori 309025 No tables found
+Error: get_bdinfo_ori 309030 No tables found
+Error: get_bdinfo_ori 309031 No tables found
+Error: get_bdinfo_ori 309034 No tables found
+Error: get_bdinfo_ori 309035 No tables found
+Error: get_bdinfo_ori 309037 No tables found
+Error: get_bdinfo_ori 309038 No tables found
+Error: get_bdinfo_ori 309040 No tables found
+Error: get_bdinfo_ori 309041 No tables found
+Error: get_bdinfo_ori 309042 No tables found
+Error: get_bdinfo_ori 309044 No tables found
+Error: get_bdinfo_ori 309045 No tables found
+Error: get_bdinfo_ori 309046 No tables found
+Error: get_bdinfo_ori 309049 No tables found
+Error: get_bdinfo_ori 309050 No tables found
+Error: get_bdinfo_ori 309051 No tables found
+Error: get_bdinfo_ori 309055 No tables found
+Error: get_bdinfo_ori 309056 No tables found
+Error: get_bdinfo_ori 309058 No tables found
+Error: get_bdinfo_ori 309059 No tables found
+Error: get_bdinfo_ori 309060 No tables found
+Error: get_bdinfo_ori 309061 No tables found
+Error: get_bdinfo_ori 309062 No tables found
+Error: get_bdinfo_ori 309063 No tables found
+Error: get_bdinfo_ori 309065 No tables found
+Error: get_bdinfo_ori 309066 No tables found
+Error: get_bdinfo_ori 309068 No tables found
+update time 2024-01-27
+<module> rt_cost 248.02 s
