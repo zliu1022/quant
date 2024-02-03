@@ -1,12 +1,10 @@
-Check token 2024-01-20
-token got 0 days ago 4418c7deafa5b566e73966d73045c92752601c18 still valid
-req_basic insert new 001379.SZ N腾达 机械基件
-req_basic changed 001387.SZ name 雪祺电气 -> N雪祺 
-req_basic insert new 301567.SZ C贝隆 元器件
-req_basic changed 600759.SH name ST洲际 -> *ST洲际 
-req_basic insert new 601033.SH C永兴 环境保护
-req_basic changed 603312.SH name 西典新能 -> N西典 
-req_basic changed 603325.SH name 博隆技术 -> C博隆 
-req_basic insert new 837403.BJ 康农种业 种植业
-req_basic changed 873806.BJ name 云星宇 -> N云星宇 
-req_basic cost 13.91s
+Check token 2024-01-27
+update token edbee4e5d1e92f98548629214a6e17fe06486a8f cost  0.67s
+token expired, update edbee4e5d1e92f98548629214a6e17fe06486a8f
+req_basic changed 001379.SZ name C腾达 -> N腾达 
+req_basic changed 301567.SZ name 贝隆精密 -> C贝隆 
+req_basic insert new 301577.SZ C美信 元器件
+req_basic changed 601033.SH name 永兴股份 -> C永兴 
+req_basic insert new 603375.SH C盛景微 半导体
+req_basic insert new 831396.BJ 许昌智能 电气设备
+req_basic cost 11.28s
