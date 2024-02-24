@@ -1,11 +1,7 @@
-Check token 2024-02-16
-update token f5e826d5be1c4265b380bc7d743963f24729480d cost  0.55s
-token expired, update f5e826d5be1c4265b380bc7d743963f24729480d
-req_basic changed 002060.SZ name 广东建工 -> 粤水电 
-req_basic changed 002564.SZ industry 化工机械 -> 建筑工程 
-req_basic changed 301502.SZ name C华阳智 -> 华阳智能 
-req_basic insert new 301589.SZ N诺瓦 IT设备
-req_basic changed 603082.SH name 北自科技 -> C北自 
-req_basic insert new 688584.SH N合晶 半导体
-req_basic insert new 688709.SH C华微 半导体
-req_basic cost 10.72s
+Check token 2024-02-24
+update token 76d4e5ee97f60e0be2c9b6c094156d577fba5c5b cost  0.51s
+token expired, update 76d4e5ee97f60e0be2c9b6c094156d577fba5c5b
+req_basic changed 301502.SZ name 华阳智能 -> C华阳智 
+req_basic changed 301589.SZ name C诺瓦 -> N诺瓦 
+req_basic changed 688584.SH name C合晶 -> N合晶 
+req_basic cost 14.45s
