@@ -1,107 +1,70 @@
-Check token 2024-02-03
-token got 0 days ago edbee4e5d1e92f98548629214a6e17fe06486a8f still valid
-find 5396 stocks
+Check token 2024-02-16
+token got 0 days ago f5e826d5be1c4265b380bc7d743963f24729480d still valid
+find 5399 stocks
 Error: No kline, maybe restday SH600290
 Error: No kline, maybe restday SH600311
 Error: No kline, maybe restday SZ000038
 Error: No kline, maybe restday SZ000046
 Error: No kline, maybe restday SZ000732
 Error: No kline, maybe restday SZ000150
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600058&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300455&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600674&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688636&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002238&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600367&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688301&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300968&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300703&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH601969&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002484&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300210&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603300&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=BJ839493&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000159&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000783&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002736&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688021&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ301236&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ003007&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600984&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603801&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ001965&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600058&begin=1706284800000
-req_url_retry cost  0.92s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300455&begin=1706284800000
-req_url_retry cost  0.87s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600674&begin=1706284800000
-req_url_retry cost  0.85s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688636&begin=1706284800000
-req_url_retry cost  0.91s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600367&begin=1706284800000
-req_url_retry cost  1.00s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002238&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688301&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300703&begin=1706284800000
-req_url_retry cost  1.00s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300968&begin=1706284800000
-req_url_retry cost  0.95s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002484&begin=1706284800000
-req_url_retry cost  0.94s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH601969&begin=1706284800000
-req_url_retry cost  1.01s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603300&begin=1706284800000
-req_url_retry cost  0.96s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=BJ839493&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300210&begin=1706284800000
-req_url_retry cost  1.24s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000783&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002736&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000159&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ301236&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ003007&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ001965&begin=1706284800000
-req_url_retry cost  0.82s
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603801&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600984&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688021&begin=1706284800000
-Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300705&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002238&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688301&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000783&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=BJ839493&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ002736&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000159&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH603801&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH600984&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SH688021&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ003007&begin=1706284800000
-retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ301236&begin=1706284800000
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ300705&begin=1706284800000
 Error: No kline, maybe restday SZ002002
 Error: No kline, maybe restday SZ002740
 Error: No kline, maybe restday SZ002013
+Error: No kline, maybe restday SZ002751
 Error: No kline, maybe restday SZ002499
 Error: No kline, maybe restday SH600077
-Error: No kline, maybe restday SZ002751
 Error: No kline, maybe restday SZ002503
 Error: No kline, maybe restday SZ002504
 Error: No kline, maybe restday SZ000806
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', OSError(0, 'Error'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600388&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH600082&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH688328&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ002263&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH603843&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH603329&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000809&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=BJ871263&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ002507&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300996&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ003037&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300235&begin=1706889600000
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ301272&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=BJ871263&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ301272&begin=1706889600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ000809&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ003037&begin=1706889600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ002507&begin=1706889600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300996&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH603843&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300235&begin=1706889600000
+Error Connecting: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Error Connecting: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+Error Connecting: ('Connection aborted.', OSError(22, 'Invalid argument'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ002510&begin=1706889600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x120453f90>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=BJ871478&begin=1706889600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11f7fb190>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300485&begin=1706889600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11ec1ced0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300732&begin=1706889600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11ffa64d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH688056&begin=1706889600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1212b4dd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
+Http Error: 502 Server Error: Bad Gateway for url: https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300732&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ002510&begin=1706889600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=BJ871478&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300485&begin=1706889600000
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300998&begin=1706889600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SH688056&begin=1706889600000
+retry 2 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300732&begin=1706889600000
 Error: No kline, maybe restday SH600393
 Error: No kline, maybe restday SZ002776
 Error: No kline, maybe restday SZ002781
+Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300507&begin=1706889600000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11f839050>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=14&symbol=SZ300507&begin=1706889600000
 Error: No kline, maybe restday SH688086
 Error: No kline, maybe restday SH600122
 Error: No kline, maybe restday SZ300273
@@ -111,39 +74,28 @@ Error: No kline, maybe restday SH600139
 Error: No kline, maybe restday SH600466
 Error: No kline, maybe restday SZ300297
 Error: No kline, maybe restday SH600767
-Error: No kline, maybe restday SZ000918
 Error: No kline, maybe restday SZ300309
-Error: No kline, maybe restday SH600781
+Error: No kline, maybe restday SZ000918
 Error: No kline, maybe restday SZ000587
+Error: No kline, maybe restday SH600781
 Error: No kline, maybe restday SH601258
 Error: No kline, maybe restday SZ002113
+Error: No kline, maybe restday SZ002118
 Error: No kline, maybe restday SZ300089
 Error: No kline, maybe restday SZ300330
-Error: No kline, maybe restday SZ002118
 Error: No kline, maybe restday SZ000606
 Error: No kline, maybe restday SZ300336
 Error: No kline, maybe restday SZ000616
+Error: No kline, maybe restday SH603603
 Error: No kline, maybe restday SH600532
 Error: No kline, maybe restday SZ300356
 Error: No kline, maybe restday SH688555
-Thread-11 Error 1 [{'_id': ObjectId('631affdeab041e4546a0d529'), 'ts_code': '300968.SZ', 'symbol': '300968', 'name': '格林精密', 'industry': '元器件', 'list_status': 'L', 'list_date': '20210415', 'delist_date': None}]
 Error: No kline, maybe restday SZ000666
 Error: No kline, maybe restday SZ000667
 Error: No kline, maybe restday SZ000671
 Error: No kline, maybe restday SH600242
-Thread-10 Error 1 [{'_id': ObjectId('631affdeab041e4546a0d431'), 'ts_code': '300703.SZ', 'symbol': '300703', 'name': '创源股份', 'industry': '文教休闲', 'list_status': 'L', 'list_date': '20170919', 'delist_date': None}]
-Error: No kline, maybe restday SZ300392
 Error: No kline, maybe restday SZ002411
-Thread-22 Error 1 [{'_id': ObjectId('631affdeab041e4546a0de40'), 'ts_code': '688636.SH', 'symbol': '688636', 'name': '智明达', 'industry': '元器件', 'list_status': 'L', 'list_date': '20210408', 'delist_date': None}]
+Error: No kline, maybe restday SZ300392
 Error: No kline, maybe restday SH600260
 Error: No kline, maybe restday SZ002417
-Thread-18 Error 1 [{'_id': ObjectId('631affdeab041e4546a0dae1'), 'ts_code': '603300.SH', 'symbol': '603300', 'name': '华铁应急', 'industry': '多元金融', 'list_status': 'L', 'list_date': '20150529', 'delist_date': None}]
-Thread-17 Error 1 [{'_id': ObjectId('631affdeab041e4546a0da13'), 'ts_code': '601969.SH', 'symbol': '601969', 'name': '海南矿业', 'industry': '普钢', 'list_status': 'L', 'list_date': '20141209', 'delist_date': None}]
-Thread-3 Error 1 [{'_id': ObjectId('631affdeab041e4546a0cda6'), 'ts_code': '001965.SZ', 'symbol': '001965', 'name': '招商公路', 'industry': '路桥', 'list_status': 'L', 'list_date': '20171225', 'delist_date': None}]
-Thread-15 Error 1 [{'_id': ObjectId('631affdeab041e4546a0d848'), 'ts_code': '600674.SH', 'symbol': '600674', 'name': '川投能源', 'industry': '水力发电', 'list_status': 'L', 'list_date': '19930924', 'delist_date': None}]
-Thread-14 Error 1 [{'_id': ObjectId('631affdeab041e4546a0d759'), 'ts_code': '600367.SH', 'symbol': '600367', 'name': '红星发展', 'industry': '化工原料', 'list_status': 'L', 'list_date': '20010320', 'delist_date': None}]
-Thread-8 Error 1 [{'_id': ObjectId('631affdeab041e4546a0d250'), 'ts_code': '300210.SZ', 'symbol': '300210', 'name': '森远股份', 'industry': '专用机械', 'list_status': 'L', 'list_date': '20110426', 'delist_date': None}]
-Thread-9 Error 1 [{'_id': ObjectId('631affdeab041e4546a0d33d'), 'ts_code': '300455.SZ', 'symbol': '300455', 'name': '航天智装', 'industry': 'IT设备', 'list_status': 'L', 'list_date': '20150515', 'delist_date': None}]
-Thread-5 Error 1 [{'_id': ObjectId('631affdeab041e4546a0cf7d'), 'ts_code': '002484.SZ', 'symbol': '002484', 'name': '江海股份', 'industry': '元器件', 'list_status': 'L', 'list_date': '20100929', 'delist_date': None}]
-Thread-13 Error 1 [{'_id': ObjectId('631affdeab041e4546a0d65d'), 'ts_code': '600058.SH', 'symbol': '600058', 'name': '五矿发展', 'industry': '商贸代理', 'list_status': 'L', 'list_date': '19970528', 'delist_date': None}]
-total cost 138.85s
+total cost 142.67s
