@@ -1,7 +1,18 @@
-Check token 2024-02-24
-update token 76d4e5ee97f60e0be2c9b6c094156d577fba5c5b cost  0.51s
+Check token 2024-03-02
+update token 76d4e5ee97f60e0be2c9b6c094156d577fba5c5b cost  0.77s
 token expired, update 76d4e5ee97f60e0be2c9b6c094156d577fba5c5b
-req_basic changed 301502.SZ name 华阳智能 -> C华阳智 
-req_basic changed 301589.SZ name C诺瓦 -> N诺瓦 
-req_basic changed 688584.SH name C合晶 -> N合晶 
-req_basic cost 14.45s
+req_basic changed 000833.SZ industry 综合类 -> 食品 
+req_basic changed 002056.SZ industry 电气设备 -> 矿物制品 
+req_basic changed 002622.SZ industry 医疗保健 -> 电气设备 
+req_basic changed 002822.SZ name ST中装 -> 中装建设 
+req_basic changed 301413.SZ industry 电器仪表 -> 元器件 
+req_basic changed 301459.SZ industry 汽车配件 -> 橡胶 
+req_basic changed 301589.SZ name 诺瓦星云 -> C诺瓦 
+req_basic insert new 301591.SZ C肯特 塑料
+req_basic changed 600673.SH industry 综合类 -> 铝 
+req_basic changed 603325.SH industry 化工机械 -> 机械基件 
+req_basic insert new 603341.SH N龙旗 通信设备
+req_basic changed 688507.SH industry 软件服务 -> 通信设备 
+req_basic changed 688584.SH name 上海合晶 -> C合晶 
+req_basic changed 688709.SH name 成都华微 -> C华微 
+req_basic cost 11.32s
