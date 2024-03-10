@@ -1,18 +1,8 @@
-Check token 2024-03-02
-update token 76d4e5ee97f60e0be2c9b6c094156d577fba5c5b cost  0.77s
-token expired, update 76d4e5ee97f60e0be2c9b6c094156d577fba5c5b
-req_basic changed 000833.SZ industry 综合类 -> 食品 
-req_basic changed 002056.SZ industry 电气设备 -> 矿物制品 
-req_basic changed 002622.SZ industry 医疗保健 -> 电气设备 
-req_basic changed 002822.SZ name ST中装 -> 中装建设 
-req_basic changed 301413.SZ industry 电器仪表 -> 元器件 
-req_basic changed 301459.SZ industry 汽车配件 -> 橡胶 
-req_basic changed 301589.SZ name 诺瓦星云 -> C诺瓦 
-req_basic insert new 301591.SZ C肯特 塑料
-req_basic changed 600673.SH industry 综合类 -> 铝 
-req_basic changed 603325.SH industry 化工机械 -> 机械基件 
-req_basic insert new 603341.SH N龙旗 通信设备
-req_basic changed 688507.SH industry 软件服务 -> 通信设备 
-req_basic changed 688584.SH name 上海合晶 -> C合晶 
-req_basic changed 688709.SH name 成都华微 -> C华微 
-req_basic cost 11.32s
+Check token 2024-03-10
+update token 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3 cost  0.61s
+token expired, update 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3
+req_basic changed 301591.SZ name 肯特股份 -> C肯特 
+req_basic changed 600506.SH industry 石油加工 -> 化工原料 
+req_basic changed 603341.SH name 龙旗科技 -> N龙旗 
+req_basic insert new 873706.BJ N铁拓 专用机械
+req_basic cost 17.09s
