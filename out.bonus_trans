@@ -1,6 +1,6 @@
-Check token 2024-03-10
+Check token 2024-03-16
 token got 0 days ago 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3 still valid
-find 5402 stocks
+find 5404 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
 Warning: 000017.SZ no date     2007-01-11 1268755200000(20100317) 20070111 流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
 Warning: 000035.SZ no date     2012-11-28 1354204800000(20121130) 20121128 10转2.596股(实施方案)
@@ -66,6 +66,9 @@ Warning: 002131.SZ no date     2013-06-06 1371744000000(20130621) 20130606 10送
 Warning: 002175.SZ no date 5ys 2021-10-12 1640275200000(20211224) 20211012 10转6.9384138股(实施方案)
 Warning: 002210.SZ no date 5ys 2020-11-06 1609171200000(20201229) 20201106 10转6.1股(实施方案)
 Warning: 002254.SZ no date 5ys 2020三季报 nan(NaN) 2020 10派6元(董事会预案)
+Error: bonus plan: 派 without 元 公司2023年度拟派发现金分红总金额不低于2023年度经审计归属于公司股东净利润的50%(预披露)
+Error: bonus plan: unknown base 公司2023年度拟派发现金分红总金额不低于2023年度经审计归属于公司股东净利润的50%(预披露)
+002271.SZ insert bad bonus, bad_plan
 Warning: 002354.SZ no date 5ys 2020-10-21 1607270400000(20201207) 20201021 10转7.84股(实施方案)
 Warning: 002382.SZ no date 5ys 2021年报 nan(NaN) 2021 10派1元(股东大会预案)
 Warning: 002445.SZ no date 5ys 2020-09-17 1609257600000(20201230) 20200917 10转7.292334股(实施方案)
@@ -97,6 +100,9 @@ Error: bonus plan: unknown base 向佳通轮胎(中国)投资有限公司10转10
 Warning: 600182.SH no date     2016-09-02 nan(NaN) 20160902 向佳通轮胎(中国)投资有限公司10转10股,向全体流通股股东10转11.11353股(董事会预案)
 Warning: 600212.SH no date     2006-05-11 1150905600000(20060622) 20060511 10转10股(实施方案)
 Warning: 600313.SH no date     2000年报 nan(NaN) 2000 向老股东10派0.58元(股东大会预案)
+Error: bonus plan: 派 without 元 公司2023年度拟派发现金红利总额占2023年年度归属于上市公司股东的净利润的比例为50%以上。(预披露)
+Error: bonus plan: unknown base 公司2023年度拟派发现金红利总额占2023年年度归属于上市公司股东的净利润的比例为50%以上。(预披露)
+600346.SH insert bad bonus, bad_plan
 Warning: 600399.SH no date     2018-11-06 1545753600000(20181226) 20181106 10转5.17股(实施方案)
 Warning: 600466.SH no date 5ys 2020年报 nan(NaN) 2020 10派0.85元(股东大会预案)
 Warning: 600681.SH no date     2005三季报 nan(NaN) 2005 10转增4股(董事会预案)
@@ -154,4 +160,4 @@ Warning: 838670.BJ no date 5ys 2019中报 nan(NaN) 2019 10派2.5元(股东大会
 Warning: 839273.BJ no date     2018年报 nan(NaN) 2018 10派2.2元(股东大会预案)
 Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会预案)
 Warning: 873339.BJ no date 5ys 2019年报 nan(NaN) 2019 10派20元(股东大会预案)
-total cost 52.68s
+total cost 52.81s
