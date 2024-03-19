@@ -1,8 +1,7 @@
-Check token 2024-03-10
-update token 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3 cost  0.61s
+Check token 2024-03-16
+update token 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3 cost  0.76s
 token expired, update 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3
-req_basic changed 301591.SZ name 肯特股份 -> C肯特 
-req_basic changed 600506.SH industry 石油加工 -> 化工原料 
-req_basic changed 603341.SH name 龙旗科技 -> N龙旗 
-req_basic insert new 873706.BJ N铁拓 专用机械
-req_basic cost 17.09s
+req_basic insert new 301588.SZ C美新 家居用品
+req_basic insert new 688695.SH C中创 软件服务
+req_basic changed 873706.BJ name 铁拓机械 -> N铁拓 
+req_basic cost 10.72s
