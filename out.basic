@@ -1,7 +1,14 @@
-Check token 2024-03-16
-update token 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3 cost  0.76s
-token expired, update 52dfb79aed5f2cdd1e7c2cfc56054ac1f5b77fc3
-req_basic insert new 301588.SZ C美新 家居用品
-req_basic insert new 688695.SH C中创 软件服务
-req_basic changed 873706.BJ name 铁拓机械 -> N铁拓 
-req_basic cost 10.72s
+Check token 2024-03-30
+token got 0 days ago 01b99d82fffd2faf8b614e98a00cbb35d6c7ddcf still valid
+req_basic changed 000981.SZ name 山子高科 -> 山子股份 
+req_basic changed 001316.SZ industry 批发业 -> 航空 
+req_basic insert new 001359.SZ N平安电 矿物制品
+req_basic changed 002089.SZ name 新海退 -> *ST新海 industry None -> 通信设备 
+req_basic insert new 301536.SZ N星宸 半导体
+req_basic changed 301588.SZ name 美新科技 -> C美新 
+req_basic changed 600724.SH industry 综合类 -> 区域地产 
+req_basic changed 603603.SH name 退博天 -> *ST博天 industry None -> 环境保护 
+req_basic changed 688695.SH name 中创股份 -> C中创 
+req_basic insert new 835438.BJ 戈碧迦 元器件
+req_basic insert new 837023.BJ 芭薇股份 日用化工
+req_basic cost 15.96s
