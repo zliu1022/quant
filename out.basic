@@ -1,14 +1,10 @@
-Check token 2024-03-30
+Check token 2024-04-04
 token got 0 days ago 01b99d82fffd2faf8b614e98a00cbb35d6c7ddcf still valid
-req_basic changed 000981.SZ name 山子高科 -> 山子股份 
-req_basic changed 001316.SZ industry 批发业 -> 航空 
-req_basic insert new 001359.SZ N平安电 矿物制品
-req_basic changed 002089.SZ name 新海退 -> *ST新海 industry None -> 通信设备 
-req_basic insert new 301536.SZ N星宸 半导体
-req_basic changed 301588.SZ name 美新科技 -> C美新 
-req_basic changed 600724.SH industry 综合类 -> 区域地产 
-req_basic changed 603603.SH name 退博天 -> *ST博天 industry None -> 环境保护 
-req_basic changed 688695.SH name 中创股份 -> C中创 
-req_basic insert new 835438.BJ 戈碧迦 元器件
-req_basic insert new 837023.BJ 芭薇股份 日用化工
-req_basic cost 15.96s
+req_basic changed 001359.SZ name C平安电 -> N平安电 
+req_basic insert new 001389.SZ N广合 元器件
+req_basic changed 002490.SZ name ST墨龙 -> 山东墨龙 
+req_basic changed 002951.SZ name *ST金时 -> ST金时 
+req_basic changed 300420.SZ name 五洋自控 -> 五洋停车 
+req_basic changed 301536.SZ name C星宸 -> N星宸 
+req_basic changed 600375.SH name *ST汉马 -> 汉马科技 
+req_basic cost 18.82s
