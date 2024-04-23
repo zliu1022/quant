@@ -1,14 +1,8 @@
-Check token 2024-04-13
-update token 4b8bc7136c9fd7b4395f9ca0a65c38363243df2b cost  0.75s
+Check token 2024-04-20
+update token 4b8bc7136c9fd7b4395f9ca0a65c38363243df2b cost  4.27s
 token expired, update 4b8bc7136c9fd7b4395f9ca0a65c38363243df2b
-req_basic changed 000755.SZ name 山西高速 -> 山西路桥 
-req_basic changed 001359.SZ name 平安电工 -> C平安电 
-req_basic changed 001389.SZ name 广合科技 -> N广合 
-req_basic changed 002667.SZ industry 小金属 -> 工程机械 
-req_basic changed 002716.SZ name 湖南白银 -> 金贵银业 
-req_basic changed 301536.SZ name 星宸科技 -> C星宸 
-req_basic insert new 301587.SZ C中瑞 电气设备
-req_basic changed 600165.SH name ST宁科 -> 宁科生物 
-req_basic insert new 688691.SH N灿芯 半导体
-req_basic insert new 872931.BJ 无锡鼎邦 化工机械
-req_basic cost 12.38s
+req_basic insert new 301539.SZ N宏鑫 汽车配件
+req_basic changed 301587.SZ name 中瑞股份 -> C中瑞 
+req_basic changed 688691.SH name C灿芯 -> N灿芯 
+req_basic changed 839167.BJ name XD同享科 -> 同享科技 
+req_basic cost 15.75s
