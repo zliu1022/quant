@@ -1,18 +1,18 @@
 board list
              日期     概念名称  ...                                             网址      代码
-0    2024-04-03  同花顺出海50  ...  http://q.10jqka.com.cn/gn/detail/code/309127/  309127
-1    2024-03-25     AI语料  ...  http://q.10jqka.com.cn/gn/detail/code/309126/  309126
-2    2024-03-20   铜缆高速连接  ...  http://q.10jqka.com.cn/gn/detail/code/309125/  309125
-3    2024-03-12    高股息精选  ...  http://q.10jqka.com.cn/gn/detail/code/309124/  309124
-4    2024-03-04    AI PC  ...  http://q.10jqka.com.cn/gn/detail/code/309121/  309121
+0    2024-04-22    军工信息化  ...  http://q.10jqka.com.cn/gn/detail/code/309128/  309128
+1    2024-04-03  同花顺出海50  ...  http://q.10jqka.com.cn/gn/detail/code/309127/  309127
+2    2024-03-25     AI语料  ...  http://q.10jqka.com.cn/gn/detail/code/309126/  309126
+3    2024-03-20   铜缆高速连接  ...  http://q.10jqka.com.cn/gn/detail/code/309125/  309125
+4    2024-03-12    高股息精选  ...  http://q.10jqka.com.cn/gn/detail/code/309124/  309124
 ..          ...      ...  ...                                            ...     ...
-541        None   京津冀一体化  ...  http://q.10jqka.com.cn/gn/detail/code/300061/  300061
-569        None       流感  ...  http://q.10jqka.com.cn/gn/detail/code/300038/  300038
-597        None     苹果概念  ...  http://q.10jqka.com.cn/gn/detail/code/300309/  300309
-598        None    PM2.5  ...  http://q.10jqka.com.cn/gn/detail/code/300134/  300134
-633        None      石墨烯  ...  http://q.10jqka.com.cn/gn/detail/code/300337/  300337
+570        None       流感  ...  http://q.10jqka.com.cn/gn/detail/code/300038/  300038
+572        None     绿色电力  ...  http://q.10jqka.com.cn/gn/detail/code/308760/  308760
+598        None     苹果概念  ...  http://q.10jqka.com.cn/gn/detail/code/300309/  300309
+599        None    PM2.5  ...  http://q.10jqka.com.cn/gn/detail/code/300134/  300134
+634        None      石墨烯  ...  http://q.10jqka.com.cn/gn/detail/code/300337/  300337
 
-[406 rows x 5 columns]
+[407 rows x 5 columns]
 new
        概念名称_cur      概念名称_new
 代码                           
@@ -41,6 +41,7 @@ new
 309125      NaN        铜缆高速连接
 309126      NaN          AI语料
 309127      NaN       同花顺出海50
+309128      NaN         军工信息化
 
 remove
        概念名称_cur 概念名称_new
@@ -66,11 +67,11 @@ name change
 308458          半年报预增    一季报预增
 309004  先进封装（Chiplet）     先进封装
 
-number change 376
+number change 377
          概念名称_cur  成分股数量_cur  成分股数量_new
 代码                                     
 300008      新能源汽车      642.0      773.0
-300013        大飞机       89.0      104.0
+300013        大飞机       89.0      106.0
 300018       参股保险       86.0       78.0
 300019       网络游戏       68.0       72.0
 300023       食品安全       46.0       57.0
@@ -79,243 +80,729 @@ number change 376
 309063   MR（混合现实）       28.0       57.0
 309065      英伟达概念       28.0       53.0
 309066       空间计算       32.0       48.0
-309068       算力租赁       43.0       89.0
+309068       算力租赁       43.0       90.0
 
-[376 rows x 3 columns]
+[377 rows x 3 columns]
 
-Error: get_bdinfo_ori 300378 ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+300008 新能源汽车 new
+          代码   名称
+280  300322  硕贝德
+
+300008 新能源汽车 removed
+         代码   名称
+78  002089  新海退
+
+300013 大飞机 new
+         代码    名称
+0   000420  吉林化纤
+94  688295  中复神鹰
+
+300082 军工 new
+          代码    名称
+185  300134  大富科技
+240  300449  汉邦高科
+409  603082  北自科技
+506  835438   戈碧迦
+
+300082 军工 removed
+          代码    名称
+118  002552  宝鼎科技
+
+300105 海工装备 removed
+         代码    名称
+10  002552  宝鼎科技
+
+300127 3D打印 new
+         代码    名称
+51  300866  安克创新
+
+300168 创投 new
+         代码    名称
+30  000850  华茂股份
+
+300168 创投 removed
+         代码   名称
+65  002089  新海退
+
+300188 移动支付 new
+         代码    名称
+57  301117  佳缘科技
+
+300200 风电 new
+          代码    名称
+103  300317  珈伟新能
+
+300200 风电 removed
+         代码    名称
+73  002552  宝鼎科技
+
+300221 固废处理 new
+         代码    名称
+43  003035  南网能源
+
+300269 举牌 removed
+        代码   名称
+8  002572  索菲亚
+
+300309 苹果概念 new
+         代码    名称
+66  300951  博硕科技
+86  600456  宝钛股份
+88  600703  三安光电
+
+300309 苹果概念 removed
+         代码    名称
+12  002055  得润电子
+61  300709  精研科技
+
+300362 通用航空 new
+         代码    名称
+13  002438  江苏神通
+18  002883  中设股份
+19  300036  超图软件
+25  300350   华鹏飞
+31  300732   设研院
+
+300378 物联网 new
+          代码    名称
+88   002766  索菱股份
+104  003013  地铁设计
+255  600855  航天长峰
+
+300386 新疆振兴 new
+         代码    名称
+10  002042  华孚时尚
+
+300419 云计算 new
+         代码    名称
+57  002730  电光科技
+
+300444 互联网医疗 new
+         代码    名称
+16  002044  美年健康
+
+300642 智慧城市 new
+          代码    名称
+163  300766  每日互动
+
+300682 智能医疗 new
+         代码    名称
+91  600257  大湖股份
+
+300800 安防 new
+         代码    名称
+76  300866  安克创新
+82  301117  佳缘科技
+
+300809 小金属概念 new
+         代码    名称
+23  000850  华茂股份
+
+300814 家用电器 new
+         代码    名称
+57  301187  欧圣电气
+76  603219  富佳股份
+
+300816 机器人概念 new
+          代码    名称
+40   002044  美年健康
+66   002242  九阳股份
+374  301550  斯菱股份
+562  831396  许昌智能
+
+300830 量子科技 new
+         代码    名称
+24  300546  雄帝科技
+26  300579  数字认证
+31  301517  陕西华达
+50  688619   罗普特
+
+300835 大数据 new
+          代码    名称
+308  688292  浩瀚深度
+325  837092  汉鑫科技
+
+300836 乡村振兴 new
+          代码    名称
+112  003035  南网能源
+
+300841 新型城镇化 new
+          代码    名称
+57   002949  华阳国际
+135  600720  中交设计
+168  603909  建发合诚
+176  688671  碧兴物联
+
+300862 ST板块 new
+         代码     名称
+9   000656  *ST金科
+19  000961   ST中南
+22  000989   ST九芝
+36  002336  *ST人乐
+75  300965  *ST恒宇
+
+300862 ST板块 removed
+        代码    名称
+0  000005  ST星源
+
+300870 新股与次新股 removed
+          代码    名称
+33   301307   美利信
+45   301360  荣旗科技
+137  688146  中船特气
+141  688352  颀中科技
+149  688478  晶升股份
+208  833394   民士达
+237  871694  中裕科技
+
+300883 新材料概念 new
+          代码    名称
+157  300696   爱乐达
+225  600135  乐凯胶片
+339  688295  中复神鹰
+
+300889 无人机 new
+          代码    名称
+9    000768  中航西飞
+93   300373  扬杰科技
+102  300563  神宇股份
+106  300644  南京聚隆
+
+300890 高端装备 new
+          代码    名称
+51   002514  宝馨科技
+229  688239  航宇科技
+
+300890 高端装备 removed
+         代码    名称
+55  002552  宝鼎科技
+
+300900 融资融券 removed
+           代码    名称
+135   000656  金科股份
+269   000961  中南建设
+284   000989   九芝堂
+1324  300965  恒宇信通
+
+301016 传感器 new
+         代码   名称
+30  002972  科安达
+
+301079 光伏概念 removed
+         代码   名称
+64  002089  新海退
+
+301096 钠离子电池 new
+         代码   名称
+29  300116  保力新
+
+301121 特斯拉 new
+          代码    名称
+141  301587  中瑞股份
+
+301223 在线旅游 new
+         代码    名称
+11  000863  三湘印象
+20  002146  荣盛发展
+23  002320  海峡股份
+40  300756  金马游乐
+
+301259 百度概念 new
+        代码    名称
+0  000063  中兴通讯
+
+301365 一带一路 new
+          代码    名称
+125  002514  宝馨科技
+168  002949  华阳国际
+442  603180  金牌厨柜
+483  605183  确成股份
+504  872351  华光源海
+
+301455 摘帽 removed
+         代码   名称
+18  300201  海伦哲
+
+301459 华为概念 new
+          代码    名称
+524  301127  天源环保
+783  688208  道通科技
+
+301490 沪股通 new
+           代码    名称
+495   600925  苏能股份
+574   601121  宝地矿业
+761   603065  宿迁联盛
+788   603153  上海建科
+791   603162  海通发展
+833   603291  联合水务
+1288  688502  茂莱光学
+1299  688522  纳睿雷达
+
+301518 高铁 new
+         代码    名称
+9   001255  博菲电气
+33  300177   中海达
+47  300697  电工合金
+
+301524 国产软件 new
+          代码    名称
+251  688695  中创股份
+
+301558 阿里巴巴概念 new
+          代码    名称
+130  603535  嘉诚国际
+
+301565 医药电商 new
+         代码    名称
+40  600129  太极集团
+
+301577 金属铜 new
+         代码    名称
+23  002479  富春环保
+
+301623 地下管网 new
+         代码    名称
+48  600283  钱江水利
+57  600874  创业环保
+
+301636 深股通 new
+           代码    名称
+1526  301589  诺瓦星云
+
+301636 深股通 removed
+          代码    名称
+134  000656  金科股份
+273  000961  中南建设
+290  000989   九芝堂
+558  002336   人人乐
+
+301726 人民币贬值受益 new
+          代码    名称
+191  300702  天宇股份
+317  600469  风神股份
+
 301780 工业互联网 new
           代码    名称
-70   002734  利民股份
-208  601500  通用股份
-218  603180  金牌厨柜
-231  603326  我乐家居
-236  603611  诺力股份
-276  834599  同力股份
+125  300410  正业科技
+178  600072  中船科技
+
+301783 杭州亚运会 removed
+         代码    名称
+57  301073  君亭酒店
+
+301786 军民融合 new
+          代码    名称
+71   300044  赛为智能
+84   300324  旋极信息
+139  600854  春兰股份
 
 301797 智能物流 new
-        代码    名称
-8  000911  广农糖业
-
-301799 健康中国 removed
-         代码     名称
-85  600466  *ST蓝光
-
-302010 腾讯概念 new
          代码    名称
-76  300232  洲明科技
+42  003037  三和管桩
 
 302035 人工智能 new
           代码    名称
-21   000719  中原传媒
-586  688529  豪森智能
-595  688607  康众医疗
+123  002583   海能达
+218  300084  海默科技
+388  301117  佳缘科技
+429  301391   卡莱特
+511  603859  能科科技
+569  688292  浩瀚深度
+594  688543  国科军工
 
 302045 区块链 new
-         代码   名称
-57  002528  英飞拓
+          代码    名称
+180  301117  佳缘科技
 
 302059 网络直播 new
+         代码   名称
+54  002570  贝因美
+
+302131 智能音箱 new
+         代码    名称
+25  300709  精研科技
+
+302182 雄安新区 new
+         代码    名称
+75  003013  地铁设计
+
+302436 新零售 new
           代码    名称
-143  600857  宁波中百
-158  603326  我乐家居
-169  603818  曲美家居
+168  600128  苏豪弘业
+169  600129  太极集团
+220  600857  宁波中百
+249  603180  金牌厨柜
+270  603613  国联股份
 
-302144 恒大概念 removed
-        代码     名称
-3  000918  *ST嘉凯
+304756 无人零售 new
+         代码    名称
+10  300368  汇金股份
 
-Error: get_bdinfo_ori 302150 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /gn/detail/field/199112/order/desc/page/1/ajax/1/code/302150 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921210>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 302154 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/302154 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921350>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 302166 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/302166 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c984a90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 302174 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/302174 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce89d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 302182 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/302182 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf02c10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 302436 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/302436 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf07bd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 302674 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/302674 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf0ebd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 303944 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/303944 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15bd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 304756 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/304756 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf07c90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 305376 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/305376 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf02d10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 305790 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/305790 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8290>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 305794 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/305794 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c984190>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 306380 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/306380 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15d10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 306398 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/306398 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf19d10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 306750 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/306750 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf19910>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 306912 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/306912 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6190>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307408 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307408 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8ad0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307512 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307512 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf02890>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307550 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307550 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9a5a10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307816 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307816 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15a10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307816 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307816 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf0eed0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307822 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307822 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf0e610>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307826 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307826 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15690>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307904 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307904 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9a5190>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307940 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307940 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf19ed0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 307954 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/307954 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921190>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308002 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308002 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8ed0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308014 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308014 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c965ed0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308016 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308016 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921b90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308172 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308172 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf197d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308202 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308202 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9a51d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308294 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308294 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf151d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308296 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308296 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf199d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308300 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308300 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921890>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308366 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308366 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8c10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308384 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308384 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf0e050>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308428 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308428 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982490>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308432 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308432 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308438 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308438 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf0e1d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308458 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308458 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921790>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308467 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308467 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15350>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308473 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308473 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6b90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308477 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308477 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2f1550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308479 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308479 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e410>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308491 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308491 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921850>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308501 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308501 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8590>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308507 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308507 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf153d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308517 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308517 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad65d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308525 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308525 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982650>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308527 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308527 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c3ee110>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308531 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308531 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e3d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308535 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308535 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982a90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308537 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308537 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c264090>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308547 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308547 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8710>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308555 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308555 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921910>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308560 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308560 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c6382d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308566 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308566 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c603b50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308568 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308568 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921690>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308572 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308572 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8590>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308582 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308582 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15490>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308588 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308588 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6090>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308590 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308590 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982710>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308594 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308594 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31efd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308606 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308606 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31eb90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308612 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308612 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c38c950>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308620 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308620 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6090>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308624 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308624 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15b50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308628 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308628 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8290>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308630 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308630 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921190>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308632 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308632 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eba50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308634 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308634 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8150>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308636 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308636 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15f50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308638 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308638 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6e90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308642 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308642 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c3eeb90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308646 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308646 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9821d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308651 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308651 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2ebf90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308657 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308657 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e850>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308659 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308659 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982910>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308661 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308661 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c38c290>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308690 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308690 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6710>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308692 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308692 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15a90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308694 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308694 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9219d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308696 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308696 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c8d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308697 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308697 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8590>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308698 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308698 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15a10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308699 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308699 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c38cf90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308700 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308700 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c650>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308708 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308708 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982c10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308709 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308709 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eb410>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308710 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308710 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e050>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308712 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308712 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982f10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308716 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308716 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c3ee390>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308717 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308717 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6110>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308718 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308718 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf15b50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308719 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308719 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8150>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308725 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308725 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33df90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308728 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308728 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cf157d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308729 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308729 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6210>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308731 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308731 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6e50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308732 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308732 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c790>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308733 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308733 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9828d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308734 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308734 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e990>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308740 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308740 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982490>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308742 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308742 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33dfd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308743 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308743 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31cad0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308748 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308748 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9219d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308752 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308752 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2ebb10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308753 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308753 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c603c10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308760 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308760 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c3ee950>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308761 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308761 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8150>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308774 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308774 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921a10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308775 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308775 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c150>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308791 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308791 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33d810>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308792 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308792 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eb990>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308794 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308794 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982750>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308801 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308801 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c3eecd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308803 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308803 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982050>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308805 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308805 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2ebad0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308806 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308806 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33de90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308809 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308809 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31ccd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308810 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308810 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9218d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308814 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308814 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c603310>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308818 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308818 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8f90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308820 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308820 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921650>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308822 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308822 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31ccd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308828 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308828 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33da50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308829 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308829 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c3eecd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308832 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308832 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982dd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308834 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308834 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8b10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308841 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308841 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308850 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308850 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eb610>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308854 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308854 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c5d9a10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308855 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308855 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33d050>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308862 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308862 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9214d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308864 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308864 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c6032d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308869 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308869 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31eb50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308870 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308870 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c603550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308874 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308874 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31cc10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308876 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308876 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33d650>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308883 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308883 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c5d9950>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308885 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308885 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eb650>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308887 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308887 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31ead0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308888 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308888 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982e50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308893 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308893 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982050>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308896 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308896 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2ebbd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308901 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308901 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33de10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308915 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308915 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c750>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308926 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308926 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31eb90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308931 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308931 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921b50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308935 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308935 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8f10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308941 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308941 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c9d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308956 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308956 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33dbd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308969 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308969 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c5d9150>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308972 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308972 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31ef50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308977 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308977 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eb790>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308984 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308984 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982dd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308989 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308989 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c9824d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308991 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308991 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2ebfd0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 308992 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/308992 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31ead0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309000 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309000 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c5d9d50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309004 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309004 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33dc90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309007 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309007 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c150>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309020 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309020 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c603550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309022 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309022 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921ed0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309023 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309023 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31cb50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309025 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309025 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c38c290>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309030 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309030 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e390>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309031 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309031 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eb650>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309034 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309034 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309035 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309035 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c638b10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309037 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309037 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982810>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309038 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309038 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2ebb10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309040 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309040 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e7d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309041 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309041 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c5d9550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309042 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309042 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33d4d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309044 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309044 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31c050>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309045 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309045 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cad6210>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309046 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309046 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c603550>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309049 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309049 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c38c510>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309050 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309050 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e110>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309051 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309051 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2eb990>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309055 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309055 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982390>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309056 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309056 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c638e10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309058 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309058 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c982510>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309059 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309059 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c2ebb10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309060 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309060 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c33db50>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309061 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309061 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e510>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309062 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309062 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c6382d0>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309063 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309063 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31cc90>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309065 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309065 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c921f10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309066 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309066 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11cce8f10>: Failed to establish a new connection: [Errno 61] Connection refused'))
-Error: get_bdinfo_ori 309068 HTTPConnectionPool(host='q.10jqka.com.cn', port=80): Max retries exceeded with url: /thshy/detail/field/199112/order/desc/page/1/ajax/1/code/309068 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x11c31e310>: Failed to establish a new connection: [Errno 61] Connection refused'))
-update time 2024-04-21
-<module> rt_cost 7995.20 s
+306380 储能 new
+          代码    名称
+26   001203  大中矿业
+142  003008  开普检测
+164  300141  和顺电气
+306  600620  天宸股份
+377  605066  天正电气
+
+306912 宁德时代概念 new
+          代码    名称
+116  300990  同飞股份
+
+307408 边缘计算 new
+         代码    名称
+34  002706  良信股份
+
+307408 边缘计算 removed
+         代码   名称
+14  002089  新海退
+
+307826 水泥概念 removed
+        代码    名称
+1  000546  金圆股份
+
+307940 存储芯片 new
+         代码    名称
+72  688691  灿芯股份
+
+308002 独角兽概念 new
+          代码    名称
+107  837092  汉鑫科技
+
+308014 创新药 new
+          代码    名称
+139  688331  荣昌生物
+
+308172 知识产权保护 new
+        代码    名称
+3  000948  南天信息
+
+308294 固态电池 new
+         代码    名称
+18  002580  圣阳股份
+31  002915  中欣氟材
+64  600110  诺德股份
+69  600478   科力远
+77  603051  鹿山新材
+92  688035  德邦科技
+99  688559   海目星
+
+308294 固态电池 removed
+         代码    名称
+38  300317  珈伟新能
+
+308384 消费电子概念 new
+         代码    名称
+93  300327  中颖电子
+
+308458 半年报预增 new
+         代码    名称
+0   000027  深圳能源
+1   000403  派林生物
+3   000551  创元科技
+5   000722  湖南发展
+6   000725  京东方A
+..     ...   ...
+80  688381   帝奥微
+82  688550  瑞联新材
+83  688603  天承科技
+84  688663   新风光
+85  688695  中创股份
+
+[65 rows x 2 columns]
+
+308458 半年报预增 removed
+          代码    名称
+0    000014  沙河股份
+1    000048  京基智农
+2    000058   深赛格
+3    000061   农产品
+4    000088   盐田港
+..      ...   ...
+477  838701  豪声电子
+478  838924  广脉科技
+479  839167  同享科技
+480  873305  九菱科技
+481  873570  坤博精工
+
+[460 rows x 2 columns]
+
+308477 电力物联网 new
+         代码    名称
+48  301179  泽宇智能
+
+308479 数字孪生 new
+         代码    名称
+22  003013  地铁设计
+37  300249   依米康
+60  300873  海晨股份
+
+308491 氢能源 new
+         代码    名称
+25  000988  华工科技
+
+308491 氢能源 removed
+          代码    名称
+237  603603  退市博天
+
+308507 华为汽车 new
+          代码    名称
+79   300745  欣锐科技
+128  603890  春秋电子
+
+308535 脑机接口 new
+         代码    名称
+18  688709  成都华微
+
+308566 垃圾分类 new
+         代码    名称
+20  002340   格林美
+89  603588  高能环境
+
+308572 仿制药一致性评价 new
+         代码    名称
+62  600129  太极集团
+
+308632 HJT电池 new
+         代码    名称
+52  835368  连城数控
+
+308642 数据中心 new
+          代码    名称
+61   002730  电光科技
+198  600720  中交设计
+214  601928  凤凰传媒
+
+308642 数据中心 removed
+         代码   名称
+22  002089  新海退
+
+308697 注册制次新股 new
+         代码    名称
+95  301539  宏鑫科技
+
+308697 注册制次新股 removed
+          代码    名称
+32   301307   美利信
+44   301357  北方长龙
+45   301360  荣旗科技
+54   301387  光大同创
+64   301429  森泰股份
+123  603137  恒尚节能
+138  688146  中船特气
+142  688352  颀中科技
+145  688433  华曙高科
+151  688478  晶升股份
+153  688507  索辰科技
+156  688539  高华科技
+
+308699 科创次新股 removed
+         代码    名称
+0   688146  中船特气
+4   688352  颀中科技
+7   688433  华曙高科
+12  688478  晶升股份
+14  688507  索辰科技
+17  688539  高华科技
+
+308700 第三代半导体 new
+         代码    名称
+57  301129  瑞纳智能
+
+308712 医美概念 new
+         代码    名称
+24  002622  皓宸医疗
+66  688314  康拓医疗
+
+308725 汽车芯片 new
+         代码    名称
+26  301536  星宸科技
+
+308728 碳中和 new
+          代码    名称
+23   001238  浙江正特
+186  688707  振华新材
+
+308731 鸿蒙概念 new
+          代码    名称
+96   301382   蜂助手
+104  603039  泛微网络
+
+308731 鸿蒙概念 removed
+        代码    名称
+6  000628  高新发展
+
+308732 共同富裕示范区 new
+         代码    名称
+68  300411  金盾股份
+
+308740 专精特新 new
+          代码    名称
+31   002179  中航光电
+106  300018  中元股份
+164  300410  正业科技
+246  300774   倍杰特
+369  301273  瑞晨环保
+425  301539  宏鑫科技
+650  688287  观典防务
+683  688362  甬矽电子
+
+308753 抽水蓄能 new
+         代码    名称
+42  603530  神马电力
+
+308760 绿色电力 new
+          代码    名称
+113  600292  远达环保
+132  600780  通宝能源
+
+308761 虚拟电厂 new
+         代码    名称
+29  300317  珈伟新能
+
+308775 换电概念 new
+         代码    名称
+11  002179  中航光电
+55  601777  力帆科技
+56  603458  勘设股份
+
+308792 智能制造 new
+          代码    名称
+6    000425  徐工机械
+20   001203  大中矿业
+29   001322  箭牌家居
+41   002037  保利联合
+57   002265  建设工业
+58   002270  华明装备
+61   002283  天润工业
+77   002541  鸿路钢构
+89   002689  远大智能
+93   002734  利民股份
+110  002903  宇环数控
+113  002957  科瑞技术
+128  300124  汇川技术
+132  300166  东方国信
+151  300425  中建环能
+157  300457  赢合科技
+168  300589  江龙船艇
+176  300696   爱乐达
+198  300931  通用电梯
+217  301127  天源环保
+248  600019  宝钢股份
+250  600121  郑州煤电
+285  601500  通用股份
+288  601689  拓普集团
+314  603273  天元智能
+319  603308  应流股份
+324  603366  日出东方
+331  603677  奇精机械
+368  688395  正弦电气
+377  688558  国盛智科
+391  834599  同力股份
+392  834639  晨光电缆
+
+308794 虚拟数字人 new
+         代码    名称
+38  300071  福石控股
+
+308828 东数西算（算力） new
+          代码    名称
+127  601928  凤凰传媒
+
+308828 东数西算（算力） removed
+          代码    名称
+6    000628  高新发展
+17   002089   新海退
+139  603661  恒林股份
+
+308832 PCB概念 new
+         代码    名称
+57  603110  东方材料
+
+308841 智慧灯杆 new
+        代码    名称
+5  002313  日海智能
+
+308854 中俄贸易概念 new
+          代码    名称
+35   300083   创世纪
+97   601956  东贝集团
+117  873706  铁拓机械
+
+308854 中俄贸易概念 removed
+         代码    名称
+26  002722  物产金轮
+
+308870 数字经济 new
+          代码    名称
+50   002302  西部建设
+133  300222  科大智能
+249  603039  泛微网络
+285  688671  碧兴物联
+
+308901 统一大市场 new
+         代码   名称
+47  600190  锦州港
+
+308972 比亚迪概念 new
+          代码    名称
+225  300709  精研科技
+275  301168  通灵股份
+325  600126  杭钢股份
+401  603787  新日股份
+405  603890  春秋电子
+
+308989 生物质能发电 new
+         代码    名称
+38  605028  世茂能源
+
+308992 TOPCON电池 new
+         代码    名称
+40  601137  博威合金
+61  835368  连城数控
+
+309025 AIGC概念 new
+          代码    名称
+21   002398  垒知集团
+90   300901  中胤时尚
+113  600556   天下秀
+136  603859  能科科技
+
+309034 国企改革 new
+           代码    名称
+535   300393  中来股份
+675   600116  三峡水利
+1074  600903  贵州燃气
+1086  600936  广西广电
+1133  601065  江盐集团
+1273  603136   天目湖
+1365  688709  成都华微
+
+309034 国企改革 removed
+          代码    名称
+449  002783  凯龙股份
+
+309050 数字水印 new
+         代码    名称
+23  301270  汉仪股份
+
+309051 毫米波雷达 new
+         代码    名称
+38  300680  隆盛科技
+
+309060 数据要素 new
+          代码    名称
+233  688676  金盘科技
+
+309068 算力租赁 new
+        代码    名称
+2  000712  锦龙股份
+
+309068 算力租赁 removed
+        代码    名称
+1  000628  高新发展
+
+update time 2024-04-27
+<module> rt_cost 859.36 s
