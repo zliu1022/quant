@@ -1,19 +1,4 @@
-Check token 2024-04-27
-update token 5eeab96bfda3e05af7b6ef9e4626c2d12040b664 cost  0.44s
+Check token 2024-05-03
+update token 5eeab96bfda3e05af7b6ef9e4626c2d12040b664 cost  0.64s
 token expired, update 5eeab96bfda3e05af7b6ef9e4626c2d12040b664
-req_basic changed 000656.SZ name *ST金科 -> 金科股份 
-req_basic changed 000961.SZ name ST中南 -> 中南建设 
-req_basic changed 000989.SZ name ST九芝 -> 九芝堂 
-req_basic changed 002052.SZ name *ST同洲 -> ST同洲 
-req_basic changed 002102.SZ name 能特科技 -> 冠福股份 
-req_basic changed 002309.SZ name *ST中利 -> ST中利 
-req_basic changed 002336.SZ name *ST人乐 -> 人人乐 
-req_basic changed 002627.SZ industry 旅游景点 -> 公共交通 
-req_basic changed 300965.SZ name *ST恒宇 -> 恒宇信通 
-req_basic changed 301539.SZ name 宏鑫科技 -> N宏鑫 
-req_basic changed 600387.SH name *ST海越 -> ST海越 
-req_basic changed 600898.SH name *ST美讯 -> ST美讯 
-req_basic changed 688361.SH name 中科飞测 -> 中科飞测-U 
-req_basic changed 688691.SH name 灿芯股份 -> C灿芯 
-req_basic changed 839167.BJ name 同享科技 -> XD同享科 
-req_basic cost 11.91s
+req_basic cost 11.04s
