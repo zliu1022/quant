@@ -1,6 +1,6 @@
-Check token 2024-05-03
-token got 0 days ago 5eeab96bfda3e05af7b6ef9e4626c2d12040b664 still valid
-find 5415 stocks
+Check token 2024-05-12
+token got 0 days ago ea6ef3abf0b64fa4ec4343c5608361ed54114204 still valid
+find 5416 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
 Warning: 000017.SZ no date     2007-01-11 1268755200000(20100317) 20070111 流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
 Warning: 000035.SZ no date     2012-11-28 1354204800000.0(20121130) 20121128 10转2.596股(实施方案)
@@ -153,4 +153,4 @@ Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会�
 Warning: 873339.BJ no date 5ys 2019年报 nan(NaN) 2019 10派20元(股东大会预案)
 Error: bonus plan: not find 送转派 2024年中期现金分红比例不低于2024年中期归属于上市公司股东净利润的50%且不超过净利润(预披露)
 873679.BJ insert bad bonus, bad_plan
-total cost 53.49s
+total cost 59.03s
