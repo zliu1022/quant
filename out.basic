@@ -1,4 +1,82 @@
-Check token 2024-05-03
-update token 5eeab96bfda3e05af7b6ef9e4626c2d12040b664 cost  0.64s
-token expired, update 5eeab96bfda3e05af7b6ef9e4626c2d12040b664
-req_basic cost 11.04s
+Check token 2024-05-12
+update token ea6ef3abf0b64fa4ec4343c5608361ed54114204 cost  0.64s
+token expired, update ea6ef3abf0b64fa4ec4343c5608361ed54114204
+req_basic changed 000023.SZ name *ST深天 -> ST深天 
+req_basic changed 000506.SZ name *ST中润 -> 中润资源 
+req_basic changed 000584.SZ name *ST工智 -> ST工智 
+req_basic changed 000609.SZ name *ST中迪 -> 中迪投资 
+req_basic changed 000622.SZ name *ST恒立 -> 恒立实业 
+req_basic changed 000809.SZ name *ST新城 -> 铁岭新城 
+req_basic changed 000836.SZ name ST富通 -> 富通信息 
+req_basic changed 000851.SZ name ST高鸿 -> 高鸿股份 
+req_basic changed 000908.SZ name *ST景峰 -> 景峰医药 
+req_basic changed 000971.SZ name *ST高升 -> ST高升 
+req_basic changed 002124.SZ name ST天邦 -> 天邦食品 
+req_basic changed 002141.SZ name *ST贤丰 -> 贤丰控股 
+req_basic changed 002197.SZ name ST证通 -> 证通电子 
+req_basic changed 002217.SZ name *ST合泰 -> 合力泰 
+req_basic changed 002280.SZ name ST联络 -> 联络互动 
+req_basic changed 002288.SZ name *ST超华 -> 超华科技 
+req_basic changed 002310.SZ name *ST东园 -> 东方园林 
+req_basic changed 002325.SZ name *ST洪涛 -> 洪涛股份 
+req_basic changed 002341.SZ name ST新纶 -> 新纶新材 
+req_basic changed 002424.SZ name ST百灵 -> 贵州百灵 
+req_basic changed 002435.SZ name ST长康 -> 长江健康 
+req_basic changed 002528.SZ name ST英飞拓 -> 英飞拓 
+req_basic changed 002610.SZ name ST爱康 -> 爱康科技 
+req_basic changed 002621.SZ name *ST美吉 -> 美吉姆 
+req_basic changed 002650.SZ name ST加加 -> 加加食品 
+req_basic changed 002665.SZ name ST航高 -> 首航高科 
+req_basic changed 002750.SZ name *ST龙津 -> 龙津药业 
+req_basic changed 300013.SZ name *ST新宁 -> 新宁物流 
+req_basic changed 300020.SZ name *ST银江 -> 银江技术 
+req_basic changed 300029.SZ industry 建筑工程 -> 电气设备 
+req_basic changed 300051.SZ industry 综合类 -> 互联网 
+req_basic changed 300108.SZ name *ST吉药 -> ST吉药 
+req_basic changed 300116.SZ name *ST保力 -> 保力新 
+req_basic changed 300117.SZ name *ST嘉寓 -> 嘉寓股份 
+req_basic changed 300125.SZ name ST聆达 -> 聆达股份 
+req_basic changed 300163.SZ name ST先锋 -> 先锋新材 
+req_basic changed 300167.SZ name *ST迪威 -> ST迪威迅 
+req_basic changed 300208.SZ name *ST中程 -> 青岛中程 
+req_basic changed 300209.SZ name *ST有树 -> ST有棵树 
+req_basic changed 300262.SZ name *ST巴安 -> 巴安水务 
+req_basic changed 300338.SZ name *ST开元 -> 开元教育 
+req_basic changed 300446.SZ industry 汽车配件 -> 化工原料 
+req_basic changed 300506.SZ name *ST名家 -> 名家汇 
+req_basic changed 300536.SZ name *ST农尚 -> 农尚环境 
+req_basic changed 600070.SH name *ST富润 -> ST富润 
+req_basic changed 600083.SH name *ST博信 -> 博信股份 
+req_basic changed 600112.SH name *ST天成 -> ST天成 
+req_basic changed 600117.SH name ST西钢 -> *ST西钢 
+req_basic changed 600165.SH name *ST宁科 -> ST宁科 
+req_basic changed 600213.SH name *ST亚星 -> 亚星客车 
+req_basic changed 600220.SH name ST阳光 -> 江苏阳光 
+req_basic changed 600234.SH name *ST科新 -> 科新发展 
+req_basic changed 600277.SH name ST亿利 -> 亿利洁能 
+req_basic changed 600289.SH name *ST信通 -> ST信通 
+req_basic changed 600360.SH name ST华微 -> 华微电子 
+req_basic changed 600381.SH name ST春天 -> 青海春天 
+req_basic changed 600462.SH name *ST九有 -> ST九有 
+req_basic changed 600565.SH name ST迪马 -> 迪马股份 
+req_basic changed 600715.SH name *ST文投 -> 文投控股 
+req_basic changed 600777.SH name ST新潮 -> 新潮能源 
+req_basic changed 600804.SH name *ST鹏博 -> ST鹏博士 
+req_basic changed 600823.SH name *ST世茂 -> ST世茂 
+req_basic changed 600836.SH name *ST易连 -> 上海易连 
+req_basic changed 603003.SH name *ST龙宇 -> 龙宇股份 
+req_basic changed 603023.SH name *ST威帝 -> 威帝股份 
+req_basic changed 603030.SH name ST全筑 -> *ST全筑 
+req_basic changed 603363.SH name *ST傲农 -> 傲农生物 
+req_basic changed 603377.SH name ST东时 -> 东方时尚 
+req_basic changed 603388.SH name ST元成 -> 元成股份 
+req_basic changed 603559.SH name *ST通脉 -> ST通脉 
+req_basic changed 603608.SH name *ST天创 -> 天创时尚 
+req_basic changed 603828.SH name ST柯利达 -> 柯利达 
+req_basic changed 603869.SH name ST智知 -> 新智认知 
+req_basic changed 603879.SH name ST永悦 -> 永悦科技 
+req_basic changed 603959.SH name ST百利 -> 百利科技 
+req_basic changed 603963.SH name *ST大药 -> 大理药业 
+req_basic changed 688282.SH name *ST导航 -> 理工导航 
+req_basic insert new 688530.SH N欧莱 半导体
+req_basic cost 16.48s
