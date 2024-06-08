@@ -1,10 +1,17 @@
-Check token 2024-06-01
-update token c2aefa380b9072a563e961143570e259329d659f cost  0.37s
-token expired, update c2aefa380b9072a563e961143570e259329d659f
-req_basic changed 000692.SZ name 惠天热电 -> *ST惠天 
-req_basic changed 300313.SZ name ST天山 -> *ST天山 
-req_basic changed 300859.SZ name 西域旅游 -> *ST西域 
-req_basic changed 600186.SH name 莲花控股 -> 莲花健康 
-req_basic changed 600306.SH name 退商城 -> *ST商城 industry None -> 百货 
-req_basic insert new 920002.BJ N万达 None
-req_basic cost 19.92s
+Check token 2024-06-08
+update token 0518d12486f7876b2f98097d9ec9214afa97c2a0 cost  0.41s
+token expired, update 0518d12486f7876b2f98097d9ec9214afa97c2a0
+req_basic changed 000564.SZ name 供销大集 -> ST大集 
+req_basic changed 000996.SZ name 中期退 -> *ST中期 industry None -> 汽车服务 
+req_basic changed 002021.SZ name 中捷资源 -> *ST中捷 
+req_basic changed 002087.SZ name 新纺退 -> *ST新纺 industry None -> 纺织 
+req_basic insert new 300784.SZ N利安 塑料
+req_basic insert new 301392.SZ C汇成真 专用机械
+req_basic changed 600190.SH name ST锦港 -> 锦州港 
+req_basic changed 600265.SH name 景谷林业 -> ST景谷 
+req_basic changed 600396.SH name 金山股份 -> *ST金山 
+req_basic changed 600647.SH name 退同达 -> *ST同达 industry None -> 综合类 
+req_basic changed 600766.SH name 退园城 -> *ST园城 industry None -> 商贸代理 
+req_basic changed 603133.SH name 退碳元 -> *ST碳元 industry None -> 元器件 
+req_basic changed 920002.BJ name 万达轴承 -> N万达 
+req_basic cost 12.48s
