@@ -1,81 +1,76 @@
-Check token 2024-06-01
-token got 0 days ago c2aefa380b9072a563e961143570e259329d659f still valid
-find 5418 stocks
+Check token 2024-06-08
+token got 0 days ago 0518d12486f7876b2f98097d9ec9214afa97c2a0 still valid
+find 5420 stocks
 Error: No kline, maybe restday SZ000005
+Error: No kline, maybe restday SZ002433
 Error: No kline, maybe restday SH688555
 Error: No kline, maybe restday SH600290
-Error: No kline, maybe restday SZ002433
 Error: No kline, maybe restday SZ002699
-Error: No kline, maybe restday SH600311
 Error: No kline, maybe restday SZ000038
 Error: No kline, maybe restday SZ000040
 Error: No kline, maybe restday SZ000046
 Error: No kline, maybe restday SZ000732
-Error: No kline, maybe restday SH600647
+Error: No kline, maybe restday SH600311
+Error: No kline, maybe restday SH600321
 Error: No kline, maybe restday SZ000150
-Error: No kline, maybe restday SZ002002
 Error: No kline, maybe restday SZ002740
-Error: No kline, maybe restday SZ002013
+Error: No kline, maybe restday SZ002002
 Error: No kline, maybe restday SZ002751
 Error: No kline, maybe restday SZ000413
+Error: No kline, maybe restday SZ002013
 Error: No kline, maybe restday SZ002499
 Error: No kline, maybe restday SZ000416
 Error: No kline, maybe restday SZ000806
 Error: No kline, maybe restday SZ002503
 Error: No kline, maybe restday SZ002504
 Error: No kline, maybe restday SH600077
-Error: No kline, maybe restday SZ300742
-Error: No kline, maybe restday SH600393
 Error: No kline, maybe restday SZ002776
+Error: No kline, maybe restday SZ300742
 Error: No kline, maybe restday SZ300495
 Error: No kline, maybe restday SZ002781
+Error: No kline, maybe restday SH600393
 Error: No kline, maybe restday SH688086
-Error: No kline, maybe restday SH600122
-Error: No kline, maybe restday SZ000540
 Error: No kline, maybe restday SZ300273
-Error: No kline, maybe restday SZ002308
+Error: No kline, maybe restday SZ000540
 Error: No kline, maybe restday SZ300526
+Error: No kline, maybe restday SH600122
+Error: No kline, maybe restday SZ002308
 Error: No kline, maybe restday SZ300282
-Error: No kline, maybe restday SH600466
 Error: No kline, maybe restday SZ300799
 Error: No kline, maybe restday SH600139
-Error: No kline, maybe restday SZ002087
-Error: No kline, maybe restday SZ002089
 Error: No kline, maybe restday SZ300297
-Error: No kline, maybe restday SH600766
-Error: No kline, maybe restday SH600767
+Error: No kline, maybe restday SZ002089
 Error: No kline, maybe restday SZ000918
+Error: No kline, maybe restday SH600466
 Error: No kline, maybe restday SZ300309
 Error: No kline, maybe restday SZ000587
-Error: No kline, maybe restday SH600781
-Error: No kline, maybe restday SH603555
-Error: No kline, maybe restday SZ300089
-Error: No kline, maybe restday SH601258
+Error: No kline, maybe restday SH600767
+Error: No kline, maybe restday SH600179
 Error: No kline, maybe restday SZ002113
+Error: No kline, maybe restday SH603555
 Error: No kline, maybe restday SZ000606
 Error: No kline, maybe restday SZ002118
 Error: No kline, maybe restday SZ300330
-Error: No kline, maybe restday SZ300336
+Error: No kline, maybe restday SZ300089
 Error: No kline, maybe restday SZ000616
+Error: No kline, maybe restday SZ300336
+Error: No kline, maybe restday SH600781
 Error: No kline, maybe restday SZ000961
-Error: No kline, maybe restday SH603133
-Error: No kline, maybe restday SZ300116
-Error: No kline, maybe restday SH603603
-Error: No kline, maybe restday SH600532
-Error: No kline, maybe restday SZ300356
+Error: No kline, maybe restday SH601258
 Error: No kline, maybe restday SZ000976
-Error Connecting: HTTPSConnectionPool(host='stock.xueqiu.com', port=443): Max retries exceeded with url: /v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000651&begin=1716566400000 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x11b4dc050>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
-Error: No kline, maybe restday SH600823
-retry 1 times https://stock.xueqiu.com/v5/stock/chart/kline.json?period=day&type=none&count=8&symbol=SZ000651&begin=1716566400000
+Error: No kline, maybe restday SH603603
+Error: No kline, maybe restday SZ300116
+Error: No kline, maybe restday SZ300356
 Error: No kline, maybe restday SZ000666
 Error: No kline, maybe restday SZ000667
-Error: No kline, maybe restday SZ000996
+Error: No kline, maybe restday SH600532
 Error: No kline, maybe restday SZ000671
+Error: No kline, maybe restday SH600823
 Error: No kline, maybe restday SZ300630
-Error: No kline, maybe restday SH600242
-Error: No kline, maybe restday SH600250
 Error: No kline, maybe restday SZ002411
+Error: No kline, maybe restday SH600242
 Error: No kline, maybe restday SZ300392
+Error: No kline, maybe restday SH600250
 Error: No kline, maybe restday SZ002417
 Error: No kline, maybe restday SH600260
-total cost 150.33s
+total cost 154.23s
