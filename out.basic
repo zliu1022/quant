@@ -1,17 +1,22 @@
-Check token 2024-06-08
-update token 0518d12486f7876b2f98097d9ec9214afa97c2a0 cost  0.41s
+Check token 2024-06-16
+update token 0518d12486f7876b2f98097d9ec9214afa97c2a0 cost  0.62s
 token expired, update 0518d12486f7876b2f98097d9ec9214afa97c2a0
-req_basic changed 000564.SZ name 供销大集 -> ST大集 
-req_basic changed 000996.SZ name 中期退 -> *ST中期 industry None -> 汽车服务 
-req_basic changed 002021.SZ name 中捷资源 -> *ST中捷 
-req_basic changed 002087.SZ name 新纺退 -> *ST新纺 industry None -> 纺织 
-req_basic insert new 300784.SZ N利安 塑料
-req_basic insert new 301392.SZ C汇成真 专用机械
-req_basic changed 600190.SH name ST锦港 -> 锦州港 
-req_basic changed 600265.SH name 景谷林业 -> ST景谷 
-req_basic changed 600396.SH name 金山股份 -> *ST金山 
-req_basic changed 600647.SH name 退同达 -> *ST同达 industry None -> 综合类 
-req_basic changed 600766.SH name 退园城 -> *ST园城 industry None -> 商贸代理 
-req_basic changed 603133.SH name 退碳元 -> *ST碳元 industry None -> 元器件 
-req_basic changed 920002.BJ name 万达轴承 -> N万达 
-req_basic cost 12.48s
+req_basic changed 000637.SZ name 茂化实华 -> ST实华 
+req_basic changed 000839.SZ name 中信国安 -> ST国安 
+req_basic changed 002086.SZ name 东方海洋 -> *ST东洋 
+req_basic changed 002157.SZ name 正邦科技 -> *ST正邦 
+req_basic changed 002721.SZ name ST金一 -> *ST金一 
+req_basic changed 002800.SZ name 天顺股份 -> ST天顺 
+req_basic changed 300010.SZ name 豆神教育 -> *ST豆神 
+req_basic changed 300100.SZ industry 汽车配件 -> 汽车服务 
+req_basic changed 300220.SZ name 金运激光 -> ST金运 
+req_basic changed 300784.SZ name C利安 -> N利安 
+req_basic changed 300823.SZ name 建科智能 -> 建科机械 
+req_basic changed 301392.SZ name 汇成真空 -> C汇成真 
+req_basic changed 600734.SH name 实达集团 -> ST实达 
+req_basic changed 603026.SH name 石大胜华 -> 胜华新材 
+req_basic changed 603551.SH name 奥普科技 -> 奥普家居 
+req_basic changed 688272.SH name 富吉瑞 -> *ST富吉 
+req_basic changed 688500.SH name 慧辰股份 -> *ST慧辰 
+req_basic insert new 688692.SH C达梦 软件服务
+req_basic cost 10.60s
