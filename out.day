@@ -1,11 +1,10 @@
-Check token 2024-06-08
+Check token 2024-06-16
 token got 0 days ago 0518d12486f7876b2f98097d9ec9214afa97c2a0 still valid
-find 5420 stocks
+find 5421 stocks
 Error: No kline, maybe restday SZ000005
-Error: No kline, maybe restday SZ002433
 Error: No kline, maybe restday SH688555
-Error: No kline, maybe restday SH600290
 Error: No kline, maybe restday SZ002699
+Error: No kline, maybe restday SH600290
 Error: No kline, maybe restday SZ000038
 Error: No kline, maybe restday SZ000040
 Error: No kline, maybe restday SZ000046
@@ -17,8 +16,8 @@ Error: No kline, maybe restday SZ002740
 Error: No kline, maybe restday SZ002002
 Error: No kline, maybe restday SZ002751
 Error: No kline, maybe restday SZ000413
-Error: No kline, maybe restday SZ002013
 Error: No kline, maybe restday SZ002499
+Error: No kline, maybe restday SZ002013
 Error: No kline, maybe restday SZ000416
 Error: No kline, maybe restday SZ000806
 Error: No kline, maybe restday SZ002503
@@ -26,51 +25,50 @@ Error: No kline, maybe restday SZ002504
 Error: No kline, maybe restday SH600077
 Error: No kline, maybe restday SZ002776
 Error: No kline, maybe restday SZ300742
-Error: No kline, maybe restday SZ300495
 Error: No kline, maybe restday SZ002781
+Error: No kline, maybe restday SZ300495
 Error: No kline, maybe restday SH600393
-Error: No kline, maybe restday SH688086
 Error: No kline, maybe restday SZ300273
+Error: No kline, maybe restday SH688086
 Error: No kline, maybe restday SZ000540
 Error: No kline, maybe restday SZ300526
-Error: No kline, maybe restday SH600122
 Error: No kline, maybe restday SZ002308
+Error: No kline, maybe restday SH600122
 Error: No kline, maybe restday SZ300282
 Error: No kline, maybe restday SZ300799
-Error: No kline, maybe restday SH600139
 Error: No kline, maybe restday SZ300297
+Error: No kline, maybe restday SH600139
 Error: No kline, maybe restday SZ002089
+Error: No kline, maybe restday SZ300309
 Error: No kline, maybe restday SZ000918
 Error: No kline, maybe restday SH600466
-Error: No kline, maybe restday SZ300309
 Error: No kline, maybe restday SZ000587
 Error: No kline, maybe restday SH600767
-Error: No kline, maybe restday SH600179
 Error: No kline, maybe restday SZ002113
-Error: No kline, maybe restday SH603555
-Error: No kline, maybe restday SZ000606
-Error: No kline, maybe restday SZ002118
 Error: No kline, maybe restday SZ300330
 Error: No kline, maybe restday SZ300089
-Error: No kline, maybe restday SZ000616
+Error: No kline, maybe restday SH603555
+Error: No kline, maybe restday SZ002118
+Error: No kline, maybe restday SZ000606
 Error: No kline, maybe restday SZ300336
 Error: No kline, maybe restday SH600781
+Error: No kline, maybe restday SZ000616
 Error: No kline, maybe restday SZ000961
 Error: No kline, maybe restday SH601258
-Error: No kline, maybe restday SZ000976
-Error: No kline, maybe restday SH603603
+Error: No kline, maybe restday SZ000971
 Error: No kline, maybe restday SZ300116
 Error: No kline, maybe restday SZ300356
+Error: No kline, maybe restday SZ000976
+Error: No kline, maybe restday SH603603
+Error: No kline, maybe restday SH600532
 Error: No kline, maybe restday SZ000666
 Error: No kline, maybe restday SZ000667
-Error: No kline, maybe restday SH600532
 Error: No kline, maybe restday SZ000671
 Error: No kline, maybe restday SH600823
 Error: No kline, maybe restday SZ300630
+Error: No kline, maybe restday SZ300392
 Error: No kline, maybe restday SZ002411
 Error: No kline, maybe restday SH600242
-Error: No kline, maybe restday SZ300392
-Error: No kline, maybe restday SH600250
 Error: No kline, maybe restday SZ002417
 Error: No kline, maybe restday SH600260
-total cost 154.23s
+total cost 135.89s
