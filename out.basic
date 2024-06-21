@@ -1,22 +1,14 @@
-Check token 2024-06-16
-update token 0518d12486f7876b2f98097d9ec9214afa97c2a0 cost  0.62s
-token expired, update 0518d12486f7876b2f98097d9ec9214afa97c2a0
-req_basic changed 000637.SZ name 茂化实华 -> ST实华 
-req_basic changed 000839.SZ name 中信国安 -> ST国安 
-req_basic changed 002086.SZ name 东方海洋 -> *ST东洋 
-req_basic changed 002157.SZ name 正邦科技 -> *ST正邦 
-req_basic changed 002721.SZ name ST金一 -> *ST金一 
-req_basic changed 002800.SZ name 天顺股份 -> ST天顺 
-req_basic changed 300010.SZ name 豆神教育 -> *ST豆神 
-req_basic changed 300100.SZ industry 汽车配件 -> 汽车服务 
-req_basic changed 300220.SZ name 金运激光 -> ST金运 
-req_basic changed 300784.SZ name C利安 -> N利安 
-req_basic changed 300823.SZ name 建科智能 -> 建科机械 
-req_basic changed 301392.SZ name 汇成真空 -> C汇成真 
-req_basic changed 600734.SH name 实达集团 -> ST实达 
-req_basic changed 603026.SH name 石大胜华 -> 胜华新材 
-req_basic changed 603551.SH name 奥普科技 -> 奥普家居 
-req_basic changed 688272.SH name 富吉瑞 -> *ST富吉 
-req_basic changed 688500.SH name 慧辰股份 -> *ST慧辰 
-req_basic insert new 688692.SH C达梦 软件服务
-req_basic cost 10.60s
+Check token 2024-06-21
+update token 483932c5fb313ca4c93e7165a31f179fb71e1804 cost  1.47s
+token expired, update 483932c5fb313ca4c93e7165a31f179fb71e1804
+req_basic changed 002433.SZ name 太安退 -> *ST太安 industry None -> 中成药 
+req_basic changed 002482.SZ name 广田集团 -> *ST广田 
+req_basic changed 300784.SZ name 利安科技 -> C利安 
+req_basic insert new 301565.SZ C中仑 塑料
+req_basic changed 600073.SH name 光明肉业 -> 上海梅林 
+req_basic changed 600530.SH name 交大昂立 -> ST交昂 
+req_basic changed 600589.SH name 广东榕泰 -> *ST榕泰 
+req_basic changed 600671.SH name ST目药 -> *ST目药 
+req_basic changed 603180.SH name 金牌家居 -> 金牌厨柜 
+req_basic changed 688692.SH name 达梦数据 -> C达梦 
+req_basic cost 11.08s
