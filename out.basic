@@ -1,17 +1,12 @@
-Check token 2024-06-29
-update token 483932c5fb313ca4c93e7165a31f179fb71e1804 cost  0.53s
-token expired, update 483932c5fb313ca4c93e7165a31f179fb71e1804
-req_basic changed 000615.SZ name ST美谷 -> *ST美谷 
-req_basic changed 000782.SZ name 恒申新材 -> 美达股份 
-req_basic changed 000796.SZ name ST凯撒 -> *ST凯撒 
-req_basic changed 300282.SZ name 三盛退 -> *ST三盛 
-req_basic changed 301565.SZ name 中仑新材 -> C中仑 
-req_basic insert new 301580.SZ C爱迪特 医疗保健
-req_basic changed 600078.SH name 澄星股份 -> ST澄星 
-req_basic changed 600136.SH name ST明诚 -> *ST明诚 
-req_basic changed 600654.SH name 中安消 -> ST中安 
-req_basic changed 600759.SH name 洲际油气 -> ST洲际 
-req_basic changed 603001.SH name 奥康国际 -> ST奥康 
-req_basic insert new 603381.SH C永臻 电气设备
-req_basic changed 603880.SH name 南卫股份 -> ST南卫 
-req_basic cost 10.67s
+Check token 2024-07-06
+update token 64274d77bec17c39d7ef1934b7a3588572463436 cost  0.54s
+token expired, update 64274d77bec17c39d7ef1934b7a3588572463436
+req_basic changed 000007.SZ name 全新好 -> *ST全新 
+req_basic changed 300282.SZ industry None -> 文教休闲 
+req_basic changed 300742.SZ name 越博退 -> *ST越博 industry None -> 汽车配件 
+req_basic changed 301580.SZ name 爱迪特 -> C爱迪特 
+req_basic changed 600518.SH name 康美药业 -> ST康美 
+req_basic insert new 603285.SH N键邦 化工原料
+req_basic insert new 603350.SH C安乃达 电气设备
+req_basic changed 603381.SH name 永臻股份 -> C永臻 
+req_basic cost 12.03s
