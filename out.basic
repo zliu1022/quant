@@ -1,12 +1,18 @@
-Check token 2024-07-06
-update token 64274d77bec17c39d7ef1934b7a3588572463436 cost  0.54s
+Check token 2024-07-12
+update token 64274d77bec17c39d7ef1934b7a3588572463436 cost  0.78s
 token expired, update 64274d77bec17c39d7ef1934b7a3588572463436
-req_basic changed 000007.SZ name 全新好 -> *ST全新 
-req_basic changed 300282.SZ industry None -> 文教休闲 
-req_basic changed 300742.SZ name 越博退 -> *ST越博 industry None -> 汽车配件 
-req_basic changed 301580.SZ name 爱迪特 -> C爱迪特 
-req_basic changed 600518.SH name 康美药业 -> ST康美 
-req_basic insert new 603285.SH N键邦 化工原料
-req_basic insert new 603350.SH C安乃达 电气设备
-req_basic changed 603381.SH name 永臻股份 -> C永臻 
-req_basic cost 12.03s
+req_basic changed 000040.SZ name ST旭蓝 -> 东旭蓝天 
+req_basic changed 000413.SZ name ST旭电 -> 东旭光电 
+req_basic changed 000976.SZ name *ST华铁 -> ST华铁 
+req_basic changed 002308.SZ name *ST威创 -> 威创股份 
+req_basic changed 300376.SZ name ST易事特 -> 易事特 
+req_basic changed 300799.SZ name 左江退 -> *ST左江 industry None -> 软件服务 
+req_basic changed 301110.SZ name 青木科技 -> 青木股份 
+req_basic insert new 301603.SZ N乔锋 机床制造
+req_basic changed 600287.SH name ST舜天 -> 江苏舜天 
+req_basic changed 600543.SH name 莫高股份 -> *ST莫高 
+req_basic changed 600831.SH name ST广网 -> 广电网络 
+req_basic changed 603030.SH name 全筑股份 -> ST全筑 
+req_basic changed 603285.SH name C键邦 -> N键邦 
+req_basic changed 603350.SH name 安乃达 -> C安乃达 
+req_basic cost 12.72s
