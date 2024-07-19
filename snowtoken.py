@@ -9,7 +9,9 @@ def get_snowtoken():
     r = requests.get("https://xueqiu.com", headers={"user-agent":"Mozilla"})
     end_t = time.time()
     t = r.cookies["xq_a_token"]
+    u = r.cookies["u"]
     print('update token {} cost {:5.2f}s'.format(t, (end_t - start_t)))
+    print('u {}'.format(u))
     return t
 
     
