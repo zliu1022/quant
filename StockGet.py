@@ -42,7 +42,7 @@ class StockGet:
         
         t = self.updateToken(1)
         self.header = {
-            'cookie':'xq_is_login=1;xq_a_token=' + t,
+            'cookie':'xq_is_login=1;xq_a_token=' + t + ';u=1119975455;',
             'User-Agent': 'Xueqiu iPhone 13.6.5'
         }
 
