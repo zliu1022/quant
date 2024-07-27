@@ -1,7 +1,14 @@
-Check token 2024-07-19
-update token 64274d77bec17c39d7ef1934b7a3588572463436 cost  1.13s
-token expired, update 64274d77bec17c39d7ef1934b7a3588572463436
-req_basic changed 300189.SZ name 神农种业 -> 神农科技 
-req_basic changed 301603.SZ name C乔锋 -> N乔锋 
-req_basic changed 603285.SH name 键邦股份 -> C键邦 
-req_basic cost 12.26s
+Check token 2024-07-27
+update token aeb5755652c41b7828c9412ee90b26e08840b0c8 cost  0.59s
+u 811722038177791
+token expired, update aeb5755652c41b7828c9412ee90b26e08840b0c8
+req_basic changed 000752.SZ name ST西发 -> *ST西发 
+req_basic changed 000975.SZ name 山金国际 -> 银泰黄金 
+req_basic insert new 301552.SZ C科力装 汽车配件
+req_basic changed 301603.SZ name 乔锋智能 -> C乔锋 
+req_basic insert new 301606.SZ 绿联科技 元器件
+req_basic changed 600117.SH name 西宁特钢 -> ST西钢 
+req_basic changed 600138.SH industry 旅游景点 -> 旅游服务 
+req_basic changed 600654.SH name 中安科 -> 中安消 
+req_basic changed 603399.SH name 永杉锂业 -> 吉翔股份 
+req_basic cost 11.71s
