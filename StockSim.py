@@ -29,18 +29,19 @@ def stat_chg(df, start_date, chg_perc):
     day_len = len(df.index)
     for i in range(day_len):
         #print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end=' ')
-        #if df.index[i] < start_date:
-        #if df.loc[i, 'date'] < start_date:
+        # refer date:
+        # df.at[i, 'date']
+        # df.iloc[i]['date']
+        # df.date[i]     # 列名不包含空格或特殊字符
+        # df['date'][i]  # 如果列名包含空格或特殊字符，使用这个方法
+        # df['date']iloc[i]  # 应该还有这种方法
         if df.iloc[i]['date'] < start_date:
             continue
-        #if df.index[i] >= start_date and len(arr_firstmin) == 0:
-        #if df.iloc[i]['date'] >= start_date and len(arr_firstmin) == 0:
         if df.date[i] >= start_date and len(arr_firstmin) == 0:
             #print('df.index[i] == start_date')
-            #cur_min = (df.low[i] + df.high[i])/2.0
             cur_min = (df['low'].iloc[i] + df['high'].iloc[i])/2.0
 
-            s_date = df.index[i]
+            s_date = df.date[i]
 
             arr_firstmin.append(cur_min)
             arr_sfirst_date.append(df.date[i])
@@ -55,7 +56,7 @@ def stat_chg(df, start_date, chg_perc):
                 arr_firstmin.append(cur_min)
 
                 arr_sfirst_date.append(df.date[i])
-                s_date = df.index[i]
+                s_date = df.date[i]
                 #print('first', df.low[i], ' -> cur_firstmin', df.index[i])
             else:
                 cur_min = df.low[i]
@@ -325,10 +326,10 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         dec_perc, mid_ret = step_num(item_chg.dec_perc, interval, m_10)
         df_buy_item = df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)==dec_perc]
         print('item_chg.dec_perc {:.3f} mid_ret {} dec_perc {}'.format(item_chg.dec_perc, mid_ret, dec_perc))
-        with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
+        with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', None):  # more options can be specified also
             print(df_buy_table[round(df_buy_table['dec_perc'], len_after_dot)<=(dec_perc+interval)])
         try:
-            hold_qty  = float(df_buy_item.acum_qty)
+            hold_qty  = float(df_buy_item.acum_qty.iloc[0])
         except:
             print(df_buy_item.acum_qty)
             print('Error', chg_perc, interval, m_10, len_after_dot, mid_ret, round(mid_ret,6), dec_perc)
@@ -338,7 +339,7 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
             hold_qty = 0
             quit()
 
-        hold_cost = float(df_buy_item.acum_cost)
+        hold_cost = float(df_buy_item.acum_cost.iloc[0])
         d = item_chg.inc_perc
         if not (d == d and d != None): # nan means still hold, not sold
             if hold_cost > max_cost: max_cost = hold_cost
@@ -366,7 +367,7 @@ def sim_single_chg_forw(df_forw, start_date, end_date, chg_perc, interval):
         'max_dec_perc':round(max_dec_perc,2), 
         'max_dec_days':max_dec_days, 
         'max_cost':    round(max_cost,2), 
-        'profit_ratio': round(profit/max_cost, 2),
+        'profit_ratio': round(profit / max_cost, 2) if max_cost != 0 else 999.00,
         'cur_hold':    round(cur_hold,2),
         'cur_qty':     cur_qty,
         'cur_p':       cur_p,
