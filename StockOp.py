@@ -111,10 +111,10 @@ class StockOp:
     # 价格除权
     def xd(self, ori_p, xd, debug=0):
         date = str(xd["date"].values[0])
-        base = float(xd["base"])
-        bonus = float(xd['bonus'])
-        free = float(xd['free'])
-        new = float(xd['new'])
+        base = float(xd["base"].iloc[0])
+        bonus = float(xd['bonus'].iloc[0])
+        free = float(xd['free'].iloc[0])
+        new = float(xd['new'].iloc[0])
         new_p = (ori_p * base - bonus) / (base+free+new)
         new_p = round(new_p, 4)
         if debug:
@@ -129,8 +129,8 @@ class StockOp:
         else:
             min_max_days = np.nan
 
-        self.df_stat = self.df_stat.append(
-            {"date": date, 
+        new_data = {
+            "date": date, 
             "first_buy_price": round(self.first_buy_price,2),
             "first_buy_date": self.first_buy_date,
             "min_price": round(self.min_price,2),
@@ -141,8 +141,10 @@ class StockOp:
             "sell_price": round(self.sell_exp_price,2),
             "sell_date": date,
             "min_max_days":min_max_days,
-            "profit": round(cur_profit,2)}, 
-            ignore_index=True)
+            "profit": round(cur_profit,2)
+        }
+        new_df = pd.DataFrame([new_data])
+        self.df_stat = pd.concat([self.df_stat, new_df], ignore_index=True)
 
     def Op_xd(self, date, debug=0):
         if self.bonus_df.empty:
@@ -160,7 +162,7 @@ class StockOp:
             self.next_buy_price = self.first_buy_price_fornext * (1-self.interval*self.buy_count)
 
             #增加profit
-            cur_profit = float(bonus['bonus']) * ( self.accum_qty / float(bonus['base']))
+            cur_profit = float(bonus['bonus'].iloc[0]) * ( self.accum_qty / float(bonus['base'].iloc[0]))
             self.accum_profit += cur_profit
 
             # method2: XD the current value
@@ -176,7 +178,7 @@ class StockOp:
                     self.first_buy_price, self.first_buy_price_fornext, self.buy_count,
                     self.min_price, self.min_price_forsell, 
                     self.next_buy_price, self.next_buy_qty, self.sell_exp_price))
-                print('    {} XD profit {:.3f} x {:.3f} / {:.3f} = {:.3f}'.format(date, self.accum_qty, float(bonus['bonus']), float(bonus['base']), cur_profit))
+                print('    {} XD profit {:.3f} x {:.3f} / {:.3f} = {:.3f}'.format(date, self.accum_qty, float(bonus['bonus'].iloc[0]), float(bonus['base'].iloc[0]), cur_profit))
         else:
             if debug:
                 print(f'    {date} XD still no first buy')
@@ -269,7 +271,7 @@ class StockOp:
             return
 
         #self.df_stat['accum_cost'] = self.df_stat['accum_cost'].round(1)
-        with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):
+        with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', None):
             print(self.df_stat.to_string(float_format="{:.1f}".format))
             #print(self.df_stat)
 
