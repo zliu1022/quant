@@ -34,10 +34,24 @@ seq_65 = seqv2(initial_value, (1-6.5/100), 37)
 # Generate Sequence Two
 sequence_two = [round_up((initial_value * (1 - i * decay_value_two))*100)/100 for i in range(35)]
 
+# 获取数组长度
+min_len = min(len(sequence_one), len(sequence_two))
 
-
-print(sequence_one)
-print(sequence_two)
+print("| no | 等比4.77% | 相邻差值 | 等差3% | 相邻差值 |")
+print("| :-: | :-: | :-: | :-: | :-: |")
+# 按索引顺序打印每个数组的值
+for i in range(min_len):
+    '''
+    print(f"{i} {sequence_one[i]:.2f}, \
+        {sequence_one[i]-sequence_one[i-1] if i>0 else '---'}, \
+        {sequence_two[i]:.2f}", \
+        {sequence_two[i]-sequence_two[i-1] if i>0 else '---'})
+    '''
+    seq1_value = f"{sequence_one[i]:.2f}"
+    seq1_diff = f"{sequence_one[i] - sequence_one[i-1]:.2f}" if i > 0 else "---"
+    seq2_value = f"{sequence_two[i]:.2f}"
+    seq2_diff = f"{sequence_two[i] - sequence_two[i-1]:.2f}" if i > 0 else "---"
+    print(f"| {i} | {seq1_value} | {seq1_diff} | {seq2_value} | {seq2_diff} |")
 
 # Define the sequences
 '''
@@ -63,12 +77,13 @@ for i, value in enumerate(sequence_one):
     plt.scatter(value, value, color='blue', s=dot_size, label='优化后的等比买入数列，Geometric Decay Sequence a_n=a_n-1*(1-4.77)%' if i == 0 else "")
     plt.text(value+1, value, f'{i+1}', color='darkblue', fontsize=9, ha='center', va='center')
 
+# blue, green, red, cyan, magenta, yellow, orange, brown, lime
 for i, value in enumerate(seq_3):
-    plt.scatter(5, value, color='blue', s=dot_size, label='等比，a_n=a_n-1*(1-3)%' if i == 0 else "")
+    plt.scatter(5, value, color='cyan', s=dot_size, label='等比，a_n=a_n-1*(1-3)%' if i == 0 else "")
 for i, value in enumerate(sequence_one):
-    plt.scatter(10, value, color='blue', s=dot_size, label='等比，a_n=a_n-1*(1-3)%' if i == 0 else "")
+    plt.scatter(10, value, color='orange', s=dot_size, label='等比，a_n=a_n-1*(1-4.77)%' if i == 0 else "")
 for i, value in enumerate(seq_65):
-    plt.scatter(15, value, color='blue', s=dot_size, label='等比，a_n=a_n-1*(1-6.5)%' if i == 0 else "")
+    plt.scatter(15, value, color='green', s=dot_size, label='等比，a_n=a_n-1*(1-6.5)%' if i == 0 else "")
 
 # Sequence Two
 for i, value in enumerate(sequence_two):
