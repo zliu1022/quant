@@ -56,7 +56,7 @@ class StockDraw:
         #plt.figure()
         df.plot()
 
-        title_str = ts_code + ' ' + df.index[0] + '-' + df.index[day_len-1]
+        title_str = ts_code + ' ' + str(df.index[0]) + '-' + str(df.index[day_len-1])
         font_title = {'family':'verdana','color':'blue','size':10}
         plt.title(title_str, fontdict = font_title, loc = 'center')
 
@@ -86,7 +86,8 @@ def draw_price_amount(df_day):
     plt.show()
 
 def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
-    plt.style.use('seaborn-whitegrid')
+    import seaborn as sns
+    sns.set(style='whitegrid')
 
     fig = plt.figure(figsize=(12.8,6.4))
     ax1 = fig.add_axes([0.1, 0.3,  0.85, 0.65])
@@ -102,21 +103,21 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
         arr_incx, arr_incy = [], []
 
         arr_x.append(df_chg.index[i])
-        arr_x.append(df_chg.min_date[i])
-        arr_y.append(df_chg.firstmin[i])
-        arr_y.append(df_chg['min'][i])
+        arr_x.append(df_chg.min_date.iloc[i])
+        arr_y.append(df_chg.firstmin.iloc[i])
+        arr_y.append(df_chg['min'].iloc[i])
         ax1.plot(arr_x, arr_y, linestyle='dotted', linewidth=1, color='royalblue')
 
         cur_x = datetime.strptime(df_chg.index[i], '%Y%m%d')
         ax1.text((cur_x-first_x).days*0.65, arr_y[0]*1+0.5, arr_x[0], ha='left', rotation=20, fontsize=7, color='gray')
 
-        arr_incx.append(df_chg.min_date[i])
-        arr_incy.append(df_chg['min'][i])
-        arr_incx.append(df_chg.max_date[i])
-        arr_incy.append(df_chg['max'][i])
+        arr_incx.append(df_chg.min_date.iloc[i])
+        arr_incy.append(df_chg['min'].iloc[i])
+        arr_incx.append(df_chg.max_date.iloc[i])
+        arr_incy.append(df_chg['max'].iloc[i])
         ax1.plot(arr_incx, arr_incy, linestyle='dotted', linewidth=1.5, color='red')
 
-        ax1.plot(df_chg.min_date[i], df_chg['min'][i], 'o', c='r', markersize=1.1)
+        ax1.plot(df_chg.min_date.iloc[i], df_chg['min'].iloc[i], 'o', c='r', markersize=1.1)
 
     ax1.set(xlabel='', ylabel='price',
         title=ts_code)
@@ -142,8 +143,8 @@ def draw_price_amount_withchg(ts_code, df_day, df_chg, chg_perc):
     ax2.axes.xaxis.set_ticks(arr_ticks)
 
     title_str = ts_code + '_' + df_day.date[0] + '_' + df_day.date[day_len-1] + '_' + str(chg_perc)
-    plt.savefig(title_str + '.png', dpi=150)
-    #plt.show()
+    #plt.savefig(title_str + '.png', dpi=150)
+    plt.show()
     plt.close()
     return
 
@@ -197,31 +198,38 @@ def draw_example(ts_code, start_date, end_date, chg_perc):
     df_back = recover_price_backward(df, df_bonus) # example, normally will not use backward
 
     # 不复权、前复权、后复权合并到一张图上
+    df = df.drop(columns=['amount', 'volume', 'turnoverrate', 'open', 'close'])
+    df_back = df_back.drop(columns=['amount', 'volume', 'turnoverrate', 'open', 'close'])
+    df_forw = df_forw.drop(columns=['amount', 'volume', 'turnoverrate', 'open', 'close'])
+
     df_back = df_back.rename(columns={'high': 'high_back', 'low': 'low_back'})
     df_forw = df_forw.rename(columns={'high': 'high_forw', 'low': 'low_forw'})
-    df_tmp = df.merge(    df_back, left_on='date', right_on='date')
-    df_tmp = df_tmp.merge(df_forw, left_on='date', right_on='date')
-    df_tmp = df_tmp.drop(columns=['amount', 'amount_x', 'amount_y'])
-    #sd.draw_df(ts_code+'-merge', df_tmp)
+
+    df_tmp = df.merge(    df_forw, left_on='date', right_on='date')
+    #df_tmp = df_tmp.merge(df_back, left_on='date', right_on='date')
+
+    sd.draw_df(ts_code+'-merge', df_tmp)
 
     rt.show_s()
 
 if __name__ == '__main__':
+    # 20240802: ./StockDraw.py 002475.SZ 1.55 0.03 运行成功，并核对了前复权数据
     if len(sys.argv) == 4:
-        start_date = '20200101'
-        end_date   = '20230602'
-        ts_code  = sys.argv[1]
-        chg_perc = float(sys.argv[2])
-        interval = float(sys.argv[3])
+        start_date = '20201013'
+        end_date   = '20240802'
+        ts_code  = sys.argv[1]        # 002475.SZ
+        chg_perc = float(sys.argv[2]) # 1.55
+        interval = float(sys.argv[3]) # 0.03
         draw_example(ts_code, start_date, end_date, chg_perc)
         #sim_chg_monthly(ts_code, start_date, end_date, chg_perc, interval)
         quit()
-
+  
     ts_code    = None       # all stocks
     start_date = '20200101'
     end_date   = '20230602'
     chg_perc   = 0.55
     interval   = 0.03
+    sq = StockQuery()
 
     if ts_code == None:
         title_str = 'stat-{:.1f}%-{}-mv1000'.format(chg_perc*100, interval)
@@ -230,15 +238,17 @@ if __name__ == '__main__':
 
     if ts_code == None:
         code_list = sq.query_basic(None)
+        '''
         v1 = 1000.0
         v2 = np.inf
         code_list = sq.select_mktvalue(v1, v2)
         print('Found {:4d}'.format(len(ref)))
+        '''
     else:
         code_list = [{'ts_code':ts_code}]
 
-    #df_stat = sim_chg(code_list, start_date, end_date, chg_perc, interval)
+    df_stat = sim_chg(code_list, start_date, end_date, chg_perc, interval)
     draw_stat_chg(df_stat, title_str)
-    df_stat.to_csv(title_str + '.csv', index=False)
+    #df_stat.to_csv(title_str + '.csv', index=False)
 
 
