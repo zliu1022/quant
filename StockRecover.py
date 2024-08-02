@@ -11,22 +11,30 @@ def recover_price_backward(df_in, df_bonus):
     rt = RecTime()
     df = df_in.copy()
     day_len = len(df.index)
-    first_date = df.index[0]
-    for i in range(day_len):
-        #print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end='')
+    first_date = df.date[0]
 
+    #print('recover_price_backward {} - {}'.format(first_date, df.date[day_len-1]))
+    #print('date          open      low       high     close  no.    ->      open       low      high     close')
+    for i in range(day_len):
         # 后复权，则以开始日价格为基准，除权日晚于开始日, 早于当前日，当日价格需要复权
         # 开始日 <= 除权日 <= 当前日，除权日当日也需要复权
-        ret = df_bonus[df_bonus.index>=first_date]
-        ret = ret[ret.index<=df.index[i]]
+        ret = df_bonus[df_bonus.date>=first_date]
+        ret = ret[ret.date<=df.date[i]].reset_index(drop=True)
         if ret.empty == True:
+            #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.date[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
             #print()
             continue
-        bonus_len = len(ret.index)
-        #print(' {:2d} ex-d'.format(bonus_len), end='')
+
+        #print(ret)
+        #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.date[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
 
         high = df.high[i]
         low = df.low[i]
+        p_open = df.open[i]
+        close = df.close[i]
+        bonus_len = len(ret.index)
+        #print(' {:2d} ex-d'.format(bonus_len), end='')
+
         for j in range(bonus_len):
             base = float(ret.base[j])
             free = float(ret.free[j])
@@ -35,10 +43,14 @@ def recover_price_backward(df_in, df_bonus):
 
             high = round((high * (base+free+new) + bonus)/base, 2)
             low = round((low * (base+free+new) + bonus)/base, 2)
+            p_open = (p_open* (base+free+new) + bonus)/base
+            close = (close* (base+free+new) + bonus)/base
 
-        df.loc[i, 'high'] = high
-        df.loc[i, 'low'] = low
-        #print(' -> {:7.2f} {:7.2f}'.format(low, high))
+        df.loc[i, 'high'] = round(high*100)/100
+        df.loc[i, 'low'] = round(low*100)/100
+        df.loc[i, 'open'] = round(p_open*100)/100
+        df.loc[i, 'close'] = round(close*100)/100
+        #print(' -> {:9.3f} {:9.3f} {:9.3f} {:9.3f}'.format(df.open[i], df.low[i], df.high[i], df.close[i]))
 
     #df_back = df.copy()
     #sd.draw_df(ts_code+'-back', df_back)
@@ -61,22 +73,22 @@ def recover_price_forward(df_in, df_bonus):
     if df_bonus.empty == True:
         return df
 
-    last_date = df.index[day_len-1]
-    #print('recover_price_forward {} - {}'.format(df.index[0], last_date))
+    last_date = df.date[day_len-1]
+    #print('recover_price_forward {} - {}'.format(df.date[0], last_date))
     #print('date          open      low       high     close  no.    ->      open       low      high     close')
     for i in range(day_len):
-        ret = df_bonus[df_bonus.index<=last_date]
-        ret = ret[ret.index>df.index[i]]
+        ret = df_bonus[df_bonus.date<=last_date]
+        ret = ret[ret.date>df.date[i]]
         #ret = ret.reset_index(drop=True)
         ret = ret.sort_values(by='date').reset_index(drop=True)
 
         if ret.empty == True:
-            #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.index[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
+            #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.date[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
             #print()
             continue
         #print(ret)
 
-        #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.index[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
+        #print('{} {:9.2f} {:9.2f} {:9.2f} {:9.2f}'.format(df.date[i], df.open[i], df.low[i], df.high[i], df.close[i]), end='')
 
         high = df.high[i]
         low = df.low[i]
