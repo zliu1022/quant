@@ -1,14 +1,11 @@
-Check token 2024-08-09
-update token fb0f503ef881090db449e976c330f1f2d626c371 cost  0.24s
-u 291723207121141
+Check token 2024-08-17
+update token fb0f503ef881090db449e976c330f1f2d626c371 cost  0.32s
+u 481723883029163
 token expired, update fb0f503ef881090db449e976c330f1f2d626c371
-req_basic changed 000417.SZ name 合百集团 -> 合肥百货 
-req_basic changed 002316.SZ name ST亚联 -> 亚联发展 
-req_basic changed 301065.SZ industry 化学制药 -> 化工原料 
-req_basic changed 301606.SZ name 绿联科技 -> C绿联科 
-req_basic changed 301608.SZ name 博实结 -> N博实结 
-req_basic changed 600396.SH name 华电辽能 -> 金山股份 
-req_basic changed 603324.SH name 盛剑科技 -> 盛剑环境 
-req_basic changed 603391.SH name 力聚热能 -> C力聚 
-req_basic insert new 688721.SH C龙图 半导体
-req_basic cost  9.76s
+req_basic changed 300237.SZ name 美晨科技 -> 美晨生态 
+req_basic insert new 301611.SZ N珂玛 半导体
+req_basic changed 603222.SH name 济民健康 -> 济民医疗 
+req_basic insert new 603310.SH C巍华 化工原料
+req_basic changed 688721.SH name 龙图光罩 -> C龙图 
+req_basic changed 688779.SH name 五矿新能 -> 长远锂科 
+req_basic cost  9.28s
