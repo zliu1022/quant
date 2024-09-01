@@ -1,11 +1,9 @@
-Check token 2024-08-17
-update token fb0f503ef881090db449e976c330f1f2d626c371 cost  0.32s
-u 481723883029163
-token expired, update fb0f503ef881090db449e976c330f1f2d626c371
-req_basic changed 300237.SZ name 美晨科技 -> 美晨生态 
-req_basic insert new 301611.SZ N珂玛 半导体
-req_basic changed 603222.SH name 济民健康 -> 济民医疗 
-req_basic insert new 603310.SH C巍华 化工原料
-req_basic changed 688721.SH name 龙图光罩 -> C龙图 
-req_basic changed 688779.SH name 五矿新能 -> 长远锂科 
-req_basic cost  9.28s
+Check token 2024-08-24
+update token 7747107a16c7844c358ac0bbe44530ab34c16e3d cost  0.29s
+u 581724456794460
+token expired, update 7747107a16c7844c358ac0bbe44530ab34c16e3d
+req_basic insert new 301571.SZ 国科天成 元器件
+req_basic changed 301611.SZ name C珂玛 -> N珂玛 
+req_basic changed 600666.SH name 奥瑞德 -> ST瑞德 
+req_basic insert new 920118.BJ 太湖远大 None
+req_basic cost 14.03s
