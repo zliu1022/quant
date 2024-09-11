@@ -1,9 +1,15 @@
-Check token 2024-08-24
-update token 7747107a16c7844c358ac0bbe44530ab34c16e3d cost  0.29s
-u 581724456794460
-token expired, update 7747107a16c7844c358ac0bbe44530ab34c16e3d
-req_basic insert new 301571.SZ 国科天成 元器件
-req_basic changed 301611.SZ name C珂玛 -> N珂玛 
-req_basic changed 600666.SH name 奥瑞德 -> ST瑞德 
-req_basic insert new 920118.BJ 太湖远大 None
-req_basic cost 14.03s
+Check token 2024-09-07
+update token 49c5e355d2fc1b871fde601c659cf9ae1457a889 cost  0.38s
+u 511725709746957
+token expired, update 49c5e355d2fc1b871fde601c659cf9ae1457a889
+req_basic insert new 001277.SZ C速达股 专用机械
+req_basic insert new 301586.SZ 佳力奇 航空
+req_basic insert new 301607.SZ C富特 汽车配件
+req_basic changed 301611.SZ name 珂玛科技 -> C珂玛 
+req_basic changed 600603.SH name ST广物 -> 广汇物流 
+req_basic insert new 603207.SH 小方制药 化学制药
+req_basic changed 603310.SH name 巍华新材 -> C巍华 
+req_basic changed 603717.SH name 天域生物 -> 天域生态 
+req_basic insert new 688710.SH C益诺思 生物制药
+req_basic insert new 920008.BJ 成电光信 None
+req_basic cost 10.40s
