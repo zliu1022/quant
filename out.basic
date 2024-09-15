@@ -1,15 +1,14 @@
-Check token 2024-09-07
-update token 49c5e355d2fc1b871fde601c659cf9ae1457a889 cost  0.38s
-u 511725709746957
+Check token 2024-09-15
+update token 49c5e355d2fc1b871fde601c659cf9ae1457a889 cost  0.50s
+u 101726360397614
 token expired, update 49c5e355d2fc1b871fde601c659cf9ae1457a889
-req_basic insert new 001277.SZ C速达股 专用机械
-req_basic insert new 301586.SZ 佳力奇 航空
-req_basic insert new 301607.SZ C富特 汽车配件
-req_basic changed 301611.SZ name 珂玛科技 -> C珂玛 
-req_basic changed 600603.SH name ST广物 -> 广汇物流 
-req_basic insert new 603207.SH 小方制药 化学制药
-req_basic changed 603310.SH name 巍华新材 -> C巍华 
-req_basic changed 603717.SH name 天域生物 -> 天域生态 
-req_basic insert new 688710.SH C益诺思 生物制药
-req_basic insert new 920008.BJ 成电光信 None
-req_basic cost 10.40s
+req_basic changed 001277.SZ name 速达股份 -> C速达股 
+req_basic changed 002816.SZ name 和科达 -> *ST和科 
+req_basic changed 300040.SZ industry 新型电力 -> 电气设备 
+req_basic insert new 301600.SZ C慧翰 通信设备
+req_basic changed 301607.SZ name 富特科技 -> C富特 
+req_basic changed 600208.SH name 衢州发展 -> 新湖中宝 
+req_basic changed 603007.SH name *ST花王 -> ST花王 
+req_basic changed 688710.SH name 益诺思 -> C益诺思 
+req_basic insert new 920016.BJ N中草 None
+req_basic cost 14.51s
