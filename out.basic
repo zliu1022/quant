@@ -1,12 +1,10 @@
-Check token 2024-09-21
-update token 927886df384cbb16c88673ae7f519c76650c54b9 cost  0.40s
-u 761726880327073
-token expired, update 927886df384cbb16c88673ae7f519c76650c54b9
-req_basic changed 000525.SZ name *ST红阳 -> ST红太阳 
-req_basic changed 002168.SZ name ST惠程 -> 惠程科技 
-req_basic changed 002425.SZ name ST凯文 -> 凯撒文化 
-req_basic changed 301600.SZ name 慧翰股份 -> C慧翰 
-req_basic insert new 603091.SH N众鑫 家居用品
-req_basic changed 603800.SH name 洪田股份 -> 道森股份 
-req_basic changed 920016.BJ name 中草香料 -> N中草 
-req_basic cost 13.82s
+Check token 2024-09-27
+update token 9663c61876b0c003edb4cc17b05467e3592639e0 cost  0.17s
+u 1119975455
+token expired, update 9663c61876b0c003edb4cc17b05467e3592639e0
+req_basic changed 300378.SZ name 鼎捷数智 -> 鼎捷软件 
+req_basic insert new 301551.SZ N无线 影视音像
+req_basic changed 603091.SH name C众鑫 -> N众鑫 
+req_basic insert new 688615.SH N合合 软件服务
+req_basic insert new 920099.BJ 瑞华技术 None
+req_basic cost 13.90s
