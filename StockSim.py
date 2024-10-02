@@ -28,7 +28,7 @@ def stat_chg(df, start_date, chg_perc):
 
     day_len = len(df.index)
     for i in range(day_len):
-        #print('{} {:7.2f} {:7.2f}'.format(df.index[i], df.low[i], df.high[i]), end=' ')
+        #print('{} {:7.2f} {:7.2f}'.format(df.date[i], df.low[i], df.high[i]), end=' ')
         # refer date:
         # df.at[i, 'date']
         # df.iloc[i]['date']
@@ -38,14 +38,14 @@ def stat_chg(df, start_date, chg_perc):
         if df.iloc[i]['date'] < start_date:
             continue
         if df.date[i] >= start_date and len(arr_firstmin) == 0:
-            #print('df.index[i] == start_date')
+            #print('df.date[{i}] == start_date')
             cur_min = (df['low'].iloc[i] + df['high'].iloc[i])/2.0
 
             s_date = df.date[i]
 
             arr_firstmin.append(cur_min)
             arr_sfirst_date.append(df.date[i])
-            #print('first', df.low[i], ' -> cur_firstmin', df.index[i])
+            #print('first', df.low[i], ' -> cur_firstmin', df.date[i])
             continue
 
         # update min
@@ -57,7 +57,7 @@ def stat_chg(df, start_date, chg_perc):
 
                 arr_sfirst_date.append(df.date[i])
                 s_date = df.date[i]
-                #print('first', df.low[i], ' -> cur_firstmin', df.index[i])
+                #print('first', df.low[i], ' -> cur_firstmin', df.date[i])
             else:
                 cur_min = df.low[i]
                 s_date = df.date[i]
@@ -128,7 +128,7 @@ def stat_chg(df, start_date, chg_perc):
     df.insert(4, 'max', arr_max)
 
     df.insert(5, 'dec_perc', arr_dec)
-    df.insert(5, 'inc_perc', arr_inc)
+    df.insert(6, 'inc_perc', arr_inc)
 
     '''
     df['firstmin'] = df['firstmin'].map('{:.2f}'.format)
@@ -147,8 +147,8 @@ def sim_chg_monthly_single(sq, ts_code, start_date, end_date, chg_perc, interval
     df_stat    = pd.DataFrame()
 
     df_day   = sq.query_day_code_date_df(ts_code, start_date, end_date)
-    start_date = df_day.index[0]
-    end_date = df_day.index[len(df_day)-1]
+    start_date = df_day.date[0]
+    end_date = df_day.date[len(df_day)-1]
     df_bonus = sq.query_bonus_code_df(ts_code)
     df_forw  = recover_price_forward(df_day, df_bonus)
 
@@ -252,7 +252,7 @@ def print_stat_month(ts_code, df_stat, df_forw):
     print('average_profit   {:.1f} {:.2f}%'.format(avg_profit, round(avg_profit/300000*100,2) ))
     print()
 
-    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', -1):  # more options can be specified also
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', None, 'display.max_colwidth', None):  # more options can be specified also
         print(df_stat)
 
     return
