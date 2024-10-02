@@ -405,6 +405,7 @@ class StockQuery:
 
     # dict_keys(['date', 'volume', 'open', 'high', 'low', 'close', 'chg', 'percent', 'turnoverrate', 'amount'])
     def query_day_code(self, ts_code):
+        rt = RecTime()
         v = {'ts_code': ts_code}
         ref = self.col_day.find_one(v)
 
@@ -413,8 +414,9 @@ class StockQuery:
             # n = np.array(ref['day'])
             # df = pd.DataFrame(ref['day'])
 
-            print('query_day_code', ts_code)
-            print('format', self.stock_list[0].keys())
+            #print('query_day_code', ts_code)
+            #print('format', self.stock_list[0].keys())
+            #rt.show_ms()
             return self.stock_list
         return None
 
@@ -437,6 +439,20 @@ class StockQuery:
             #print('format', self.stock_list[0].keys())
             return self.stock_list
         return None
+
+    # dict_keys(['date', 'open', 'high', 'low', 'close', 'amount'])
+    def query_day_code_df(self, ts_code):
+        ret = []
+        v = {'ts_code': { '$regex' : ts_code }}
+        ref = self.col_day.find_one(v)
+        if ref != None:
+            df = pd.DataFrame(ref['day'])
+            df.sort_values(by='date', inplace=True)
+            df.reset_index(drop=True, inplace=True)
+            #print('format', df.columns)
+            return df
+        df = pd.DataFrame()
+        return df
 
     # dict_keys(['date', 'open', 'high', 'low', 'close', 'amount'])
     def query_day_code_date_df(self, ts_code, start_date, end_date):
@@ -603,6 +619,36 @@ class StockQuery:
             return 0
         return 1
 
+    # GPT4o, 查询code，day数据中high值最高的一天的数据
+    def query_highest_day(self, ts_code):
+        rt = RecTime()
+        pipeline = [
+            {'$match': {'ts_code': ts_code}},
+            {'$unwind': '$day'},
+            {'$sort': {'day.high': -1}},
+            {'$limit': 1}
+        ]
+
+        result = list(self.col_day.aggregate(pipeline))
+
+        if result:
+            #rt.show_ms()
+            return result[0]['day']
+        return None
+
+    # GPT4o, 查询code，day数据中high值最高的一天的数据
+    def find_highest_day(self, ts_code):
+        rt = RecTime()
+        day_data = self.query_day_code(ts_code)
+        if not day_data:
+            return None
+
+        if not day_data:
+            return None
+        highest_day = max(day_data, key=lambda x: x['high'])
+        #rt.show_ms()
+        return highest_day
+
 def check_day(db, ts_code, start_date, end_date):
     return
 
@@ -615,19 +661,23 @@ if __name__ == '__main__':
     end_date = '20220609'
 
     ts_code = '002475.SZ'
+    print(f'query_bonus_code({ts_code})')
     sq.query_bonus_code(ts_code)
     print()
 
+    print(f'query_bonus_plan(\'.*送.*\')')
     ref = sq.query_bonus_plan('.*送.*')
     pprint(ref)
     print()
 
+    print(f'query_day_code({ts_code})')
     sq.query_day_code(ts_code)
     print()
 
     ts_code = '002475.SZ'
     start_date = '20180101'
     end_date = '20220901'
+    print(f'check_day({ts_code},{start_date},{end_date})')
     sq.check_day(ts_code, start_date, end_date)
     print()
 
@@ -635,6 +685,7 @@ if __name__ == '__main__':
     start_date = '20180101'
     end_date = '20220901'
 
+    print('query_basic(None)')
     ref = sq.query_basic(None)
     print(len(ref))
     print(ref[0].keys())
@@ -642,6 +693,7 @@ if __name__ == '__main__':
     print()
 
     ref = sq.query_basic(ts_code)
+    print(f'query_basic({ts_code})')
     print(len(ref))
     print(ref[0].keys())
     print(ref[0].items())
