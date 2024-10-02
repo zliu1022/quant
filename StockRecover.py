@@ -54,7 +54,7 @@ def recover_price_backward(df_in, df_bonus):
 
     #df_back = df.copy()
     #sd.draw_df(ts_code+'-back', df_back)
-    rt.show_ms()
+    #rt.show_ms()
     return df
 
 # forward recover ex-dividend, baseline is last date price
@@ -74,12 +74,12 @@ def recover_price_forward(df_in, df_bonus):
         return df
 
     last_date = df.date[day_len-1]
+
     #print('recover_price_forward {} - {}'.format(df.date[0], last_date))
     #print('date          open      low       high     close  no.    ->      open       low      high     close')
     for i in range(day_len):
         ret = df_bonus[df_bonus.date<=last_date]
         ret = ret[ret.date>df.date[i]]
-        #ret = ret.reset_index(drop=True)
         ret = ret.sort_values(by='date').reset_index(drop=True)
 
         if ret.empty == True:
@@ -121,7 +121,7 @@ def recover_price_forward(df_in, df_bonus):
         df.loc[i, 'close'] = round(close*100)/100
         #print(' -> {:9.3f} {:9.3f} {:9.3f} {:9.3f}'.format(df.open[i], df.low[i], df.high[i], df.close[i]))
 
-    rt.show_ms()
+    #rt.show_ms()
     return df
 
 if __name__ == '__main__':
