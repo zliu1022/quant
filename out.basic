@@ -1,9 +1,8 @@
-Check token 2024-10-01
-update token 9663c61876b0c003edb4cc17b05467e3592639e0 cost  0.19s
+Check token 2024-10-10
+update token 9663c61876b0c003edb4cc17b05467e3592639e0 cost  0.35s
 u 1119975455
 token expired, update 9663c61876b0c003edb4cc17b05467e3592639e0
-req_basic changed 301551.SZ name C无线 -> N无线 
-req_basic insert new 301618.SZ N长联 染料涂料
-req_basic changed 603091.SH name 众鑫股份 -> C众鑫 
-req_basic changed 688615.SH name C合合 -> N合合 
-req_basic cost 14.52s
+req_basic changed 300427.SZ name 红相股份 -> *ST红相 
+req_basic changed 301618.SZ name C长联 -> N长联 
+req_basic insert new 920019.BJ 铜冠矿建 None
+req_basic cost  4.79s
