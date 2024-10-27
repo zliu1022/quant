@@ -1,11 +1,4 @@
-Check token 2024-10-18
-update token 9663c61876b0c003edb4cc17b05467e3592639e0 cost  0.16s
-u 1119975455
-token expired, update 9663c61876b0c003edb4cc17b05467e3592639e0
-req_basic changed 001279.SZ name C强邦 -> 强邦新材 
-req_basic changed 002251.SZ name ST步步高 -> *ST步高 
-req_basic insert new 301522.SZ C上大 小金属
-req_basic insert new 301556.SZ N托普 软件服务
-req_basic changed 301618.SZ name 长联科技 -> C长联 
-req_basic changed 600067.SH industry 电气设备 -> 区域地产 
-req_basic cost 11.87s
+Check token 2024-10-25
+update token cost  5.01s
+token expired, update 
+req_basic cost  0.93s
