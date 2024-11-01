@@ -1,4 +1,17 @@
-Check token 2024-10-25
-update token cost  5.01s
-token expired, update 
-req_basic cost  0.93s
+Check token 2024-11-01
+update token  cost  6.40s
+token expired, update bb27d8356587e29a8d4c764b0a51e3cc81b9f82a
+req_basic changed 000796.SZ name 凯撒旅业 -> ST凯撒 
+req_basic changed 001279.SZ name 强邦新材 -> C强邦 
+req_basic changed 300419.SZ name ST浩丰 -> 浩丰科技 
+req_basic changed 301522.SZ name 上大股份 -> C上大 
+req_basic changed 301556.SZ name 托普云农 -> N托普 
+req_basic insert new 301592.SZ C六九 软件服务
+req_basic insert new 301613.SZ C新铝 汽车配件
+req_basic insert new 301626.SZ C天脉 元器件
+req_basic insert new 301628.SZ 强达电路 元器件
+req_basic changed 601226.SH name 华电科工 -> 华电重工 
+req_basic insert new 688726.SH C拉普 专用机械
+req_basic insert new 920066.BJ 科拜尔 None
+req_basic insert new 920088.BJ 科力股份 None
+req_basic cost  4.74s
