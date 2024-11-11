@@ -1,17 +1,14 @@
-Check token 2024-11-01
-update token  cost  6.40s
+Check token 2024-11-08
+update token  cost  3.91s
 token expired, update bb27d8356587e29a8d4c764b0a51e3cc81b9f82a
-req_basic changed 000796.SZ name 凯撒旅业 -> ST凯撒 
-req_basic changed 001279.SZ name 强邦新材 -> C强邦 
-req_basic changed 300419.SZ name ST浩丰 -> 浩丰科技 
-req_basic changed 301522.SZ name 上大股份 -> C上大 
-req_basic changed 301556.SZ name 托普云农 -> N托普 
-req_basic insert new 301592.SZ C六九 软件服务
-req_basic insert new 301613.SZ C新铝 汽车配件
-req_basic insert new 301626.SZ C天脉 元器件
-req_basic insert new 301628.SZ 强达电路 元器件
-req_basic changed 601226.SH name 华电科工 -> 华电重工 
-req_basic insert new 688726.SH C拉普 专用机械
-req_basic insert new 920066.BJ 科拜尔 None
-req_basic insert new 920088.BJ 科力股份 None
-req_basic cost  4.74s
+req_basic changed 301592.SZ name 六九一二 -> C六九 
+req_basic changed 301613.SZ name 新铝时代 -> C新铝 
+req_basic changed 301626.SZ name 苏州天脉 -> C天脉 
+req_basic insert new 301633.SZ N港迪 专用机械
+req_basic changed 600225.SH name *ST卓朗 -> 卓朗科技 
+req_basic insert new 603205.SH N健尔康 医疗保健
+req_basic changed 603300.SH name 海南华铁 -> 华铁应急 
+req_basic changed 688287.SH name ST观典 -> 观典防务 
+req_basic changed 688726.SH name 拉普拉斯 -> C拉普 
+req_basic insert new 920111.BJ 聚星科技 None
+req_basic cost 40.96s
