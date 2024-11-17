@@ -1,14 +1,11 @@
-Check token 2024-11-08
-update token  cost  3.91s
+Check token 2024-11-16
+update token  cost  0.35s
 token expired, update bb27d8356587e29a8d4c764b0a51e3cc81b9f82a
-req_basic changed 301592.SZ name 六九一二 -> C六九 
-req_basic changed 301613.SZ name 新铝时代 -> C新铝 
-req_basic changed 301626.SZ name 苏州天脉 -> C天脉 
-req_basic insert new 301633.SZ N港迪 专用机械
-req_basic changed 600225.SH name *ST卓朗 -> 卓朗科技 
-req_basic insert new 603205.SH N健尔康 医疗保健
-req_basic changed 603300.SH name 海南华铁 -> 华铁应急 
-req_basic changed 688287.SH name ST观典 -> 观典防务 
-req_basic changed 688726.SH name 拉普拉斯 -> C拉普 
-req_basic insert new 920111.BJ 聚星科技 None
-req_basic cost 40.96s
+req_basic changed 002388.SZ name ST新亚 -> 新亚制程 
+req_basic changed 002602.SZ name ST华通 -> 世纪华通 
+req_basic changed 300137.SZ name ST先河 -> 先河环保 
+req_basic changed 301633.SZ name 港迪技术 -> N港迪 
+req_basic changed 601028.SH industry 黄金 -> 商贸代理 
+req_basic changed 603205.SH name 健尔康 -> N健尔康 
+req_basic insert new 920060.BJ 万源通 None
+req_basic cost  3.94s
