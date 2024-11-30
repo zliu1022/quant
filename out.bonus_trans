@@ -1,6 +1,7 @@
-Check token 2024-11-23
+Check token 2024-11-30
 token got 0 days ago bb27d8356587e29a8d4c764b0a51e3cc81b9f82a still valid
-find 5466 stocks
+token c95f28710c1982669aac84d2c03fb4f54e37ac45
+find 5469 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
 Warning: 000017.SZ no date     2007-01-11 1268755200000(20100317) 20070111 流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
 Warning: 000035.SZ no date     2012-11-28 1354204800000.0(20121130) 20121128 10转2.596股(实施方案)
@@ -256,4 +257,4 @@ Warning: 838670.BJ no date 5ys 2019中报 nan(NaN) 2019 10派2.5元(股东大会
 Warning: 839273.BJ no date     2018年报 nan(NaN) 2018 10派2.2元(股东大会预案)
 Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会预案)
 Warning: 873339.BJ no date 5ys 2019年报 nan(NaN) 2019 10派20元(股东大会预案)
-total cost 68.13s
+total cost 59.32s

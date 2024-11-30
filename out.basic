@@ -1,8 +1,10 @@
-Check token 2024-11-23
-update token  cost  0.20s
+Check token 2024-11-30
+update token  cost  0.24s
 token expired, update bb27d8356587e29a8d4c764b0a51e3cc81b9f82a
-req_basic changed 300176.SZ name 鸿特科技 -> 派生科技 
-req_basic insert new 301631.SZ N壹连 元器件
-req_basic changed 600067.SH name 冠城新材 -> 冠城大通 
-req_basic insert new 688750.SH C金天 小金属
-req_basic cost  4.82s
+req_basic changed 301188.SZ name 力诺药包 -> 力诺特玻 
+req_basic changed 301631.SZ name 壹连科技 -> N壹连 
+req_basic insert new 603395.SH C红四方 农药化肥
+req_basic insert new 688449.SH N联芸 半导体
+req_basic changed 688750.SH name 金天钛业 -> C金天 
+req_basic insert new 920128.BJ N胜业 None
+req_basic cost  3.85s
