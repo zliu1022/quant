@@ -1,10 +1,11 @@
-Check token 2024-11-30
-update token  cost  0.24s
-token expired, update bb27d8356587e29a8d4c764b0a51e3cc81b9f82a
-req_basic changed 301188.SZ name 力诺药包 -> 力诺特玻 
-req_basic changed 301631.SZ name 壹连科技 -> N壹连 
-req_basic insert new 603395.SH C红四方 农药化肥
-req_basic insert new 688449.SH N联芸 半导体
-req_basic changed 688750.SH name 金天钛业 -> C金天 
-req_basic insert new 920128.BJ N胜业 None
-req_basic cost  3.85s
+Check token 2024-12-07
+update token  cost  0.19s
+token expired, update c95f28710c1982669aac84d2c03fb4f54e37ac45
+req_basic insert new 301622.SZ C英思特 矿物制品
+req_basic changed 600589.SH name 大位科技 -> 广东榕泰 
+req_basic changed 603395.SH name 红四方 -> C红四方 
+req_basic changed 688449.SH name 联芸科技 -> N联芸 
+req_basic insert new 688708.SH C佳驰 化工原料
+req_basic insert new 920098.BJ 科隆新材 None
+req_basic changed 920128.BJ name 胜业电气 -> N胜业 
+req_basic cost  3.93s
