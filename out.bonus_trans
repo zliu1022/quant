@@ -1,6 +1,6 @@
-Check token 2024-12-07
+Check token 2024-12-14
 token got 0 days ago c95f28710c1982669aac84d2c03fb4f54e37ac45 still valid
-find 5472 stocks
+find 5474 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
 Warning: 000017.SZ no date     2007-01-11 1268755200000(20100317) 20070111 流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
 Warning: 000035.SZ no date     2012-11-28 1354204800000.0(20121130) 20121128 10转2.596股(实施方案)
@@ -15,10 +15,10 @@ Error: bonus plan: not find 送转派 (实施方案)
 000408.SZ insert bad bonus, bad_plan
 Warning: 000408.SZ no date     1995年报 nan(NaN) 1995 (实施方案)
 Warning: 000409.SZ no date     2015-05-13 nan(NaN) 20150513 10转0.9股(董事会预案)
-Warning: 000410.SZ no date 5ys 2019-10-30 1576771200000.0(20191220) 20191030 10转12股(实施方案)
 Error: bonus plan: not find 送转派 新股东不参与95年度利润分配(实施方案)
-000410.SZ update bad bonus, bad_plan
+000410.SZ insert bad bonus, bad_plan
 Warning: 000410.SZ no date     1995年报 nan(NaN) 1995 新股东不参与95年度利润分配(实施方案)
+Warning: 000410.SZ no date 5ys 2019-10-30 1576771200000.0(20191220) 20191030 10转12股(实施方案)
 Warning: 000413.SZ no date     1995年报 nan(NaN) 1995 国家股和法人股10派2.5元,职工股10派2.5元(实施方案)
 Warning: 000420.SZ no date     1995年报 nan(NaN) 1995 老股东10派4.1元(实施方案)
 Error: bonus plan: not find 送转派 以盈余公积弥补亏损(实施方案)
@@ -213,9 +213,6 @@ Error: bonus plan: 派 without 元 10派1.5(实施方案)
 Warning: 601005.SH no date     2017-11-02 1514131200000(20171225) 20171102 10转11.50股(实施方案)
 Error: bonus plan: not find 送转派 当期现金分红累计金额不超过当期合并报表归属于上市公司股东净利润的30%(股东大会预案)
 601058.SH insert bad bonus, bad_plan
-Error: bonus plan: 派 without 元 派发现金红利总金额不超过相应期间归属于公司股东的净利润(股东大会预案)
-Error: bonus plan: unknown base 派发现金红利总金额不超过相应期间归属于公司股东的净利润(股东大会预案)
-601860.SH insert bad bonus, bad_plan
 Warning: 601975.SH no date     2014-12-02 1419264000000(20141223) 20141202 10转4.8股(实施方案)
 Error: bonus plan: not find 送转派 以归属于母公司所有者的净利润的30%金额为上限进行现金分红(股东大会预案)
 603068.SH insert bad bonus, bad_plan
@@ -256,4 +253,4 @@ Warning: 838670.BJ no date 5ys 2019中报 nan(NaN) 2019 10派2.5元(股东大会
 Warning: 839273.BJ no date     2018年报 nan(NaN) 2018 10派2.2元(股东大会预案)
 Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会预案)
 Warning: 873339.BJ no date 5ys 2019年报 nan(NaN) 2019 10派20元(股东大会预案)
-total cost 50.54s
+total cost 39.92s

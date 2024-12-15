@@ -1,11 +1,12 @@
-Check token 2024-12-07
-update token  cost  0.19s
+Check token 2024-12-14
+update token  cost  0.20s
 token expired, update c95f28710c1982669aac84d2c03fb4f54e37ac45
-req_basic insert new 301622.SZ C英思特 矿物制品
-req_basic changed 600589.SH name 大位科技 -> 广东榕泰 
-req_basic changed 603395.SH name 红四方 -> C红四方 
-req_basic changed 688449.SH name 联芸科技 -> N联芸 
-req_basic insert new 688708.SH C佳驰 化工原料
-req_basic insert new 920098.BJ 科隆新材 None
-req_basic changed 920128.BJ name 胜业电气 -> N胜业 
-req_basic cost  3.93s
+req_basic changed 000785.SZ name 居然智家 -> 居然之家 
+req_basic changed 300097.SZ name ST智云 -> 智云股份 
+req_basic changed 300165.SZ name ST天瑞 -> 天瑞仪器 
+req_basic insert new 301617.SZ C博苑 化工原料
+req_basic changed 301622.SZ name 英思特 -> C英思特 
+req_basic changed 603983.SH name 丸美生物 -> 丸美股份 
+req_basic insert new 688605.SH N先锋 半导体
+req_basic changed 688708.SH name 佳驰科技 -> C佳驰 
+req_basic cost  3.58s
