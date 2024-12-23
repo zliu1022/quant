@@ -1,12 +1,11 @@
-Check token 2024-12-14
+Check token 2024-12-21
 update token  cost  0.20s
-token expired, update c95f28710c1982669aac84d2c03fb4f54e37ac45
-req_basic changed 000785.SZ name 居然智家 -> 居然之家 
-req_basic changed 300097.SZ name ST智云 -> 智云股份 
-req_basic changed 300165.SZ name ST天瑞 -> 天瑞仪器 
-req_basic insert new 301617.SZ C博苑 化工原料
-req_basic changed 301622.SZ name 英思特 -> C英思特 
-req_basic changed 603983.SH name 丸美生物 -> 丸美股份 
-req_basic insert new 688605.SH N先锋 半导体
-req_basic changed 688708.SH name 佳驰科技 -> C佳驰 
-req_basic cost  3.58s
+token expired, update f7d09f4903dea33a1da71d3dab664de45aba60ec
+req_basic changed 000525.SZ name ST红太阳 -> *ST红阳 
+req_basic insert new 301585.SZ N蓝宇 染料涂料
+req_basic insert new 301598.SZ N博科 专用机械
+req_basic changed 301617.SZ name 博苑股份 -> C博苑 
+req_basic changed 600807.SH name 济高发展 -> 济南高新 
+req_basic changed 688605.SH name 先锋精科 -> N先锋 
+req_basic insert new 920106.BJ 林泰新材 None
+req_basic cost  4.17s
