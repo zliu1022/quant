@@ -1,11 +1,8 @@
-Check token 2024-12-21
-update token  cost  0.20s
+Check token 2024-12-28
+update token  cost  0.25s
 token expired, update f7d09f4903dea33a1da71d3dab664de45aba60ec
-req_basic changed 000525.SZ name ST红太阳 -> *ST红阳 
-req_basic insert new 301585.SZ N蓝宇 染料涂料
-req_basic insert new 301598.SZ N博科 专用机械
-req_basic changed 301617.SZ name 博苑股份 -> C博苑 
-req_basic changed 600807.SH name 济高发展 -> 济南高新 
-req_basic changed 688605.SH name 先锋精科 -> N先锋 
-req_basic insert new 920106.BJ 林泰新材 None
-req_basic cost  4.17s
+req_basic changed 301585.SZ name C蓝宇 -> N蓝宇 
+req_basic changed 301598.SZ name C博科 -> N博科 
+req_basic insert new 603194.SH C中力 工程机械
+req_basic insert new 920082.BJ 方正阀门 None
+req_basic cost  4.06s
