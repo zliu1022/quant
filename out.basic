@@ -1,8 +1,9 @@
-Check token 2024-12-28
-update token  cost  0.25s
+Check token 2024-12-31
+update token  cost  0.20s
 token expired, update f7d09f4903dea33a1da71d3dab664de45aba60ec
-req_basic changed 301585.SZ name C蓝宇 -> N蓝宇 
-req_basic changed 301598.SZ name C博科 -> N博科 
-req_basic insert new 603194.SH C中力 工程机械
-req_basic insert new 920082.BJ 方正阀门 None
-req_basic cost  4.06s
+req_basic insert new 001391.SZ N国货航 仓储物流
+req_basic changed 003027.SZ name 同兴科技 -> 同兴环保 
+req_basic changed 301585.SZ name 蓝宇股份 -> C蓝宇 
+req_basic changed 301598.SZ name 博科测试 -> C博科 
+req_basic insert new 920116.BJ 星图测控 None
+req_basic cost  3.92s
