@@ -1,11 +1,10 @@
-Check token 2025-01-10
-update token  cost  0.25s
-token expired, update f7d09f4903dea33a1da71d3dab664de45aba60ec
-req_basic changed 001391.SZ name 国货航 -> C国货航 
-req_basic changed 300630.SZ name *ST普利 -> 普利制药 
-req_basic changed 300993.SZ name 玉马科技 -> 玉马遮阳 
-req_basic insert new 301458.SZ N钧崴 元器件
-req_basic changed 301581.SZ name 黄山谷捷 -> N黄山谷 
-req_basic changed 603072.SH name 天和磁材 -> N天和 
-req_basic insert new 688758.SH N赛分 化工原料
-req_basic cost  4.17s
+Check token 2025-01-18
+update token  cost  0.19s
+token expired, update 3f56223f797569478efd58d67c3537eeb4ce76f4
+req_basic changed 002656.SZ name *ST摩登 -> ST摩登 
+req_basic changed 301458.SZ name C钧崴 -> N钧崴 
+req_basic insert new 301601.SZ N惠通 专用机械
+req_basic changed 603007.SH name ST花王 -> *ST花王 
+req_basic insert new 688583.SH N思看 电器仪表
+req_basic changed 688758.SH name C赛分 -> N赛分 
+req_basic cost  3.78s

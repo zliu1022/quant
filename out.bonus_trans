@@ -1,6 +1,6 @@
-Check token 2025-01-10
-token got 0 days ago f7d09f4903dea33a1da71d3dab664de45aba60ec still valid
-find 5485 stocks
+Check token 2025-01-18
+token got 0 days ago 3f56223f797569478efd58d67c3537eeb4ce76f4 still valid
+find 5487 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
 Warning: 000017.SZ no date     2007-01-11 1268755200000(20100317) 20070111 流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
 Warning: 000035.SZ no date     2012-11-28 1354204800000.0(20121130) 20121128 10转2.596股(实施方案)
@@ -161,7 +161,6 @@ Error: bonus plan: 派 without 元 派发现金红利总金额不超过当期净
 Error: bonus plan: unknown base 派发现金红利总金额不超过当期净利润(股东大会预案)
 301186.SZ update bad bonus, bad_plan
 Warning: 301263.SZ no date     2018年报 nan(NaN) 2018 10派2.00元(股东大会预案)
-Warning: 301458.SZ no bonus_ori
 Warning: 430718.BJ no date     2014年报 nan(NaN) 2014 10派1元(股东大会预案)
 Error: bonus plan: not find 送转派 分红比例不超过2024年上半年归属于上市公司股东的净利润60%(股东大会预案)
 600067.SH insert bad bonus, bad_plan
@@ -242,7 +241,6 @@ Warning: 688669.SH no date     2015-12-14 nan(NaN) 20151214 10派1元(董事会�
 Error: bonus plan: not find 送转派 分配的利润应超过当年实现的可供分配利润的40%(预披露)
 688676.SH insert bad bonus, bad_plan
 Warning: 688737.SH no date     2015年报 nan(NaN) 2015 10派2.1元(股东大会预案)
-Warning: 688758.SH no bonus_ori
 Warning: 830832.BJ no date     2011年报 nan(NaN) 2011 10转1股派1.25元(董事会预案)
 Warning: 831305.BJ no date     2015年报 nan(NaN) 2015 10派2.5元(股东大会预案)
 Warning: 831396.BJ no date     2014年报 nan(NaN) 2014 10送3.81股派0.95元(股东大会预案)
@@ -256,4 +254,4 @@ Warning: 838670.BJ no date     2019中报 nan(NaN) 2019 10派2.5元(股东大会
 Warning: 839273.BJ no date     2018年报 nan(NaN) 2018 10派2.2元(股东大会预案)
 Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会预案)
 Warning: 873339.BJ no date     2019年报 nan(NaN) 2019 10派20元(股东大会预案)
-total cost 22.03s
+total cost 35.16s
