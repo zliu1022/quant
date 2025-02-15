@@ -1,10 +1,17 @@
-Check token 2025-01-18
-update token  cost  0.19s
+Check token 2025-01-28
+update token  cost  0.22s
 token expired, update 3f56223f797569478efd58d67c3537eeb4ce76f4
-req_basic changed 002656.SZ name *ST摩登 -> ST摩登 
-req_basic changed 301458.SZ name C钧崴 -> N钧崴 
-req_basic insert new 301601.SZ N惠通 专用机械
-req_basic changed 603007.SH name ST花王 -> *ST花王 
-req_basic insert new 688583.SH N思看 电器仪表
-req_basic changed 688758.SH name C赛分 -> N赛分 
-req_basic cost  3.78s
+req_basic insert new 001356.SZ C富岭 塑料
+req_basic insert new 001395.SZ N亚联 专用机械
+req_basic changed 002442.SZ name 龙星科技 -> 龙星化工 
+req_basic changed 300587.SZ name 天铁科技 -> 天铁股份 
+req_basic changed 301458.SZ name 钧崴电子 -> C钧崴 
+req_basic changed 301601.SZ name 惠通科技 -> N惠通 
+req_basic insert new 301602.SZ C超研 医疗保健
+req_basic changed 600579.SH name 中化装备 -> 克劳斯 
+req_basic insert new 688411.SH N海博 电气设备
+req_basic insert new 688545.SH C兴福 元器件
+req_basic changed 688583.SH name 思看科技 -> N思看 
+req_basic changed 688758.SH name 赛分科技 -> C赛分 
+req_basic insert new 920108.BJ 宏海科技 None
+req_basic cost 10.99s
