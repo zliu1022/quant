@@ -40,9 +40,9 @@ class StockGet:
 
         self.stock_list = []
         
-        t = self.updateToken(1)
+        t,u = self.updateToken(1)
         self.header = {
-            'cookie':'xq_is_login=1;xq_a_token=' + t + ';u=1119975455;',
+            'cookie':'xq_is_login=1;xq_a_token=' + t + ';u=' + u + ';',
             'User-Agent': 'Xueqiu iPhone 13.6.5'
         }
 
@@ -53,20 +53,21 @@ class StockGet:
         print('Check token', datetime.strftime(datetime.now(), '%Y-%m-%d'))
         ref = self.col_token.find_one()
         if ref == None:
-            t = SnowToken.get_snowtoken()
-            new_dic = {'token':t, 'date':self.today_str}
+            t,u = SnowToken.get_snowtoken_pw()
+            new_dic = {'xq_a_token':t, 'u':u, 'date':self.today_str}
             self.col_token.insert_one(new_dic)
-            print('new token', t)
+            print('new token', t, u)
         else:
             token_date = datetime.strptime(ref['date'],'%Y%m%d')
             date_len = self.today_dt - token_date
             if date_len.days <= valid_days:
-                t = ref['token']
+                t = ref['xq_a_token']
+                u = ref['u']
                 print('token got', date_len.days, 'days ago', t, 'still valid')
             else:
-                t = SnowToken.get_snowtoken()
-                print('token expired, update', t)
-                new_dic = {'token':t, 'date':self.today_str}
+                t,u = SnowToken.get_snowtoken_pw()
+                print('token expired, update', t,u)
+                new_dic = {'xq_a_token':t, 'u':u, 'date':self.today_str}
                 newvalues = { "$set": new_dic}    
                 self.col_token.update_one({'_id' : ref.get('_id')}, newvalues)
         return t
