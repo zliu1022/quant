@@ -1,4 +1,4 @@
-Check token 2025-01-28
+Check token 2025-02-15
 token got 0 days ago 3f56223f797569478efd58d67c3537eeb4ce76f4 still valid
 find 5493 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
@@ -258,4 +258,4 @@ Warning: 838670.BJ no date     2019中报 nan(NaN) 2019 10派2.5元(股东大会
 Warning: 839273.BJ no date     2018年报 nan(NaN) 2018 10派2.2元(股东大会预案)
 Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会预案)
 Warning: 873339.BJ no date     2019年报 nan(NaN) 2019 10派20元(股东大会预案)
-total cost 81.55s
+total cost 50.62s

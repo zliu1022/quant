@@ -1,17 +1,10 @@
-Check token 2025-01-28
-update token  cost  0.22s
+Check token 2025-02-15
+update token  cost  0.20s
 token expired, update 3f56223f797569478efd58d67c3537eeb4ce76f4
-req_basic insert new 001356.SZ C富岭 塑料
-req_basic insert new 001395.SZ N亚联 专用机械
-req_basic changed 002442.SZ name 龙星科技 -> 龙星化工 
-req_basic changed 300587.SZ name 天铁科技 -> 天铁股份 
-req_basic changed 301458.SZ name 钧崴电子 -> C钧崴 
-req_basic changed 301601.SZ name 惠通科技 -> N惠通 
-req_basic insert new 301602.SZ C超研 医疗保健
-req_basic changed 600579.SH name 中化装备 -> 克劳斯 
-req_basic insert new 688411.SH N海博 电气设备
-req_basic insert new 688545.SH C兴福 元器件
-req_basic changed 688583.SH name 思看科技 -> N思看 
-req_basic changed 688758.SH name 赛分科技 -> C赛分 
-req_basic insert new 920108.BJ 宏海科技 None
-req_basic cost 10.99s
+req_basic changed 001356.SZ name 富岭股份 -> C富岭 
+req_basic changed 001395.SZ name C亚联 -> N亚联 
+req_basic changed 301602.SZ name 超研股份 -> C超研 
+req_basic changed 600225.SH name 退卓朗 -> *ST卓朗 
+req_basic changed 688411.SH name C海博 -> N海博 
+req_basic changed 688545.SH name 兴福电子 -> C兴福 
+req_basic cost  4.14s
