@@ -70,7 +70,7 @@ class StockGet:
                 new_dic = {'xq_a_token':t, 'u':u, 'date':self.today_str}
                 newvalues = { "$set": new_dic}    
                 self.col_token.update_one({'_id' : ref.get('_id')}, newvalues)
-        return t
+        return t,u
 
     # go-to-market days
     def get_stock_trade_days(self,list_date):
