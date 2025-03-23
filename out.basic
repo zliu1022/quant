@@ -1,9 +1,18 @@
-Check token 2025-03-16
-token expired, update afb2d000c59b0e6fa5539ff13798ca8e64330985 981742080079556
-req_basic changed 002656.SZ name ST摩登 -> *ST摩登 
-req_basic changed 301173.SZ name 毓恬冠佳 -> C毓恬 
-req_basic insert new 301275.SZ C汉朔 元器件
-req_basic changed 301557.SZ name 常友科技 -> C常友 
-req_basic insert new 603271.SH C永杰 铝
-req_basic changed 603409.SH name 汇通控股 -> C汇通 
-req_basic cost 14.98s
+Check token 2025-03-23
+token expired, update cc9943aa6d41f0ae420f49b428f2f90a472b070a 901742688144359
+req_basic changed 000793.SZ name ST华闻 -> 华闻集团 
+req_basic insert new 001382.SZ N新亚 电气设备
+req_basic changed 300052.SZ name ST中青宝 -> 中青宝 
+req_basic changed 300159.SZ name *ST新研 -> 新研股份 
+req_basic changed 300268.SZ name *ST佳沃 -> ST佳沃 
+req_basic changed 301235.SZ name 华康洁净 -> 华康医疗 
+req_basic changed 301275.SZ name 汉朔科技 -> C汉朔 
+req_basic insert new 301479.SZ C弘景 元器件
+req_basic insert new 301501.SZ C恒鑫生 造纸
+req_basic insert new 301629.SZ 矽电股份 半导体
+req_basic changed 600358.SH name ST联合 -> 国旅联合 
+req_basic changed 600811.SH name *ST东方 -> 东方集团 
+req_basic insert new 603124.SH C江南 铜
+req_basic changed 603271.SH name 永杰新材 -> C永杰 
+req_basic changed 603319.SH name 美湖股份 -> 湘油泵 
+req_basic cost 15.27s
