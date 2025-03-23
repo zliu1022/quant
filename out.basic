@@ -1,8 +1,9 @@
-Check token 2025-03-08
-token got 0 days ago afb2d000c59b0e6fa5539ff13798ca8e64330985 still valid
-req_basic changed 000040.SZ name *ST旭蓝 -> ST旭蓝 
-req_basic changed 002298.SZ name 中电鑫龙 -> 中电兴发 
-req_basic changed 301173.SZ name C毓恬 -> 毓恬冠佳 
-req_basic insert new 301557.SZ C常友 电气设备
-req_basic insert new 603409.SH C汇通 汽车配件
-req_basic cost  4.33s
+Check token 2025-03-16
+token expired, update afb2d000c59b0e6fa5539ff13798ca8e64330985 981742080079556
+req_basic changed 002656.SZ name ST摩登 -> *ST摩登 
+req_basic changed 301173.SZ name 毓恬冠佳 -> C毓恬 
+req_basic insert new 301275.SZ C汉朔 元器件
+req_basic changed 301557.SZ name 常友科技 -> C常友 
+req_basic insert new 603271.SH C永杰 铝
+req_basic changed 603409.SH name 汇通控股 -> C汇通 
+req_basic cost 14.98s
