@@ -12,18 +12,30 @@ basic_collection = db['basic']
 
 # 功能1：找到指定字段的最大Top10、最小Top10对应的文档，并打印信息
 def function1():
-    #fields = ['profit_accum', 'profit_accum_norm', 'sell_counts', 'max_buy_count', 'max_cost', 'avg_mm_days']
-    fields = ['profit_accum_norm', 'sell_counts', 'max_cost']
-
-    top_num = 20
+    fields = ['profit_accum', 'profit_accum_norm', 'sell_counts', 'max_buy_count', 'max_cost', 'avg_mm_days']
+    limit_num = 10
+    print("\n字段Top文档：\n")
     for field in fields:
-        print(f"\n字段：{field}\n")
-        max_docs = b_collection.find().sort(field, -1).limit(top_num)
-        print("最大Top10：")
-        print_docs(max_docs, field)
-        min_docs = b_collection.find().sort(field, 1).limit(top_num)
-        print("最小Top10：")
-        print_docs(min_docs, field)
+        query = {}
+
+        print(f"字段：{field} 的Top {limit_num} 文档：")
+        table = PrettyTable()
+        table.field_names = ["ts_code", "name", field]
+
+        if field == 'profit_accum' or field == 'profit_accum_norm':
+            query['max_cost'] = {'$lte': 500000}  # 增加max_cost筛选条件
+
+        # 排除name中包含“退”、“N”、“ST”的文档
+        exclude_patterns = ["退", "N", "ST"]
+        regex_pattern = f".*({'|'.join(exclude_patterns)}).*"
+        query['name'] = {'$not': {'$regex': regex_pattern}}
+
+        # 对于avg_mm_days字段，排除None值
+        if field == 'avg_mm_days':
+            query[field] = {'$ne': None}
+
+        top_docs = b_collection.find(query).sort(field, -1).limit(limit_num)
+        print_docs(top_docs, field)
 
 def print_docs(docs_cursor, sort_field):
     table = PrettyTable()
@@ -31,10 +43,6 @@ def print_docs(docs_cursor, sort_field):
 
     for doc in docs_cursor:
         ts_code = doc.get('ts_code')
-        # 从basic表中查找name和industry
-        #basic_doc = basic_collection.find_one({'ts_code': ts_code})
-        #name = basic_doc.get('name', '') if basic_doc else ''
-        #industry = basic_doc.get('industry', '') if basic_doc else ''
 
         table.add_row([
             ts_code,
@@ -52,12 +60,18 @@ def print_docs(docs_cursor, sort_field):
 # 功能2：对全部文档的指定字段进行求和
 def function2():
     fields = ['profit_accum', 'profit_accum_norm', 'max_cost', 'cur_profit', 'norm_cur_profit', 'cur_cost']
-    print("\n对全部文档的指定字段进行求和：\n")
+    print("\n字段求和：\n")
     table = PrettyTable()
     table.field_names = ["字段", "总和"]
 
+    # 排除name中包含“退”、“N”、“ST”的文档
+    exclude_patterns = ["退", "N", "ST"]
+    regex_pattern = f"({'|'.join(exclude_patterns)})"
+
     for field in fields:
         total = b_collection.aggregate([
+            # 增加筛选条件，排除name中包含指定字符串的文档
+            {'$match': {'name': {'$not': {'$regex': regex_pattern}}}},
             {'$group': {'_id': None, 'total': {'$sum': f'${field}'}}}
         ])
         total_value = next(total, {}).get('total', 0)
@@ -94,11 +108,6 @@ def function3():
 
     print(table)
 
-# 执行功能1
-function1()
-
-# 执行功能2
+#function1()
 function2()
-
-# 执行功能3
 function3()
