@@ -18,17 +18,15 @@ async function savePages() {
     var clickCount = 0;
     var maxClicks = 4;
 
+    // 获取并保存初始页面
+    var currentPageElement = document.querySelector('.m-pager .cur');
+    var cur_pagenum = 0;
+    if (currentPageElement) {
+        cur_pagenum = currentPageElement.getAttribute('page') || currentPageElement.textContent.trim();
+    }
+    saveHTML(`bd_${code}_${cur_pagenum}.html`);
+
     while (clickCount < maxClicks) {
-        // 获取当前页码
-        var currentPageElement = document.querySelector('.m-pager .cur');
-        var cur_pagenum = 0;
-        if (currentPageElement) {
-            cur_pagenum = currentPageElement.getAttribute('page') || currentPageElement.textContent.trim();
-        }
-
-        // 保存当前页面
-        saveHTML(`bd_${code}_${cur_pagenum}.html`);
-
         // 查找“下一页”链接
         var nextPageLink = Array.from(document.querySelectorAll('#m-page a.changePage')).find(function(el) {
             return el.textContent.trim() === '下一页';
@@ -41,7 +39,7 @@ async function savePages() {
             // 等待10秒，确保页面更新
             await new Promise(resolve => setTimeout(resolve, 10000));
 
-            // 等待后获取新的页码
+            // 获取新的页码
             var newPageElement = document.querySelector('.m-pager .cur');
             var new_pagenum = 0;
             if (newPageElement) {
@@ -49,8 +47,9 @@ async function savePages() {
             }
 
             if (new_pagenum != cur_pagenum) {
-                // 页码已更新，保存新页面
-                saveHTML(`bd_${code}_${new_pagenum}.html`);
+                cur_pagenum = new_pagenum; // 更新当前页码
+                // 保存新页面
+                saveHTML(`bd_${code}_${cur_pagenum}.html`);
             } else {
                 console.log('页面未更新，可能已经是最后一页。');
                 break; // 如果页码未变化，退出循环
