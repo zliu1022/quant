@@ -59,6 +59,7 @@ async function savePages() {
             break; // 退出循环
         }
     }
+	console.log('5页全部下载完毕。');
 }
 
 // 启动函数
