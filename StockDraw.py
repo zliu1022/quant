@@ -233,7 +233,7 @@ if __name__ == '__main__':
     # 20240802: ./StockDraw.py 002475.SZ 1.55 0.03 运行成功，并核对了前复权数据
     if len(sys.argv) == 4:
         start_date = '20201013'
-        end_date   = '20241001'
+        end_date   = '20250331'
         ts_code  = sys.argv[1]        # 002475.SZ
         chg_perc = float(sys.argv[2]) # 1.55
         interval = float(sys.argv[3]) # 0.03

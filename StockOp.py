@@ -375,7 +375,7 @@ def t_1code(sq, so):
     chg_perc   = float(sys.argv[3])
     #so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20200101", end_date="20230901", debug=1)
     #so.Op(ts_code, chg_perc=1.245, interval=0.03, start_date="20220315", end_date="20230901", debug=1)
-    so.Op(ts_code, chg_perc, interval=0.03, start_date=input_date, end_date="20241008", debug=1)
+    so.Op(ts_code, chg_perc, interval=0.03, start_date=input_date, end_date="20250331", debug=1)
 
     #ts_code = "830946.BJ" # 在20210624-20220321 出现6次卖，norm盈利440675,11743
     #so.Op(ts_code, chg_perc=1.55, interval=0.03, start_date="20210624", end_date="20220321", debug=1)
