@@ -1,18 +1,21 @@
-Check token 2025-03-23
-token expired, update cc9943aa6d41f0ae420f49b428f2f90a472b070a 901742688144359
-req_basic changed 000793.SZ name ST华闻 -> 华闻集团 
-req_basic insert new 001382.SZ N新亚 电气设备
-req_basic changed 300052.SZ name ST中青宝 -> 中青宝 
-req_basic changed 300159.SZ name *ST新研 -> 新研股份 
-req_basic changed 300268.SZ name *ST佳沃 -> ST佳沃 
-req_basic changed 301235.SZ name 华康洁净 -> 华康医疗 
-req_basic changed 301275.SZ name 汉朔科技 -> C汉朔 
-req_basic insert new 301479.SZ C弘景 元器件
-req_basic insert new 301501.SZ C恒鑫生 造纸
-req_basic insert new 301629.SZ 矽电股份 半导体
-req_basic changed 600358.SH name ST联合 -> 国旅联合 
-req_basic changed 600811.SH name *ST东方 -> 东方集团 
-req_basic insert new 603124.SH C江南 铜
-req_basic changed 603271.SH name 永杰新材 -> C永杰 
-req_basic changed 603319.SH name 美湖股份 -> 湘油泵 
-req_basic cost 15.27s
+Check token 2025-04-04
+token expired, update 8227a6f1f070ca10a573ea273e25da157b017b89 161743729421898
+req_basic changed 000972.SZ name *ST中基 -> 中基健康 
+req_basic changed 001382.SZ name 新亚电缆 -> N新亚 
+req_basic changed 002199.SZ name *ST东晶 -> 东晶电子 
+req_basic changed 002700.SZ name 新疆浩源 -> ST浩源 
+req_basic changed 300147.SZ name ST香雪 -> 香雪制药 
+req_basic changed 300175.SZ name ST朗源 -> 朗源股份 
+req_basic changed 300343.SZ name ST联创 -> 联创股份 
+req_basic changed 301479.SZ name 弘景光电 -> C弘景 
+req_basic changed 301501.SZ name 恒鑫生活 -> C恒鑫生 
+req_basic insert new 301535.SZ C华远 汽车配件
+req_basic insert new 301616.SZ C华业 机械基件
+req_basic insert new 301658.SZ N首航 电气设备
+req_basic changed 603124.SH name 江南新材 -> C江南 
+req_basic changed 688351.SH name 微电生理 -> 微电生理-U 
+req_basic changed 688506.SH name 百利天恒 -> 百利天恒-U 
+req_basic insert new 688757.SH 胜科纳米 电器仪表
+req_basic changed 838810.BJ name 春光智能 -> 春光药装 
+req_basic insert new 920029.BJ 开发科技 None
+req_basic cost 13.08s
