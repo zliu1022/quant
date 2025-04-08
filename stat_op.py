@@ -11,8 +11,9 @@ b_collection = db['20200301_20250331_1.55']
 basic_collection = db['basic']
 
 # 功能1：找到指定字段的最大Top10、最小Top10对应的文档，并打印信息
-def function1():
-    fields = ['profit_accum', 'profit_accum_norm', 'sell_counts', 'max_buy_count', 'max_cost', 'avg_mm_days']
+def stat_top():
+    #fields = ['profit_accum', 'profit_accum_norm', 'sell_counts', 'max_buy_count', 'max_cost', 'avg_mm_days']
+    fields = ['max_buy_count']
     limit_num = 10
     print("\n字段Top文档：\n")
     for field in fields:
@@ -58,7 +59,7 @@ def print_docs(docs_cursor, sort_field):
     print(table)
 
 # 功能2：对全部文档的指定字段进行求和
-def function2():
+def stat_sum_all():
     fields = ['profit_accum', 'profit_accum_norm', 'max_cost', 'cur_profit', 'norm_cur_profit', 'cur_cost']
     print("\n字段求和：\n")
     table = PrettyTable()
@@ -80,7 +81,7 @@ def function2():
     print(table)
 
 # 功能3：根据指定的ts_code列表，对这些文档的指定字段进行求和
-def function3():
+def stat_sum_codelist():
     ts_code_list = [
         "000425", "002273", "002475", 
         "300911",
@@ -108,6 +109,83 @@ def function3():
 
     print(table)
 
-#function1()
-function2()
-function3()
+def get_op(code):
+    # 查询条件，使用 ts_code 等于给定 code
+    query = {'ts_code': code}
+    # 查询指定字段
+    projection = {
+        '_id': 0,
+        'ts_code': 1,
+        'name': 1,
+        'profit_accum': 1,
+        'profit_accum_norm': 1,
+        'max_cost': 1
+    }
+    doc = b_collection.find_one(query, projection)
+    return doc
+
+def get_bd_op():
+    bd_collection = db['bd_10jqka']
+    print("\n功能4：输出 bd_10jqka 中每个 code 的相关数据\n")
+
+    # 获取 bd_10jqka 中的所有文档
+    bd_docs = bd_collection.find()
+
+    # 初始化一个列表，用于存储每个板块的数据行
+    table_rows = []
+    for bd_doc in bd_docs:
+        # 获取板块名称
+        bd_code = bd_doc.get('code', '')
+        bd_name = bd_doc.get('name', '未知板块')
+
+        total_profit_accum, total_profit_accum_norm, total_max_cost = 0,0,0
+        # 遍历 list 中的每个股票
+        stock_list = bd_doc.get('list', [])
+        for stock in stock_list:
+            code = stock.get('code')
+            name = stock.get('name')
+
+            # 格式化 ts_code，补全证券代码
+            if code.startswith('6'):
+                ts_code = code + '.SH'
+            else:
+                ts_code = code + '.SZ'
+
+            # 调用功能3，获取数据
+            data = get_op(ts_code)
+            if data:
+                profit_accum = data.get('profit_accum', 0)
+                profit_accum_norm = data.get('profit_accum_norm', 0)
+                max_cost = data.get('max_cost', 0)
+            else:
+                profit_accum = 0
+                profit_accum_norm = 0
+                max_cost = 0
+
+            total_profit_accum += int(profit_accum)
+            total_profit_accum_norm += int(profit_accum_norm)
+            total_max_cost += int(max_cost)
+
+        # 将结果添加到列表中
+        table_rows.append([bd_code, bd_name, total_profit_accum, total_profit_accum_norm, total_max_cost])
+
+    # 按照 profit_accum_norm 进行降序排序
+    table_rows_sorted = sorted(table_rows, key=lambda x: x[3], reverse=True)
+
+    # 初始化表格
+    table = PrettyTable()
+    table.field_names = ["bd_code", "bd_name", "profit_accum", "profit_accum_norm", "max_cost"]
+
+    # 添加排序后的行到表格
+    for row in table_rows_sorted:
+        print(row)
+        quit()
+        table.add_row(row)
+
+    # 输出表格
+    print(table)
+
+#stat_top()
+#stat_sum_all()
+#stat_sum_codelist()
+get_bd_op()
