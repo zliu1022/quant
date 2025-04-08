@@ -1,3 +1,4 @@
+// 模仿点击下一页，下载https://q.10jqka.com.cn/thshy/detail/code/881121/
 async function savePages() {
     function saveHTML(filename = 'page.html') {
         const html = document.documentElement.outerHTML;
@@ -15,8 +16,8 @@ async function savePages() {
     var url = window.location.href;
     var match = url.match(/code\/(\d+)/);
     var code = match ? match[1] : 'unknown';
-    var clickCount = 0;
-    var maxClicks = 4;
+    var clickCount = 1;
+    var maxClicks = 20; //未登录只能设置5，下载5页
 
     // 获取并保存初始页面
     var currentPageElement = document.querySelector('.m-pager .cur');
@@ -59,7 +60,7 @@ async function savePages() {
             break; // 退出循环
         }
     }
-	console.log('5页全部下载完毕。');
+	console.log(clickCount, '页全部下载完毕。');
 }
 
 // 启动函数

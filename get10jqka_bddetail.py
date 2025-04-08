@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# save_bddetail.js 从 https://q.10jqka.com.cn/thshy/detail/code/881121/ 连续保存下一页 .cache/bd_881121_1.html
+# 从 .cache/bd_*.html 到 表bd_10jqka
+
 from bs4 import BeautifulSoup
 import re
 import os
