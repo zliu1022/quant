@@ -1,6 +1,6 @@
-Check token 2025-04-04
+Check token 2025-04-12
 token got 0 days ago 8227a6f1f070ca10a573ea273e25da157b017b89 still valid
-find 5509 stocks
+find 5512 stocks
 Warning: 000007.SZ no date     1992中报 721065600000(19921107) 1992 10送2股派0.5元(实施方案)
 Warning: 000017.SZ no date     2007-01-11 1268755200000(20100317) 20070111 流通A股股东10转5.149022股,B股股东10转1.5股(实施方案)
 Warning: 000035.SZ no date     2012-11-28 1354204800000.0(20121130) 20121128 10转2.596股(实施方案)
@@ -75,6 +75,9 @@ Error: bonus plan: unknown base 派发现金红利总金额不超过当期净利
 Error: bonus plan: not find 送转派 现金分红不超过相应期间归属于上市公司股东净利润的60%(股东大会预案)
 002003.SZ insert bad bonus, bad_plan
 Warning: 002072.SZ no date 5ys 2021-11-19 1640188800000(20211223) 20211119 10转10.8909股(实施方案)
+Error: bonus plan: 派 without 元 派发现金红利总金额不超过当期归属于上市公司股东的净利润。(董事会预案)
+Error: bonus plan: unknown base 派发现金红利总金额不超过当期归属于上市公司股东的净利润。(董事会预案)
+002090.SZ insert bad bonus, bad_plan
 Warning: 002131.SZ no date     2017-09-12 1513094400000.0(20171213) 20170912 10送0.03985947股(实施方案)
 Warning: 002131.SZ no date     2013-06-06 1371744000000.0(20130621) 20130606 10送0.079055股(实施方案)
 Warning: 002175.SZ no date 5ys 2021-10-12 1640275200000(20211224) 20211012 10转6.9384138股(实施方案)
@@ -151,6 +154,8 @@ Warning: 300721.SZ no date     2014年报 nan(NaN) 2014 10派0.30元(股东大�
 Warning: 300724.SZ no date     2015年报 nan(NaN) 2015 10派1.67元(股东大会预案)
 Error: bonus plan: not find 送转派 现金分红金额不超过当期归属于上市公司股东净利润的100%。(董事会预案)
 300741.SZ insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 分红金额不得超过当期归属于上市公司股东净利润的15%(股东大会预案)
+300750.SZ insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 现金红利总金额不超过当期净利润。(董事会预案)
 300824.SZ insert bad bonus, bad_plan
 Warning: 300845.SZ no date     2013年报 nan(NaN) 2013 10派0.67元(股东大会预案)
@@ -168,7 +173,7 @@ Error: bonus plan: not find 送转派 分红金额不超过当期归属于上市
 Error: bonus plan: 派 without 元 派发现金红利总金额不超过相应期间归属于上市公司股东净利润的50%(股东大会预案)
 Error: bonus plan: unknown base 派发现金红利总金额不超过相应期间归属于上市公司股东净利润的50%(股东大会预案)
 300972.SZ insert bad bonus, bad_plan
-Error: bonus plan: not find 送转派 现金分红总额不超过相应期间归属于公司股东的净利润。(董事会预案)
+Error: bonus plan: not find 送转派 现金分红总额不超过相应期间归属于公司股东的净利润。(股东大会预案)
 301020.SZ insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 现金分红不超过当期实现的归属于上市公司股东净利润的20%(股东大会预案)
 301027.SZ insert bad bonus, bad_plan
@@ -180,6 +185,8 @@ Error: bonus plan: not find 送转派 现金红利总金额不超过当期归属
 Warning: 301089.SZ no date     2018中报 nan(NaN) 2018 10派0.30元(董事会预案)
 Warning: 301115.SZ no date     2015-12-04 nan(NaN) 20151204 10转8.5股(股东大会预案)
 Warning: 301168.SZ no date     2015-12-15 nan(NaN) 20151215 10派1.6元(股东大会预案)
+Error: bonus plan: not find 送转派 现金分红金额不超过相应期间归属于上市公司股东净利润的50%。(董事会预案)
+301175.SZ insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 现金分红总额不超过公司2024年上半年实现的归属于上市公司股东净利润的100%(股东大会预案)
 301177.SZ insert bad bonus, bad_plan
 Error: bonus plan: 派 without 元 派发现金红利总金额不超过当期净利润(股东大会预案)
@@ -189,25 +196,40 @@ Error: bonus plan: 派 without 元 派发现金红利总金额不超过当期净
 Error: bonus plan: unknown base 派发现金红利总金额不超过当期净利润(股东大会预案)
 301186.SZ update bad bonus, bad_plan
 Warning: 301263.SZ no date     2018年报 nan(NaN) 2018 10派2.00元(股东大会预案)
+Error: bonus plan: not find 送转派 当期内现金分红金额累计不超过当期实现的归属于母公司股东净利润的100%。(董事会预案)
+301310.SZ insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 当期内现金分红金额累计不超过当期实现的归属于母公司股东净利润的100%。(董事会预案)
+301310.SZ update bad bonus, bad_plan
+Error: bonus plan: 派 without 元 派发现金红利总金额不超过当期归属于上市公司股东的净利润。(董事会预案)
+Error: bonus plan: unknown base 派发现金红利总金额不超过当期归属于上市公司股东的净利润。(董事会预案)
+301393.SZ insert bad bonus, bad_plan
 Warning: 430718.BJ no date     2014年报 nan(NaN) 2014 10派1元(股东大会预案)
 Error: bonus plan: not find 送转派 分红总金额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
 600066.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 分红比例不超过2024年上半年归属于上市公司股东的净利润60%(股东大会预案)
 600067.SH insert bad bonus, bad_plan
 Warning: 600075.SH no date     2006-04-03 1147190400000.0(20060510) 20060403 10转1.8股(实施方案)
+Error: bonus plan: not find 送转派 按照2024年度实现的归属于上市公司股东净利润的30%进行现金分红。(预披露)
+600089.SH insert bad bonus, bad_plan
 Warning: 600133.SH no date     2005三季报 nan(NaN) 2005 10转增3.5股(董事会预案)
 Error: bonus plan: not find 送转派 现金红利金额不低于公司当期实现的归属于上市公司股东的净利润的20%，不高于公司当期实现的归属于上市公司股东的净利润的50%。(董事会预案)
 600161.SH insert bad bonus, bad_plan
-Error: bonus plan: not find 送转派 现金红利金额不低于当期实现的归属于上市公司股东的净利润的40%,且不超过45%。(董事会预案)
+Error: bonus plan: not find 送转派 现金红利金额不低于当期实现的归属于上市公司股东的净利润的40%,且不超过45%。(股东大会预案)
 600176.SH insert bad bonus, bad_plan
 Warning: 600182.SH no date     2017-09-01 nan(NaN) 20170901 10转30股(董事会预案)
 Error: bonus plan: unknown base 向佳通轮胎(中国)投资有限公司10转10股,向全体流通股股东10转11.11353股(董事会预案)
 600182.SH update bad bonus, bad_plan
 Warning: 600182.SH no date     2016-09-02 nan(NaN) 20160902 向佳通轮胎(中国)投资有限公司10转10股,向全体流通股股东10转11.11353股(董事会预案)
 Warning: 600212.SH no date     2006-05-11 1150905600000(20060622) 20060511 10转10股(实施方案)
-Error: bonus plan: not find 送转派 公司2025年上半年度现金分红金额为该半年度合并报表归属于上市公司股东的净利润的50%(董事会预案)
+Error: bonus plan: not find 送转派 公司2025年上半年度现金分红金额为该半年度合并报表归属于上市公司股东的净利润的50%(股东大会预案)
 600282.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 分红金额不低于相应期间归属于上市公司股东净利润的38.33%。(董事会预案)
+600312.SH insert bad bonus, bad_plan
 Warning: 600313.SH no date     2000年报 nan(NaN) 2000 向老股东10派0.58元(股东大会预案)
+Error: bonus plan: not find 送转派 现金分红金额不低于相应期间归属于上市公司股东净利润的30%，且不超过相应期间归属于上市公司股东净利润的100%。(董事会预案)
+600379.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 现金分红金额不低于相应期间归属于上市公司股东净利润的30%，且不超过相应期间归属于上市公司股东净利润的100%。(董事会预案)
+600379.SH update bad bonus, bad_plan
 Warning: 600399.SH no date     2018-11-06 1545753600000.0(20181226) 20181106 10转5.17股(实施方案)
 Warning: 600466.SH no date 5ys 2020年报 nan(NaN) 2020 10派0.85元(股东大会预案)
 Error: bonus plan: not find 送转派 分红的金额不超过当期实现归属于上市公司股东的净利润的40%(股东大会预案)
@@ -217,8 +239,10 @@ Error: bonus plan: not find 送转派 分红总额将不低于人民币7.5亿元
 Warning: 600681.SH no date     2005三季报 nan(NaN) 2005 10转增4股(董事会预案)
 Error: bonus plan: not find 送转派 分红总额占2025年上半年实现的归属于上市公司股东的净利润的比例不高于30%。(董事会预案)
 600685.SH insert bad bonus, bad_plan
-Error: bonus plan: not find 送转派 95年度利润只向老股东分配(实施方案)
+Error: bonus plan: not find 送转派 现金分红金额不低于相应期间归属于上市公司股东净利润的30%。(董事会预案)
 600714.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 95年度利润只向老股东分配(实施方案)
+600714.SH update bad bonus, bad_plan
 Warning: 600714.SH no date     1995年报 nan(NaN) 1995 95年度利润只向老股东分配(实施方案)
 Warning: 600715.SH no date     1995年报 nan(NaN) 1995 老股东10派1.7元(实施方案)
 Error: bonus plan: not find 送转派 95年度利润归母公司及发起人享有(实施方案)
@@ -250,6 +274,11 @@ Error: bonus plan: not find 送转派 现金分红总金额不超过当期归属
 600805.SH update bad bonus, bad_plan
 Warning: 600807.SH no date     1994年报 nan(NaN) 1994 10派1.2元(股东大会预案)
 Warning: 600817.SH no date     2012-07-30 1343577600000.0(20120730) 20120730 10转2.5股(实施方案)
+Error: bonus plan: 派 without 元 派发现金红利总金额不低于相应期间归属于上市公司股东的净利润的50%，且不超过相应期间归属于上市公司股东的净利润。(董事会预案)
+Error: bonus plan: unknown base 派发现金红利总金额不低于相应期间归属于上市公司股东的净利润的50%，且不超过相应期间归属于上市公司股东的净利润。(董事会预案)
+600826.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 不低于2024年归属于上市公司股东的净利润的55%。(预披露)
+600886.SH insert bad bonus, bad_plan
 Error: bonus plan: 派 without 元 10派1.5(实施方案)
 600963.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 不低于相应期间归属于上市公司股东净利润的15%，且不超过相应期间归属于上市公司股东净利润的30%。(董事会预案)
@@ -271,8 +300,6 @@ Error: bonus plan: not find 送转派 分红总额不超过2025年上半年公�
 Error: bonus plan: 派 without 元 派发现金红利，总金额不超过当期净利润的30%。(董事会预案)
 Error: bonus plan: unknown base 派发现金红利，总金额不超过当期净利润的30%。(董事会预案)
 601619.SH insert bad bonus, bad_plan
-Error: bonus plan: not find 送转派 分红比例不低于2024年度归属于上市公司股东净利润的70%(预披露)
-601801.SH insert bad bonus, bad_plan
 Error: bonus plan: 派 without 元 派发现金红利总金额不超过当期实现的归属上市股东净利润的40%。(董事会预案)
 Error: bonus plan: unknown base 派发现金红利总金额不超过当期实现的归属上市股东净利润的40%。(董事会预案)
 601872.SH insert bad bonus, bad_plan
@@ -281,6 +308,8 @@ Error: bonus plan: not find 送转派 现金红利总额不超过相应期间归
 603013.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 以归属于母公司所有者的净利润的30%金额为上限进行现金分红(股东大会预案)
 603068.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 以2025年1-6月归属于上市公司股东的净利润为基数，按不低于10%的比例进行现金分红，且分红总额不超过人民币1,000万元(董事会预案)
+603083.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 现金分红不低于1亿元(股东大会预案)
 603167.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 分红金额不超过当期归属于上市公司股东的净利润的50%(股东大会预案)
@@ -294,10 +323,14 @@ Error: bonus plan: not find 送转派 当期内现金分红金额累计不超过
 603444.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 当期内现金分红金额累计不超过当期实现的归属于母公司股东净利润的100%。(董事会预案)
 603444.SH update bad bonus, bad_plan
+Error: bonus plan: not find 送转派 中期分红总金额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
+603456.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 现金分红总额应不低于1000万元(预披露)
 603538.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 现金分红总额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
 603577.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 现金红利的总额(含2024年半年度已实施的现金分红)不低于经审计的公司2024年归母净利润的50%。(预披露)
+603939.SH insert bad bonus, bad_plan
 Warning: 603960.SH no date     2016年报 nan(NaN) 2016 10转3股派1.35元(董事会预案)
 Error: bonus plan: not find 送转派 不低于2025年中期合并报表归属于上市公司股东净利润的50%(董事会预案)
 603992.SH insert bad bonus, bad_plan
@@ -306,14 +339,20 @@ Error: bonus plan: not find 送转派 现金分红金额不低于第三季度实
 605136.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 现金分红金额不低于半年度实现的归属于母公司股东净利润的30%。(董事会预案)
 605136.SH update bad bonus, bad_plan
+Error: bonus plan: not find 送转派 现金分红总额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
+688008.SH insert bad bonus, bad_plan
 Error: bonus plan: not find 送转派 分红金额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
 688016.SH insert bad bonus, bad_plan
 Warning: 688095.SH no date     2017年报 nan(NaN) 2017 10派10元(股东大会预案)
 Error: bonus plan: 派 without 元 派发现金红利总金额不超过当期净利润(股东大会预案)
 Error: bonus plan: unknown base 派发现金红利总金额不超过当期净利润(股东大会预案)
 688096.SH insert bad bonus, bad_plan
-Error: bonus plan: not find 送转派 现金分红总额不超过相应期间归属于公司股东的净利润(股东大会预案)
+Error: bonus plan: not find 送转派 分红总额不超过相应期间归属于公司股东的净利润。(董事会预案)
 688105.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 分红总额不超过相应期间归属于公司股东的净利润。(董事会预案)
+688105.SH update bad bonus, bad_plan
+Error: bonus plan: not find 送转派 现金分红总额不超过相应期间归属于公司股东的净利润(股东大会预案)
+688105.SH update bad bonus, bad_plan
 Error: bonus plan: not find 送转派 分红金额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
 688106.SH insert bad bonus, bad_plan
 Error: bonus plan: 派 without 元 派发现金红利总额不超过相应期间归属于公司股东的净利润的30%。(董事会预案)
@@ -323,11 +362,15 @@ Warning: 688310.SH no date     2016-02-05 nan(NaN) 20160205 10派8.5元(股东�
 Error: bonus plan: 派 without 元 派发现金红利总额不超过相应期间归属于公司股东的净利润(股东大会预案)
 Error: bonus plan: unknown base 派发现金红利总额不超过相应期间归属于公司股东的净利润(股东大会预案)
 688320.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 现金红利总额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
+688334.SH insert bad bonus, bad_plan
+Error: bonus plan: not find 送转派 现金红利总额不超过相应期间归属于上市公司股东的净利润。(董事会预案)
+688334.SH update bad bonus, bad_plan
 Error: bonus plan: not find 送转派 当期内现金分红金额累计不超过当期归属于上市公司股东净利润的100%(股东大会预案)
 688550.SH insert bad bonus, bad_plan
 Warning: 688669.SH no date     2015-12-14 nan(NaN) 20151214 10派1元(董事会预案)
 Warning: 688737.SH no date     2015年报 nan(NaN) 2015 10派2.1元(股东大会预案)
-Error: bonus plan: not find 送转派 分配比例上限为相应期间归属于上市公司股东的净利润的100%，分红金额上限不超过相应期间归属于上市公司股东的净利润。(董事会预案)
+Error: bonus plan: not find 送转派 分配比例上限为相应期间归属于上市公司股东的净利润的100%，分红金额上限不超过相应期间归属于上市公司股东的净利润。(股东大会预案)
 830779.BJ insert bad bonus, bad_plan
 Warning: 830832.BJ no date     2011年报 nan(NaN) 2011 10转1股派1.25元(董事会预案)
 Warning: 831305.BJ no date     2015年报 nan(NaN) 2015 10派2.5元(股东大会预案)
@@ -342,4 +385,4 @@ Warning: 838670.BJ no date     2019中报 nan(NaN) 2019 10派2.5元(股东大会
 Warning: 839273.BJ no date     2018年报 nan(NaN) 2018 10派2.2元(股东大会预案)
 Warning: 871981.BJ no date     2018中报 nan(NaN) 2018 10派26元(股东大会预案)
 Warning: 873339.BJ no date     2019年报 nan(NaN) 2019 10派20元(股东大会预案)
-total cost 59.16s
+total cost 57.99s

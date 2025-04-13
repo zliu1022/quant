@@ -1,21 +1,28 @@
-Check token 2025-04-04
-token expired, update 8227a6f1f070ca10a573ea273e25da157b017b89 161743729421898
-req_basic changed 000972.SZ name *ST中基 -> 中基健康 
-req_basic changed 001382.SZ name 新亚电缆 -> N新亚 
-req_basic changed 002199.SZ name *ST东晶 -> 东晶电子 
-req_basic changed 002700.SZ name 新疆浩源 -> ST浩源 
-req_basic changed 300147.SZ name ST香雪 -> 香雪制药 
-req_basic changed 300175.SZ name ST朗源 -> 朗源股份 
-req_basic changed 300343.SZ name ST联创 -> 联创股份 
-req_basic changed 301479.SZ name 弘景光电 -> C弘景 
-req_basic changed 301501.SZ name 恒鑫生活 -> C恒鑫生 
-req_basic insert new 301535.SZ C华远 汽车配件
-req_basic insert new 301616.SZ C华业 机械基件
-req_basic insert new 301658.SZ N首航 电气设备
-req_basic changed 603124.SH name 江南新材 -> C江南 
-req_basic changed 688351.SH name 微电生理 -> 微电生理-U 
-req_basic changed 688506.SH name 百利天恒 -> 百利天恒-U 
-req_basic insert new 688757.SH 胜科纳米 电器仪表
-req_basic changed 838810.BJ name 春光智能 -> 春光药装 
-req_basic insert new 920029.BJ 开发科技 None
-req_basic cost 13.08s
+Check token 2025-04-12
+token expired, update 8227a6f1f070ca10a573ea273e25da157b017b89 411744419916723
+req_basic changed 000722.SZ industry 水力发电 -> 其他建材 
+req_basic changed 301535.SZ name 浙江华远 -> C华远 
+req_basic changed 301616.SZ name 浙江华业 -> C华业 
+req_basic changed 301658.SZ name 首航新能 -> N首航 
+req_basic insert new 301665.SZ N泰禾 农药化肥
+req_basic changed 601211.SH name 国泰海通 -> 国泰君安 
+req_basic insert new 603210.SH C泰鸿 汽车配件
+req_basic insert new 603257.SH C瑞林 建筑工程
+req_basic changed 920002.BJ industry 工程机械 -> None 
+req_basic changed 920008.BJ industry 通信设备 -> None 
+req_basic changed 920016.BJ industry 日用化工 -> None 
+req_basic changed 920019.BJ industry 建筑工程 -> None 
+req_basic changed 920029.BJ industry 电器仪表 -> None 
+req_basic changed 920060.BJ industry 元器件 -> None 
+req_basic changed 920066.BJ industry 塑料 -> None 
+req_basic changed 920082.BJ industry 机械基件 -> None 
+req_basic changed 920088.BJ industry 石油开采 -> None 
+req_basic changed 920098.BJ industry 橡胶 -> None 
+req_basic changed 920099.BJ industry 石油加工 -> None 
+req_basic changed 920106.BJ industry 汽车配件 -> None 
+req_basic changed 920108.BJ industry 家用电器 -> None 
+req_basic changed 920111.BJ industry 电气设备 -> None 
+req_basic changed 920116.BJ industry 软件服务 -> None 
+req_basic changed 920118.BJ industry 塑料 -> None 
+req_basic changed 920128.BJ industry 元器件 -> None 
+req_basic cost  4.40s
