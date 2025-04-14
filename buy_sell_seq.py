@@ -28,10 +28,9 @@ def qty_lowcost(buy_price, exp_dec_perc_cost_unit, cost_accum_prev, qty_accum_pr
         buy_qty_new = 100.0
     # Round down to the nearest multiple of 100
     buy_qty = int(buy_qty_new // 100) * 100
-    #buy_qty = buy_qty_new
     if buy_qty < 100:
         buy_qty = 100
-    print(f'buy_qty {buy_qty_new} -> {buy_qty}')
+    #print(f'buy_qty {buy_qty_new} -> {buy_qty}')
     return buy_qty
 
 def buy_sell_seq(max_steps, prev_data, parameters):
@@ -91,7 +90,7 @@ def buy_sell_seq(max_steps, prev_data, parameters):
         exp_sell_price = price * exp_sell_inc_perc
         ori_exp_sell_qty = qty_accum * sell_perc
         exp_sell_qty = int(ori_exp_sell_qty// 100) * 100
-        print(f'exp_sell_qty {ori_exp_sell_qty} -> {exp_sell_qty}')
+        #print(f'exp_sell_qty {ori_exp_sell_qty} -> {exp_sell_qty}')
         exp_profit = exp_sell_price * exp_sell_qty - cost_accum * (exp_sell_qty/qty_accum) + profit_prev
 
         remain_qty = qty_accum - exp_sell_qty
