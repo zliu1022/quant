@@ -73,49 +73,30 @@ def buy_sell_seq(max_steps, prev_data, parameters):
         if n == 1:
             # At step 1, initialize values
             price = price_prev
-            buy_price = price
-            buy_qty = qty_lowcost(buy_price, exp_dec_perc_cost_unit, cost_accum_prev, qty_accum_prev)
-            qty_accum = buy_qty + qty_accum_prev
-            cost_cur = buy_price * buy_qty
-            cost_accum = cost_cur + cost_accum_prev
-            cost_unit = cost_accum / qty_accum
-            if cost_unit_prev == 0:
-                dec_perc_cost_unit = 0.0
-            else:
-                dec_perc_cost_unit = (cost_unit_prev - cost_unit) / cost_unit_prev
-            exp_sell_price = price * exp_sell_inc_perc
-
-            ori_exp_sell_qty = qty_accum * sell_perc
-            exp_sell_qty = int(ori_exp_sell_qty// 100) * 100
-            print(f'exp_sell_qty {ori_exp_sell_qty} -> {exp_sell_qty}')
-
-            exp_profit = exp_sell_price * exp_sell_qty - cost_accum * (exp_sell_qty/qty_accum) + profit_prev
-
-            remain_qty = qty_accum - exp_sell_qty
-            remain_cost_accum = cost_accum * (1 - exp_sell_qty/qty_accum)
-            remain_profit = remain_qty*exp_sell_price*exp_sell_inc_perc - remain_cost_accum
         else:
             # Price decreases by dec_perc_price
             price = price_prev * (1 - dec_perc_price)
-            buy_price = price
-            buy_qty = qty_lowcost(buy_price, exp_dec_perc_cost_unit, cost_accum_prev, qty_accum_prev)
-            cost_cur = buy_price * buy_qty
-            qty_accum = qty_accum_prev + buy_qty
-            cost_accum = cost_accum_prev + cost_cur
-            cost_unit = cost_accum / qty_accum
+
+        buy_price = price
+        buy_qty = qty_lowcost(buy_price, exp_dec_perc_cost_unit, cost_accum_prev, qty_accum_prev)
+        cost_cur = buy_price * buy_qty
+        qty_accum = qty_accum_prev + buy_qty
+        cost_accum = cost_accum_prev + cost_cur
+        cost_unit = cost_accum / qty_accum
+        if cost_unit_prev == 0:
+            dec_perc_cost_unit = 0.0
+        else:
             dec_perc_cost_unit = (cost_unit_prev - cost_unit) / cost_unit_prev
 
-            exp_sell_price = price * exp_sell_inc_perc
+        exp_sell_price = price * exp_sell_inc_perc
+        ori_exp_sell_qty = qty_accum * sell_perc
+        exp_sell_qty = int(ori_exp_sell_qty// 100) * 100
+        print(f'exp_sell_qty {ori_exp_sell_qty} -> {exp_sell_qty}')
+        exp_profit = exp_sell_price * exp_sell_qty - cost_accum * (exp_sell_qty/qty_accum) + profit_prev
 
-            ori_exp_sell_qty = qty_accum * sell_perc
-            exp_sell_qty = int(ori_exp_sell_qty// 100) * 100
-            print(f'exp_sell_qty {ori_exp_sell_qty} -> {exp_sell_qty}')
-
-            exp_profit = exp_sell_price * exp_sell_qty - cost_accum * (exp_sell_qty/qty_accum) + profit_prev
-
-            remain_qty = qty_accum - exp_sell_qty
-            remain_cost_accum = cost_accum * (1 - exp_sell_qty/qty_accum)
-            remain_profit = remain_qty*exp_sell_price*exp_sell_inc_perc - remain_cost_accum
+        remain_qty = qty_accum - exp_sell_qty
+        remain_cost_accum = cost_accum * (1 - exp_sell_qty/qty_accum)
+        remain_profit = remain_qty*exp_sell_price*exp_sell_inc_perc - remain_cost_accum
 
         # Append to lists
         price_list.append(round(price, 2))
