@@ -27,7 +27,7 @@ def qty_lowcost(buy_price, exp_dec_perc_cost_unit, cost_accum_prev, qty_accum_pr
     if buy_qty_new < 100:
         buy_qty_new = 100.0
     # Round down to the nearest multiple of 100
-    buy_qty = int(buy_qty_new // 100) * 100
+    buy_qty = round(buy_qty_new / 100) * 100
     if buy_qty < 100:
         buy_qty = 100
     #print(f'buy_qty {buy_qty_new} -> {buy_qty}')
@@ -142,7 +142,8 @@ def buy_sell_seq(max_steps, prev_data, parameters):
         'price':      round(price* (1 - dec_perc_price), 2),
         'profit': round(exp_profit,1),
         'remain_qty':   round(remain_qty,0),
-        'remain_cost':   round(remain_cost_accum,1)
+        'remain_cost':   round(remain_cost_accum,1),
+        'max_cost':   round(cost_accum,1)
     }
     return data, cur_data
 
@@ -159,8 +160,19 @@ if __name__ == '__main__':
         # 每次卖出的比例%
         sell_perc = 0.5
 
-        print(f'重复{loops}次：下跌{max_steps}x{dec_perc_price*100}% 后，上涨{exp_sell_inc_perc}, 卖掉{sell_perc*100}%')
+        # 每次卖掉后，买入成本降幅增加幅度
+        exp_dec_perc_cost_unit_inc_perc = 1.07
+
+        print('############################################################')
+        print(f'重复 {loops}次')
+        print(f'每次下跌 {dec_perc_price*100}%后，买入，并确保持有成本下降{exp_dec_perc_cost_unit}')
+        print(f'下跌并买入 {max_steps} 次后，上涨{exp_sell_inc_perc}, 卖掉 {sell_perc*100}%')
+        print(f'每次卖掉后，再次买入时，确保持有成本降幅增加 {exp_dec_perc_cost_unit_inc_perc}')
+        print('############################################################')
     else:
+        print('help:')
+        print('./buy_sell_seq.py 1 15 0.03 0.015 1.55')
+        print('./buy_sell_seq.py 1 15 0.047 0.0325 1.245')
         sys.exit(1)
         
     prev_data = {
@@ -176,16 +188,18 @@ if __name__ == '__main__':
         'sell_perc':              sell_perc
     }
 
-    for _ in range(loops):
+    for i in range(loops):
         data, cur_data = buy_sell_seq(max_steps, prev_data, parameters)
         print(pd.DataFrame(data))
+        print(f'每次价格下跌{dec_perc_price} 买入后期望成本下跌{exp_dec_perc_cost_unit} 跌倒价格{cur_data["price"]}时，卖一半获利{cur_data["profit"]} 最大投入成本{cur_data["max_cost"]}')
         print(cur_data)
-        #print('--------------------')
+        print('--------------------')
 
+        exp_dec_perc_cost_unit = exp_dec_perc_cost_unit * exp_dec_perc_cost_unit_inc_perc
         prev_data = cur_data
         parameters = {
             'dec_perc_price':         dec_perc_price,
-            'exp_dec_perc_cost_unit': exp_dec_perc_cost_unit * 1.1,
+            'exp_dec_perc_cost_unit': exp_dec_perc_cost_unit,
             'exp_sell_inc_perc':      exp_sell_inc_perc,
             'sell_perc':              sell_perc
         }
