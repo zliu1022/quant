@@ -1,28 +1,31 @@
-Check token 2025-04-12
-token expired, update 8227a6f1f070ca10a573ea273e25da157b017b89 411744419916723
-req_basic changed 000722.SZ industry 水力发电 -> 其他建材 
-req_basic changed 301535.SZ name 浙江华远 -> C华远 
-req_basic changed 301616.SZ name 浙江华业 -> C华业 
-req_basic changed 301658.SZ name 首航新能 -> N首航 
-req_basic insert new 301665.SZ N泰禾 农药化肥
-req_basic changed 601211.SH name 国泰海通 -> 国泰君安 
-req_basic insert new 603210.SH C泰鸿 汽车配件
-req_basic insert new 603257.SH C瑞林 建筑工程
-req_basic changed 920002.BJ industry 工程机械 -> None 
-req_basic changed 920008.BJ industry 通信设备 -> None 
-req_basic changed 920016.BJ industry 日用化工 -> None 
-req_basic changed 920019.BJ industry 建筑工程 -> None 
-req_basic changed 920029.BJ industry 电器仪表 -> None 
-req_basic changed 920060.BJ industry 元器件 -> None 
-req_basic changed 920066.BJ industry 塑料 -> None 
-req_basic changed 920082.BJ industry 机械基件 -> None 
-req_basic changed 920088.BJ industry 石油开采 -> None 
-req_basic changed 920098.BJ industry 橡胶 -> None 
-req_basic changed 920099.BJ industry 石油加工 -> None 
-req_basic changed 920106.BJ industry 汽车配件 -> None 
-req_basic changed 920108.BJ industry 家用电器 -> None 
-req_basic changed 920111.BJ industry 电气设备 -> None 
-req_basic changed 920116.BJ industry 软件服务 -> None 
-req_basic changed 920118.BJ industry 塑料 -> None 
-req_basic changed 920128.BJ industry 元器件 -> None 
-req_basic cost  4.40s
+Check token 2025-04-19
+token expired, update 9773bacc11404cb5ac8b0847c564eda3730e6b61 901745049265546
+req_basic changed 000430.SZ name ST张家界 -> 张家界 
+req_basic changed 000736.SZ name *ST中地 -> 中交地产 
+req_basic insert new 001335.SZ C信凯 化工原料
+req_basic changed 002306.SZ name *ST云网 -> 中科云网 
+req_basic changed 002564.SZ name 天沃科技 -> *ST天沃 
+req_basic insert new 301662.SZ N宏工 专用机械
+req_basic changed 301665.SZ name C泰禾 -> N泰禾 
+req_basic changed 600520.SH name 三佳科技 -> 文一科技 
+req_basic insert new 603120.SH C肯特 化工原料
+req_basic changed 603210.SH name 泰鸿万立 -> C泰鸿 
+req_basic changed 603257.SH name 中国瑞林 -> C瑞林 
+req_basic changed 920002.BJ industry None -> 工程机械 
+req_basic changed 920008.BJ industry None -> 通信设备 
+req_basic changed 920016.BJ industry None -> 日用化工 
+req_basic changed 920019.BJ industry None -> 建筑工程 
+req_basic changed 920029.BJ industry None -> 电器仪表 
+req_basic changed 920060.BJ industry None -> 元器件 
+req_basic changed 920066.BJ industry None -> 塑料 
+req_basic changed 920082.BJ industry None -> 机械基件 
+req_basic changed 920088.BJ industry None -> 石油开采 
+req_basic changed 920098.BJ industry None -> 橡胶 
+req_basic changed 920099.BJ industry None -> 石油加工 
+req_basic changed 920106.BJ industry None -> 汽车配件 
+req_basic changed 920108.BJ industry None -> 家用电器 
+req_basic changed 920111.BJ industry None -> 电气设备 
+req_basic changed 920116.BJ industry None -> 软件服务 
+req_basic changed 920118.BJ industry None -> 塑料 
+req_basic changed 920128.BJ industry None -> 元器件 
+req_basic cost  7.36s
