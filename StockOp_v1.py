@@ -66,18 +66,18 @@ class StockOp:
             min_max_days = np.nan
 
         new_data = {
-            "date": date, 
+            "date":            date, 
             "first_buy_price": round(self.first_buy_price,2),
             "first_buy_date": self.first_buy_date,
-            "min_price": round(self.min_price,2),
-            "min_date": self.min_date,
-            "buy_count": self.buy_count,
-            "accum_cost": round(self.accum_cost,2),
-            "accum_qty": self.accum_qty,
-            "sell_price": round(self.sell_exp_price,2),
-            "sell_date": date,
-            "min_max_days":min_max_days,
-            "profit": round(cur_profit,2)
+            "min_price":      round(self.min_price,2),
+            "min_date":       self.min_date,
+            "buy_count":      self.buy_count,
+            "accum_cost":     round(self.accum_cost,2),
+            "accum_qty":      self.accum_qty,
+            "sell_price":     round(self.sell_exp_price,2),
+            "sell_date":      date,
+            "min_max_days":   min_max_days,
+            "profit":         round(cur_profit,2)
         }
         new_df = pd.DataFrame([new_data])
         self.df_stat = pd.concat([self.df_stat, new_df], ignore_index=True)
@@ -100,14 +100,6 @@ class StockOp:
             #增加profit
             cur_profit = float(bonus['bonus'].iloc[0]) * ( self.accum_qty / float(bonus['base'].iloc[0]))
             self.accum_profit += cur_profit
-
-            # method2: XD the current value
-            # 这个逻辑有矛盾，虽然这次next_buy进行了除权
-            # 但下一次买时，next_buy会按照first_buy计算，和这次XD完全无关了，肯定没道理
-            '''
-            self.sell_exp_price = self.xd(self.sell_exp_price, bonus)
-            self.next_buy_price = self.xd(self.next_buy_price, bonus)
-            '''
 
             if debug:
                 print('    {} XD first/first_fornext/buy_count | min/min_forsell | next_buy/sell_exp {:.3f} {:.3f} {:.1f} | {:.3f} {:.3f} | {:.3f} x {} {:.3f}'.format(date,
@@ -164,6 +156,20 @@ class StockOp:
                     self.max_cost = self.accum_cost
                 if debug:
                     print('    {} sell {:.2f} = {:.2f} * {:.1f} - {:.2f}'.format(date, cur_profit, self.sell_exp_price, self.accum_qty, self.accum_cost))
+
+                self.push_stat(date, cur_profit)
+                self.init_deal()
+                continue
+
+            # 判断是否止损卖出
+            if self.buy_count >= 99 and row["low"] <= self.next_buy_price:
+                self.sell_exp_price = row["low"] # 替换"期望卖出价格", 为了记录log
+                cur_profit = self.sell_exp_price * self.accum_qty - self.accum_cost
+                self.accum_profit += cur_profit
+                if self.max_cost < self.accum_cost:
+                    self.max_cost = self.accum_cost
+                if debug:
+                    print('    {} sell {:.2f} = {:.2f} * {:.1f} - {:.2f} stop lossing'.format(date, cur_profit, row["low"], self.accum_qty, self.accum_cost))
 
                 self.push_stat(date, cur_profit)
                 self.init_deal()
@@ -302,6 +308,7 @@ if __name__ == '__main__':
         end_date   = str(sys.argv[3])
         chg_perc   = float(sys.argv[4])
 
+        # 获取code: name, industry
         client = MongoClient('mongodb://localhost:27017/')
         db = client['stk1']
         collection = db['basic']
@@ -317,17 +324,7 @@ if __name__ == '__main__':
         df_stat = so.Op(chg_perc, interval=interval, start_date=start_date, end_date=end_date, debug=0)
         show_stat(ts_code, start_date, end_date, chg_perc, interval, df_stat)
         so.show_cur()
-    elif len(sys.argv) == 1:
-        ts_code    = '002475'
-        start_date = '20201013'
-        end_date   = '20250331'
-        chg_perc   = 1.55
-        interval   = 0.03
-        so = StockOp(ts_code)
-        df_stat = so.Op(chg_perc, interval=interval, start_date=start_date, end_date=end_date, debug=0)
-        show_stat(ts_code, start_date, end_date, chg_perc, interval, df_stat)
-        so.show_cur()
     else:
         print('./StockOp.py ts_code start_date end_date chg_perc')
-        print('./StockOp.py 002475 20201013 20250331 1.55')
+        print('./StockOp.py 002475 20201013 20250331 1.55 # 价格最高点')
 
